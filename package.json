@@ -1,0 +1,70 @@
+{
+  "name": "grenzenlose-kinderhilfe-ui",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@chakra-ui/react": "^2.3.7",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "framer-motion": "^7.6.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.4",
+    "react-router-dom": "^6.4.3",
+    "react-scripts": "^5.0.1",
+    "web-vitals": "^3.0.4"
+  },
+  "scripts": {
+    "build": "react-scripts build",
+    "start": "react-scripts start",
+    "lint": "yarn lint:eslint && yarn lint:prettier",
+    "lint:ci": "eslint src/**/*.js src/**/*.jsx --max-warnings=0",
+    "lint:eslint": "eslint --fix src/**/*.js src/**/*.jsx",
+    "lint:prettier": "prettier --write .",
+    "lint:staged": "lint-staged",
+    "postinstall": "husky install"
+  },
+  "lint-staged": {
+    "src/**/*": [
+      "prettier --write"
+    ],
+    "*.{js, jsx}": [
+      "eslint --fix"
+    ]
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "singleQuote": false,
+    "semi": true,
+    "importOrder": [
+      "^@core/(.*)$",
+      "^@server/(.*)$",
+      "^@ui/(.*)$",
+      "^[./]"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.4.0",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  }
+}

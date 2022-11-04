@@ -1,0 +1,40 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/recommended",
+    "prettier"
+  ],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    }
+  },
+  "plugins": ["prettier", "react", "react-hooks", "jsx-a11y", "import"],
+  "rules": {
+    "no-trailing-spaces": "warn",
+    "prettier/prettier": "warn",
+    "react/prop-types": "off",
+    "no-unused-vars": "warn"
+  },
+  "settings": {
+    "react": {
+      "version": "18"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
+}
