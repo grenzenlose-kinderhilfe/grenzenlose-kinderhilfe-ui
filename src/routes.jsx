@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-const Home = React.lazy(() => import("./pages/Home/Home"));
+const Home = React.lazy(() => import("./pages/Home"));
 const Events = React.lazy(() => import("./pages/Events"));
 const Pages = React.lazy(() => import("./pages/Pages"));
 const Contact = React.lazy(() => import("./pages/Contact"));
