@@ -11,7 +11,7 @@ import {
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 
-import Logo from "../assets/img/logo.png";
+import Logo from "../../assets/img/logo.png";
 
 const NavBar = ({ routes }) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -34,8 +34,7 @@ const NavBarContainer = ({ children }) => (
     justify="space-between"
     wrap="wrap"
     width="100%"
-    mb={8}
-    p={8}
+    padding={6}
     bg="primary.blue"
     color="primary.white"
   >

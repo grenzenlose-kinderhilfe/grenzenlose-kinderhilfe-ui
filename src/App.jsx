@@ -1,7 +1,7 @@
 import React from "react";
 import { HashRouter } from "react-router-dom";
 
-import Layout from "./components/Layout";
+import Layout from "./components/ui/Layout";
 import { generateRoutes, routes } from "./routes";
 
 const App = () => (
