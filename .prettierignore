@@ -1,6 +1,6 @@
 *.svg
-*.png
 
 .yarn/
 
+assets/
 public/

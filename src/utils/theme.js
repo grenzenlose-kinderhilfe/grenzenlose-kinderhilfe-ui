@@ -3,7 +3,8 @@ import { extendTheme } from "@chakra-ui/react";
 const colors = {
   primary: {
     blue: "#112B5C",
-    white: "white",
+    white: "#FFFFFF",
+    grey: "#F7F7F7",
   },
 };
 

@@ -4,10 +4,7 @@ import React from "react";
 import NavBar from "./NavBar";
 
 const Layout = ({ routes, children }) => (
-  <Grid
-    templateAreas={`"header"
-                      "main"`}
-  >
+  <Grid backgroundColor="primary.grey" templateAreas={`"header" "main"`}>
     <GridItem area="header">
       <NavBar routes={routes} />
     </GridItem>
