@@ -9,7 +9,7 @@ import {
 import React from "react";
 
 const VideoGroup = () => (
-  <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+  <Grid templateColumns={{ base: "1fr", lg: "repeat(2, 1fr)" }} gap={6}>
     <GridItem align="center">
       <Flex
         maxW="600px"
