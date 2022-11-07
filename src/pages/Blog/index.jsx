@@ -1,6 +1,6 @@
 import { Text } from "@chakra-ui/react";
 import React from "react";
 
-const Pages = () => <Text>Pages</Text>;
+const Blog = () => <Text>Blog</Text>;
 
-export default Pages;
+export default Blog;

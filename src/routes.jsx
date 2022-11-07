@@ -2,9 +2,11 @@ import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 const Home = React.lazy(() => import("./pages/Home"));
-const Events = React.lazy(() => import("./pages/Events"));
-const Pages = React.lazy(() => import("./pages/Pages"));
+const Blog = React.lazy(() => import("./pages/Blog"));
+const Donation = React.lazy(() => import("./pages/Donation"));
 const Contact = React.lazy(() => import("./pages/Contact"));
+const Pages = React.lazy(() => import("./pages/Pages"));
+const About = React.lazy(() => import("./pages/About"));
 
 export const routes = [
   {
@@ -13,14 +15,24 @@ export const routes = [
     element: <Home />,
   },
   {
-    url: "/events",
-    title: "Events",
-    element: <Events />,
+    url: "/blog",
+    title: "News",
+    element: <Blog />,
+  },
+  {
+    url: "/donation",
+    title: "Donation",
+    element: <Donation />,
   },
   {
     url: "/pages",
     title: "Pages",
     element: <Pages />,
+  },
+  {
+    url: "/about",
+    title: "About Us",
+    element: <About />,
   },
   {
     url: "/contact",
