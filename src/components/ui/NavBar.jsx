@@ -106,7 +106,7 @@ const MenuLinks = ({ isOpen, routes }) => (
             {item.title.toUpperCase()}
           </MenuItem>
         ))}
-      <MenuButton to="/donate">Donate</MenuButton>
+      <MenuButton to="/donation">DONATION</MenuButton>
     </Stack>
   </Box>
 );
@@ -121,7 +121,7 @@ const MenuItem = ({ to = "/", children }) => (
 
 const MenuButton = ({ to = "/", children }) => (
   <Button
-    size="sm"
+    size="md"
     rounded="md"
     color="black"
     bg="white"

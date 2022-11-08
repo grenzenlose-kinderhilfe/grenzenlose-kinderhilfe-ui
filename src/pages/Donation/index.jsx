@@ -1,6 +1,7 @@
-import { Text } from "@chakra-ui/react";
 import React from "react";
 
-const Donation = () => <Text>Donation</Text>;
+import CharityTable from "./components/CharityTable";
+
+const Donation = () => <CharityTable />;
 
 export default Donation;
