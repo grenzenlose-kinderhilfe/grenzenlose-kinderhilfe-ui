@@ -1,6 +1,7 @@
 import {
   AspectRatio,
   Box,
+  Button,
   Flex,
   Image,
   Link,
@@ -98,11 +99,14 @@ const MenuLinks = ({ isOpen, routes }) => (
       direction={["column", "column", "column", "row"]}
       pt={[6, 4, 4, 0]}
     >
-      {routes.map((item, idx) => (
-        <MenuItem key={`menu-item-${idx}`} to={item.url}>
-          {item.title.toUpperCase()}
-        </MenuItem>
-      ))}
+      {routes
+        .filter((item) => !item.hideNav)
+        .map((item, idx) => (
+          <MenuItem key={`menu-item-${idx}`} to={item.url}>
+            {item.title.toUpperCase()}
+          </MenuItem>
+        ))}
+      <MenuButton to="/donate">Donate</MenuButton>
     </Stack>
   </Box>
 );
@@ -113,6 +117,22 @@ const MenuItem = ({ to = "/", children }) => (
       {children}
     </Text>
   </Link>
+);
+
+const MenuButton = ({ to = "/", children }) => (
+  <Button
+    size="sm"
+    rounded="md"
+    color="black"
+    bg="white"
+    _hover={{
+      bg: "white",
+    }}
+  >
+    <Link as={RouterLink} to={to}>
+      {children}
+    </Link>
+  </Button>
 );
 
 export default NavBar;

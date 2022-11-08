@@ -4,7 +4,6 @@ import { Navigate, Route, Routes } from "react-router-dom";
 const Home = React.lazy(() => import("./pages/Home"));
 const Blog = React.lazy(() => import("./pages/Blog"));
 const Donation = React.lazy(() => import("./pages/Donation"));
-const Contact = React.lazy(() => import("./pages/Contact"));
 const Pages = React.lazy(() => import("./pages/Pages"));
 const About = React.lazy(() => import("./pages/About"));
 
@@ -20,6 +19,7 @@ export const routes = [
     element: <Blog />,
   },
   {
+    hideNav: true,
     url: "/donation",
     title: "Donation",
     element: <Donation />,
@@ -33,11 +33,6 @@ export const routes = [
     url: "/about",
     title: "About Us",
     element: <About />,
-  },
-  {
-    url: "/contact",
-    title: "Contact",
-    element: <Contact />,
   },
 ];
 
