@@ -9,7 +9,8 @@ const colors = {
 };
 
 const fonts = {
-  body: `Roboto, sans-serif`,
+  heading: `'Barlow Condensed', sans-serif`,
+  body: `Montserrat, sans-serif`,
 };
 
 const customTheme = extendTheme({ colors, fonts });
