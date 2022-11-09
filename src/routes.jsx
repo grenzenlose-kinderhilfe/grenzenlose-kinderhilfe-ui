@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 const Home = React.lazy(() => import("./pages/Home"));
 const Blog = React.lazy(() => import("./pages/Blog"));
 const Donation = React.lazy(() => import("./pages/Donation"));
+const Media = React.lazy(() => import("./pages/Media"));
 const Pages = React.lazy(() => import("./pages/Pages"));
 const About = React.lazy(() => import("./pages/About"));
 
@@ -17,6 +18,11 @@ export const routes = [
     url: "/blog",
     title: "News",
     element: <Blog />,
+  },
+  {
+    url: "/media",
+    title: "Media",
+    element: <Media />,
   },
   {
     hideNav: true,
