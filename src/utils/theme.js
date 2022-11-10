@@ -5,6 +5,7 @@ const colors = {
     blue: "#112B5C",
     white: "#FFFFFF",
     grey: "#F7F7F7",
+    lightblue: "rgba(1, 18, 181, 0.05)",
   },
 };
 

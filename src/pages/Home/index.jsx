@@ -28,7 +28,7 @@ const Home = () => {
       <GridItem area="metrics">
         <Metrics />
       </GridItem>
-      <GridItem area="mission" backgroundColor="lightgrey">
+      <GridItem area="mission">
         <Mission />
       </GridItem>
       <GridItem area="quote" backgroundColor="lightgrey">
