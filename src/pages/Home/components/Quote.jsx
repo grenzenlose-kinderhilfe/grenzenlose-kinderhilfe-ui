@@ -9,7 +9,6 @@ const Quote = () => (
     backgroundImage={`url(${backgroundImage})`}
     backgroundSize="cover"
     backgroundColor="lightgrey"
-    border="1px solid black"
     flexDirection="column"
     justify="center"
     align="center"

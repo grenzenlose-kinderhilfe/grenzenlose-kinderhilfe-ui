@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <Grid
-      gap={4}
+      gap={{ base: 0, md: 4 }}
       color="black"
       margin={{ base: 0, lg: "25px", xl: "50px 50px 25px" }}
       templateAreas={`"slideshow" "videoGroup" "metrics" "mission" "quote"`}

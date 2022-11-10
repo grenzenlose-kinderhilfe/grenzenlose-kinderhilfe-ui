@@ -51,7 +51,7 @@ const VideoGroup = () => (
       align="center"
       display="flex"
       justifyContent="center"
-      p={{ base: "0px 0px 25px", xl: "25px" }}
+      p={{ base: 0, md: "0 0 25px", xl: "25px" }}
     >
       <AspectRatio width="650px">
         <iframe

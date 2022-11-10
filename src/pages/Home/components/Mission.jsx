@@ -21,6 +21,7 @@ const MissionItem = ({ title, onClickHandler, children }) => (
   <AccordionItem>
     <AccordionButton
       onClick={onClickHandler}
+      _hover={{ bg: "#EDEDED", borderRadius: "10px" }}
       _expanded={{ bg: "primary.lightblue", borderRadius: "10px" }}
     >
       <Box flex="1" textAlign="left">
@@ -103,8 +104,8 @@ const Mission = () => {
   ];
 
   return (
-    <Grid templateColumns={{ base: "1fr", xl: "9fr 4fr" }}>
-      <GridItem border="1px solid black" borderRadius={{ base: 0, lg: "10px" }}>
+    <Grid templateColumns={{ base: "1fr .", xl: "9fr 4fr" }}>
+      <GridItem borderRadius={{ base: 0, lg: "10px" }}>
         <Accordion defaultIndex={[0]}>
           {missionItems.map((item, idx) => (
             <MissionItem
