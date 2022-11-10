@@ -22,7 +22,7 @@ const Home = () => {
       <GridItem area="slideshow" overflow="hidden">
         <SlideShow slides={slides} />
       </GridItem>
-      <GridItem area="videoGroup" backgroundColor="lightgrey">
+      <GridItem area="videoGroup">
         <VideoGroup />
       </GridItem>
       <GridItem area="metrics">
