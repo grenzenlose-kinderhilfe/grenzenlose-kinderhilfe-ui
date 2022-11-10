@@ -50,7 +50,7 @@ const Mission = () => {
   ];
 
   return (
-    <Grid templateColumns={{ base: "1fr", xl: "5fr 2fr" }}>
+    <Grid templateColumns={{ base: "1fr", xl: "9fr 4fr" }}>
       <GridItem border="1px solid black" borderRadius={{ base: 0, lg: "10px" }}>
         <Accordion defaultIndex={[expandedIndex]}>
           <MissionItem title="Oktatás" idx={0} setIndex={setExpandedIndex}>
