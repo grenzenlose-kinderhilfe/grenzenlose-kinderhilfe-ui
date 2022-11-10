@@ -1,7 +1,7 @@
 import { Grid, GridItem, Stat, StatLabel, StatNumber } from "@chakra-ui/react";
 import React from "react";
 
-import backgroundImage from "../../../assets/img/background/children-field.jpg";
+import backgroundImage from "../../../assets/img/background/background-field.jpg";
 
 const data = [
   {

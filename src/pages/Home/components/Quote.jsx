@@ -1,16 +1,29 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 
+import backgroundImage from "../../../assets/img/background/background-cross.jpg";
+
 const Quote = () => (
-  <Flex flexDirection="column" align="center" justify="center" gap={4}>
-    <Flex maxWidth="33%">
-      <Text>
-        {'"'}Aki nem hisz abban, hogy mennyi jó ember van, az kezdjen el valami
-        jót tenni, és meglátja, milyen sokan oda állnak mellé{'"'}
+  <Flex
+    borderRadius={{ base: 0, lg: "10px" }}
+    backgroundImage={`url(${backgroundImage})`}
+    backgroundSize="cover"
+    backgroundColor="lightgrey"
+    border="1px solid black"
+    flexDirection="column"
+    justify="center"
+    align="center"
+    p="50px"
+    gap={4}
+  >
+    <Flex justifyContent="center" maxWidth={{ base: "100%", lg: "750px" }}>
+      <Text fontSize="24px">
+        {"“"}Aki nem hisz abban, hogy mennyi jó ember van, az kezdjen el valami
+        jót tenni, és meglátja, milyen sokan oda állnak mellé{"”"}
       </Text>
     </Flex>
-    <Flex justifyContent="flex-end" alignItems="flex-end">
-      <Text fontWeight={700}>Böjte Csaba</Text>
+    <Flex minWidth={{ base: "30%", "2xl": "40%" }} ml={{ base: 0, md: "auto" }}>
+      <Heading fontSize="28px">- Böjte Csaba</Heading>
     </Flex>
   </Flex>
 );

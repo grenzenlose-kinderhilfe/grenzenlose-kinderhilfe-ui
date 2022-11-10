@@ -1,7 +1,6 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import React from "react";
 
-import Contact from "./components/Contact";
 import Metrics from "./components/Metrics";
 import Mission from "./components/Mission";
 import Quote from "./components/Quote";
@@ -15,9 +14,9 @@ const Home = () => {
   return (
     <Grid
       gap={4}
-      margin={{ base: 0, lg: "25px", xl: "50px" }}
       color="black"
-      templateAreas={`"slideshow" "videoGroup" "metrics" "mission" "quote" "contact"`}
+      margin={{ base: 0, lg: "25px", xl: "50px 50px 25px" }}
+      templateAreas={`"slideshow" "videoGroup" "metrics" "mission" "quote"`}
     >
       <GridItem area="slideshow" overflow="hidden">
         <SlideShow slides={slides} />
@@ -31,11 +30,8 @@ const Home = () => {
       <GridItem area="mission">
         <Mission />
       </GridItem>
-      <GridItem area="quote" backgroundColor="lightgrey">
+      <GridItem area="quote">
         <Quote />
-      </GridItem>
-      <GridItem area="contact" backgroundColor="lightgrey">
-        <Contact />
       </GridItem>
     </Grid>
   );
