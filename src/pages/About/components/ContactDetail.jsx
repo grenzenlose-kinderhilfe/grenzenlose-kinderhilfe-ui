@@ -32,7 +32,7 @@ const ContactDetail = ({
     {phone && (
       <Flex gap={1} alignItems="center">
         <BsTelephoneFill />
-        {phone}
+        <Link href={`tel:+${phone}`}>+ {phone}</Link>
       </Flex>
     )}
     {address && (
@@ -44,7 +44,7 @@ const ContactDetail = ({
     {email && (
       <Flex gap={1} alignItems="center">
         <MdEmail />
-        {email}
+        <Link href={`mailto:${email}`}>{email}</Link>
       </Flex>
     )}
     {bank && (

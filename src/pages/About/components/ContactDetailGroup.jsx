@@ -19,19 +19,19 @@ const ContactDetailGroup = () => {
       <ContactDetail
         title="Kocsik Enikő"
         subtitle="Alapítvány kuratórium elnök"
-        phone="+36205919590"
+        phone="36205919590"
       />
       <ContactDetail
         title="Mester János"
         subtitle="Alapító"
-        phone="+41784063331"
+        phone="41784063331"
       />
       <ContactDetail
         title="Határtalan Segítség Alapítvány"
-        address="4405 Nyíregyháza Molnár utca 26"
+        address="4405 Nyíregyháza, Molnár utca 26"
         email="hatartalansegitsegalapitvany@gmail.com"
-        description="Adoszam: 19102186115"
-        bank="ERSTE BANK"
+        description="Adószám: 19102186115"
+        bank="Erste Bank"
         bankAccountNumber="11600006-00000000-83451166"
         documents={documents}
       />
