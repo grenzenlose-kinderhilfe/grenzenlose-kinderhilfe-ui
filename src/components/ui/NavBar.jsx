@@ -23,7 +23,15 @@ const NavBar = ({ routes }) => {
     <NavBarContainer>
       <MenuLogo />
       <MenuToggle toggle={toggle} isOpen={isOpen} />
-      <MenuLinks isOpen={isOpen} routes={routes} />
+      <MenuLinks isOpen={isOpen}>
+        {routes
+          .filter((item) => !item.hideNav)
+          .map((item, idx) => (
+            <MenuItem key={`menu-item-${idx}`} to={item.url} toggle={toggle}>
+              {item.title.toUpperCase()}
+            </MenuItem>
+          ))}
+      </MenuLinks>
     </NavBarContainer>
   );
 };
@@ -84,7 +92,7 @@ const CloseIcon = () => (
   </svg>
 );
 
-const MenuLinks = ({ isOpen, routes }) => (
+const MenuLinks = ({ isOpen, children }) => (
   <Box
     display={{ base: isOpen ? "block" : "none", lg: "block" }}
     flexBasis={{ base: "100%", lg: "auto" }}
@@ -99,20 +107,14 @@ const MenuLinks = ({ isOpen, routes }) => (
       direction={["column", "column", "column", "row"]}
       pt={[6, 4, 4, 0]}
     >
-      {routes
-        .filter((item) => !item.hideNav)
-        .map((item, idx) => (
-          <MenuItem key={`menu-item-${idx}`} to={item.url}>
-            {item.title.toUpperCase()}
-          </MenuItem>
-        ))}
+      {children}
       <MenuButton to="/donation">DONATION</MenuButton>
     </Stack>
   </Box>
 );
 
-const MenuItem = ({ to = "/", children }) => (
-  <Link as={RouterLink} to={to}>
+const MenuItem = ({ to = "/", children, toggle }) => (
+  <Link as={RouterLink} to={to} onClick={toggle}>
     <Text display="block" fontSize="16px">
       {children}
     </Text>
