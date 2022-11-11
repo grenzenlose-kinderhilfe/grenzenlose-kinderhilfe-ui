@@ -5,12 +5,12 @@ import Footer from "./Footer";
 import NavBar from "./NavBar";
 
 const Layout = ({ routes, children }) => (
-  <Grid templateAreas={`"header" "main" "footer"`}>
-    <GridItem area="header">
+  <Grid>
+    <GridItem width="100%">
       <NavBar routes={routes} />
     </GridItem>
     <GridItem
-      area="main"
+      width="100%"
       position="relative"
       minHeight="100vh"
       paddingBottom="2.5rem"
@@ -19,7 +19,6 @@ const Layout = ({ routes, children }) => (
       {children}
     </GridItem>
     <GridItem
-      area="footer"
       position="absolute"
       bottom={0}
       width="100%"
