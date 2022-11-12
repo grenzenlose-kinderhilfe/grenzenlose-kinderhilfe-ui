@@ -8074,6 +8074,7 @@ __metadata:
     lint-staged: ^13.0.3
     prettier: ^2.7.1
     react: ^18.2.0
+    react-country-flag: ^3.0.2
     react-dom: ^18.2.0
     react-icons: ^4.6.0
     react-redux: ^8.0.4
@@ -12011,6 +12012,15 @@ __metadata:
   peerDependencies:
     react: ^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
   checksum: 7db6110027a51458b1a46109d2b63dd822825f483c71afef7c0c0a671f3b1aa155049dbd8651c9d536ffac83601f8823b7c3f8916b4f4ee5c3cb7647a85cce4e
+  languageName: node
+  linkType: hard
+
+"react-country-flag@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "react-country-flag@npm:3.0.2"
+  peerDependencies:
+    react: ">=16"
+  checksum: 3510e96302a136e0fc70cbb3a5492d3088548a3e43f05b75a600740733522b140a75dee5ce5a0b9776e20941597e4232d9fd2b60e61b5f00f2ae8a4ac6f1d9a4
   languageName: node
   linkType: hard
 
