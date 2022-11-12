@@ -2,7 +2,7 @@ import { Flex, Grid, Text } from "@chakra-ui/react";
 import React from "react";
 import { ReactCountryFlag } from "react-country-flag";
 
-const LocationItem = ({ country, name, place }) => (
+const LocationGridItem = ({ country, name, place }) => (
   <Flex
     gap={4}
     color="white"
@@ -36,9 +36,9 @@ const LocationGrid = ({ locations }) => (
     }}
   >
     {locations.map((item, idx) => (
-      <LocationItem
+      <LocationGridItem
         key={`location-${idx}`}
-        country={item.country}
+        country={item.countryCode}
         name={item.name}
         place={item.place}
       />
