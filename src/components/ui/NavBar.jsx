@@ -31,6 +31,9 @@ const NavBar = ({ routes }) => {
               {item.title.toUpperCase()}
             </MenuItem>
           ))}
+        <MenuButton to="/donation" toggle={toggle}>
+          DONATION
+        </MenuButton>
       </MenuLinks>
     </NavBarContainer>
   );
@@ -108,7 +111,6 @@ const MenuLinks = ({ isOpen, children }) => (
       pt={[6, 4, 4, 0]}
     >
       {children}
-      <MenuButton to="/donation">DONATION</MenuButton>
     </Stack>
   </Box>
 );
@@ -121,7 +123,7 @@ const MenuItem = ({ to = "/", children, toggle }) => (
   </Link>
 );
 
-const MenuButton = ({ to = "/", children }) => (
+const MenuButton = ({ to = "/", toggle, children }) => (
   <Button
     size="md"
     rounded="md"
@@ -131,7 +133,7 @@ const MenuButton = ({ to = "/", children }) => (
       bg: "white",
     }}
   >
-    <Link as={RouterLink} to={to}>
+    <Link as={RouterLink} to={to} onClick={toggle}>
       {children}
     </Link>
   </Button>
