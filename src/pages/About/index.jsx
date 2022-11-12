@@ -1,7 +1,8 @@
-import { Flex, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 import React from "react";
 
 import aboutUsImage from "../../assets/img/about-us.jpg";
+import AboutContent from "./components/AboutContent";
 import ContactDetailGroup from "./components/ContactDetailGroup";
 
 const About = () => (
@@ -11,50 +12,7 @@ const About = () => (
     margin={{ base: 0, lg: "25px", xl: "25px 50px 25px" }}
   >
     <GridItem align="center" m={{ base: "0px 25px 0px" }}>
-      <Heading as="h1" m="25px">
-        A kérdés egyszerű volt: mire volna szükségetek? <br />A válasz még
-        egyszerűbb: törődésre.
-        <br />
-        Innen indult a történetünk.
-      </Heading>
-      <Flex flexDirection="column" gap={4}>
-        <Text>
-          2010-ben egy gyermekotthon karácsonyi rendezvényén vettünk részt, ahol
-          fogyatékkal élő gyermekek adtak igazán szívhez szóló műsort, nekünk
-          „egészségeseknek”. Az akkor megélt érzések hatására elkezdtük keresni
-          az utat, hogy mivel tudnánk meghálálni azoknak a gyerekeknek és
-          felnőtteknek, akiktől azokat a leírhatatlanul jó érzéseket kaptuk. A
-          kérdés egyszerű volt: mire volna szükségetek? A válasz még egyszerűbb:
-          törődésre.
-        </Text>
-        <Text>
-          Innen indult a történetünk. Az elmúlt években nagyon sok alkalommal
-          sikerült mosolyt csalni egészséges és fogyatékkal élő gyermekek arcára
-          azokkal a programokkal és meglepetésekkel amelyeket kitaláltunk és
-          megszerveztünk a számukra!
-        </Text>
-        <Text>
-          Ismerősök, Barátok és számtalan Ismeretlen csatlakozott az évek során
-          segítő jószándékkal ahhoz a csapathoz akikkel együtt lelkesen
-          készültünk és készülünk különböző képen szolgálni azokat a
-          Magyarországon és Romániában valamint Ukrajnában árvaként, hátrányos
-          helyzetűként, intézményi körülmények között felnövekvő gyerekeket,
-          akiknek a mindennapi boldogság érzete hiánycikk!
-        </Text>
-        <Text>
-          Számunkra „Az gyerekek mosolya” nagyon fontos! Ez a törődés a szeretet
-          egyik megnyilvánulása! Legyen egészséges, vagy olyan emberfeletti
-          erővel rendelkező emberke, aki lábak és hiányzó újakkal is képes
-          gyönyörűen zongorázni! Nekik és értük hoztuk létre a Határtalan
-          Segítség Alapítványt! Az eddigi programokról és ünnepségekről itt
-          tájékozódhatsz, a jövőbeni eseményekre pedig már személyes
-          részvételeddel is hatással lehetsz!
-        </Text>
-        <Text>
-          Köszönjük az érdeklődésed, jó nézelődést a honlapon és várjuk az
-          aktivitásod, mert most már tudod: Minden gyermek mosolya számít!
-        </Text>
-      </Flex>
+      <AboutContent />
     </GridItem>
     <GridItem
       m="50px"
@@ -63,7 +21,7 @@ const About = () => (
       bgSize="cover"
       borderRadius={{ base: 0, lg: "10px" }}
     />
-    <GridItem align="center" justifyContent="center">
+    <GridItem align="center">
       <ContactDetailGroup />
     </GridItem>
   </Grid>

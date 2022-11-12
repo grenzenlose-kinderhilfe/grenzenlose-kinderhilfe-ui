@@ -15,7 +15,12 @@ const ContactDetailGroup = () => {
   ];
 
   return (
-    <Flex flexDirection="column" maxWidth="500px">
+    <Flex
+      justifyContent="center"
+      flexDirection="column"
+      maxWidth="500px"
+      height="100%"
+    >
       <ContactDetail
         title="Kocsik Enikő"
         subtitle="Alapítvány kuratórium elnök"

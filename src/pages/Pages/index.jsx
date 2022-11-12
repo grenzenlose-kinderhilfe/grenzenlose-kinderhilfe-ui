@@ -3,19 +3,16 @@ import React from "react";
 
 const pageItems = [
   {
-    title: "Legyel onkentes",
+    title: "Ukraine 2022",
+  },
+  {
+    title: "Rolling kids",
   },
   {
     title: "Kresz Park",
   },
   {
-    title: "Ciposdoboz",
-  },
-  {
-    title: "Ukraine 2022",
-  },
-  {
-    title: "Rolling kids",
+    title: "Cipősdoboz",
   },
 ];
 
@@ -25,7 +22,7 @@ const Pages = () => (
     m="50px"
     color="black"
     align="center"
-    templateColumns={{ base: "repeat(3, 1fr)" }}
+    templateColumns={{ base: "repeat(2, 1fr)" }}
     backgroundColor="lightgrey"
   >
     {pageItems.map((item, idx) => (

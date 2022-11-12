@@ -62,7 +62,9 @@ const MenuLogo = () => (
       maxHeight="72px"
       ratio={4 / 1}
     >
-      <Image src={Logo} fit="cover" alt="grenzenlose-kinderhilfe-logo" />
+      <Link as={RouterLink} to="/">
+        <Image src={Logo} fit="cover" alt="grenzenlose-kinderhilfe-logo" />
+      </Link>
     </AspectRatio>
   </Box>
 );
@@ -103,7 +105,7 @@ const MenuLinks = ({ isOpen, children }) => (
     left={{ base: 0, lg: "35%", xl: "40%" }}
   >
     <Stack
-      spacing={8}
+      spacing={{ base: 4, lg: 8 }}
       align="center"
       divider={<StackDivider />}
       justify={["space-between", "space-between", "space-between", "flex-end"]}
