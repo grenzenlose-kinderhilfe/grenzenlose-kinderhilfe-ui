@@ -9,6 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
+import { useCookies } from "react-cookie";
 import { Link as RouterLink } from "react-router-dom";
 
 import Logo from "../../assets/img/logo.png";
@@ -92,12 +93,20 @@ export const MenuButton = ({ to = "/", onClick, children }) => (
   </Button>
 );
 
-export const MenuLanguageSwitcher = ({ languages }) => (
-  <Select>
-    {languages.map((item, idx) => (
-      <option key={`language-${idx}`} value={item}>
-        {item}
-      </option>
-    ))}
-  </Select>
-);
+export const MenuLanguageSwitcher = ({ languages }) => {
+  const [cookies, setCookie] = useCookies(["language"]);
+
+  const defaultLanguage = cookies["language"] || "DE";
+
+  const onChangeHandler = (e) => setCookie("language", e.target.value);
+
+  return (
+    <Select defaultValue={defaultLanguage} onChange={onChangeHandler}>
+      {languages.map((item, idx) => (
+        <option key={`language-${idx}`} value={item}>
+          {item}
+        </option>
+      ))}
+    </Select>
+  );
+};
