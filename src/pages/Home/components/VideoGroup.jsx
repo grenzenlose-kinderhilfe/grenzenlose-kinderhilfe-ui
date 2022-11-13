@@ -53,7 +53,7 @@ const VideoGroup = () => (
       justifyContent="center"
       p={{ base: 0, md: "0 0 25px", xl: "25px" }}
     >
-      <AspectRatio width="650px">
+      <AspectRatio width="750px" ratio={16 / 9}>
         <iframe
           title="Határtalan Segítség Alapítvány"
           width="1268"
