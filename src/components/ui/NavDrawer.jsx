@@ -11,7 +11,7 @@ import React from "react";
 
 import { MenuLanguageSwitcher, MenuLinks } from "./NavMenu";
 
-const NavDrawer = ({ isOpen, onClose, routes, languages }) => {
+const NavDrawer = ({ isOpen, onClose, routes }) => {
   const btnRef = React.useRef();
 
   return (
@@ -31,7 +31,7 @@ const NavDrawer = ({ isOpen, onClose, routes, languages }) => {
         </DrawerBody>
 
         <DrawerFooter>
-          <MenuLanguageSwitcher languages={languages} />
+          <MenuLanguageSwitcher />
         </DrawerFooter>
       </DrawerContent>
     </Drawer>

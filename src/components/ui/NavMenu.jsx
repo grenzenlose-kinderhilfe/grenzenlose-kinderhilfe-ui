@@ -13,6 +13,7 @@ import { useCookies } from "react-cookie";
 import { Link as RouterLink } from "react-router-dom";
 
 import Logo from "../../assets/img/logo.png";
+import { COOKIE_LANGUAGE_KEY, LANGUAGES } from "../../constants";
 
 export const MenuLogo = () => (
   <AspectRatio minWidth="175px" maxWidth="250px" maxHeight="72px" ratio={4 / 1}>
@@ -93,16 +94,25 @@ export const MenuButton = ({ to = "/", onClick, children }) => (
   </Button>
 );
 
-export const MenuLanguageSwitcher = ({ languages }) => {
-  const [cookies, setCookie] = useCookies(["language"]);
+export const MenuLanguageSwitcher = () => {
+  const [cookies, setCookie] = useCookies([COOKIE_LANGUAGE_KEY]);
 
-  const defaultLanguage = cookies["language"] || "DE";
+  const onChangeHandler = (e) =>
+    setCookie(COOKIE_LANGUAGE_KEY, LANGUAGES[e.target.value]);
 
-  const onChangeHandler = (e) => setCookie("language", e.target.value);
+  const languages = Object.entries(LANGUAGES).reduce(
+    (a, [display, languageCode]) =>
+      Object.assign(a, {
+        [languageCode]: display,
+      }),
+    {}
+  );
+
+  const defaultLanguage = languages[cookies[COOKIE_LANGUAGE_KEY]];
 
   return (
-    <Select defaultValue={defaultLanguage} onChange={onChangeHandler}>
-      {languages.map((item, idx) => (
+    <Select onChange={onChangeHandler} defaultValue={defaultLanguage}>
+      {Object.keys(LANGUAGES).map((item, idx) => (
         <option key={`language-${idx}`} value={item}>
           {item}
         </option>

@@ -36,13 +36,15 @@ export const routes = [
   },
 ];
 
-export const generateRoutes = (config) => (
+const AppRoutes = () => (
   <React.Suspense fallback={<div>Loading</div>}>
     <Routes>
-      {config.map((item, idx) => (
+      {routes.map((item, idx) => (
         <Route key={`route-${idx}`} path={item.url} element={item.element} />
       ))}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   </React.Suspense>
 );
+
+export default AppRoutes;

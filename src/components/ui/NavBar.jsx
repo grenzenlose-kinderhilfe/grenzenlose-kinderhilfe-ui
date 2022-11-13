@@ -9,8 +9,6 @@ import {
   MenuToggle,
 } from "./NavMenu";
 
-const LANGUAGES = ["DE", "HU"];
-
 const NavBar = ({ routes }) => {
   const { isOpen, onClose, onOpen } = useDisclosure();
 
@@ -34,14 +32,9 @@ const NavBar = ({ routes }) => {
         <MenuLinks isOpen={isOpen} routes={routes} />
       </Flex>
       <Flex display={{ base: "none", lg: "flex" }}>
-        <MenuLanguageSwitcher languages={LANGUAGES} />
+        <MenuLanguageSwitcher />
       </Flex>
-      <NavDrawer
-        isOpen={isOpen}
-        onClose={onClose}
-        routes={routes}
-        languages={LANGUAGES}
-      />
+      <NavDrawer isOpen={isOpen} onClose={onClose} routes={routes} />
     </Flex>
   );
 };
