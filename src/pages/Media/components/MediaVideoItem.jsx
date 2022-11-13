@@ -51,9 +51,9 @@ const MediaVideoItem = ({
       align="center"
       display="flex"
       justifyContent="center"
-      p={{ base: 0, md: "0 0 25px", xl: "25px" }}
+      p={{ base: 0, md: "0 25px 25px", xl: "25px" }}
     >
-      <AspectRatio width="750px" ratio={16 / 9}>
+      <AspectRatio width="100%" ratio={16 / 9}>
         <iframe
           title="Határtalan Segítség Alapítvány"
           width="1268"
