@@ -1,3 +1,4 @@
+import { Spinner } from "@chakra-ui/react";
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
@@ -37,7 +38,17 @@ export const routes = [
 ];
 
 const AppRoutes = () => (
-  <React.Suspense fallback={<div>Loading</div>}>
+  <React.Suspense
+    fallback={
+      <Spinner
+        position="relative"
+        left="50%"
+        top="50%"
+        color="primary.blue"
+        size="xl"
+      />
+    }
+  >
     <Routes>
       {routes.map((item, idx) => (
         <Route key={`route-${idx}`} path={item.url} element={item.element} />
