@@ -23,6 +23,7 @@ const Layout = ({ routes, children }) => (
       bottom={0}
       width="100%"
       height="2.5rem"
+      color="white"
       backgroundColor="primary.blue"
     >
       <Footer />

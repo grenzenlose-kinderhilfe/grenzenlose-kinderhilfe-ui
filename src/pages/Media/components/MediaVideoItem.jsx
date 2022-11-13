@@ -18,9 +18,9 @@ const MediaVideoItem = ({
 }) => (
   <Grid
     templateColumns={{ base: "1fr", xl: "1fr 1fr" }}
-    borderRadius={{ base: 0, lg: "10px" }}
-    color="white"
+    borderRadius="10px"
     backgroundColor="primary.blue"
+    color="white"
   >
     <GridItem align="center" p="25px">
       <Flex
@@ -51,7 +51,7 @@ const MediaVideoItem = ({
       align="center"
       display="flex"
       justifyContent="center"
-      p={{ base: 0, md: "0 25px 25px", xl: "25px" }}
+      p={{ base: "0 10px 10px", md: "0 25px 25px", xl: "25px" }}
     >
       <AspectRatio width="100%" ratio={16 / 9}>
         <iframe
