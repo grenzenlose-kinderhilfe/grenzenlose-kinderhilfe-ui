@@ -9,28 +9,28 @@ const About = React.lazy(() => import("./pages/About"));
 const routes = [
   {
     url: "/",
-    translationKey: "home",
+    localizationKey: "home",
     element: <Home />,
   },
   {
     url: "/media",
-    translationKey: "media",
+    localizationKey: "media",
     element: <Media />,
   },
   {
     url: "/pages",
-    translationKey: "pages",
+    localizationKey: "pages",
     element: <Pages />,
   },
   {
     url: "/about",
-    translationKey: "aboutUs",
+    localizationKey: "aboutUs",
     element: <About />,
   },
   {
     isButton: true,
     url: "/donation",
-    translationKey: "donation",
+    localizationKey: "donation",
     element: <Donation />,
   },
 ];

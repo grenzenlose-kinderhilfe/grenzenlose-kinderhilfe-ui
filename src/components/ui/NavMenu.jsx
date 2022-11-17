@@ -75,11 +75,11 @@ export const MenuLinks = ({ routes, onClick }) => {
             to={item.url}
             onClick={onClick}
           >
-            {localization[item.translationKey]}
+            {localization[item.localizationKey]}
           </MenuButton>
         ) : (
           <MenuItem key={`menu-item-${idx}`} to={item.url} onClick={onClick}>
-            {localization[item.translationKey]}
+            {localization[item.localizationKey]}
           </MenuItem>
         )
       )}
