@@ -8,10 +8,15 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "framer-motion": "^7.6.4",
+    "i18next": "^22.0.5",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "i18next-http-backend": "^2.0.1",
+    "luxon": "^3.1.0",
     "react": "^18.2.0",
     "react-cookie": "^4.1.1",
     "react-country-flag": "^3.0.2",
     "react-dom": "^18.2.0",
+    "react-i18next": "^12.0.0",
     "react-icons": "^4.6.0",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.3",
@@ -27,6 +32,7 @@
     "lint:eslint": "eslint --fix src/**/*.js src/**/*.jsx",
     "lint:prettier": "prettier --write .",
     "lint:staged": "lint-staged",
+    "localization:parse": "i18next 'src/**/*.{js,jsx}'",
     "postinstall": "husky install"
   },
   "lint-staged": {
@@ -69,6 +75,7 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.1",
+    "i18next-parser": "^7.0.3",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1"
   }

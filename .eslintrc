@@ -25,7 +25,7 @@
     "no-trailing-spaces": "warn",
     "prettier/prettier": "warn",
     "react/prop-types": "off",
-    "no-unused-vars": "warn"
+    "no-unused-vars": ["warn", { "args": "after-used" } ]
   },
   "settings": {
     "react": {

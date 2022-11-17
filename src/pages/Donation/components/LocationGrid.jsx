@@ -2,7 +2,7 @@ import { Flex, Grid, Text } from "@chakra-ui/react";
 import React from "react";
 import { ReactCountryFlag } from "react-country-flag";
 
-const LocationGridItem = ({ country, name, place }) => (
+const LocationGridItem = ({ countryCode, name, place }) => (
   <Flex
     gap={4}
     color="white"
@@ -15,7 +15,7 @@ const LocationGridItem = ({ country, name, place }) => (
   >
     <ReactCountryFlag
       svg
-      countryCode={country}
+      countryCode={countryCode}
       style={{ width: "2em", height: "2em" }}
     />
     <Text maxWidth="400px">

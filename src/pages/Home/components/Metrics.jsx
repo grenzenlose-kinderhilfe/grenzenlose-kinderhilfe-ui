@@ -1,23 +1,24 @@
 import { Grid, GridItem, Stat, StatLabel, StatNumber } from "@chakra-ui/react";
 import React from "react";
+import { Trans } from "react-i18next";
 
 import backgroundImage from "../../../assets/img/background/background-field.jpg";
 
 const data = [
   {
-    label: "Ország",
+    label: <Trans i18nKey="pages.home.metrics.countries">Ország</Trans>,
     value: 8,
   },
   {
-    label: "Helyszín",
+    label: <Trans i18nKey="pages.home.metrics.locations">Helyszín</Trans>,
     value: 95,
   },
   {
-    label: "Gyermek",
+    label: <Trans i18nKey="pages.home.metrics.children">Gyermek</Trans>,
     value: 5000,
   },
   {
-    label: "Önkéntes",
+    label: <Trans i18nKey="pages.home.metrics.volunteers">Önkéntes</Trans>,
     value: 500,
   },
 ];

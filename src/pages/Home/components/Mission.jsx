@@ -11,6 +11,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 import educationImage from "../../../assets/img/mission/education.jpg";
 import experiencesImage from "../../../assets/img/mission/experiences.jpg";
@@ -36,26 +37,41 @@ const MissionItem = ({ title, onClickHandler, children }) => (
 const Mission = () => {
   const [expandedIndex, setExpandedIndex] = React.useState(0);
 
+  const { t } = useTranslation();
+
+  const localization = {
+    education: t("pages.home.mission.education", "Oktatás"),
+    infrastructure: t("pages.home.mission.infrastructure", "Infrastruktúra"),
+    travelOrganization: t(
+      "pages.home.mission.travelOrganization",
+      "Utazásszervezés"
+    ),
+    experiences: t("pages.home.mission.experiences", "Élmények"),
+  };
+
   const missionItems = [
     {
-      title: "Oktatás",
+      title: localization.education,
       image: educationImage,
-      content: `
-        A játszva tanulás a legfontosabb az érdeklődő gyermekek számára. A
-        felhőtlen közös játékkal fejlődhetnek az otthon lakói és közben a
-        közös élmények is jótékonyan hatnak a kicsikre és az adományozókra
-        egyaránt. Ezért fontosnak tartjuk a generációk találkozását az
-        egymástól tanulás lehetőségét és a megfelelő eszközök adományozását a
-        gyermekeknek. A színes ceruzától a számítógépekig, a kézműves
-        foglalkozástól a nyelvtanulásig minden a rászorulók fejlesztését
-        szolgálja! Adományozzon Ön is használt vagy új eszközöket, hogy
-        egyenlő esélyekkel indulhassanak az életben az árva gyerekek!
-      `,
+      content: (
+        <Trans i18nKey="pages.home.mission.educationContent">
+          A játszva tanulás a legfontosabb az érdeklődő gyermekek számára. A
+          felhőtlen közös játékkal fejlődhetnek az otthon lakói és közben a
+          közös élmények is jótékonyan hatnak a kicsikre és az adományozókra
+          egyaránt. Ezért fontosnak tartjuk a generációk találkozását az
+          egymástól tanulás lehetőségét és a megfelelő eszközök adományozását a
+          gyermekeknek. A színes ceruzától a számítógépekig, a kézműves
+          foglalkozástól a nyelvtanulásig minden a rászorulók fejlesztését
+          szolgálja! Adományozzon Ön is használt vagy új eszközöket, hogy
+          egyenlő esélyekkel indulhassanak az életben az árva gyerekek!
+        </Trans>
+      ),
     },
     {
-      title: "Infrastruktúra",
+      title: localization.infrastructure,
       image: infrastructureImage,
-      content: `
+      content: (
+        <Trans i18nKey="pages.home.mission.infrastructureContent">
           A gyermekotthonok fejlesztésére alig-alig van keret, a fenntartók
           örülnek, ha az előírásoknak megfelelően tudnak működni. A legtöbb
           esetben elavult épületekben, régi berendezési tárgyakkal és
@@ -68,12 +84,14 @@ const Mission = () => {
           minden helyen a gyermekek ágyait, bútorait is cserélni kellene. Ehhez
           kapcsolódóan elindítottunk egy programot,amely 80 otthon komplett
           eszközcseréjét,bővítését célozta meg 2018 végéig.
-        `,
+        </Trans>
+      ),
     },
     {
-      title: "Utazásszervezés",
+      title: localization.travelOrganization,
       image: transportationImage,
-      content: `
+      content: (
+        <Trans i18nKey="pages.home.mission.transporationContent">
           A gyermekotthonok fejlesztésére alig-alig van keret, a fenntartók
           örülnek, ha az előírásoknak megfelelően tudnak működni. A legtöbb
           esetben elavult épületekben, régi berendezési tárgyakkal és
@@ -86,12 +104,14 @@ const Mission = () => {
           minden helyen a gyermekek ágyait, bútorait is cserélni kellene. Ehhez
           kapcsolódóan elindítottunk egy programot,amely 80 otthon komplett
           eszközcseréjét,bővítését célozta meg 2018 végéig.
-        `,
+        </Trans>
+      ),
     },
     {
-      title: "Élmények",
+      title: localization.experiences,
       image: experiencesImage,
-      content: `
+      content: (
+        <Trans i18nKey="pages.home.mission.experiencesContent">
           Alapvető emberi szükséglet, hogy egy közösség tagjaként közös
           élményeket adhassunk és kaphassunk. Az otthonokban élő gyermekek
           ingerszegényebb környezetben élnek, ezért hatalmas öröm számukra, ha
@@ -99,7 +119,8 @@ const Mission = () => {
           meghívást. A legnagyobb kaland számukra egy közös szabadidős program,
           játék, kirándulás, sütés-főzés, fagyizás, kerékpározás! Adományozzon
           Ön is élményeket a gyerekeknek!
-        `,
+        </Trans>
+      ),
     },
   ];
 

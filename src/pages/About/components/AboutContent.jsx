@@ -1,8 +1,9 @@
 import { Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
+import { Trans } from "react-i18next";
 
 const AboutContent = () => (
-  <>
+  <Trans i18nKey="pages.aboutUs.content">
     <Heading as="h1" m="25px">
       A kérdés egyszerű volt: mire volna szükségetek? <br />A válasz még
       egyszerűbb: törődésre.
@@ -47,7 +48,7 @@ const AboutContent = () => (
         aktivitásod, mert most már tudod: Minden gyermek mosolya számít!
       </Text>
     </Flex>
-  </>
+  </Trans>
 );
 
 export default AboutContent;

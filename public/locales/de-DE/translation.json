@@ -1,0 +1,67 @@
+{
+  "country": {
+    "austria": "Ausztria",
+    "germany": "Németország",
+    "hungary": "Magyarország",
+    "romania": "Románia",
+    "slovakia": "Szlovákia",
+    "ukraine": "Ukrajna"
+  },
+  "page": {
+    "home": {
+      "missionStatement": "<0>Legfontosabb célunk hogy a Kárpát-medence árváinak mindennapjait bearanyozzuk!</0><1>Az első jótékony akciónk baráti kezdeményezésre indult 2011. karácsonyán, amikor rászoruló gyerekeket ajándékoztunk meg. Látva a felragyogó arcokat úgy gondoltuk, hogy ezt megszeretnénk ismételni és nem csak egyszer egy évben.</1><2>A gyermekotthonok lakói óriási szeretettel fogadják az ajándékokat,a közös programokat és az adományozókat. Törekszünk arra,hogy az adott intézmények speciális helyzetének megfelelően adományozzunk, így a programjaink a megszületésüktől a mai napig folyamatosan fejlődnek, változnak.</2><3>Folyamatos az újratervezés és újabb célok meghatározása az adományozó önkéntesek és a gyermekek, valamint az intézmények elégedettségének igénye szerint.</3>"
+    }
+  },
+  "pages": {
+    "aboutUs": {
+      "content": "<0>A kérdés egyszerű volt: mire volna szükségetek? <1></1>A válasz még egyszerűbb: törődésre.<3></3>Innen indult a történetünk.</0><1><0>2010-ben egy gyermekotthon karácsonyi rendezvényén vettünk részt, ahol fogyatékkal élő gyermekek adtak igazán szívhez szóló műsort, nekünk „egészségeseknek”. Az akkor megélt érzések hatására elkezdtük keresni az utat, hogy mivel tudnánk meghálálni azoknak a gyerekeknek és felnőtteknek, akiktől azokat a leírhatatlanul jó érzéseket kaptuk. A kérdés egyszerű volt: mire volna szükségetek? A válasz még egyszerűbb: törődésre.</0><1>Innen indult a történetünk. Az elmúlt években nagyon sok alkalommal sikerült mosolyt csalni egészséges és fogyatékkal élő gyermekek arcára azokkal a programokkal és meglepetésekkel amelyeket kitaláltunk és megszerveztünk a számukra!</1><2>Ismerősök, Barátok és számtalan Ismeretlen csatlakozott az évek során segítő jószándékkal ahhoz a csapathoz akikkel együtt lelkesen készültünk és készülünk különböző képen szolgálni azokat a Magyarországon és Romániában valamint Ukrajnában árvaként, hátrányos helyzetűként, intézményi körülmények között felnövekvő gyerekeket, akiknek a mindennapi boldogság érzete hiánycikk!</2><3>Számunkra „Az gyerekek mosolya” nagyon fontos! Ez a törődés a szeretet egyik megnyilvánulása! Legyen egészséges, vagy olyan emberfeletti erővel rendelkező emberke, aki lábak és hiányzó újakkal is képes gyönyörűen zongorázni! Nekik és értük hoztuk létre a Határtalan Segítség Alapítványt! Az eddigi programokról és ünnepségekről itt tájékozódhatsz, a jövőbeni eseményekre pedig már személyes részvételeddel is hatással lehetsz!</3><4>Köszönjük az érdeklődésed, jó nézelődést a honlapon és várjuk az aktivitásod, mert most már tudod: Minden gyermek mosolya számít!</4></1>",
+      "foundationChairman": "Alapítvány kuratórium elnök",
+      "foundationDocument": "Alapitó okirat",
+      "founder": "Alapító",
+      "taxNumber": "Adószám"
+    },
+    "donation": {
+      "supportedTitle": "Támogatott gyermekotthonok / intézmények"
+    },
+    "home": {
+      "metrics": {
+        "children": "Gyermek",
+        "countries": "Ország",
+        "locations": "Helyszín",
+        "volunteers": "Önkéntes"
+      },
+      "mission": {
+        "education": "Oktatás",
+        "educationContent": "A játszva tanulás a legfontosabb az érdeklődő gyermekek számára. A felhőtlen közös játékkal fejlődhetnek az otthon lakói és közben a közös élmények is jótékonyan hatnak a kicsikre és az adományozókra egyaránt. Ezért fontosnak tartjuk a generációk találkozását az egymástól tanulás lehetőségét és a megfelelő eszközök adományozását a gyermekeknek. A színes ceruzától a számítógépekig, a kézműves foglalkozástól a nyelvtanulásig minden a rászorulók fejlesztését szolgálja! Adományozzon Ön is használt vagy új eszközöket, hogy egyenlő esélyekkel indulhassanak az életben az árva gyerekek!",
+        "experiences": "Élmények",
+        "experiencesContent": "Alapvető emberi szükséglet, hogy egy közösség tagjaként közös élményeket adhassunk és kaphassunk. Az otthonokban élő gyermekek ingerszegényebb környezetben élnek, ezért hatalmas öröm számukra, ha látogatók érkeznek egy közös program, játék erejéig vagy ők kapnak meghívást. A legnagyobb kaland számukra egy közös szabadidős program, játék, kirándulás, sütés-főzés, fagyizás, kerékpározás! Adományozzon Ön is élményeket a gyerekeknek!",
+        "infrastructure": "Infrastruktúra",
+        "infrastructureContent": "A gyermekotthonok fejlesztésére alig-alig van keret, a fenntartók örülnek, ha az előírásoknak megfelelően tudnak működni. A legtöbb esetben elavult épületekben, régi berendezési tárgyakkal és eszközökkel vannak felszerelve. A korszerűsítés nagy fejtörést okoz az intézményvezetőknek. A tisztító festés is az önkéntesek jóvoltából valósítható meg az esetek nagyrészében. A tervek között szerepel napkollektor telepítése is, amely nagyban támogatná a melegvíz ellátást, de a legtöbb helyen a konyhai felszerelések és az egyéb berendezések pl. mosó és szárítógépek is cserére szorulnak. Szinte minden helyen a gyermekek ágyait, bútorait is cserélni kellene. Ehhez kapcsolódóan elindítottunk egy programot,amely 80 otthon komplett eszközcseréjét,bővítését célozta meg 2018 végéig.",
+        "transporationContent": "A gyermekotthonok fejlesztésére alig-alig van keret, a fenntartók örülnek, ha az előírásoknak megfelelően tudnak működni. A legtöbb esetben elavult épületekben, régi berendezési tárgyakkal és eszközökkel vannak felszerelve. A korszerűsítés nagy fejtörést okoz az intézményvezetőknek. A tisztító festés is az önkéntesek jóvoltából valósítható meg az esetek nagyrészében. A tervek között szerepel napkollektor telepítése is, amely nagyban támogatná a melegvíz ellátást, de a legtöbb helyen a konyhai felszerelések és az egyéb berendezések pl. mosó és szárítógépek is cserére szorulnak. Szinte minden helyen a gyermekek ágyait, bútorait is cserélni kellene. Ehhez kapcsolódóan elindítottunk egy programot,amely 80 otthon komplett eszközcseréjét,bővítését célozta meg 2018 végéig.",
+        "travelOrganization": "Utazásszervezés"
+      },
+      "quote": {
+        "quoteText": "<0>“Aki nem hisz abban, hogy mennyi jó ember van, az kezdjen el valami jót tenni, és meglátja, milyen sokan oda állnak mellé”</0>"
+      }
+    },
+    "media": {
+      "foundationIntroHeding": "Határtalan Segítség Alapítvány bemutató",
+      "ukraineChildrenContent": "Ukrajnában élő gyerekeknek gyűjt az anyaországi Határtalan Segítség Alapítvány. A szervezet az elmúlt hónapokban többször járt már Kárpátalján, egyebek mellett Rátra, Nagydobronyba, Beregszászba és Mezőváriba is vittek már tartós élelmiszert és egyéb adományt, közel 300 tonna mennyiségben. Most azt tervezik, hogy karácsony idején megajándékozzák a nehéz helyzetben élő gyerekeket. Ennek érdekében gyűjtést indítanak. A Határtalan Segítség Alapítványmunkatársai Európa minden országából várják a felajánlásokat.",
+      "ukraineChildrenHeading": "Ukrajnában élő gyerekeknek gyűjt a Határtalan Segítség Alapítvány"
+    },
+    "pagesTitle": {
+      "highwayCodePark": "Kresz Park",
+      "shoeBox": "Cipősdoboz",
+      "ukraine2022": "Ukraine 2022"
+    }
+  },
+  "ui": {
+    "navigation": {
+      "aboutUs": "About Us",
+      "donation": "Donation",
+      "home": "Home",
+      "media": "Media",
+      "pages": "Pages"
+    }
+  }
+}

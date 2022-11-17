@@ -1,5 +1,6 @@
 import { Spinner } from "@chakra-ui/react";
 import React from "react";
+import { Trans } from "react-i18next";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 const Home = React.lazy(() => import("./pages/Home"));
@@ -11,29 +12,29 @@ const About = React.lazy(() => import("./pages/About"));
 export const routes = [
   {
     url: "/",
-    title: "Home",
+    title: <Trans i18nKey="ui.navigation.home">Home</Trans>,
     element: <Home />,
   },
   {
     url: "/media",
-    title: "Media",
+    title: <Trans i18nKey="ui.navigation.media">Media</Trans>,
     element: <Media />,
   },
   {
-    hideNav: true,
-    url: "/donation",
-    title: "Donation",
-    element: <Donation />,
-  },
-  {
     url: "/pages",
-    title: "Pages",
+    title: <Trans i18nKey="ui.navigation.pages">Pages</Trans>,
     element: <Pages />,
   },
   {
     url: "/about",
-    title: "About Us",
+    title: <Trans i18nKey="ui.navigation.aboutUs">About Us</Trans>,
     element: <About />,
+  },
+  {
+    isButton: true,
+    url: "/donation",
+    title: <Trans i18nKey="ui.navigation.donation">DONATION</Trans>,
+    element: <Donation />,
   },
 ];
 

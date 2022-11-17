@@ -8,12 +8,12 @@ import {
   StackDivider,
   Text,
 } from "@chakra-ui/react";
+import { changeLanguage } from "i18next";
 import React from "react";
-import { useCookies } from "react-cookie";
+import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 
 import Logo from "../../assets/img/logo.png";
-import { COOKIE_LANGUAGE_KEY, LANGUAGES } from "../../constants";
 
 export const MenuLogo = () => (
   <AspectRatio minWidth="175px" maxWidth="250px" maxHeight="72px" ratio={4 / 1}>
@@ -59,14 +59,17 @@ export const MenuLinks = ({ routes, onClick }) => (
   >
     {routes
       .filter((item) => !item.hideNav)
-      .map((item, idx) => (
-        <MenuItem key={`menu-item-${idx}`} to={item.url} onClick={onClick}>
-          {item.title.toUpperCase()}
-        </MenuItem>
-      ))}
-    <MenuButton to="/donation" onClick={onClick}>
-      DONATION
-    </MenuButton>
+      .map((item, idx) =>
+        item.isButton ? (
+          <MenuButton to="/donation" onClick={onClick}>
+            {item.title}
+          </MenuButton>
+        ) : (
+          <MenuItem key={`menu-item-${idx}`} to={item.url} onClick={onClick}>
+            {item.title}
+          </MenuItem>
+        )
+      )}
   </Stack>
 );
 
@@ -95,26 +98,17 @@ export const MenuButton = ({ to = "/", onClick, children }) => (
 );
 
 export const MenuLanguageSwitcher = () => {
-  const [cookies, setCookie] = useCookies([COOKIE_LANGUAGE_KEY]);
+  const { i18n } = useTranslation();
 
-  const onChangeHandler = (e) =>
-    setCookie(COOKIE_LANGUAGE_KEY, LANGUAGES[e.target.value]);
+  console.log(i18n);
 
-  const languages = Object.entries(LANGUAGES).reduce(
-    (a, [display, languageCode]) =>
-      Object.assign(a, {
-        [languageCode]: display,
-      }),
-    {}
-  );
-
-  const defaultLanguage = languages[cookies[COOKIE_LANGUAGE_KEY]];
+  const onChangeHandler = (e) => changeLanguage(e.target.value);
 
   return (
-    <Select onChange={onChangeHandler} defaultValue={defaultLanguage}>
-      {Object.keys(LANGUAGES).map((item, idx) => (
+    <Select onChange={onChangeHandler} defaultValue={i18n.language}>
+      {["de-DE", "hu-HU"].map((item, idx) => (
         <option key={`language-${idx}`} value={item}>
-          {item}
+          {item.slice(0, 2)}
         </option>
       ))}
     </Select>
