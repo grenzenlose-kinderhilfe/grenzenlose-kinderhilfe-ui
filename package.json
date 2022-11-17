@@ -32,7 +32,7 @@
     "lint:eslint": "eslint --fix src/**/*.js src/**/*.jsx",
     "lint:prettier": "prettier --write .",
     "lint:staged": "lint-staged",
-    "localization:parse": "i18next 'src/**/*.{js,jsx}'",
+    "localization:parse": "rm -rf public/locales/hu-HU/ && i18next 'src/**/*.{js,jsx}'",
     "postinstall": "husky install"
   },
   "lint-staged": {

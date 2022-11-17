@@ -14,10 +14,12 @@
   },
   "pages": {
     "aboutUs": {
-      "content": "<0>A kérdés egyszerű volt: mire volna szükségetek? <1></1>A válasz még egyszerűbb: törődésre.<3></3>Innen indult a történetünk.</0><1><0>2010-ben egy gyermekotthon karácsonyi rendezvényén vettünk részt, ahol fogyatékkal élő gyermekek adtak igazán szívhez szóló műsort, nekünk „egészségeseknek”. Az akkor megélt érzések hatására elkezdtük keresni az utat, hogy mivel tudnánk meghálálni azoknak a gyerekeknek és felnőtteknek, akiktől azokat a leírhatatlanul jó érzéseket kaptuk. A kérdés egyszerű volt: mire volna szükségetek? A válasz még egyszerűbb: törődésre.</0><1>Innen indult a történetünk. Az elmúlt években nagyon sok alkalommal sikerült mosolyt csalni egészséges és fogyatékkal élő gyermekek arcára azokkal a programokkal és meglepetésekkel amelyeket kitaláltunk és megszerveztünk a számukra!</1><2>Ismerősök, Barátok és számtalan Ismeretlen csatlakozott az évek során segítő jószándékkal ahhoz a csapathoz akikkel együtt lelkesen készültünk és készülünk különböző képen szolgálni azokat a Magyarországon és Romániában valamint Ukrajnában árvaként, hátrányos helyzetűként, intézményi körülmények között felnövekvő gyerekeket, akiknek a mindennapi boldogság érzete hiánycikk!</2><3>Számunkra „Az gyerekek mosolya” nagyon fontos! Ez a törődés a szeretet egyik megnyilvánulása! Legyen egészséges, vagy olyan emberfeletti erővel rendelkező emberke, aki lábak és hiányzó újakkal is képes gyönyörűen zongorázni! Nekik és értük hoztuk létre a Határtalan Segítség Alapítványt! Az eddigi programokról és ünnepségekről itt tájékozódhatsz, a jövőbeni eseményekre pedig már személyes részvételeddel is hatással lehetsz!</3><4>Köszönjük az érdeklődésed, jó nézelődést a honlapon és várjuk az aktivitásod, mert most már tudod: Minden gyermek mosolya számít!</4></1>",
+      "contentHeader": "A kérdés egyszerű volt: mire volna szükségetek? <1></1>A válasz még egyszerűbb: törődésre.<3></3>Innen indult a történetünk.",
+      "contentText": "<0>2010-ben egy gyermekotthon karácsonyi rendezvényén vettünk részt, ahol fogyatékkal élő gyermekek adtak igazán szívhez szóló műsort, nekünk „egészségeseknek”. Az akkor megélt érzések hatására elkezdtük keresni az utat, hogy mivel tudnánk meghálálni azoknak a gyerekeknek és felnőtteknek, akiktől azokat a leírhatatlanul jó érzéseket kaptuk. A kérdés egyszerű volt: mire volna szükségetek? A válasz még egyszerűbb: törődésre.</0><1>Innen indult a történetünk. Az elmúlt években nagyon sok alkalommal sikerült mosolyt csalni egészséges és fogyatékkal élő gyermekek arcára azokkal a programokkal és meglepetésekkel amelyeket kitaláltunk és megszerveztünk a számukra!</1><2>Ismerősök, Barátok és számtalan Ismeretlen csatlakozott az évek során segítő jószándékkal ahhoz a csapathoz akikkel együtt lelkesen készültünk és készülünk különböző képen szolgálni azokat a Magyarországon és Romániában valamint Ukrajnában árvaként, hátrányos helyzetűként, intézményi körülmények között felnövekvő gyerekeket, akiknek a mindennapi boldogság érzete hiánycikk!</2><3>Számunkra „Az gyerekek mosolya” nagyon fontos! Ez a törődés a szeretet egyik megnyilvánulása! Legyen egészséges, vagy olyan emberfeletti erővel rendelkező emberke, aki lábak és hiányzó újakkal is képes gyönyörűen zongorázni! Nekik és értük hoztuk létre a Határtalan Segítség Alapítványt! Az eddigi programokról és ünnepségekről itt tájékozódhatsz, a jövőbeni eseményekre pedig már személyes részvételeddel is hatással lehetsz!</3><4>Köszönjük az érdeklődésed, jó nézelődést a honlapon és várjuk az aktivitásod, mert most már tudod: Minden gyermek mosolya számít!</4>",
       "foundationChairman": "Alapítvány kuratórium elnök",
       "foundationDocument": "Alapitó okirat",
       "founder": "Alapító",
+      "link": "Link",
       "taxNumber": "Adószám"
     },
     "donation": {
@@ -57,11 +59,11 @@
   },
   "ui": {
     "navigation": {
-      "aboutUs": "About Us",
-      "donation": "Donation",
-      "home": "Home",
-      "media": "Media",
-      "pages": "Pages"
+      "aboutUs": "Rólunk",
+      "donation": "Adományozás",
+      "home": "Kezdőoldal",
+      "media": "Média",
+      "pages": "Oldalak"
     }
   }
 }

@@ -2,5 +2,6 @@
 
 .yarn/
 
+build/
 assets/
 public/

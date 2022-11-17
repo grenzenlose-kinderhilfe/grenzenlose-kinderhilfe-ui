@@ -7,8 +7,9 @@ import LocationGrid from "./components/LocationGrid";
 import locations from "./locations";
 
 const Donation = () => {
-  const [isLargerThan426] = useMediaQuery("(min-width: 426px)");
   const { t } = useTranslation();
+
+  const [isLargerThan426] = useMediaQuery("(min-width: 426px)");
 
   const localization = {
     supportedTitle: t(

@@ -38,7 +38,7 @@ const LocationGrid = ({ locations }) => (
     {locations.map((item, idx) => (
       <LocationGridItem
         key={`location-${idx}`}
-        country={item.countryCode}
+        countryCode={item.countryCode}
         name={item.name}
         place={item.place}
       />
