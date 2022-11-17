@@ -1,0 +1,69 @@
+{
+  "country": {
+    "austria": "Austria",
+    "germany": "Germany",
+    "hungary": "Hungary",
+    "romania": "Romania",
+    "slovakia": "Slovakia",
+    "ukraine": "Ukraine"
+  },
+  "page": {
+    "home": {
+      "missionStatement": "<0>Our most important goal is to make the everyday lives of the orphans of the Carpathian basin golden!</0><1>Our first charity event was initiated by a friend at Christmas 2011, when we gave presents to children in need. </1><2>The residents of the children's homes receive gifts, joint programs and donors with great love. </2><3>Re-planning and setting of new goals is ongoing according to the needs of the donating volunteers and the children, as well as the satisfaction of the institutions.</3>"
+    }
+  },
+  "pages": {
+    "aboutUs": {
+      "contentHeader": "The question was simple: what would you need? <1></1>The answer is even simpler: care.<3></3>This is where our story started.",
+      "contentText": "<0>In 2010, we took part in an orphanage's Christmas event, where disabled children gave a truly heartfelt show, for us \"healthy\" ones. </0><1>This is where our story started. </1><2>Acquaintances, Friends and countless Strangers have joined the team with the good will to help over the years, with whom we enthusiastically prepared and are preparing to serve in different ways those children in Hungary, Romania and Ukraine who are orphaned, disadvantaged, growing up in institutional conditions, for whom the feeling of everyday happiness is missing!</2><3>\"Children's smiles\" is very important to us! </3><4>Thank you for your interest, enjoy browsing the website and we look forward to your activity, because now you know: Every child's smile counts!</4>",
+      "foundationChairman": "Chairman of the Foundation Board of Trustees",
+      "foundingDocument": "Founding document",
+      "founder": "Founder",
+      "link": "Link",
+      "taxNumber": "Tax number"
+    },
+    "donation": {
+      "supportedTitle": "Subsidized children's homes / institutions"
+    },
+    "home": {
+      "metrics": {
+        "children": "Children",
+        "countries": "Country",
+        "locations": "Locations",
+        "volunteers": "Volunteers"
+      },
+      "mission": {
+        "education": "Education",
+        "educationContent": "Learning through play is the most important thing for interested children. The residents of the home can develop with the unclouded joint play, and the shared experiences have a beneficial effect on both the children and the donors. That is why we consider the meeting of generations to be important, the opportunity to learn from each other and to donate the appropriate tools to the children. From colored pencils to computers, from handicrafts to language learning, everything is for the development of those in need! Donate used or new equipment yourself so that orphan children can start life with equal opportunities!",
+        "experiences": "Experiences",
+        "experiencesContent": "It is a basic human need to be able to give and receive shared experiences as members of a community. Children living in homes live in a less stimulating environment, so it is a great pleasure for them when visitors come for a joint program or game or they are invited. The biggest adventure for them is a joint leisure program, games, trips, baking and cooking, ice cream, cycling! Donate experiences to the children yourself!",
+        "infrastructure": "Infrastructure",
+        "infrastructureContent": "There is hardly any funding for the development of children's homes, the maintainers are happy if they can operate in accordance with the regulations. In most cases, they are located in outdated buildings with old furnishings and equipment. Modernization is a big headache for institution managers. Cleaning painting can also be done thanks to volunteers in most cases. The plans also include the installation of a solar collector, which would greatly support the hot water supply, but in most places the kitchen equipment and other equipment, e.g. washing machines and dryers also need to be replaced. Almost everywhere, the children's beds and furniture should also be changed. In connection with this, we launched a program aimed at the complete equipment replacement and expansion of 80 homes by the end of 2018.",
+        "transporationContent": "There is hardly any funding for the development of children's homes, the maintainers are happy if they can operate in accordance with the regulations. In most cases, they are located in outdated buildings with old furnishings and equipment. Modernization is a big headache for institution managers. Cleaning painting can also be done thanks to volunteers in most cases. The plans also include the installation of a solar collector, which would greatly support the hot water supply, but in most places the kitchen equipment and other equipment, e.g. washing machines and dryers also need to be replaced. Almost everywhere, the children's beds and furniture should also be changed. In connection with this, we launched a program aimed at the complete equipment replacement and expansion of 80 homes by the end of 2018.",
+        "travelOrganization": "Travel organization"
+      },
+      "quote": {
+        "quoteText": "<0>\"He who doesn't believe in how many good people there are, should start doing something good and see how many people stand by him\"</0>"
+      }
+    },
+    "media": {
+      "foundationIntroHeading": "Grenzenlose Kinderhilfe Foundation presentation",
+      "ukraineChildrenContent": "The Határtalan Segítség Foundation in the motherland collects for children living in Ukraine. The organization has visited Transcarpathia several times in recent months, among others, they have brought durable food and other donations, in the amount of nearly 300 tons, to Rátra, Nagydobrony, Beregszász and Mezővári. Now they plan to give presents to children in difficult situations at Christmas time. For this purpose, they are starting a collection. The employees of the Határtalan Segítség Foundation are waiting for donations from all European countries.",
+      "ukraineChildrenHeading": "The Unlimited Help Foundation collects for children living in Ukraine"
+    },
+    "pagesTitle": {
+      "highwayCodePark": "Kresz Park",
+      "shoeBox": "Shoe box",
+      "ukraine2022": "Ukraine 2022"
+    }
+  },
+  "ui": {
+    "navigation": {
+      "aboutUs": "About us",
+      "donation": "Donation",
+      "home": "Home",
+      "media": "Media",
+      "pages": "Pages"
+    }
+  }
+}

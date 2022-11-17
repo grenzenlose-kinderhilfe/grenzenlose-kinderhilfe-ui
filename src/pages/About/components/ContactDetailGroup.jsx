@@ -8,7 +8,7 @@ const ContactDetailGroup = () => {
   const { t } = useTranslation();
 
   const localization = {
-    foundationDocument: t("pages.aboutUs.foundationDocument", "Alapitó okirat"),
+    foundingDocument: t("pages.aboutUs.foundingDocument", "Alapitó okirat"),
     founder: t("pages.aboutUs.founder", "Alapító"),
     foundationChairman: t(
       "pages.aboutUs.foundationChairman",
@@ -19,7 +19,7 @@ const ContactDetailGroup = () => {
 
   const documents = [
     {
-      name: localization.foundationDocument,
+      name: localization.foundingDocument,
       links: [
         "https://grenzenlose-kinderhilfe.com/wp-content/uploads/2021/07/Határtalan-segítség-alapítvány.doc",
         "https://grenzenlose-kinderhilfe.com/wp-content/uploads/2021/07/HATÁRTALAN-SEGÍTSÉG-egyéb-1.doc",

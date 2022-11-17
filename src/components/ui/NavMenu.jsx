@@ -8,12 +8,12 @@ import {
   StackDivider,
   Text,
 } from "@chakra-ui/react";
-import { changeLanguage } from "i18next";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 
 import Logo from "../../assets/img/logo.png";
+import { LANGUAGES } from "../../constants";
 
 export const MenuLogo = () => (
   <AspectRatio minWidth="175px" maxWidth="250px" maxHeight="72px" ratio={4 / 1}>
@@ -48,30 +48,44 @@ const CloseIcon = () => (
   </svg>
 );
 
-export const MenuLinks = ({ routes, onClick }) => (
-  <Stack
-    spacing={{ base: 4, lg: 8 }}
-    align="center"
-    divider={<StackDivider />}
-    justify={["space-between", "space-between", "space-between", "flex-end"]}
-    direction={["column", "column", "column", "row"]}
-    pt={[6, 4, 4, 0]}
-  >
-    {routes
-      .filter((item) => !item.hideNav)
-      .map((item, idx) =>
+export const MenuLinks = ({ routes, onClick }) => {
+  const { t } = useTranslation();
+
+  const localization = {
+    home: t("ui.navigation.home", "Kezdőoldal"),
+    media: t("ui.navigation.media", "Média"),
+    pages: t("ui.navigation.pages", "Oldalak"),
+    aboutUs: t("ui.navigation.aboutUs", "Rólunk"),
+    donation: t("ui.navigation.donation", "Adományozás"),
+  };
+
+  return (
+    <Stack
+      spacing={{ base: 4, lg: 8 }}
+      align="center"
+      divider={<StackDivider />}
+      justify={["space-between", "space-between", "space-between", "flex-end"]}
+      direction={["column", "column", "column", "row"]}
+      pt={[6, 4, 4, 0]}
+    >
+      {routes.map((item, idx) =>
         item.isButton ? (
-          <MenuButton to="/donation" onClick={onClick}>
-            {item.title}
+          <MenuButton
+            key={`menu-button-${idx}`}
+            to={item.url}
+            onClick={onClick}
+          >
+            {localization[item.translationKey]}
           </MenuButton>
         ) : (
           <MenuItem key={`menu-item-${idx}`} to={item.url} onClick={onClick}>
-            {item.title}
+            {localization[item.translationKey]}
           </MenuItem>
         )
       )}
-  </Stack>
-);
+    </Stack>
+  );
+};
 
 export const MenuItem = ({ to = "/", onClick, children }) => (
   <Link as={RouterLink} to={to} onClick={onClick}>
@@ -100,15 +114,13 @@ export const MenuButton = ({ to = "/", onClick, children }) => (
 export const MenuLanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
-  console.log(i18n);
-
-  const onChangeHandler = (e) => changeLanguage(e.target.value);
+  const onChangeHandler = (e) => i18n.changeLanguage(e.target.value);
 
   return (
     <Select onChange={onChangeHandler} defaultValue={i18n.language}>
-      {["de-DE", "hu-HU"].map((item, idx) => (
+      {LANGUAGES.map((item, idx) => (
         <option key={`language-${idx}`} value={item}>
-          {item.slice(0, 2)}
+          {item}
         </option>
       ))}
     </Select>

@@ -5,14 +5,17 @@ import Backend from "i18next-http-backend";
 import { DateTime } from "luxon";
 import { initReactI18next } from "react-i18next";
 
+import { LANGUAGES } from "./constants";
+
 i18n
   .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     debug: true,
+    load: "currentOnly",
     fallbackLng: "de-DE",
-    supportedLngs: ["de-DE", "hu-HU"],
+    supportedLngs: LANGUAGES,
     saveMissing: true,
     interpolation: {
       escapeValue: false,

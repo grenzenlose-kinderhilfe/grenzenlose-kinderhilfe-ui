@@ -17,7 +17,7 @@ const Media = () => {
       "Ukrajnában élő gyerekeknek gyűjt az anyaországi Határtalan Segítség Alapítvány. A szervezet az elmúlt hónapokban többször járt már Kárpátalján, egyebek mellett Rátra, Nagydobronyba, Beregszászba és Mezőváriba is vittek már tartós élelmiszert és egyéb adományt, közel 300 tonna mennyiségben. Most azt tervezik, hogy karácsony idején megajándékozzák a nehéz helyzetben élő gyerekeket. Ennek érdekében gyűjtést indítanak. A Határtalan Segítség Alapítványmunkatársai Európa minden országából várják a felajánlásokat."
     ),
     foundationIntroHeading: t(
-      "pages.media.foundationIntroHeding",
+      "pages.media.foundationIntroHeading",
       "Határtalan Segítség Alapítvány bemutató"
     ),
   };

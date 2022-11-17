@@ -92,18 +92,15 @@ const Mission = () => {
       image: transportationImage,
       content: (
         <Trans i18nKey="pages.home.mission.transporationContent">
-          A gyermekotthonok fejlesztésére alig-alig van keret, a fenntartók
-          örülnek, ha az előírásoknak megfelelően tudnak működni. A legtöbb
-          esetben elavult épületekben, régi berendezési tárgyakkal és
-          eszközökkel vannak felszerelve. A korszerűsítés nagy fejtörést okoz az
-          intézményvezetőknek. A tisztító festés is az önkéntesek jóvoltából
-          valósítható meg az esetek nagyrészében. A tervek között szerepel
-          napkollektor telepítése is, amely nagyban támogatná a melegvíz
-          ellátást, de a legtöbb helyen a konyhai felszerelések és az egyéb
-          berendezések pl. mosó és szárítógépek is cserére szorulnak. Szinte
-          minden helyen a gyermekek ágyait, bútorait is cserélni kellene. Ehhez
-          kapcsolódóan elindítottunk egy programot,amely 80 otthon komplett
-          eszközcseréjét,bővítését célozta meg 2018 végéig.
+          „A cél az út maga.” Nincs is izgalmasabb érzés, mint amikor az
+          utazáshoz készülődünk. Az árva gyermekek életében egy külföldi utazás,
+          vagy egyáltalán az utazás nagyon nagy álom. Ezt az elmúlt évek során a
+          gyerekekkel való beszélgetésekkor szomorúan tapasztaltuk. Szinte
+          kézenfekvő volt tehát, hogy szervezzünk utazást a részükre. Óriási
+          élmény ezt a szabadságérzést adományozni az otthonban élőknek! A közös
+          utazás mindenkit feltölt! Teveinkben szerepel egy szállítójármű és egy
+          ausztriai üdülőközpont létrehozása is! Adományozzon Ön is az árváknak
+          utazási élményt, nyári táborozást vagy téli élményeket!
         </Trans>
       ),
     },
