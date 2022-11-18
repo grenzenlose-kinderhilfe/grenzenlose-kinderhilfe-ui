@@ -16,7 +16,20 @@ const Donation = () => {
       "pages.donation.supportedTitle",
       "Támogatott gyermekotthonok / intézmények"
     ),
+    countries: {
+      HU: t("pages.donation.country.hungary", "Magyarország"),
+      RO: t("pages.donation.country.romania", "Románia"),
+      SK: t("pages.donation.country.slovakia", "Szlovákia"),
+      UA: t("pages.donation.country.ukraine", "Ukrajna"),
+      DE: t("pages.donation.country.germany", "Németország"),
+      AT: t("pages.donation.country.austria", "Ausztria"),
+    },
   };
+
+  const localizedLocations = locations.map((item) => ({
+    ...item,
+    country: localization.countries[item.countryCode],
+  }));
 
   return (
     <Grid
@@ -30,9 +43,9 @@ const Donation = () => {
       </GridItem>
       <GridItem>
         {isLargerThan426 ? (
-          <LocationGrid locations={locations} />
+          <LocationGrid locations={localizedLocations} />
         ) : (
-          <LocationAccordion locations={locations} />
+          <LocationAccordion locations={localizedLocations} />
         )}
       </GridItem>
     </Grid>
