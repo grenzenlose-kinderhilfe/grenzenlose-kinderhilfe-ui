@@ -1,1 +1,1 @@
-export const LANGUAGES = ["de-DE", "hu-HU", "en-US"];
+export const LANGUAGES = ["de-DE", "hu-HU"];
