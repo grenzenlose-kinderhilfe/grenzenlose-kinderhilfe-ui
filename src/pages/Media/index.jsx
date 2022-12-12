@@ -16,6 +16,14 @@ const Media = () => {
       "pages.media.ukraineChildrenContent",
       "Ukrajnában élő gyerekeknek gyűjt az anyaországi Határtalan Segítség Alapítvány. A szervezet az elmúlt hónapokban többször járt már Kárpátalján, egyebek mellett Rátra, Nagydobronyba, Beregszászba és Mezőváriba is vittek már tartós élelmiszert és egyéb adományt, közel 300 tonna mennyiségben. Most azt tervezik, hogy karácsony idején megajándékozzák a nehéz helyzetben élő gyerekeket. Ennek érdekében gyűjtést indítanak. A Határtalan Segítség Alapítványmunkatársai Európa minden országából várják a felajánlásokat."
     ),
+    barcziGusztavNurseryHeading: t(
+      "pages.media.barcziGusztavNurseryHeading",
+      "Vadonatúj pedálos gokartot kaptak a debreceni ovisok – videóval"
+    ),
+    barcziGusztavNurseryContent: t(
+      "pages.media.barcziGusztavNurseryContent",
+      "Az izmok fejlesztéséhez, a koordinációs képességek javításához, a tér- és sebességérzékelés fejlesztéséhez hozzájáruló eszközöket a Debrecen Nemzetközi Repülőtér vásárolta a szeptember 25-én megrendezett 5. Wizz Air Debrecen Airport Run futóverseny bevételéből. A társaság két debreceni intézménynek ajánlotta fel az eszközöket, így csatlakozott a Rolling Kids Közlekedésbiztonsági Élményprojekthez."
+    ),
     foundationIntroHeading: t(
       "pages.media.foundationIntroHeading",
       "Határtalan Segítség Alapítvány bemutató"
@@ -31,6 +39,15 @@ const Media = () => {
           videoEmbedUrl="https://www.youtube.com/embed/ydaF4hEgp7M?controls=0&rel=0"
           source="TV 21 Ungvár"
           sourceUrl="https://tv21ungvar.tv/hirmusorok/hirek/ukrajnaban-elo-gyerekeknek-gyujt-a-hatartalan-segitseg-alapitvany.html"
+        />
+      </GridItem>
+      <GridItem>
+        <MediaVideoItem
+          videoEmbedUrl="https://videa.hu/player?v=oOw6bP3Z21lWiV0f"
+          heading={localization.barcziGusztavNurseryHeading}
+          content={localization.barcziGusztavNurseryContent}
+          source="Hajdú-Bihar Megyei Hírportal"
+          sourceUrl="https://www.haon.hu/helyi-kozelet/2022/11/vadonatuj-pedalos-gokartot-kaptak-a-debreceni-ovisok-videoval/"
         />
       </GridItem>
       <GridItem>

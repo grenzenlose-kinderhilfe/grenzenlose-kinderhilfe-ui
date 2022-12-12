@@ -1,12 +1,4 @@
 {
-  "country": {
-    "austria": "Ausztria",
-    "germany": "Németország",
-    "hungary": "Magyarország",
-    "romania": "Románia",
-    "slovakia": "Szlovákia",
-    "ukraine": "Ukrajna"
-  },
   "page": {
     "home": {
       "missionStatement": "<0>Legfontosabb célunk hogy a Kárpát-medence árváinak mindennapjait bearanyozzuk!</0><1>Az első jótékony akciónk baráti kezdeményezésre indult 2011. karácsonyán, amikor rászoruló gyerekeket ajándékoztunk meg. Látva a felragyogó arcokat úgy gondoltuk, hogy ezt megszeretnénk ismételni és nem csak egyszer egy évben.</1><2>A gyermekotthonok lakói óriási szeretettel fogadják az ajándékokat,a közös programokat és az adományozókat. Törekszünk arra,hogy az adott intézmények speciális helyzetének megfelelően adományozzunk, így a programjaink a megszületésüktől a mai napig folyamatosan fejlődnek, változnak.</2><3>Folyamatos az újratervezés és újabb célok meghatározása az adományozó önkéntesek és a gyermekek, valamint az intézmények elégedettségének igénye szerint.</3>"
@@ -23,6 +15,14 @@
       "taxNumber": "Adószám"
     },
     "donation": {
+      "country": {
+        "austria": "Ausztria",
+        "germany": "Németország",
+        "hungary": "Magyarország",
+        "romania": "Románia",
+        "slovakia": "Szlovákia",
+        "ukraine": "Ukrajna"
+      },
       "supportedTitle": "Támogatott gyermekotthonok / intézmények"
     },
     "home": {
@@ -43,10 +43,12 @@
         "travelOrganization": "Utazásszervezés"
       },
       "quote": {
-        "quoteText": "<0>“Aki nem hisz abban, hogy mennyi jó ember van, az kezdjen el valami jót tenni, és meglátja, milyen sokan oda állnak mellé”</0>"
+        "quoteText": "Aki nem hisz abban, hogy mennyi jó ember van, az kezdjen el valami jót tenni, és meglátja, milyen sokan oda állnak mellé"
       }
     },
     "media": {
+      "barcziGusztavNurseryContent": "Az izmok fejlesztéséhez, a koordinációs képességek javításához, a tér- és sebességérzékelés fejlesztéséhez hozzájáruló eszközöket a Debrecen Nemzetközi Repülőtér vásárolta a szeptember 25-én megrendezett 5. Wizz Air Debrecen Airport Run futóverseny bevételéből. A társaság két debreceni intézménynek ajánlotta fel az eszközöket, így csatlakozott a Rolling Kids Közlekedésbiztonsági Élményprojekthez.",
+      "barcziGusztavNurseryHeading": "Vadonatúj pedálos gokartot kaptak a debreceni ovisok – videóval",
       "foundationIntroHeading": "Határtalan Segítség Alapítvány bemutató",
       "ukraineChildrenContent": "Ukrajnában élő gyerekeknek gyűjt az anyaországi Határtalan Segítség Alapítvány. A szervezet az elmúlt hónapokban többször járt már Kárpátalján, egyebek mellett Rátra, Nagydobronyba, Beregszászba és Mezőváriba is vittek már tartós élelmiszert és egyéb adományt, közel 300 tonna mennyiségben. Most azt tervezik, hogy karácsony idején megajándékozzák a nehéz helyzetben élő gyerekeket. Ennek érdekében gyűjtést indítanak. A Határtalan Segítség Alapítványmunkatársai Európa minden országából várják a felajánlásokat.",
       "ukraineChildrenHeading": "Ukrajnában élő gyerekeknek gyűjt a Határtalan Segítség Alapítvány"
