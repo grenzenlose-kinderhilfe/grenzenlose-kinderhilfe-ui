@@ -3,6 +3,7 @@ import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 
 import rollingKidsImage from "../../assets/img/pages/rolling-kids.jpg";
+import withTracker from "../../utils/tracking";
 
 const pageItems = [
   {
@@ -80,4 +81,4 @@ const Pages = () => (
   </Grid>
 );
 
-export default Pages;
+export default withTracker(Pages);

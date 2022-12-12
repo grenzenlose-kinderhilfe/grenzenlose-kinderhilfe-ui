@@ -2,6 +2,7 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import React from "react";
 
 import aboutUsImage from "../../assets/img/about-us.jpg";
+import withTracker from "../../utils/tracking";
 import AboutContent from "./components/AboutContent";
 import ContactDetailGroup from "./components/ContactDetailGroup";
 
@@ -27,4 +28,4 @@ const About = () => (
   </Grid>
 );
 
-export default About;
+export default withTracker(About);

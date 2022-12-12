@@ -1,6 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import React from "react";
 
+import withTracker from "../../utils/tracking";
 import Metrics from "./components/Metrics";
 import Mission from "./components/Mission";
 import Quote from "./components/Quote";
@@ -37,4 +38,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default withTracker(Home);

@@ -2,6 +2,7 @@ import { Grid, GridItem, Heading, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
+import withTracker from "../../utils/tracking";
 import LocationAccordion from "./components/LocationAccordion";
 import LocationGrid from "./components/LocationGrid";
 import locations from "./locations";
@@ -52,4 +53,4 @@ const Donation = () => {
   );
 };
 
-export default Donation;
+export default withTracker(Donation);

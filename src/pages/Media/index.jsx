@@ -2,6 +2,7 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
+import withTracker from "../../utils/tracking";
 import MediaVideoItem from "./components/MediaVideoItem";
 
 const Media = () => {
@@ -62,4 +63,4 @@ const Media = () => {
   );
 };
 
-export default Media;
+export default withTracker(Media);
