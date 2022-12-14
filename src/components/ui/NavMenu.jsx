@@ -54,6 +54,7 @@ export const MenuLinks = ({ routes, onClick }) => {
   const localization = {
     home: t("ui.navigation.home", "Kezdőoldal"),
     media: t("ui.navigation.media", "Média"),
+    blog: t("ui.navigation.blog", "Blog"),
     pages: t("ui.navigation.pages", "Oldalak"),
     aboutUs: t("ui.navigation.aboutUs", "Rólunk"),
     donation: t("ui.navigation.donation", "Adományozás"),
@@ -78,7 +79,12 @@ export const MenuLinks = ({ routes, onClick }) => {
             {localization[item.localizationKey]}
           </MenuButton>
         ) : (
-          <MenuItem key={`menu-item-${idx}`} to={item.url} onClick={onClick}>
+          <MenuItem
+            to={item.url}
+            onClick={onClick}
+            isExternal={item.isExternal}
+            key={`menu-item-${idx}`}
+          >
             {localization[item.localizationKey]}
           </MenuItem>
         )
@@ -87,13 +93,20 @@ export const MenuLinks = ({ routes, onClick }) => {
   );
 };
 
-export const MenuItem = ({ to = "/", onClick, children }) => (
-  <Link as={RouterLink} to={to} onClick={onClick}>
-    <Text display="block" fontSize="16px">
-      {children}
-    </Text>
-  </Link>
-);
+export const MenuItem = ({ onClick, children, to = "/", isExternal = false }) =>
+  isExternal ? (
+    <Link isExternal href={to}>
+      <Text display="block" fontSize="16px">
+        {children}
+      </Text>
+    </Link>
+  ) : (
+    <Link as={RouterLink} to={to} isExternal={isExternal} onClick={onClick}>
+      <Text display="block" fontSize="16px">
+        {children}
+      </Text>
+    </Link>
+  );
 
 export const MenuButton = ({ to = "/", onClick, children }) => (
   <Button
