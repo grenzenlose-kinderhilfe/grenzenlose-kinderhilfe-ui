@@ -29,6 +29,10 @@ const Media = () => {
       "pages.media.foundationIntroHeading",
       "Határtalan Segítség Alapítvány bemutató"
     ),
+    hegyaljaTvHeading: t(
+      "pages.media.hegyaljaTvHeading",
+      "Egy-egy cipősdoboznyi ajándékot kaptak a Tiszacsermelyi óvodások a Határtalan Segitség Alapitványtól"
+    ),
   };
 
   return (
@@ -47,8 +51,16 @@ const Media = () => {
           videoEmbedUrl="https://videa.hu/player?v=oOw6bP3Z21lWiV0f"
           heading={localization.barcziGusztavNurseryHeading}
           content={localization.barcziGusztavNurseryContent}
-          source="Hajdú-Bihar Megyei Hírportal"
+          source="Hajdú-Bihar Megyei Hírportál"
           sourceUrl="https://www.haon.hu/helyi-kozelet/2022/11/vadonatuj-pedalos-gokartot-kaptak-a-debreceni-ovisok-videoval/"
+        />
+      </GridItem>
+      <GridItem>
+        <MediaVideoItem
+          videoEmbedUrl="https://youtube.com/embed/MUzkAi0iGMQ?start=861&end=1044"
+          heading={localization.hegyaljaTvHeading}
+          source="Hegyalja Televízió"
+          sourceUrl="https://www.youtube.com/watch?v=MUzkAi0iGMQ"
         />
       </GridItem>
       <GridItem>
