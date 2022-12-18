@@ -109,19 +109,19 @@ export const MenuItem = ({ onClick, children, to = "/", isExternal = false }) =>
   );
 
 export const MenuButton = ({ to = "/", onClick, children }) => (
-  <Button
-    size="md"
-    rounded="md"
-    color="black"
-    bg="white"
-    _hover={{
-      bg: "white",
-    }}
-  >
-    <Link as={RouterLink} to={to} onClick={onClick}>
+  <Link as={RouterLink} to={to} onClick={onClick}>
+    <Button
+      size="md"
+      rounded="md"
+      color="black"
+      bg="white"
+      _hover={{
+        bg: "white",
+      }}
+    >
       {children}
-    </Link>
-  </Button>
+    </Button>
+  </Link>
 );
 
 export const MenuLanguageSwitcher = () => {
