@@ -1,5 +1,7 @@
 import React from "react";
 
+import { LOCALE_DE } from "./constants";
+
 const Home = React.lazy(() => import("./pages/Home"));
 const Donation = React.lazy(() => import("./pages/Donation"));
 const Media = React.lazy(() => import("./pages/Media"));
@@ -20,6 +22,8 @@ const routes = [
   {
     url: "https://beta.grenzenlose-kinderhilfe.com/blog/",
     isExternal: true,
+    isLocaleContext: true,
+    localeSuffix: { [LOCALE_DE]: "de/" },
     localizationKey: "blog",
   },
   // {

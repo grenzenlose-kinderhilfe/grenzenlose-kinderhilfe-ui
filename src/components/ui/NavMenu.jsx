@@ -49,7 +49,7 @@ const CloseIcon = () => (
 );
 
 export const MenuLinks = ({ routes, onClick }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const localization = {
     home: t("ui.navigation.home", "Kezdőoldal"),
@@ -69,26 +69,32 @@ export const MenuLinks = ({ routes, onClick }) => {
       direction={["column", "column", "column", "row"]}
       pt={[6, 4, 4, 0]}
     >
-      {routes.map((item, idx) =>
-        item.isButton ? (
+      {routes.map((item, idx) => {
+        let urlSuffix = "";
+
+        if (item?.isLocaleContext && item.localeSuffix[i18n.language]?.length) {
+          urlSuffix += item.localeSuffix[i18n.language];
+        }
+
+        return item.isButton ? (
           <MenuButton
             key={`menu-button-${idx}`}
-            to={item.url}
+            to={item.url + urlSuffix}
             onClick={onClick}
           >
             {localization[item.localizationKey]}
           </MenuButton>
         ) : (
           <MenuItem
-            to={item.url}
+            to={item.url + urlSuffix}
             onClick={onClick}
             isExternal={item.isExternal}
             key={`menu-item-${idx}`}
           >
             {localization[item.localizationKey]}
           </MenuItem>
-        )
-      )}
+        );
+      })}
     </Stack>
   );
 };

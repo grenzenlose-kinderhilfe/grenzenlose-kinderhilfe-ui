@@ -1,5 +1,5 @@
-const LOCALE_DE = "de-DE";
-const LOCALE_HU = "hu-HU";
+export const LOCALE_DE = "de-DE";
+export const LOCALE_HU = "hu-HU";
 
 export const LANGUAGES = [LOCALE_DE, LOCALE_HU];
 
