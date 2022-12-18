@@ -1,6 +1,6 @@
 import React from "react";
 
-import { LOCALE_DE } from "./constants";
+import { LOCALE_DE, WORDPRESS_BLOG_BASE_URL } from "./constants";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const Donation = React.lazy(() => import("./pages/Donation"));
@@ -20,7 +20,7 @@ const routes = [
     element: <Media />,
   },
   {
-    url: "https://beta.grenzenlose-kinderhilfe.com/blog/",
+    url: WORDPRESS_BLOG_BASE_URL,
     isExternal: true,
     isLocaleContext: true,
     localeSuffix: { [LOCALE_DE]: "de/" },

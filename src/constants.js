@@ -6,7 +6,7 @@ export const LANGUAGES = [LOCALE_DE, LOCALE_HU];
 export const GA_MEASUREMENT_ID = "G-NPSNCSC1YX";
 
 export const WORDPRESS_BLOG_BASE_URL =
-  "https://beta.grenzenlose-kinderhilfe.com/blog";
+  "https://grenzenlose-kinderhilfe.com/blog";
 
 export const WORDPRESS_FEATURED_CATEGORIES = {
   [LOCALE_DE]: 38,
