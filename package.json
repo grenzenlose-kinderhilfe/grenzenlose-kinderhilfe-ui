@@ -1,6 +1,6 @@
 {
   "name": "grenzenlose-kinderhilfe-ui",
-  "homepage": "https://grenzenlose-kinderhilfe.com/blog",
+  "homepage": "https://grenzenlose-kinderhilfe.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
