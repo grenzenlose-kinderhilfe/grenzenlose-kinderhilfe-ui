@@ -23,7 +23,7 @@ const routes = [
     url: WORDPRESS_BLOG_BASE_URL,
     isExternal: true,
     isLocaleContext: true,
-    localeSuffix: { [LOCALE_DE]: "de/" },
+    localeSuffix: { [LOCALE_DE]: "/de" },
     localizationKey: "blog",
   },
   // {
