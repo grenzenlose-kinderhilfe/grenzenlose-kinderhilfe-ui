@@ -15,7 +15,7 @@ const data = [
   },
   {
     localizationKey: "children",
-    value: 5000,
+    value: 15000,
   },
   {
     localizationKey: "volunteers",
