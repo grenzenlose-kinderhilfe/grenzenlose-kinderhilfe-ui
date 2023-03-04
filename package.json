@@ -26,6 +26,7 @@
   },
   "scripts": {
     "build": "react-scripts build",
+    "zip": "cd build && zip -r grenzenlose-kinderhilfe-ui.zip .",
     "start": "react-scripts start",
     "lint": "yarn lint:eslint && yarn lint:prettier",
     "lint:ci": "eslint src/**/*.js src/**/*.jsx --max-warnings=0",
@@ -79,5 +80,5 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1"
   },
-  "packageManager": "yarn@3.3.0"
+  "packageManager": "yarn@3.4.1"
 }
