@@ -1,9 +1,4 @@
 {
-  "page": {
-    "home": {
-      "missionStatement": "<0>Legfontosabb célunk hogy a Kárpát-medence árváinak mindennapjait bearanyozzuk!</0><1>Az első jótékony akciónk baráti kezdeményezésre indult 2011. karácsonyán, amikor rászoruló gyerekeket ajándékoztunk meg. Látva a felragyogó arcokat úgy gondoltuk, hogy ezt megszeretnénk ismételni és nem csak egyszer egy évben.</1><2>A gyermekotthonok lakói óriási szeretettel fogadják az ajándékokat,a közös programokat és az adományozókat. Törekszünk arra,hogy az adott intézmények speciális helyzetének megfelelően adományozzunk, így a programjaink a megszületésüktől a mai napig folyamatosan fejlődnek, változnak.</2><3>Folyamatos az újratervezés és újabb célok meghatározása az adományozó önkéntesek és a gyermekek, valamint az intézmények elégedettségének igénye szerint.</3>"
-    }
-  },
   "pages": {
     "aboutUs": {
       "contentHeader": "A kérdés egyszerű volt: mire volna szükségetek? <1></1>A válasz még egyszerűbb: törődésre.<3></3>Innen indult a történetünk.",
@@ -42,6 +37,7 @@
         "transporationContent": "„A cél az út maga.” Nincs is izgalmasabb érzés, mint amikor az utazáshoz készülődünk. Az árva gyermekek életében egy külföldi utazás, vagy egyáltalán az utazás nagyon nagy álom. Ezt az elmúlt évek során a gyerekekkel való beszélgetésekkor szomorúan tapasztaltuk. Szinte kézenfekvő volt tehát, hogy szervezzünk utazást a részükre. Óriási élmény ezt a szabadságérzést adományozni az otthonban élőknek! A közös utazás mindenkit feltölt! Teveinkben szerepel egy szállítójármű és egy ausztriai üdülőközpont létrehozása is! Adományozzon Ön is az árváknak utazási élményt, nyári táborozást vagy téli élményeket!",
         "travelOrganization": "Utazásszervezés"
       },
+      "missionStatement": "<0>Legfontosabb célunk hogy a Kárpát-medence árváinak mindennapjait bearanyozzuk!</0><1>Az első jótékony akciónk baráti kezdeményezésre indult 2011. karácsonyán, amikor rászoruló gyerekeket ajándékoztunk meg. Látva a felragyogó arcokat úgy gondoltuk, hogy ezt megszeretnénk ismételni és nem csak egyszer egy évben.</1><2>A gyermekotthonok lakói óriási szeretettel fogadják az ajándékokat,a közös programokat és az adományozókat. Törekszünk arra,hogy az adott intézmények speciális helyzetének megfelelően adományozzunk, így a programjaink a megszületésüktől a mai napig folyamatosan fejlődnek, változnak.</2><3>Folyamatos az újratervezés és újabb célok meghatározása az adományozó önkéntesek és a gyermekek, valamint az intézmények elégedettségének igénye szerint.</3>",
       "quote": {
         "quoteText": "Aki nem hisz abban, hogy mennyi jó ember van, az kezdjen el valami jót tenni, és meglátja, milyen sokan oda állnak mellé"
       }
@@ -63,7 +59,7 @@
   "ui": {
     "navigation": {
       "aboutUs": "Rólunk",
-      "blog": "Blog",
+      "blog": "Események",
       "donation": "Adományozás",
       "home": "Kezdőoldal",
       "media": "Média",

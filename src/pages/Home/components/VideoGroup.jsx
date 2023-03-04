@@ -24,7 +24,7 @@ const VideoGroup = () => (
         flexDirection="column"
         justifyContent="center"
       >
-        <Trans i18nKey="page.home.missionStatement">
+        <Trans i18nKey="pages.home.missionStatement">
           <Heading as="h1" fontSize="32px" maxW="600px">
             Legfontosabb célunk hogy a Kárpát-medence árváinak mindennapjait
             bearanyozzuk!

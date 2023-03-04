@@ -27,6 +27,16 @@ const ContactDetailGroup = () => {
     },
   ];
 
+  const bankDetails = [
+    ["Bank", "Erste Bank Hungary Zrt, H-1138 Budapest, Népfürdő utca 24-26"],
+    ["SWIFT-Code", "GIBA HUHB"],
+    ["IBAN/BIC", "HU 1611600006 00000000 83451166 11600006 00000000 83451166"],
+    [
+      "TWINT-Option",
+      "+41784063331 János Mester, Gründer mester.jnos@gmail.com",
+    ],
+  ];
+
   return (
     <Flex
       justifyContent="center"
@@ -48,11 +58,10 @@ const ContactDetailGroup = () => {
         title="Határtalan Segítség Alapítvány"
         address="4405 Nyíregyháza, Molnár utca 26"
         email="hatartalansegitsegalapitvany@gmail.com"
-        description={`${localization.taxNumber}: 19102186115`}
-        bank="Erste Bank"
-        bankAccountNumber="11600006-00000000-83451166"
+        taxNumber={`${localization.taxNumber}: 19102186115`}
         documents={documents}
       />
+      <ContactDetail details={bankDetails}></ContactDetail>
     </Flex>
   );
 };

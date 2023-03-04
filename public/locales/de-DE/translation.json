@@ -1,17 +1,4 @@
 {
-  "country": {
-    "austria": "Österreich",
-    "germany": "Deutschland",
-    "hungary": "Ungarn",
-    "romania": "Rumänien",
-    "slovakia": "Slowakei",
-    "ukraine": "Ukraine"
-  },
-  "page": {
-    "home": {
-      "missionStatement": "<0>Unser wichtigstes Ziel ist es, den Alltag der Waisenkinder im Karpatenbecken golden zu machen!</0><1>Unsere erste Wohltätigkeitsveranstaltung wurde von einem Freund zu Weihnachten 2011 initiiert, als wir bedürftigen Kindern Geschenke machten. </1><2>Mit viel Liebe nehmen die Bewohner der Kinderheime Geschenke, gemeinsame Programme und Spender entgegen. </2><3>Entsprechend den Bedürfnissen der spendenden Freiwilligen und der Kinder sowie der Zufriedenheit der Institutionen werden laufend neue Planungen und neue Ziele festgelegt.</3>"
-    }
-  },
   "pages": {
     "aboutUs": {
       "contentHeader": "Die Frage war einfach: Was würden Sie brauchen? <1></1>Die Antwort ist noch einfacher: Pflege.<3></3>Hier begann unsere Geschichte.",
@@ -23,6 +10,14 @@
       "taxNumber": "Steuernummer"
     },
     "donation": {
+      "country": {
+        "austria": "Österreich",
+        "germany": "Deutschland",
+        "hungary": "Ungarn",
+        "romania": "Rumänien",
+        "slovakia": "Slowakei",
+        "ukraine": "Ukraine"
+      },
       "supportedTitle": "Unterstützte Kinderheime / Einrichtungen"
     },
     "home": {
@@ -42,6 +37,7 @@
         "transporationContent": "\"Das Ziel ist die Reise selbst.\" Es gibt kein aufregenderes Gefühl, als sich auf eine Reise vorzubereiten. Eine Auslandsreise oder überhaupt eine Reise ist ein sehr großer Traum im Leben von Waisenkindern. Das haben wir in den letzten Jahren leider bei Gesprächen mit Kindern erlebt. Da lag es fast auf der Hand, dass wir eine Reise für sie organisieren würden. Es ist eine tolle Erfahrung, den Menschen, die zu Hause leben, dieses Gefühl von Freiheit zu vermitteln! Gemeinsam reisen lädt alle auf! Unsere Kamele beinhalten auch die Erstellung eines Transportfahrzeugs und eines österreichischen Resorts! Spende Reiseerlebnisse, Sommercamping oder Wintererlebnisse an die Waisenkinder!",
         "travelOrganization": "Reiseorganisation"
       },
+      "missionStatement": "<0>Unser wichtigstes Ziel ist es, den Alltag der Waisenkinder im Karpatenbecken golden zu machen!</0><1>Unsere erste Wohltätigkeitsveranstaltung wurde von einem Freund zu Weihnachten 2011 initiiert, als wir bedürftigen Kindern Geschenke machten. </1><2>Mit viel Liebe nehmen die Bewohner der Kinderheime Geschenke, gemeinsame Programme und Spender entgegen. </2><3>Entsprechend den Bedürfnissen der spendenden Freiwilligen und der Kinder sowie der Zufriedenheit der Institutionen werden laufend neue Planungen und neue Ziele festgelegt.</3>",
       "quote": {
         "quoteText": "Wer nicht daran glaubt, wie viele gute Menschen es gibt, sollte anfangen, etwas Gutes zu tun und sehen, wie viele Menschen zu ihm stehen."
       }
@@ -64,7 +60,7 @@
     "navigation": {
       "aboutUs": "Über uns",
       "donation": "Spende",
-      "blog": "Blog",
+      "blog": "Veranstaltungen",
       "home": "Startseite",
       "media": "Medien",
       "pages": "Seiten"

@@ -1,8 +1,8 @@
 import { Flex, Link, Tag } from "@chakra-ui/react";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { AiFillBank } from "react-icons/ai";
 import { BsTelephoneFill } from "react-icons/bs";
+import { HiOutlineDocumentText } from "react-icons/hi";
 import { IoMdDocument } from "react-icons/io";
 import { MdEmail, MdLocationPin } from "react-icons/md";
 
@@ -11,9 +11,9 @@ const ContactDetail = ({
   subtitle,
   phone,
   email,
+  details,
   address,
-  bank,
-  bankAccountNumber,
+  taxNumber,
   documents,
 }) => {
   const { t } = useTranslation();
@@ -43,22 +43,22 @@ const ContactDetail = ({
           <Link href={`tel:+${phone}`}>+ {phone}</Link>
         </Flex>
       )}
-      {address && (
-        <Flex gap={1} alignItems="center">
-          <MdLocationPin />
-          {address}
-        </Flex>
-      )}
       {email && (
         <Flex gap={1} alignItems="center">
           <MdEmail />
           <Link href={`mailto:${email}`}>{email}</Link>
         </Flex>
       )}
-      {bank && (
+      {address && (
         <Flex gap={1} alignItems="center">
-          <AiFillBank />
-          {bank}: {bankAccountNumber}
+          <MdLocationPin />
+          {address}
+        </Flex>
+      )}
+      {taxNumber && (
+        <Flex gap={1} alignItems="center">
+          <HiOutlineDocumentText />
+          {taxNumber}
         </Flex>
       )}
       {documents && (
@@ -78,6 +78,17 @@ const ContactDetail = ({
           ))}
         </Flex>
       )}
+      {details &&
+        details.map(([name, value], idx) => (
+          <Flex
+            gap={1}
+            key={`detail-${name}-${idx}`}
+            alignItems="flex-start"
+            flexDirection="column"
+          >
+            {name}:<Tag color="black">{value}</Tag>
+          </Flex>
+        ))}
     </Flex>
   );
 };

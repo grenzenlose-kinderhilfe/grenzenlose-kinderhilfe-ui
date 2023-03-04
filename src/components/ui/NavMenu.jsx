@@ -54,7 +54,7 @@ export const MenuLinks = ({ routes, onClick }) => {
   const localization = {
     home: t("ui.navigation.home", "Kezdőoldal"),
     media: t("ui.navigation.media", "Média"),
-    blog: t("ui.navigation.blog", "Blog"),
+    blog: t("ui.navigation.blog", "Események"),
     pages: t("ui.navigation.pages", "Oldalak"),
     aboutUs: t("ui.navigation.aboutUs", "Rólunk"),
     donation: t("ui.navigation.donation", "Adományozás"),
