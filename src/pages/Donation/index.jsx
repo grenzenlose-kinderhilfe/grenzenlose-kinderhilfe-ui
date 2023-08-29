@@ -23,7 +23,8 @@ const Donation = () => {
       SK: t('pages.donation.country.slovakia', 'Szlovákia'),
       UA: t('pages.donation.country.ukraine', 'Ukrajna'),
       DE: t('pages.donation.country.germany', 'Németország'),
-      AT: t('pages.donation.country.austria', 'Ausztria')
+      AT: t('pages.donation.country.austria', 'Ausztria'),
+      XK: t('pages.donation.country.kosovo', 'Koszovó')
     }
   }
 

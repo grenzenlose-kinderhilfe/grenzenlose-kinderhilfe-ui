@@ -192,13 +192,13 @@ const locations = [
   { countryCode: 'HU', name: 'Pósa utcai Óvoda', place: 'Debrecen' },
   {
     countryCode: 'HU',
-    name: 'Gyermekotthon',
-    place: 'Shtime'
-  },
-  {
-    countryCode: 'HU',
     name: 'Családsegítés',
     place: 'Tiszacsermely'
+  },
+  {
+    countryCode: 'XK',
+    name: 'Gyermekotthon',
+    place: 'Shtime'
   },
   { countryCode: 'UA', name: 'Óvoda', place: 'Velyka Dobron' },
   { countryCode: 'UA', name: 'Általános Iskola', place: 'Velyka Dobron' },
