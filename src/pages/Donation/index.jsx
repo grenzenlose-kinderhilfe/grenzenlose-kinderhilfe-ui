@@ -31,7 +31,9 @@ const Donation = () => {
   const localizedLocations = locations.map((item) => ({
     ...item,
     country: localization.countries[item.countryCode]
-  }))
+  })).sort((a, b) => a.countryCode < b.countryCode ? -1 : a.countryCode > b.countryCode ? 1 : 0)
+
+  console.log(localizedLocations)
 
   return (
     <Grid
