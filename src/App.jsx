@@ -1,10 +1,10 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
-import AppRoutes from "./AppRoutes";
-import Layout from "./components/ui/Layout";
-import SuspenseBoundary from "./components/ui/SuspenseBoundary";
-import routes from "./routes";
+import AppRoutes from './AppRoutes'
+import Layout from './components/ui/Layout'
+import SuspenseBoundary from './components/ui/SuspenseBoundary'
+import routes from './routes'
 
 const App = () => (
   <BrowserRouter>
@@ -14,6 +14,6 @@ const App = () => (
       </SuspenseBoundary>
     </Layout>
   </BrowserRouter>
-);
+)
 
-export default App;
+export default App

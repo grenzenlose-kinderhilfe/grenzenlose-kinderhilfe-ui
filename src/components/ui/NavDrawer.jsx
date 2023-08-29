@@ -5,19 +5,19 @@ import {
   DrawerContent,
   DrawerFooter,
   DrawerHeader,
-  DrawerOverlay,
-} from "@chakra-ui/react";
-import React from "react";
+  DrawerOverlay
+} from '@chakra-ui/react'
+import React from 'react'
 
-import { MenuLanguageSwitcher, MenuLinks } from "./NavMenu";
+import { MenuLanguageSwitcher, MenuLinks } from './NavMenu'
 
 const NavDrawer = ({ isOpen, onClose, routes }) => {
-  const btnRef = React.useRef();
+  const btnRef = React.useRef()
 
   return (
     <Drawer
       isOpen={isOpen}
-      placement="right"
+      placement='right'
       onClose={onClose}
       finalFocusRef={btnRef}
     >
@@ -35,7 +35,7 @@ const NavDrawer = ({ isOpen, onClose, routes }) => {
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
-  );
-};
+  )
+}
 
-export default NavDrawer;
+export default NavDrawer

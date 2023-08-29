@@ -4,58 +4,40 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@chakra-ui/react": "^2.3.7",
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "framer-motion": "^7.6.4",
-    "i18next": "^22.0.5",
-    "i18next-browser-languagedetector": "^7.0.1",
-    "i18next-http-backend": "^2.0.1",
-    "luxon": "^3.1.0",
+    "@chakra-ui/react": "^2.8.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "framer-motion": "^7.10.3",
+    "i18next": "^22.5.1",
+    "i18next-browser-languagedetector": "^7.1.0",
+    "i18next-http-backend": "^2.2.1",
+    "luxon": "^3.4.2",
     "react": "^18.2.0",
-    "react-country-flag": "^3.0.2",
+    "react-country-flag": "^3.1.0",
     "react-dom": "^18.2.0",
     "react-ga4": "^1.4.1",
-    "react-i18next": "^12.0.0",
-    "react-icons": "^4.6.0",
-    "react-redux": "^8.0.4",
-    "react-router-dom": "^6.4.3",
+    "react-i18next": "^12.3.1",
+    "react-icons": "^4.10.1",
+    "react-redux": "^8.1.2",
+    "react-router-dom": "^6.15.0",
     "react-scripts": "^5.0.1",
-    "swiper": "^8.4.4",
-    "web-vitals": "^3.0.4"
+    "swiper": "^8.4.7",
+    "web-vitals": "^3.4.0"
   },
   "scripts": {
     "build": "react-scripts build",
     "zip": "cd build && zip -r grenzenlose-kinderhilfe-ui.zip .",
     "start": "react-scripts start",
-    "lint": "yarn lint:eslint && yarn lint:prettier",
-    "lint:ci": "eslint src/**/*.js src/**/*.jsx --max-warnings=0",
-    "lint:eslint": "eslint --fix src/**/*.js src/**/*.jsx",
-    "lint:prettier": "prettier --write .",
+    "lint": "standard --fix .",
+    "lint:ci": "standard .",
     "lint:staged": "lint-staged",
     "localization:parse": "rm -rf public/locales/hu-HU/ && i18next 'src/**/*.{js,jsx}'",
     "postinstall": "husky install"
   },
   "lint-staged": {
-    "src/**/*": [
-      "prettier --write"
-    ],
     "*.{js, jsx}": [
-      "eslint --fix"
+      "standard --fix"
     ]
-  },
-  "prettier": {
-    "tabWidth": 2,
-    "singleQuote": false,
-    "semi": true,
-    "importOrder": [
-      "^@core/(.*)$",
-      "^@server/(.*)$",
-      "^@ui/(.*)$",
-      "^[./]"
-    ],
-    "importOrderSeparation": true,
-    "importOrderSortSpecifiers": true
   },
   "browserslist": {
     "production": [
@@ -70,15 +52,10 @@
     ]
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^3.4.0",
-    "eslint": "^8.26.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "husky": "^8.0.1",
-    "i18next-parser": "^7.0.3",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1"
+    "husky": "^8.0.3",
+    "i18next-parser": "^7.9.0",
+    "lint-staged": "^13.3.0",
+    "standard": "^17.1.0"
   },
-  "packageManager": "yarn@3.4.1"
+  "packageManager": "yarn@3.6.3"
 }
