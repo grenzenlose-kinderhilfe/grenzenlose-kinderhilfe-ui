@@ -42,7 +42,6 @@ const ContactDetailGroup = () => {
       justifyContent='center'
       flexDirection='column'
       maxWidth='500px'
-      height='100%'
     >
       <ContactDetail
         title='Kocsik Enikő'
