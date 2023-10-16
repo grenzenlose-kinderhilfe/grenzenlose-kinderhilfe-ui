@@ -15,12 +15,15 @@ const NavBar = ({ routes }) => {
   return (
     <Flex
       as='nav'
+      top={0}
+      width='100%'
       align='center'
+      position='fixed'
       justify='space-between'
-      wrap='wrap'
-      padding={6}
+      padding='1rem'
       bg='primary.blue'
       color='primary.white'
+      zIndex='100'
     >
       <Flex minWidth='15%' maxWidth='20%'>
         <MenuLogo />
