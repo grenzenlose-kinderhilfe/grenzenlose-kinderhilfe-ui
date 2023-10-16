@@ -29,7 +29,7 @@
     "serve": "vite serve",
     "zip": "pnpm exec 'cd build && /usr/bin/zip -r grenzenlose-kinderhilfe-ui.zip .'",
     "start": "vite",
-    "lint": "standard --fix --ext js,jsx src/",
+    "lint": "standard --fix --ext js,jsx .",
     "localization:parse": "rm -rf public/locales/hu-HU/ && i18next 'src/**/*.{js,jsx}'"
   },
   "browserslist": {

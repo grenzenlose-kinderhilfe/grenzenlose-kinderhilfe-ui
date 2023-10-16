@@ -9,6 +9,10 @@ const Media = () => {
   const { t } = useTranslation()
 
   const localization = {
+    rollingKidsParadeBeregszaszHeading: t('pages.media.rollingKidsParadeBeregszaszHeading', 'Rolling Kids felvonulás Beregszászon'),
+    rollingKidsParadeBeregszaszContent: t('pages.media.rollingKidsParadeBeregszaszContent', 'A Határtalan Segítség Alapítvány és a P. Frangepán Katalin Gimnázium szervezésében, a Beregszászi Polgármesteri Hivatal és a városi oktatási osztály, valamint a Kossuth Lajos Líceum közreműködésével a Vérke-parti város ovisai és alsó tagozatos iskolásai közlekedésbiztonsági és környezetvédelmi programon vettek részt Rolling Kids elnevezéssel.'),
+    ratChildrenHomeBicycleHeading: t('pages.media.ratChildrenHomeBicycleHeading', 'Kerékpárokat kaptak a Ráti Gyermekotthon csemetéi a Határtalan Segítség Alapítványtól'),
+    ratChildrenHomeBicycleContent: t('pages.media.ratChildrenHomeBicycleContent', 'Adománnyal teli kisbusz érkezik a Ráti Szent Mihály Gyermekotthon udvarára. Az anyaországi Határtalan Segítség Alapítvány ezúttal 10 darab kerékpárral lepte meg az intézmény lurkóit, amelyet holland partnereik segítségével gyűjtöttek.'),
     ukraineChildrenHeading: t(
       'pages.media.ukraineChildrenHeading',
       'Ukrajnában élő gyerekeknek gyűjt a Határtalan Segítség Alapítvány'
@@ -37,6 +41,24 @@ const Media = () => {
 
   return (
     <Grid color='black' m='25px' gap={8}>
+      <GridItem>
+        <MediaVideoItem
+          heading={localization.rollingKidsParadeBeregszaszHeading}
+          content={localization.rollingKidsParadeBeregszaszContent}
+          videoEmbedUrl='https://www.youtube.com/embed/d5JKER2a_iI?controls=0&rel=0'
+          source='TV 21 Ungvár'
+          sourceUrl='https://tv21ungvar.tv/hirmusorok/hirek/rolling-kids-felvonulas-beregszaszon.html'
+        />
+      </GridItem>
+      <GridItem>
+        <MediaVideoItem
+          heading={localization.ratChildrenHomeBicycleHeading}
+          content={localization.ratChildrenHomeBicycleContent}
+          videoEmbedUrl='https://www.youtube.com/embed/nYD-jV6_rcI?controls=0&rel=0'
+          source='TV 21 Ungvár'
+          sourceUrl='https://tv21ungvar.tv/hirmusorok/hirek/kerekparokat-kaptak-a-rati-gyermekotthon-csemetei-a-hatartalan-segitseg-alapitvanytol.html'
+        />
+      </GridItem>
       <GridItem>
         <MediaVideoItem
           heading={localization.ukraineChildrenHeading}
