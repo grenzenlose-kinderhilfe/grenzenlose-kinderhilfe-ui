@@ -4,40 +4,33 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@chakra-ui/react": "^2.8.0",
+    "@chakra-ui/react": "^2.8.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "framer-motion": "^7.10.3",
     "i18next": "^22.5.1",
     "i18next-browser-languagedetector": "^7.1.0",
-    "i18next-http-backend": "^2.2.1",
-    "luxon": "^3.4.2",
+    "i18next-http-backend": "^2.2.2",
+    "luxon": "^3.4.3",
     "react": "^18.2.0",
     "react-country-flag": "^3.1.0",
     "react-dom": "^18.2.0",
     "react-ga4": "^1.4.1",
     "react-i18next": "^12.3.1",
-    "react-icons": "^4.10.1",
-    "react-redux": "^8.1.2",
-    "react-router-dom": "^6.15.0",
-    "react-scripts": "^5.0.1",
-    "swiper": "^8.4.7",
-    "web-vitals": "^3.4.0"
+    "react-icons": "^4.11.0",
+    "react-redux": "^8.1.3",
+    "react-router-dom": "^6.17.0",
+    "swiper": "^8.4.7"
   },
   "scripts": {
-    "build": "react-scripts build",
-    "zip": "cd build && zip -r grenzenlose-kinderhilfe-ui.zip .",
-    "start": "react-scripts start",
-    "lint": "standard --fix .",
-    "lint:ci": "standard .",
-    "lint:staged": "lint-staged",
-    "localization:parse": "rm -rf public/locales/hu-HU/ && i18next 'src/**/*.{js,jsx}'",
-    "postinstall": "husky install"
-  },
-  "lint-staged": {
-    "*.{js, jsx}": [
-      "standard --fix"
-    ]
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "lefthook install",
+    "build": "vite build",
+    "serve": "vite serve",
+    "zip": "pnpm exec 'cd build && /usr/bin/zip -r grenzenlose-kinderhilfe-ui.zip .'",
+    "start": "vite",
+    "lint": "standard --fix --ext js,jsx src/",
+    "localization:parse": "rm -rf public/locales/hu-HU/ && i18next 'src/**/*.{js,jsx}'"
   },
   "browserslist": {
     "production": [
@@ -52,10 +45,11 @@
     ]
   },
   "devDependencies": {
-    "husky": "^8.0.3",
+    "@vitejs/plugin-react-swc": "^3.4.0",
     "i18next-parser": "^7.9.0",
-    "lint-staged": "^13.3.0",
-    "standard": "^17.1.0"
+    "lefthook": "^1.5.2",
+    "standard": "^17.1.0",
+    "vite": "^4.4.11"
   },
-  "packageManager": "yarn@3.6.3"
+  "packageManager": "pnpm@8.9.0"
 }

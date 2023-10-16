@@ -1,7 +1,5 @@
 *.svg
 
-.yarn/
-
 build/
 assets/
 public/
