@@ -17,10 +17,9 @@ const SlideShow = () => {
   const [status, setStatus] = React.useState(STATUS_INIT)
 
   const { i18n } = useTranslation()
+  const wordpress = new WordpressAPI()
 
   React.useEffect(() => {
-    const wordpress = new WordpressAPI()
-
     const fetchFeaturedImages = async () => {
       setStatus(STATUS_LOADING)
 
@@ -37,7 +36,7 @@ const SlideShow = () => {
     if (status === STATUS_INIT) {
       fetchFeaturedImages()
     }
-  }, [slides, setSlides, i18n, status, setStatus])
+  }, [slides, setSlides, i18n, status, setStatus, wordpress])
 
   const getSlides = () =>
     slides.map(({ img, alt, link }, idx) => (

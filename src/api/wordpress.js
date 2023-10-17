@@ -18,7 +18,7 @@ class WordpressAPI {
       }))
   }
 
-  async getFeaturedPosts (locale = 'de-DE') {
+  async getFeaturedPosts (locale) {
     const categoryId = this.featuredCategories[locale]
 
     const slides = await fetch(`${this.apiUrl}/posts?categories=${categoryId}`)
