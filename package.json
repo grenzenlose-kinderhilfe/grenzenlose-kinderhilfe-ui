@@ -27,7 +27,6 @@
     "postinstall": "lefthook install",
     "build": "vite build",
     "serve": "vite serve",
-    "zip": "pnpm exec 'cd build && /usr/bin/zip -r grenzenlose-kinderhilfe-ui.zip .'",
     "start": "vite",
     "lint": "standard --fix --ext js,jsx .",
     "localization:parse": "rm -rf public/locales/hu-HU/ && i18next 'src/**/*.{js,jsx}'"
@@ -49,7 +48,8 @@
     "i18next-parser": "^7.9.0",
     "lefthook": "^1.5.2",
     "standard": "^17.1.0",
-    "vite": "^4.4.11"
+    "vite": "^4.4.11",
+    "vite-plugin-zip-pack": "^1.0.6"
   },
   "packageManager": "pnpm@8.9.0"
 }
