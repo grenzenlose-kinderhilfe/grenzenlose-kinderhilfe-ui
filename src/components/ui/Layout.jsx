@@ -5,11 +5,9 @@ import Footer from './Footer'
 import NavBar from './NavBar'
 
 const Layout = ({ routes, children }) => (
-  <Flex flexDirection='column'>
+  <Flex flexDirection='column' height='100vh' width='100vw' paddingTop='5rem'>
     <NavBar routes={routes} />
-    <Flex paddingTop='5rem'>
-      {children}
-    </Flex>
+    {children}
     <Footer />
   </Flex>
 )
