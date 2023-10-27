@@ -1,57 +1,10 @@
-import { Flex, Grid, GridItem, Link, Text } from '@chakra-ui/react'
+import { Grid, GridItem, Link } from '@chakra-ui/react'
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
-import rollingKidsImage from '../../assets/img/pages/rolling-kids.jpg'
+import PageImage from './PageImage/PageImage'
+import pageItems from './pagesItems'
 import withTracker from '../../utils/tracking'
-
-const pageItems = [
-  {
-    title: 'Ukraine 2022',
-    url: '/pages/ukraine-2022',
-    backgroundImage: rollingKidsImage
-  },
-  {
-    isExternal: true,
-    title: 'Rolling Kids',
-    url: 'https://rollingkids.eu/',
-    backgroundImage: rollingKidsImage
-  },
-  {
-    title: 'Kresz Park',
-    url: '/pages/kresz-park',
-    backgroundImage: rollingKidsImage
-  },
-  {
-    title: 'Cipősdoboz',
-    url: '/pages/ciposdoboz',
-    backgroundImage: rollingKidsImage
-  }
-]
-
-const PageImage = ({ title, backgroundImage }) => (
-  <Flex flexDirection='column' gap={3} alignItems='center'>
-    <Flex
-      backgroundImage={`url(${backgroundImage})`}
-      backgroundSize='cover'
-      borderRadius='10px'
-      backgroundColor='lightgrey'
-      opacity='90%'
-      height={{ base: '250px', md: '320px' }}
-      width='100%'
-      minWidth='250px'
-      maxWidth='320px'
-      _hover={{ opacity: '50%' }}
-    />
-    <Text
-      fontWeight={700}
-      fontSize='24px'
-      _hover={{ textDecoration: 'underline' }}
-    >
-      {title}
-    </Text>
-  </Flex>
-)
 
 const Pages = () => (
   <Grid

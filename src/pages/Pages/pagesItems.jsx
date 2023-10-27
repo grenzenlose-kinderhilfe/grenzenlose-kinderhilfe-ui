@@ -5,19 +5,9 @@ import rollingKidsImage from '../../assets/img/pages/rolling-kids.jpg'
 
 const pageItems = [
   {
-    title: <Trans i18nKey='pages.pagesTitle.ukraine2022'>Ukraine 2022</Trans>,
-    url: '/pages/ukraine-2022',
-    backgroundImage: rollingKidsImage
-  },
-  {
     isExternal: true,
-    title: 'Rolling Kids',
+    title: <Trans i18nKey='pages.pagesTitle.rollingKids'>Rolling Kids</Trans>,
     url: 'https://rollingkids.eu/',
-    backgroundImage: rollingKidsImage
-  },
-  {
-    title: <Trans i18nKey='pages.pagesTitle.highwayCodePark'>Kresz Park</Trans>,
-    url: '/pages/kresz-park',
     backgroundImage: rollingKidsImage
   },
   {
