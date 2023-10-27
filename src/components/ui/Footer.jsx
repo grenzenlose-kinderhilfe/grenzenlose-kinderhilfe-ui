@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react'
+import { Flex, Link } from '@chakra-ui/react'
 import React from 'react'
 
 const Footer = () => {
@@ -7,13 +7,16 @@ const Footer = () => {
   return (
     <Flex
       width='100%'
+      fontSize='0.8rem'
       padding='0.5rem'
       marginTop='auto'
       justifyContent='center'
       bg='primary.blue'
       color='primary.white'
     >
-      <Text>Copyright {currentYear} Zsolt Mester</Text>
+      <Link href='https://github.com/meister245' isExternal>
+        Copyright {currentYear} Zsolt Mester
+      </Link>
     </Flex>
   )
 }
