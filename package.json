@@ -10,7 +10,7 @@
     "framer-motion": "^7.10.3",
     "i18next": "^22.5.1",
     "i18next-browser-languagedetector": "^7.1.0",
-    "i18next-http-backend": "^2.2.2",
+    "i18next-http-backend": "^2.3.0",
     "luxon": "^3.4.3",
     "react": "^18.2.0",
     "react-country-flag": "^3.1.0",
@@ -48,7 +48,7 @@
     "i18next-parser": "^7.9.0",
     "lefthook": "^1.5.2",
     "standard": "^17.1.0",
-    "vite": "^4.4.11",
+    "vite": "^4.5.0",
     "vite-plugin-zip-pack": "^1.0.6"
   },
   "packageManager": "pnpm@8.9.0"
