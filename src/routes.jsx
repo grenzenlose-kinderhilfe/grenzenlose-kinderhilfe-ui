@@ -5,8 +5,9 @@ import { LOCALE_DE, WORDPRESS_BLOG_BASE_URL } from './constants'
 const Home = React.lazy(() => import('./pages/Home'))
 const Donation = React.lazy(() => import('./pages/Donation'))
 const Media = React.lazy(() => import('./pages/Media'))
-// const Pages = React.lazy(() => import("./pages/Pages"));
+const Pages = React.lazy(() => import('./pages/Pages'))
 const About = React.lazy(() => import('./pages/About'))
+const ShoeBox = React.lazy(() => import('./pages/Shoebox'))
 
 const routes = [
   {
@@ -26,11 +27,12 @@ const routes = [
     localeSuffix: { [LOCALE_DE]: '/de' },
     localizationKey: 'blog'
   },
-  // {
-  //   url: "/pages",
-  //   localizationKey: "pages",
-  //   element: <Pages />,
-  // },
+  {
+    display: false,
+    url: '/pages',
+    localizationKey: 'pages',
+    element: <Pages />
+  },
   {
     url: '/about',
     localizationKey: 'aboutUs',
@@ -41,6 +43,11 @@ const routes = [
     url: '/donation',
     localizationKey: 'donation',
     element: <Donation />
+  },
+  {
+    display: false,
+    url: '/pages/shoebox',
+    element: <ShoeBox />
   }
 ]
 

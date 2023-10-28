@@ -6,14 +6,18 @@ import Layout from './components/ui/Layout'
 import SuspenseBoundary from './components/ui/SuspenseBoundary'
 import routes from './routes'
 
-const App = () => (
-  <BrowserRouter>
-    <Layout routes={routes}>
-      <SuspenseBoundary>
-        <AppRoutes />
-      </SuspenseBoundary>
-    </Layout>
-  </BrowserRouter>
-)
+const App = () => {
+  const displayedRoutes = routes.filter(route => route?.display ?? true)
+
+  return (
+    <BrowserRouter>
+      <Layout routes={displayedRoutes}>
+        <SuspenseBoundary>
+          <AppRoutes routes={routes} />
+        </SuspenseBoundary>
+      </Layout>
+    </BrowserRouter>
+  )
+}
 
 export default App

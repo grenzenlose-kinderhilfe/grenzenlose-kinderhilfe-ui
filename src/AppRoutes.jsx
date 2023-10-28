@@ -1,9 +1,7 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
-import routes from './routes'
-
-const AppRoutes = () => (
+const AppRoutes = ({ routes }) => (
   <Routes>
     {routes.map((item, idx) => (
       <Route key={`route-${idx}`} path={item.url} element={item.element} />

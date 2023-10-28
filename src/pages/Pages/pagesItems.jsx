@@ -12,7 +12,7 @@ const pageItems = [
   },
   {
     title: <Trans i18nKey='pages.pagesTitle.shoeBox'>Cipősdoboz</Trans>,
-    url: '/pages/ciposdoboz',
+    url: '/pages/shoebox',
     backgroundImage: rollingKidsImage
   }
 ]
