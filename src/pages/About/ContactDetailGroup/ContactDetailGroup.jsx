@@ -2,7 +2,7 @@ import { Flex } from '@chakra-ui/react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import ContactDetail from './ContactDetail'
+import ContactDetail from './ContentDetail/ContactDetail'
 
 const ContactDetailGroup = () => {
   const { t } = useTranslation()

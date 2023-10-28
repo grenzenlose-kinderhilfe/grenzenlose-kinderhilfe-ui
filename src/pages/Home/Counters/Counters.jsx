@@ -1,8 +1,9 @@
-import { Grid, GridItem, Stat, StatLabel, StatNumber } from '@chakra-ui/react'
+import { Grid, GridItem } from '@chakra-ui/react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 import backgroundImage from '../../../assets/img/background/background-field.jpg'
+import Metric from './Metric/Metric'
 
 const data = [
   {
@@ -23,20 +24,7 @@ const data = [
   }
 ]
 
-const Metric = ({ label, value }) => (
-  <Stat
-    padding='5px'
-    margin='25px'
-    border='2px solid #112B5C'
-    borderRadius='25px'
-    backgroundColor='rgba(255, 255, 255, .6)'
-  >
-    <StatNumber>{value}</StatNumber>
-    <StatLabel fontSize='18px'>{label}</StatLabel>
-  </Stat>
-)
-
-const Metrics = () => {
+const Counters = () => {
   const { t } = useTranslation()
 
   const localization = {
@@ -66,4 +54,4 @@ const Metrics = () => {
   )
 }
 
-export default Metrics
+export default Counters

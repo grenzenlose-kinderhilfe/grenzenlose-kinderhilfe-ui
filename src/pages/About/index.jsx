@@ -3,8 +3,8 @@ import React from 'react'
 
 import aboutUsImage from '../../assets/img/about-us.jpg'
 import withTracker from '../../utils/tracking'
-import AboutContent from './components/AboutContent'
-import ContactDetailGroup from './components/ContactDetailGroup'
+import AboutContent from './AboutContent/AboutContent'
+import ContactDetailGroup from './ContactDetailGroup/ContactDetailGroup'
 
 const About = () => {
   const [isLargerThan1025] = useMediaQuery('(min-width: 1025px)')

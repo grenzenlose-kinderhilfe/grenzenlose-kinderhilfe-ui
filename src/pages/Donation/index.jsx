@@ -3,8 +3,8 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 import withTracker from '../../utils/tracking'
-import LocationAccordion from './components/LocationAccordion'
-import LocationGrid from './components/LocationGrid'
+import LocationAccordion from './LocationAccordion/LocationAccordion'
+import LocationGrid from './LocationGrid/LocationGrid'
 import locations from './locations'
 
 const Donation = () => {
@@ -32,8 +32,6 @@ const Donation = () => {
     ...item,
     country: localization.countries[item.countryCode]
   })).sort((a, b) => a.countryCode < b.countryCode ? -1 : a.countryCode > b.countryCode ? 1 : 0)
-
-  console.log(localizedLocations)
 
   return (
     <Grid

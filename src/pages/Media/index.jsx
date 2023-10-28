@@ -3,7 +3,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 import withTracker from '../../utils/tracking'
-import MediaVideoItem from './components/MediaVideoItem'
+import MediaVideoItem from './MediaVideoItem/MediaVideoItem'
 
 const Media = () => {
   const { t } = useTranslation()

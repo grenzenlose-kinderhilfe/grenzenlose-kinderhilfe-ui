@@ -2,18 +2,18 @@ import { Grid, GridItem } from '@chakra-ui/react'
 import React from 'react'
 
 import withTracker from '../../utils/tracking'
-import Metrics from './components/Metrics'
-import Mission from './components/Mission'
-import Quote from './components/Quote'
-import SlideShow from './components/SlideShow'
-import VideoGroup from './components/VideoGroup'
+import Counters from './Counters/Counters'
+import Mission from './Mission/Mission'
+import Quote from './Quote/Quote'
+import SlideShow from './SlideShow/SlideShow'
+import VideoGroup from './VideoGroup/VideoGroup'
 
 const Home = () => (
   <Grid
     color='black'
     gap={{ base: 0, md: 4 }}
     margin={{ base: 0, lg: '25px', xl: '50px 50px 25px' }}
-    templateAreas={'"slideshow" "videoGroup" "metrics" "mission" "quote"'}
+    templateAreas={'"slideshow" "videoGroup" "counters" "mission" "quote"'}
   >
     <GridItem area='slideshow' overflow='hidden' mb='20px'>
       <SlideShow />
@@ -21,8 +21,8 @@ const Home = () => (
     <GridItem area='videoGroup'>
       <VideoGroup />
     </GridItem>
-    <GridItem area='metrics'>
-      <Metrics />
+    <GridItem area='counters'>
+      <Counters />
     </GridItem>
     <GridItem area='mission'>
       <Mission />

@@ -1,38 +1,17 @@
 import {
   Accordion,
-  AccordionButton,
-  AccordionIcon,
-  AccordionItem,
-  AccordionPanel,
-  Box,
   Grid,
   GridItem,
-  Heading,
   Text
 } from '@chakra-ui/react'
 import React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 
+import MissionItem from './MissionItem/MissionItem'
 import educationImage from '../../../assets/img/mission/education.jpg'
 import experiencesImage from '../../../assets/img/mission/experiences.jpg'
 import infrastructureImage from '../../../assets/img/mission/infrastructure.jpg'
 import transportationImage from '../../../assets/img/mission/transportation.jpg'
-
-const MissionItem = ({ title, onClickHandler, children }) => (
-  <AccordionItem>
-    <AccordionButton
-      onClick={onClickHandler}
-      _hover={{ bg: '#EDEDED', borderRadius: '10px' }}
-      _expanded={{ bg: 'primary.lightblue', borderRadius: '10px' }}
-    >
-      <Box flex='1' textAlign='left'>
-        <Heading fontSize='24px'>{title}</Heading>
-      </Box>
-      <AccordionIcon />
-    </AccordionButton>
-    <AccordionPanel pb={4}>{children}</AccordionPanel>
-  </AccordionItem>
-)
 
 const Mission = () => {
   const [expandedIndex, setExpandedIndex] = React.useState(0)
