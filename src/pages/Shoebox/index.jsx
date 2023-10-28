@@ -1,20 +1,26 @@
 import { Grid, GridItem } from '@chakra-ui/react'
 
+import withTracker from '../../utils/tracking'
 import EmbedMap from './EmbedMap/EmbedMap'
+import ContentGroup from './ContentGroup/ContentGroup'
+import MapText from './MapText/MapText'
 
 const ShoeBox = () => (
   <Grid
-    gap={{ base: 0, md: 4 }}
-    margin={{ base: 0, lg: '25px', xl: '50px 5px 25px' }}
-    templateAreas={'"mediaGroup" "map" "content" "image"'}
+    gap={{ base: 4, md: 8 }}
+    margin={{ base: 0, lg: '25px' }}
+    templateAreas={'"contentGroup" "mapText" "map" "image"'}
   >
-    <GridItem area='mediaGroup' />
-    <GridItem area='map' align='center'>
+    <GridItem area='contentGroup'>
+      <ContentGroup />
+    </GridItem>
+    <GridItem area='mapText' align='center'>
+      <MapText />
+    </GridItem>
+    <GridItem area='map' align='center' maxWidth='100vw'>
       <EmbedMap />
     </GridItem>
-    <GridItem area='content' />
-    <GridItem area='image' />
   </Grid>
 )
 
-export default ShoeBox
+export default withTracker(ShoeBox)
