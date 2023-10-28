@@ -10,9 +10,9 @@ import React from 'react'
 
 const ContentGroup = () => (
   <Grid
+    margin={2}
     templateColumns={{ base: '1fr', xl: '1fr 1fr' }}
-    margin={{ base: 0, md: 8 }}
-    borderRadius={{ base: 0, md: '10px' }}
+    borderRadius='10px'
     backgroundColor='primary.blue'
     color='white'
   >
