@@ -12,6 +12,7 @@ import React from 'react'
 const ContentGroup = () => (
   <Grid
     margin={2}
+    padding={2}
     templateColumns={{ base: '1fr', xl: '2fr 3fr' }}
     borderRadius='10px'
     backgroundColor='primary.blue'
