@@ -15,7 +15,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import { LANGUAGES } from '../../constants'
 
 export const MenuLogo = () => (
-  <AspectRatio minWidth='175px' maxWidth='250px' maxHeight='72px' ratio={3 / 1}>
+  <AspectRatio minWidth='175px' maxWidth='250px' maxHeight='72px' ratio={11 / 3}>
     <Link as={RouterLink} to='/'>
       <Image src='/assets/img/logo.svg' fit='contain' alt='grenzenlose-kinderhilfe-logo' />
     </Link>
