@@ -4,6 +4,7 @@ import {
   Grid,
   GridItem,
   Heading,
+  Image,
   Text
 } from '@chakra-ui/react'
 import React from 'react'
@@ -11,7 +12,7 @@ import React from 'react'
 const ContentGroup = () => (
   <Grid
     margin={2}
-    templateColumns={{ base: '1fr', xl: '1fr 1fr' }}
+    templateColumns={{ base: '1fr', xl: '2fr 3fr' }}
     borderRadius='10px'
     backgroundColor='primary.blue'
     color='white'
@@ -20,6 +21,7 @@ const ContentGroup = () => (
       <Flex
         gap={6}
         align='center'
+        minHeight={{ base: '250px', xl: '450px' }}
         height='100%'
         flexDirection='column'
         justifyContent='center'
@@ -43,14 +45,8 @@ const ContentGroup = () => (
       justifyContent='center'
       p={{ base: '0 10px 10px', md: '0 25px 25px', xl: '25px' }}
     >
-      <AspectRatio width='100%' ratio={16 / 9}>
-        <iframe
-          title='Határtalan Segítség Alapítvány'
-          width='1268'
-          height='713'
-          src='https://www.youtube.com/embed/d5JKER2a_iI?controls=0&rel=0'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-        />
+      <AspectRatio width='100%' ratio={{ base: 7 / 4 }}>
+        <Image src='/assets/img/pages/shoebox.png' fit='cover' alt='shoebox-logo' />
       </AspectRatio>
     </GridItem>
   </Grid>
