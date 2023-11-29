@@ -2,8 +2,6 @@ import { Flex, Heading, Text } from '@chakra-ui/react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import backgroundImage from '../../../assets/img/background/background-cross.jpg'
-
 const Quote = () => {
   const { t } = useTranslation()
 
@@ -17,7 +15,7 @@ const Quote = () => {
   return (
     <Flex
       borderRadius={{ base: 0, lg: '10px' }}
-      backgroundImage={`url(${backgroundImage})`}
+      backgroundImage='url(/assets/img/background/background-cross.jpg)'
       backgroundSize='cover'
       backgroundColor='lightgrey'
       flexDirection='column'

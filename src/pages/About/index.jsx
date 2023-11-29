@@ -1,7 +1,6 @@
 import { Grid, GridItem, useMediaQuery } from '@chakra-ui/react'
 import React from 'react'
 
-import aboutUsImage from '../../assets/img/about-us.jpg'
 import withTracker from '../../utils/tracking'
 import AboutContent from './AboutContent/AboutContent'
 import ContactDetailGroup from './ContactDetailGroup/ContactDetailGroup'
@@ -20,7 +19,7 @@ const About = () => {
       </GridItem>
       <GridItem
         m='25px'
-        backgroundImage={`url(${aboutUsImage})`}
+        backgroundImage='url(/assets/img/about-us.jpg)'
         bgSize='contain'
         bgRepeat='no-repeat'
         bgPosition='center'
@@ -43,7 +42,7 @@ const About = () => {
         <AboutContent />
       </GridItem>
       <GridItem
-        backgroundImage={`url(${aboutUsImage})`}
+        backgroundImage='url(/assets/img/about-us.jpg)'
         bgSize='cover'
         bgRepeat='no-repeat'
         bgPosition='center'

@@ -8,10 +8,6 @@ import React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 
 import MissionItem from './MissionItem/MissionItem'
-import educationImage from '../../../assets/img/mission/education.jpg'
-import experiencesImage from '../../../assets/img/mission/experiences.jpg'
-import infrastructureImage from '../../../assets/img/mission/infrastructure.jpg'
-import transportationImage from '../../../assets/img/mission/transportation.jpg'
 
 const Mission = () => {
   const [expandedIndex, setExpandedIndex] = React.useState(0)
@@ -31,7 +27,7 @@ const Mission = () => {
   const missionItems = [
     {
       title: localization.education,
-      image: educationImage,
+      image: '/assets/img/mission/education.jpg',
       content: (
         <Trans i18nKey='pages.home.mission.educationContent'>
           A játszva tanulás a legfontosabb az érdeklődő gyermekek számára. A
@@ -48,7 +44,7 @@ const Mission = () => {
     },
     {
       title: localization.infrastructure,
-      image: infrastructureImage,
+      image: '/assets/img/mission/infrastructure.jpg',
       content: (
         <Trans i18nKey='pages.home.mission.infrastructureContent'>
           A gyermekotthonok fejlesztésére alig-alig van keret, a fenntartók
@@ -68,7 +64,7 @@ const Mission = () => {
     },
     {
       title: localization.travelOrganization,
-      image: transportationImage,
+      image: '/assets/img/mission/transportation.jpg',
       content: (
         <Trans i18nKey='pages.home.mission.transporationContent'>
           „A cél az út maga.” Nincs is izgalmasabb érzés, mint amikor az
@@ -85,7 +81,7 @@ const Mission = () => {
     },
     {
       title: localization.experiences,
-      image: experiencesImage,
+      image: '/assets/img/mission/experiences.jpg',
       content: (
         <Trans i18nKey='pages.home.mission.experiencesContent'>
           Alapvető emberi szükséglet, hogy egy közösség tagjaként közös

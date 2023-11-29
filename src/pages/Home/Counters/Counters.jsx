@@ -2,7 +2,6 @@ import { Grid, GridItem } from '@chakra-ui/react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import backgroundImage from '../../../assets/img/background/background-field.jpg'
 import Metric from './Metric/Metric'
 
 const data = [
@@ -37,7 +36,7 @@ const Counters = () => {
   return (
     <Grid
       templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }}
-      backgroundImage={`url(${backgroundImage})`}
+      backgroundImage='url(/assets/img/background/background-field.jpg)'
       backgroundPosition='center'
       backgroundSize='cover'
       borderRadius={{ base: 0, lg: '10px' }}

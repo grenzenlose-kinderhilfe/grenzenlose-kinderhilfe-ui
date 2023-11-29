@@ -12,13 +12,12 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link as RouterLink } from 'react-router-dom'
 
-import Logo from '../../assets/img/logo.png'
 import { LANGUAGES } from '../../constants'
 
 export const MenuLogo = () => (
-  <AspectRatio minWidth='175px' maxWidth='250px' maxHeight='72px' ratio={4 / 1}>
+  <AspectRatio minWidth='175px' maxWidth='250px' maxHeight='72px' ratio={3 / 1}>
     <Link as={RouterLink} to='/'>
-      <Image src={Logo} fit='cover' alt='grenzenlose-kinderhilfe-logo' />
+      <Image src='/assets/img/logo.svg' fit='contain' alt='grenzenlose-kinderhilfe-logo' />
     </Link>
   </AspectRatio>
 )
