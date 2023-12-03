@@ -30,7 +30,7 @@ const HowTo = () => {
         <Flex
           gap={6}
           align='center'
-          minHeight={{ base: '350px' }}
+          minHeight={{ base: '300px' }}
           height='100%'
           flexDirection='column'
           justifyContent='center'

@@ -42,7 +42,7 @@ const Fundraiser = () => {
           />
         </AspectRatio>
       </GridItem>
-      <GridItem alignSelf='center'>
+      <GridItem alignSelf='center' margin={{ base: '25px', xl: 0 }}>
         <Flex flexDirection='column' alignItems='center' gap={8} maxW='600px'>
           <Trans i18nKey='pages.shoebox.donateActionText'>
             <Heading as='h1' fontsize='2rem'>
