@@ -2,26 +2,25 @@ import { Grid, GridItem } from '@chakra-ui/react'
 
 import withTracker from '../../utils/tracking'
 import EmbedMap from './EmbedMap/EmbedMap'
-import ContentGroup from './ContentGroup/ContentGroup'
+import MainContentGroup from './MainContentGroup/MainContentGroup'
 import Fundraiser from './Fundraiser/Fundraiser'
+import HowTo from './HowTo/HowTo'
 
 const ShoeBox = () => (
   <Grid
     gap={{ base: 4, md: 8 }}
     margin={{ base: 0, lg: '25px' }}
-    templateAreas={`
-      "contentGroup"
-      "fundraiser"
-      "map"
-    `}
   >
-    <GridItem area='contentGroup'>
-      <ContentGroup />
+    <GridItem>
+      <MainContentGroup />
     </GridItem>
-    <GridItem area='fundraiser' align='center'>
+    <GridItem align='center'>
       <Fundraiser />
     </GridItem>
-    <GridItem area='map' align='center'>
+    <GridItem>
+      <HowTo />
+    </GridItem>
+    <GridItem align='center'>
       <EmbedMap />
     </GridItem>
   </Grid>

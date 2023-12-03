@@ -104,7 +104,7 @@ export const MenuLinks = ({ routes, onClick }) => {
 export const MenuItem = ({ onClick, children, to = '/', isExternal = false }) =>
   isExternal
     ? (
-      <Link isExternal href={to}>
+      <Link isExternal={isExternal} href={to}>
         <Text display='block' fontSize='16px'>
           {children}
         </Text>

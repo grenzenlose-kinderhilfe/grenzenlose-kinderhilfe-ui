@@ -10,7 +10,7 @@ import {
 import React from 'react'
 import { Trans } from 'react-i18next'
 
-const ContentGroup = () => (
+const MainContentGroup = () => (
   <Grid
     margin={2}
     padding={2}
@@ -32,7 +32,7 @@ const ContentGroup = () => (
           <Heading as='h1' fontSize='2rem' maxW='600px'>
             Cipősdoboz Akció a Gyermekekért
           </Heading>
-          <Text>
+          <Text fontStyle='italic'>
             Adományozz és Teremtsünk Együtt Karácsonyi Csodát!
           </Text>
           <Text maxW='800px' fontStyle='italic'>
@@ -70,4 +70,4 @@ const ContentGroup = () => (
   </Grid>
 )
 
-export default ContentGroup
+export default MainContentGroup
