@@ -64,7 +64,7 @@ const MainContentGroup = () => (
       p={{ base: '0 10px 10px', md: '0 25px 25px', xl: '25px' }}
     >
       <AspectRatio width='100%' ratio={{ base: 7 / 4 }}>
-        <Image src='/assets/img/pages/shoebox.png' fit='cover' alt='shoebox-logo' />
+        <Image src='/assets/img/pages/shoebox/shoebox.png' fit='cover' alt='shoebox-logo' />
       </AspectRatio>
     </GridItem>
   </Grid>
