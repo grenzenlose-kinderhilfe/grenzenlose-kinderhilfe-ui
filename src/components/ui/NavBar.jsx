@@ -1,4 +1,4 @@
-import { Flex, useDisclosure } from '@chakra-ui/react'
+import { Flex, useDisclosure, useMediaQuery } from '@chakra-ui/react'
 import React from 'react'
 
 import NavDrawer from './NavDrawer'
@@ -11,6 +11,7 @@ import {
 
 const NavBar = ({ routes }) => {
   const { isOpen, onClose, onOpen } = useDisclosure()
+  const [isLargerThan1200] = useMediaQuery('(min-width: 1200px)')
 
   return (
     <Flex
@@ -28,13 +29,13 @@ const NavBar = ({ routes }) => {
       <Flex minWidth='15%' maxWidth='20%'>
         <MenuLogo />
       </Flex>
-      <Flex display={{ base: 'flex', lg: 'none' }} onClick={onOpen}>
+      <Flex display={isLargerThan1200 ? 'none' : 'flex'} onClick={onOpen}>
         <MenuToggle isOpen={isOpen} />
       </Flex>
-      <Flex display={{ base: 'none', lg: 'flex' }}>
+      <Flex display={isLargerThan1200 ? 'flex' : 'none'}>
         <MenuLinks isOpen={isOpen} routes={routes} />
       </Flex>
-      <Flex display={{ base: 'none', lg: 'flex' }}>
+      <Flex display={isLargerThan1200 ? 'flex' : 'none'}>
         <MenuLanguageSwitcher />
       </Flex>
       <NavDrawer isOpen={isOpen} onClose={onClose} routes={routes} />
