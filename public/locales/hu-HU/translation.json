@@ -56,20 +56,44 @@
       "ukraineChildrenHeading": "Ukrajnában élő gyerekeknek gyűjt a Határtalan Segítség Alapítvány"
     },
     "pagesTitle": {
-      "highwayCodePark": "Kresz Park",
-      "shoeBox": "Cipősdoboz",
-      "ukraine2022": "Ukraine 2022"
+      "institutions": "Intézmények",
+      "rollingKids": "Rolling Kids",
+      "shoeBox": "Cipősdoboz"
+    },
+    "shoebox": {
+      "Fundraiser": {
+        "actionTextHeading": "Adományozz most és támogasd a szállítmányozást!",
+        "actionTextInstruction": "Adományoddal te is részese lehetsz ennek az örömteli kezdeményezésnek. Kattints a fenti linkre és csatlakozza nagyobb jó ügyéhez."
+      },
+      "HowTo": {
+        "buttonText": "Kattints ide a legújabb cipősdoboz akció hírekert",
+        "heading": "Hogyan működik a Cipősdoboz Akció?",
+        "headingSub": "Adományozz és Teremtsünk Együtt Karácsonyi Csodát!",
+        "stepDonate": "Adományozás: Az elkészített dobozokat adományozhatod, hogy eljussanak azokhoz, akiknek a legnagyobb szükségük van rá.",
+        "stepHappy": "Együtt Örülni: Nézze meg a gyermekek boldog arcát, amikor kibontják az ajándékokat! Egy egyszerű cipősdoboz hatalmas örömet okozhat.",
+        "stepMakeBox": "Doboz Készítése: Mindenki részt vehet! Töltsd meg egy cipősdobozt olyan hasznos és örömet okozó tárgyakkal, mint játékok, írószerek, ruhák vagy édességek."
+      }
+    },
+    "ShoeBox": {
+      "MainContentGroup": {
+        "attention": "Mindannyian tudjuk, hogy egy kis figyelem, szeretet és gondoskodás mennyire feldobhatja egy gyermek napját. Az évente megrendezésre Cipősdoboz Akció célja pontosan ez: örömet és reményt vinni a rászoruló gyerekek számára. Ez már a 7. év, és ez alatt az idő alatt közel 13.000 gyermeket sikerült megajándékozni.",
+        "community": "Az akció része lenni, azért jó, mert nem csak az adományozásról szól, hanem az összetartozásról is. Csatlakozz a Grenzenlose Kinderhilfe közösségéhez, ahol együtt tehetünk azért, hogy minél több gyermek életét tegyük boldoggá.",
+        "joinUs": "Csatlakozz Hozzánk!",
+        "shoeboxMagic": "Gondoltad volna, hogy egy egyszerű cipősdoboz képes varázsolni? Ráadásul gyermekmosolyokat! Karitatív akciónk során célunk, hogy minél több rászoruló gyermek számára hozzunk létre boldog pillanatokat az év végi ünnepek alatt.",
+        "titleHeading": "Cipősdoboz Akció a Gyermekekért",
+        "titleHeadingSub": "Adományozz és Teremtsünk Együtt Karácsonyi Csodát!"
+      }
     }
   },
   "ui": {
     "navigation": {
       "aboutUs": "Rólunk",
       "blog": "Események",
-      "institutions": "Intézmények",
       "home": "Kezdőoldal",
-      "shoebox": "Cipősdoboz",
+      "institutions": "Intézmények",
       "media": "Média",
-      "pages": "Oldalak"
+      "pages": "Oldalak",
+      "shoebox": "Cipősdoboz"
     }
   }
 }
