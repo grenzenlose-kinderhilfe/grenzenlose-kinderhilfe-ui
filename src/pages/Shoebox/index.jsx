@@ -10,9 +10,10 @@ const ShoeBox = () => (
     gap={{ base: 4, md: 8 }}
     margin={{ base: 0, lg: '25px' }}
     templateAreas={`
-        "contentGroup"
-        "fundraiser"
-        "map"`}
+      "contentGroup"
+      "fundraiser"
+      "map"
+    `}
   >
     <GridItem area='contentGroup'>
       <ContentGroup />

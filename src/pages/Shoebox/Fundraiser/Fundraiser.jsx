@@ -52,12 +52,12 @@ const Fundraiser = () => {
           <AspectRatio width='100%' maxWidth='500px' maxHeight={iframeMaxHeight} ratio={1}>
             <iframe
               class='gfm-embed-iframe' frameBorder={0} scrolling='no'
-              src={`https://www.gofundme.com/f/help-baby-mario-beat-an-aggressive-cancer/widget/${iframeVariant}#:~:tcm-prompt=Hidden`}
+              src={`https://www.gofundme.com/f/christmas-shoe-box-gift-delivery/widget/${iframeVariant}#:~:tcm-prompt=Hidden`}
             />
           </AspectRatio>
           <Trans i18nKey='asd'>
             <Text mt='-1rem'>
-              Adományoddal te is részese lehetsz ennek az örömteli kezdeményezésnek. Kattints ide és csatlakozz
+              Adományoddal te is részese lehetsz ennek az örömteli kezdeményezésnek. Kattints a fenti linkre és csatlakozz
               a nagyobb jó ügyéhez.
             </Text>
           </Trans>
