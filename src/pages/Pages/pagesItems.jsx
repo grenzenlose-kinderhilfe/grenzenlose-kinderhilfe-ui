@@ -12,6 +12,11 @@ const pageItems = [
     title: <Trans i18nKey='pages.pagesTitle.shoeBox'>Cipősdoboz</Trans>,
     url: '/pages/shoebox',
     backgroundImage: '/assets/img/pages/rolling-kids.jpg'
+  },
+  {
+    title: <Trans i18nKey='pages.pagesTitle.institutions'>Támogatott intézmények</Trans>,
+    url: '/pages/institutions',
+    backgroundImage: '/assets/img/pages/rolling-kids.jpg'
   }
 ]
 

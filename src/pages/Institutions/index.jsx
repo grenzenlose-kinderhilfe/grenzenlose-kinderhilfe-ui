@@ -7,7 +7,7 @@ import LocationAccordion from './LocationAccordion/LocationAccordion'
 import LocationGrid from './LocationGrid/LocationGrid'
 import locations from './locations'
 
-const Donation = () => {
+const Institutions = () => {
   const { t } = useTranslation()
 
   const [isLargerThan426] = useMediaQuery('(min-width: 426px)')
@@ -56,4 +56,4 @@ const Donation = () => {
   )
 }
 
-export default withTracker(Donation)
+export default withTracker(Institutions)

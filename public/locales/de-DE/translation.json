@@ -64,7 +64,8 @@
   "ui": {
     "navigation": {
       "aboutUs": "Über uns",
-      "donation": "Spende",
+      "institutions": "Institutionen",
+      "shoebox": "Schuhkarton",
       "blog": "Veranstaltungen",
       "home": "Startseite",
       "media": "Medien",

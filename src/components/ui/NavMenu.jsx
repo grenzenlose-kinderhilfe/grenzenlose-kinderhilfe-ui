@@ -56,7 +56,8 @@ export const MenuLinks = ({ routes, onClick }) => {
     blog: t('ui.navigation.blog', 'Események'),
     pages: t('ui.navigation.pages', 'Oldalak'),
     aboutUs: t('ui.navigation.aboutUs', 'Rólunk'),
-    donation: t('ui.navigation.donation', 'Adományozás')
+    institutions: t('ui.navigation.institutions', 'Intézmények'),
+    shoebox: t('ui.navigation.shoebox', 'Cipősdoboz')
   }
 
   return (

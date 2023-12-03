@@ -3,7 +3,7 @@ import React from 'react'
 import { LOCALE_DE, WORDPRESS_BLOG_BASE_URL } from './constants'
 
 const Home = React.lazy(() => import('./pages/Home'))
-const Donation = React.lazy(() => import('./pages/Donation'))
+const Institutions = React.lazy(() => import('./pages/Institutions'))
 const Media = React.lazy(() => import('./pages/Media'))
 const Pages = React.lazy(() => import('./pages/Pages'))
 const About = React.lazy(() => import('./pages/About'))
@@ -28,7 +28,6 @@ const routes = [
     localizationKey: 'blog'
   },
   {
-    display: false,
     url: '/pages',
     localizationKey: 'pages',
     element: <Pages />
@@ -39,14 +38,15 @@ const routes = [
     element: <About />
   },
   {
-    isButton: true,
-    url: '/donation',
-    localizationKey: 'donation',
-    element: <Donation />
+    display: false,
+    url: '/pages/institutions',
+    localizationKey: 'institutions',
+    element: <Institutions />
   },
   {
-    display: false,
+    isButton: true,
     url: '/pages/shoebox',
+    localizationKey: 'shoebox',
     element: <ShoeBox />
   }
 ]
