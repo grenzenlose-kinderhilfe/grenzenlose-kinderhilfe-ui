@@ -14,24 +14,12 @@ const HowTo = () => {
   const { i18n, t } = useTranslation()
 
   const localization = {
-    heading: t('pages.shoebox.HowTo.heading', 'Hogyan működik a Cipősdoboz Akció?'),
-    headingSub: t('pages.shoebox.HowTo.headingSub', 'Adományozz és Teremtsünk Együtt Karácsonyi Csodát!'),
-    stepMakeBox: t(
-      'pages.shoebox.HowTo.stepMakeBox',
-      'Doboz Készítése: Mindenki részt vehet! Töltsd meg egy cipősdobozt olyan hasznos és örömet okozó tárgyakkal, mint játékok, írószerek, ruhák vagy édességek.'
-    ),
-    stepDonate: t(
-      'pages.shoebox.HowTo.stepDonate',
-      'Adományozás: Az elkészített dobozokat adományozhatod, hogy eljussanak azokhoz, akiknek a legnagyobb szükségük van rá.'
-    ),
-    stepHappy: t(
-      'pages.shoebox.HowTo.stepHappy',
-      'Együtt Örülni: Nézze meg a gyermekek boldog arcát, amikor kibontják az ajándékokat! Egy egyszerű cipősdoboz hatalmas örömet okozhat.'
-    ),
-    buttonText: t(
-      'pages.shoebox.HowTo.buttonText',
-      'Kattints ide a legújabb cipősdoboz akció hírekert'
-    )
+    heading: t('pages.Shoebox.HowTo.heading'),
+    headingSub: t('pages.Shoebox.HowTo.headingSub'),
+    stepMakeBox: t('pages.Shoebox.HowTo.stepMakeBox'),
+    stepDonate: t('pages.Shoebox.HowTo.stepDonate'),
+    stepHappy: t('pages.Shoebox.HowTo.stepHappy'),
+    buttonText: t('pages.Shoebox.HowTo.buttonText')
   }
 
   const blogCategoryUrl = i18n.language === LOCALE_DE

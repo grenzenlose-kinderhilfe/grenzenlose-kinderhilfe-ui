@@ -58,9 +58,9 @@
     "pagesTitle": {
       "institutions": "Institutionen",
       "rollingKids": "Rolling Kids",
-      "shoeBox": "Schuhkarton"
+      "shoebox": "Schuhkarton"
     },
-    "shoebox": {
+    "Shoebox": {
       "Fundraiser": {
         "actionTextHeading": "Jetzt spenden und den Versand unterstützen!",
         "actionTextInstruction": "Mit Ihrer Spende können Sie Teil dieser freudigen Initiative sein. Klicken Sie auf den Link oben und schließen Sie sich Ihrem guten Zweck an."
@@ -72,9 +72,7 @@
         "stepDonate": "Spende: Sie können die von Ihnen hergestellten Kartons spenden, damit sie diejenigen erreichen, die sie am meisten benötigen.",
         "stepHappy": "Gemeinsam freuen: Schauen Sie in die glücklichen Gesichter der Kinder, wenn sie die Geschenke auspacken! Ein einfacher Schuhkarton kann viel Freude bereiten.",
         "stepMakeBox": "Eine Kiste basteln: Jeder kann mitmachen! Füllen Sie einen Schuhkarton mit nützlichen und fröhlichen Gegenständen wie Spielzeug, Schreibwaren, Kleidung oder Süßigkeiten."
-      }
-    },
-    "ShoeBox": {
+      },
       "MainContentGroup": {
         "attention": "Wir alle wissen, wie sehr ein wenig Aufmerksamkeit, Liebe und Fürsorge den Tag eines Kindes verschönern können. Das Ziel der jährlichen Schuhkartonaktion ist genau dies: Kindern in Not Freude und Hoffnung zu bringen. Dies ist bereits das 7. Jahr und in dieser Zeit wurden fast 13.000 Kinder beschenkt.",
         "community": "Teil der Aktion zu sein ist gut, denn es geht nicht nur ums Spenden, sondern auch um Zugehörigkeit. Treten Sie der Gemeinschaft der Grenzenlosen Kinderhilfe bei, in der wir gemeinsam daran arbeiten, das Leben möglichst vieler Kinder glücklich zu machen.",

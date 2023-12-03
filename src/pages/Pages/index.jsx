@@ -11,9 +11,9 @@ const Pages = () => {
   const { t } = useTranslation()
 
   const localization = {
-    shoebox: t('pages.pagesTitle.shoeBox', 'Cipősdoboz'),
-    institutions: t('pages.pagesTitle.institutions', 'Intézmények'),
-    rollingKids: t('pages.pagesTitle.rollingKids', 'Rolling Kids')
+    shoebox: t('pages.pagesTitle.shoebox'),
+    institutions: t('pages.pagesTitle.institutions'),
+    rollingKids: t('pages.pagesTitle.rollingKids')
   }
 
   return (

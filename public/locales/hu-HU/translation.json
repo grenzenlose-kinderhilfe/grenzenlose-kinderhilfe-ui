@@ -58,9 +58,9 @@
     "pagesTitle": {
       "institutions": "Intézmények",
       "rollingKids": "Rolling Kids",
-      "shoeBox": "Cipősdoboz"
+      "shoebox": "Cipősdoboz"
     },
-    "shoebox": {
+    "Shoebox": {
       "Fundraiser": {
         "actionTextHeading": "Adományozz most és támogasd a szállítmányozást!",
         "actionTextInstruction": "Adományoddal te is részese lehetsz ennek az örömteli kezdeményezésnek. Kattints a fenti linkre és csatlakozza nagyobb jó ügyéhez."
@@ -72,9 +72,7 @@
         "stepDonate": "Adományozás: Az elkészített dobozokat adományozhatod, hogy eljussanak azokhoz, akiknek a legnagyobb szükségük van rá.",
         "stepHappy": "Együtt Örülni: Nézze meg a gyermekek boldog arcát, amikor kibontják az ajándékokat! Egy egyszerű cipősdoboz hatalmas örömet okozhat.",
         "stepMakeBox": "Doboz Készítése: Mindenki részt vehet! Töltsd meg egy cipősdobozt olyan hasznos és örömet okozó tárgyakkal, mint játékok, írószerek, ruhák vagy édességek."
-      }
-    },
-    "ShoeBox": {
+      },
       "MainContentGroup": {
         "attention": "Mindannyian tudjuk, hogy egy kis figyelem, szeretet és gondoskodás mennyire feldobhatja egy gyermek napját. Az évente megrendezésre Cipősdoboz Akció célja pontosan ez: örömet és reményt vinni a rászoruló gyerekek számára. Ez már a 7. év, és ez alatt az idő alatt közel 13.000 gyermeket sikerült megajándékozni.",
         "community": "Az akció része lenni, azért jó, mert nem csak az adományozásról szól, hanem az összetartozásról is. Csatlakozz a Grenzenlose Kinderhilfe közösségéhez, ahol együtt tehetünk azért, hogy minél több gyermek életét tegyük boldoggá.",

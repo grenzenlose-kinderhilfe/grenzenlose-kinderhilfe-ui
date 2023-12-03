@@ -14,21 +14,12 @@ const MainContentGroup = () => {
   const { t } = useTranslation()
 
   const localization = {
-    titleHeading: t('pages.ShoeBox.MainContentGroup.titleHeading', 'Cipősdoboz Akció a Gyermekekért'),
-    titleHeadingSub: t('pages.ShoeBox.MainContentGroup.titleHeadingSub', 'Adományozz és Teremtsünk Együtt Karácsonyi Csodát!'),
-    shoeboxMagic: t(
-      'pages.ShoeBox.MainContentGroup.shoeboxMagic',
-      'Gondoltad volna, hogy egy egyszerű cipősdoboz képes varázsolni? Ráadásul gyermekmosolyokat! Karitatív akciónk során célunk, hogy minél több rászoruló gyermek számára hozzunk létre boldog pillanatokat az év végi ünnepek alatt.'
-    ),
-    joinUs: t('pages.ShoeBox.MainContentGroup.joinUs', 'Csatlakozz Hozzánk!'),
-    community: t(
-      'pages.ShoeBox.MainContentGroup.community',
-      'Az akció része lenni, azért jó, mert nem csak az adományozásról szól, hanem az összetartozásról is. Csatlakozz a Grenzenlose Kinderhilfe közösségéhez, ahol együtt tehetünk azért, hogy minél több gyermek életét tegyük boldoggá.'
-    ),
-    attention: t(
-      'pages.ShoeBox.MainContentGroup.attention',
-      'Mindannyian tudjuk, hogy egy kis figyelem, szeretet és gondoskodás mennyire feldobhatja egy gyermek napját. Az évente megrendezésre Cipősdoboz Akció célja pontosan ez: örömet és reményt vinni a rászoruló gyerekek számára. Ez már a 7. év, és ez alatt az idő alatt közel 13.000 gyermeket sikerült megajándékozni.'
-    )
+    titleHeading: t('pages.Shoebox.MainContentGroup.titleHeading'),
+    titleHeadingSub: t('pages.Shoebox.MainContentGroup.titleHeadingSub'),
+    shoeboxMagic: t('pages.Shoebox.MainContentGroup.shoeboxMagic'),
+    joinUs: t('pages.Shoebox.MainContentGroup.joinUs'),
+    community: t('pages.Shoebox.MainContentGroup.community'),
+    attention: t('pages.Shoebox.MainContentGroup.attention')
   }
 
   return (

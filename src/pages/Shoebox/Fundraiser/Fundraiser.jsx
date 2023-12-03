@@ -21,11 +21,11 @@ const Fundraiser = () => {
 
   const localization = {
     actionTextHeading: t(
-      'pages.shoebox.Fundraiser.actionTextHeading',
+      'pages.Shoebox.Fundraiser.actionTextHeading',
       'Adományozz most és támogasd a szállítmányozást!'
     ),
     actionTextInstruction: t(
-      'pages.shoebox.Fundraiser.actionTextInstruction',
+      'pages.Shoebox.Fundraiser.actionTextInstruction',
       'Adományoddal te is részese lehetsz ennek az örömteli kezdeményezésnek. Kattints a fenti linkre és csatlakozza nagyobb jó ügyéhez.'
     )
   }
