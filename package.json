@@ -2,24 +2,25 @@
   "name": "grenzenlose-kinderhilfe-ui",
   "homepage": "https://grenzenlose-kinderhilfe.com",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "dependencies": {
-    "@chakra-ui/react": "^2.8.1",
-    "@emotion/react": "^11.11.1",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "framer-motion": "^7.10.3",
     "i18next": "^22.5.1",
-    "i18next-browser-languagedetector": "^7.1.0",
-    "i18next-http-backend": "^2.3.1",
-    "luxon": "^3.4.3",
+    "i18next-browser-languagedetector": "^7.2.0",
+    "i18next-http-backend": "^2.5.0",
+    "luxon": "^3.4.4",
     "react": "^18.2.0",
     "react-country-flag": "^3.1.0",
     "react-dom": "^18.2.0",
     "react-ga4": "^1.4.1",
     "react-i18next": "^12.3.1",
-    "react-icons": "^4.11.0",
+    "react-icons": "^4.12.0",
     "react-redux": "^8.1.3",
-    "react-router-dom": "^6.17.0",
+    "react-router-dom": "^6.22.2",
     "swiper": "^8.4.7"
   },
   "scripts": {
@@ -46,17 +47,17 @@
     ]
   },
   "devDependencies": {
-    "@vitejs/plugin-react-swc": "^3.4.0",
+    "@vitejs/plugin-react-swc": "^3.6.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "i18next-parser": "^7.9.0",
-    "lefthook": "^1.5.2",
+    "lefthook": "^1.6.4",
     "prettier": "^3.2.5",
-    "vite": "^4.5.0",
-    "vite-plugin-zip-pack": "^1.0.6"
+    "vite": "^5.1.4",
+    "vite-plugin-zip-pack": "^1.2.1"
   },
   "packageManager": "pnpm@8.9.0"
 }
