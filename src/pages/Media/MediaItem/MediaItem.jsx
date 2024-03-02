@@ -1,9 +1,9 @@
 import {
-  AspectRatio,
   Flex,
   Grid,
   GridItem,
   HStack,
+  Box,
   Tag,
   Heading,
   Link,
@@ -71,15 +71,10 @@ const MediaItem = ({
         justifyContent="center"
         p={{ base: "0 10px 10px", md: "0 25px 25px", xl: "25px" }}
       >
-        <AspectRatio width="100%" ratio={16 / 9}>
-          <iframe
-            title="Határtalan Segítség Alapítvány"
-            width="1268"
-            height="713"
-            src={videoEmbedUrl}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          />
-        </AspectRatio>
+        {videoEmbedUrl.endsWith(".mp4") ?
+          <Box as="video" src={videoEmbedUrl} width="100%" aspectRatio="16/9" /> : 
+          <Box as="iframe" src={videoEmbedUrl} width="100%" aspectRatio="16/9" />
+        }
       </GridItem>
     </Grid>
   );
