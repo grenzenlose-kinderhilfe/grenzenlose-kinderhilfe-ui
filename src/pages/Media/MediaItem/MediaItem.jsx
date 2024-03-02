@@ -55,11 +55,13 @@ const MediaItem = ({
               </Tag>
             )}
             {source && <Tag>{source}</Tag>}
-            <Tag>
-              <Link isExternal href={sourceUrl}>
-                <FaLink />
-              </Link>
-            </Tag>
+            {sourceUrl && (
+              <Tag>
+                <Link isExternal href={sourceUrl}>
+                  <FaLink />
+                </Link>
+              </Tag>
+            )}
           </HStack>
         </Flex>
       </GridItem>

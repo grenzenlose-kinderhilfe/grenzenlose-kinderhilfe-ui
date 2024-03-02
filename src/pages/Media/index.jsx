@@ -7,9 +7,14 @@ import withTracker from "../../utils/tracking";
 import MediaItem from "./MediaItem/MediaItem";
 
 const Media = () => {
+  const sortedMediaItems = React.useMemo(
+    () => mediaItems.sort((a, b) => Date.parse(b.date) - Date.parse(a.date)),
+    [],
+  );
+
   return (
     <Grid color="black" m="25px" gap={8}>
-      {mediaItems.map((item, idx) => (
+      {sortedMediaItems.map((item, idx) => (
         <GridItem key={idx}>
           <MediaItem {...item} />
         </GridItem>
