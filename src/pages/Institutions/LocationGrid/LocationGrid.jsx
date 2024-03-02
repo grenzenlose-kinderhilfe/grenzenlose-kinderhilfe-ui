@@ -1,17 +1,17 @@
-import { Grid } from '@chakra-ui/react'
-import React from 'react'
+import { Grid } from "@chakra-ui/react";
+import React from "react";
 
-import LocationGridItem from './LocationGridItem/LocationGridItem'
+import LocationGridItem from "./LocationGridItem/LocationGridItem";
 
 const LocationGrid = ({ locations }) => (
   <Grid
     gap={{ base: 2, lg: 8 }}
-    mb='20px'
+    mb="20px"
     templateColumns={{
-      base: '1fr',
-      md: 'repeat(2, 1fr)',
-      lg: 'repeat(3, 1fr)',
-      xl: 'repeat(4, 1fr)'
+      base: "1fr",
+      md: "repeat(2, 1fr)",
+      lg: "repeat(3, 1fr)",
+      xl: "repeat(4, 1fr)",
     }}
   >
     {locations.map((item, idx) => (
@@ -23,6 +23,6 @@ const LocationGrid = ({ locations }) => (
       />
     ))}
   </Grid>
-)
+);
 
-export default LocationGrid
+export default LocationGrid;

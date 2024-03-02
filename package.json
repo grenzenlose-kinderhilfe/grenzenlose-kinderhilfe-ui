@@ -28,7 +28,9 @@
     "build": "vite build",
     "serve": "vite serve",
     "start": "vite",
-    "lint": "standard --fix --ext js,jsx .",
+    "lint": "pnpm run lint:eslint && pnpm run lint:prettier",
+    "lint:eslint": "eslint --fix --ext js,jsx .",
+    "lint:prettier": "prettier --write .",
     "localization:parse": "rm -rf public/locales/hu-HU/ && i18next 'src/**/*.{js,jsx}'"
   },
   "browserslist": {
@@ -45,9 +47,14 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react-swc": "^3.4.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "i18next-parser": "^7.9.0",
     "lefthook": "^1.5.2",
-    "standard": "^17.1.0",
+    "prettier": "^3.2.5",
     "vite": "^4.5.0",
     "vite-plugin-zip-pack": "^1.0.6"
   },

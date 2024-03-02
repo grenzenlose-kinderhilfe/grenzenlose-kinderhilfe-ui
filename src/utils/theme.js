@@ -1,19 +1,19 @@
-import { extendTheme } from '@chakra-ui/react'
+import { extendTheme } from "@chakra-ui/react";
 
 const colors = {
   primary: {
-    blue: '#112B5C',
-    white: '#FFFFFF',
-    grey: '#F7F7F7',
-    lightblue: 'rgba(1, 18, 181, 0.05)'
-  }
-}
+    blue: "#112B5C",
+    white: "#FFFFFF",
+    grey: "#F7F7F7",
+    lightblue: "rgba(1, 18, 181, 0.05)",
+  },
+};
 
 const fonts = {
-  heading: '\'Barlow Condensed\', sans-serif',
-  body: 'Montserrat, sans-serif'
-}
+  heading: "'Barlow Condensed', sans-serif",
+  body: "Montserrat, sans-serif",
+};
 
-const customTheme = extendTheme({ colors, fonts })
+const customTheme = extendTheme({ colors, fonts });
 
-export default customTheme
+export default customTheme;

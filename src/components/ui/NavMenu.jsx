@@ -6,138 +6,148 @@ import {
   Select,
   Stack,
   StackDivider,
-  Text
-} from '@chakra-ui/react'
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { Link as RouterLink } from 'react-router-dom'
+  Text,
+} from "@chakra-ui/react";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { Link as RouterLink } from "react-router-dom";
 
-import { LANGUAGES } from '../../constants'
+import { LANGUAGES } from "../../constants";
 
 export const MenuLogo = () => (
-  <AspectRatio minWidth='175px' maxWidth='250px' maxHeight='72px' ratio={11 / 3}>
-    <Link as={RouterLink} to='/'>
-      <Image src='/assets/img/logo.svg' fit='contain' alt='grenzenlose-kinderhilfe-logo' />
+  <AspectRatio
+    minWidth="175px"
+    maxWidth="250px"
+    maxHeight="72px"
+    ratio={11 / 3}
+  >
+    <Link as={RouterLink} to="/">
+      <Image
+        src="/assets/img/logo.svg"
+        fit="contain"
+        alt="grenzenlose-kinderhilfe-logo"
+      />
     </Link>
   </AspectRatio>
-)
+);
 
 export const MenuToggle = ({ isOpen }) =>
-  isOpen ? <CloseIcon /> : <MenuIcon />
+  isOpen ? <CloseIcon /> : <MenuIcon />;
 
 const MenuIcon = () => (
   <svg
-    width='24px'
-    viewBox='0 0 20 20'
-    xmlns='http://www.w3.org/2000/svg'
-    fill='white'
+    width="24px"
+    viewBox="0 0 20 20"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="white"
   >
     <title>Menu</title>
-    <path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z' />
+    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
   </svg>
-)
+);
 
 const CloseIcon = () => (
-  <svg width='24' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'>
+  <svg width="24" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
     <title>Close</title>
     <path
-      fill='white'
-      d='M9.00023 7.58599L13.9502 2.63599L15.3642 4.04999L10.4142 8.99999L15.3642 13.95L13.9502 15.364L9.00023 10.414L4.05023 15.364L2.63623 13.95L7.58623 8.99999L2.63623 4.04999L4.05023 2.63599L9.00023 7.58599Z'
+      fill="white"
+      d="M9.00023 7.58599L13.9502 2.63599L15.3642 4.04999L10.4142 8.99999L15.3642 13.95L13.9502 15.364L9.00023 10.414L4.05023 15.364L2.63623 13.95L7.58623 8.99999L2.63623 4.04999L4.05023 2.63599L9.00023 7.58599Z"
     />
   </svg>
-)
+);
 
 export const MenuLinks = ({ routes, onClick }) => {
-  const { t, i18n } = useTranslation()
+  const { t, i18n } = useTranslation();
 
   const localization = {
-    home: t('ui.navigation.home', 'Kezdőoldal'),
-    media: t('ui.navigation.media', 'Média'),
-    blog: t('ui.navigation.blog', 'Események'),
-    pages: t('ui.navigation.pages', 'Oldalak'),
-    aboutUs: t('ui.navigation.aboutUs', 'Rólunk'),
-    institutions: t('ui.navigation.institutions', 'Intézmények'),
-    shoebox: t('ui.navigation.shoebox', 'Cipősdoboz')
-  }
+    home: t("ui.navigation.home", "Kezdőoldal"),
+    media: t("ui.navigation.media", "Média"),
+    blog: t("ui.navigation.blog", "Események"),
+    pages: t("ui.navigation.pages", "Oldalak"),
+    aboutUs: t("ui.navigation.aboutUs", "Rólunk"),
+    institutions: t("ui.navigation.institutions", "Intézmények"),
+    shoebox: t("ui.navigation.shoebox", "Cipősdoboz"),
+  };
 
   return (
     <Stack
       spacing={{ base: 4, lg: 8 }}
-      align='center'
+      align="center"
       divider={<StackDivider />}
-      justify={['space-between', 'space-between', 'space-between', 'flex-end']}
-      direction={['column', 'column', 'column', 'row']}
+      justify={["space-between", "space-between", "space-between", "flex-end"]}
+      direction={["column", "column", "column", "row"]}
       pt={[6, 4, 4, 0]}
     >
       {routes.map((item, idx) => {
-        let urlSuffix = ''
+        let urlSuffix = "";
 
         if (item?.isLocaleContext && item.localeSuffix[i18n.language]?.length) {
-          urlSuffix += item.localeSuffix[i18n.language]
+          urlSuffix += item.localeSuffix[i18n.language];
         }
 
-        return item.isButton
-          ? (
-            <MenuButton
-              key={`menu-button-${idx}`}
-              to={item.url + urlSuffix}
-              onClick={onClick}
-            >
-              {localization[item.localizationKey]}
-            </MenuButton>
-            )
-          : (
-            <MenuItem
-              to={item.url + urlSuffix}
-              onClick={onClick}
-              isExternal={item.isExternal}
-              key={`menu-item-${idx}`}
-            >
-              {localization[item.localizationKey]}
-            </MenuItem>
-            )
+        return item.isButton ? (
+          <MenuButton
+            key={`menu-button-${idx}`}
+            to={item.url + urlSuffix}
+            onClick={onClick}
+          >
+            {localization[item.localizationKey]}
+          </MenuButton>
+        ) : (
+          <MenuItem
+            to={item.url + urlSuffix}
+            onClick={onClick}
+            isExternal={item.isExternal}
+            key={`menu-item-${idx}`}
+          >
+            {localization[item.localizationKey]}
+          </MenuItem>
+        );
       })}
     </Stack>
-  )
-}
+  );
+};
 
-export const MenuItem = ({ onClick, children, to = '/', isExternal = false }) =>
-  isExternal
-    ? (
-      <Link isExternal={isExternal} href={to}>
-        <Text display='block' fontSize='16px'>
-          {children}
-        </Text>
-      </Link>
-      )
-    : (
-      <Link as={RouterLink} to={to} isExternal={isExternal} onClick={onClick}>
-        <Text display='block' fontSize='16px'>
-          {children}
-        </Text>
-      </Link>
-      )
+export const MenuItem = ({
+  onClick,
+  children,
+  to = "/",
+  isExternal = false,
+}) =>
+  isExternal ? (
+    <Link isExternal={isExternal} href={to}>
+      <Text display="block" fontSize="16px">
+        {children}
+      </Text>
+    </Link>
+  ) : (
+    <Link as={RouterLink} to={to} isExternal={isExternal} onClick={onClick}>
+      <Text display="block" fontSize="16px">
+        {children}
+      </Text>
+    </Link>
+  );
 
-export const MenuButton = ({ to = '/', onClick, children }) => (
+export const MenuButton = ({ to = "/", onClick, children }) => (
   <Link as={RouterLink} to={to} onClick={onClick}>
     <Button
-      size='md'
-      rounded='md'
-      color='black'
-      bg='white'
+      size="md"
+      rounded="md"
+      color="black"
+      bg="white"
       _hover={{
-        bg: 'white'
+        bg: "white",
       }}
     >
       {children}
     </Button>
   </Link>
-)
+);
 
 export const MenuLanguageSwitcher = () => {
-  const { i18n } = useTranslation()
+  const { i18n } = useTranslation();
 
-  const onChangeHandler = (e) => i18n.changeLanguage(e.target.value)
+  const onChangeHandler = (e) => i18n.changeLanguage(e.target.value);
 
   return (
     <Select onChange={onChangeHandler} defaultValue={i18n.language}>
@@ -147,5 +157,5 @@ export const MenuLanguageSwitcher = () => {
         </option>
       ))}
     </Select>
-  )
-}
+  );
+};

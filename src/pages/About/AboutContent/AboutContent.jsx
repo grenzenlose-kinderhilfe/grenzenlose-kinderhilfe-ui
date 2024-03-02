@@ -1,19 +1,19 @@
-import { Flex, Heading, Text } from '@chakra-ui/react'
-import React from 'react'
-import { Trans } from 'react-i18next'
+import { Flex, Heading, Text } from "@chakra-ui/react";
+import React from "react";
+import { Trans } from "react-i18next";
 
 const AboutContent = () => (
   <>
-    <Heading as='h1' m='25px'>
-      <Trans i18nKey='pages.aboutUs.contentHeader'>
+    <Heading as="h1" m="25px">
+      <Trans i18nKey="pages.aboutUs.contentHeader">
         A kérdés egyszerű volt: mire volna szükségetek? <br />A válasz még
         egyszerűbb: törődésre.
         <br />
         Innen indult a történetünk.
       </Trans>
     </Heading>
-    <Flex flexDirection='column' gap={4}>
-      <Trans i18nKey='pages.aboutUs.contentText'>
+    <Flex flexDirection="column" gap={4}>
+      <Trans i18nKey="pages.aboutUs.contentText">
         <Text>
           2010-ben egy gyermekotthon karácsonyi rendezvényén vettünk részt, ahol
           fogyatékkal élő gyermekek adtak igazán szívhez szóló műsort, nekünk
@@ -53,6 +53,6 @@ const AboutContent = () => (
       </Trans>
     </Flex>
   </>
-)
+);
 
-export default AboutContent
+export default AboutContent;
