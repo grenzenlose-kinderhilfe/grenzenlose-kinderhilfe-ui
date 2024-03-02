@@ -71,10 +71,7 @@ const MediaItem = ({
         justifyContent="center"
         p={{ base: "0 10px 10px", md: "0 25px 25px", xl: "25px" }}
       >
-        {videoEmbedUrl.endsWith(".mp4") ?
-          <Box as="video" src={videoEmbedUrl} width="100%" aspectRatio="16/9" /> : 
-          <Box as="iframe" src={videoEmbedUrl} width="100%" aspectRatio="16/9" />
-        }
+        <Box as="iframe" src={videoEmbedUrl} width="100%" aspectRatio="16/9" />
       </GridItem>
     </Grid>
   );
