@@ -3,27 +3,25 @@ import {
   Flex,
   Grid,
   GridItem,
+  HStack,
+  Tag,
   Heading,
   Link,
   Text,
-  Button,
 } from "@chakra-ui/react";
-import { useTranslation } from "react-i18next";
 import React from "react";
+import { ReactCountryFlag } from "react-country-flag";
+import { FaLink } from "react-icons/fa6";
 
 const MediaItem = ({
+  date,
+  countryCode,
   title,
   description,
   source,
   sourceUrl,
   videoEmbedUrl,
 }) => {
-  const { t } = useTranslation();
-
-  const localization = {
-    source: t("pages.Media.MediaItem.source", "Source"),
-  };
-
   return (
     <Grid
       templateColumns={{ base: "1fr", xl: "1fr 1fr" }}
@@ -49,16 +47,20 @@ const MediaItem = ({
               {'"'}
             </Text>
           )}
-          <Flex>
-            <Text>- {source}</Text>
-          </Flex>
-          <Flex>
-            <Button>
+          <HStack>
+            {date && <Tag>{date}</Tag>}
+            {countryCode && (
+              <Tag>
+                <ReactCountryFlag svg countryCode={countryCode} />
+              </Tag>
+            )}
+            {source && <Tag>{source}</Tag>}
+            <Tag>
               <Link isExternal href={sourceUrl}>
-                {localization.source}
+                <FaLink />
               </Link>
-            </Button>
-          </Flex>
+            </Tag>
+          </HStack>
         </Flex>
       </GridItem>
       <GridItem
