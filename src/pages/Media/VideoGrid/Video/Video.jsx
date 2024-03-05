@@ -13,7 +13,7 @@ import React from "react";
 import { ReactCountryFlag } from "react-country-flag";
 import { FaLink } from "react-icons/fa6";
 
-const MediaItem = ({
+const Video = ({
   date,
   countryCode,
   title,
@@ -77,4 +77,4 @@ const MediaItem = ({
   );
 };
 
-export default MediaItem;
+export default Video;

@@ -21,6 +21,10 @@
       },
       "supportedTitle": "Unterstützte Kinderheime / Einrichtungen"
     },
+    "media": {
+      "videos": "Videos",
+      "articles": "Artikel"
+    },
     "home": {
       "metrics": {
         "children": "Kinder",

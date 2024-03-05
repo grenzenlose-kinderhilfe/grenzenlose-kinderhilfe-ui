@@ -21,6 +21,10 @@
       },
       "supportedTitle": "Támogatott gyermekotthonok / intézmények"
     },
+    "media": {
+      "videos": "Videók",
+      "articles": "Cikkek"
+    },
     "home": {
       "metrics": {
         "children": "Gyermek",
