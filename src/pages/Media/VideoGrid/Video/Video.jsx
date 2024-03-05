@@ -13,6 +13,52 @@ import React from "react";
 import { ReactCountryFlag } from "react-country-flag";
 import { FaLink } from "react-icons/fa6";
 
+const VideoDescription = ({
+  title,
+  description,
+  date,
+  countryCode,
+  source,
+  sourceUrl,
+}) => {
+  return (
+    <Flex
+      gap={6}
+      align="center"
+      height="100%"
+      flexDirection="column"
+      justifyContent="center"
+    >
+      <Heading as="h1" fontSize="32px" maxW="600px">
+        {title}
+      </Heading>
+      {description && (
+        <Text maxW="800px" fontStyle="italic">
+          {'"'}
+          {description}
+          {'"'}
+        </Text>
+      )}
+      <HStack>
+        {date && <Tag>{date}</Tag>}
+        {countryCode && (
+          <Tag>
+            <ReactCountryFlag svg countryCode={countryCode} />
+          </Tag>
+        )}
+        {source && <Tag>{source}</Tag>}
+        {sourceUrl && (
+          <Tag>
+            <Link isExternal href={sourceUrl}>
+              <FaLink />
+            </Link>
+          </Tag>
+        )}
+      </HStack>
+    </Flex>
+  );
+};
+
 const Video = ({
   date,
   countryCode,
@@ -30,40 +76,14 @@ const Video = ({
       color="white"
     >
       <GridItem align="center" p="25px">
-        <Flex
-          gap={6}
-          align="center"
-          height="100%"
-          flexDirection="column"
-          justifyContent="center"
-        >
-          <Heading as="h1" fontSize="32px" maxW="600px">
-            {title}
-          </Heading>
-          {description && (
-            <Text maxW="800px" fontStyle="italic">
-              {'"'}
-              {description}
-              {'"'}
-            </Text>
-          )}
-          <HStack>
-            {date && <Tag>{date}</Tag>}
-            {countryCode && (
-              <Tag>
-                <ReactCountryFlag svg countryCode={countryCode} />
-              </Tag>
-            )}
-            {source && <Tag>{source}</Tag>}
-            {sourceUrl && (
-              <Tag>
-                <Link isExternal href={sourceUrl}>
-                  <FaLink />
-                </Link>
-              </Tag>
-            )}
-          </HStack>
-        </Flex>
+        <VideoDescription
+          title={title}
+          description={description}
+          countryCode={countryCode}
+          source={source}
+          sourceUrl={sourceUrl}
+          date={date}
+        />
       </GridItem>
       <GridItem
         align="center"
