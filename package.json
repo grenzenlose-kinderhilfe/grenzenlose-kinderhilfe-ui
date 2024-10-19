@@ -28,7 +28,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "lefthook install",
-    "build": "rsbuild build --mode production",
+    "build": "rsbuild build --mode production && cd ./dist && zip -r ./grenzenlose-kinderhilfe.zip ./*",
     "serve": "rsbuild serve",
     "dev": "rsbuild dev",
     "lint": "pnpm run lint:eslint && pnpm run lint:prettier",

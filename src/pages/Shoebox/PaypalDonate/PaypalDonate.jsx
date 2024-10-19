@@ -16,7 +16,7 @@ const DonateButton = () => (
           purchase_units: [
             {
               amount: {
-                value: "5.00", // set donation amount
+                value: "5.00"
               },
             },
           ],
