@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { wordpress } from "../../../api/wordpress";
+import { getFeaturedPosts } from "../../../api/wordpress";
 
 const STATUS_INIT = "init";
 const STATUS_LOADING = "loading";
@@ -23,7 +23,7 @@ const SlideShow = () => {
       setStatus(STATUS_LOADING);
 
       try {
-        const slides = await wordpress.getFeaturedPosts(i18n.language);
+        const slides = await getFeaturedPosts(i18n.language);
         setSlides(slides);
       } catch (e) {
         console.error(e);

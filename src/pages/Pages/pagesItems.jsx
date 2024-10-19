@@ -2,7 +2,7 @@ const pageItems = [
   {
     isExternal: true,
     localizationKey: "rollingKids",
-    url: "https://rollingkids.eu/",
+    url: "https://rollingkids.info/",
     backgroundImage: "/assets/img/pages/thumbnail/rolling-kids.jpeg",
   },
   {

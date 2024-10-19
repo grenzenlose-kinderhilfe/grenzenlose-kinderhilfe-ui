@@ -2,7 +2,6 @@ import {
   AspectRatio,
   Grid,
   GridItem,
-  useMediaQuery,
   Heading,
   Text,
   Flex,
@@ -10,14 +9,9 @@ import {
 import React from "react";
 import { LOCALE_DE } from "../../../constants";
 import { useTranslation } from "react-i18next";
-
+import DonateButton from "../PaypalDonate/PaypalDonate"
 const Fundraiser = () => {
-  const [isLargerThan321] = useMediaQuery("(min-width: 321px)");
-
   const { i18n, t } = useTranslation();
-
-  const iframeVariant = isLargerThan321 ? "medium" : "small";
-  const iframeMaxHeight = isLargerThan321 ? "240px" : "50px";
 
   const localization = {
     actionTextHeading: t(
@@ -61,15 +55,9 @@ const Fundraiser = () => {
           <AspectRatio
             width="100%"
             maxWidth="500px"
-            maxHeight={iframeMaxHeight}
-            ratio={1}
+            ratio={1/2.5}
           >
-            <iframe
-              className="gfm-embed-iframe"
-              frameBorder={0}
-              scrolling="no"
-              src={`https://www.gofundme.com/f/christmas-shoe-box-gift-delivery/widget/${iframeVariant}#:~:tcm-prompt=Hidden`}
-            />
+            <DonateButton />
           </AspectRatio>
           <Text mt="-1rem">{localization.actionTextInstruction}</Text>
         </Flex>

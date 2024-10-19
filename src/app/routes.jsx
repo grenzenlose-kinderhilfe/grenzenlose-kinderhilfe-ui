@@ -1,13 +1,13 @@
 import React from "react";
 
-import { LOCALE_DE, WORDPRESS_BLOG_BASE_URL } from "./constants";
+import { LOCALE_DE, WORDPRESS_BLOG_BASE_URL } from "../constants";
 
-const Home = React.lazy(() => import("./pages/Home"));
-const Institutions = React.lazy(() => import("./pages/Institutions"));
-const Media = React.lazy(() => import("./pages/Media"));
-const Pages = React.lazy(() => import("./pages/Pages"));
-const About = React.lazy(() => import("./pages/About"));
-const ShoeBox = React.lazy(() => import("./pages/Shoebox"));
+const Home = React.lazy(() => import("../pages/Home"));
+const Institutions = React.lazy(() => import("../pages/Institutions"));
+const Media = React.lazy(() => import("../pages/Media"));
+const Pages = React.lazy(() => import("../pages/Pages"));
+const About = React.lazy(() => import("../pages/About"));
+const ShoeBox = React.lazy(() => import("../pages/Shoebox"));
 
 const routes = [
   {
