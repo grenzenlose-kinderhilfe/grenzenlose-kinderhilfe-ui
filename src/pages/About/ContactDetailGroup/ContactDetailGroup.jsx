@@ -21,8 +21,8 @@ const ContactDetailGroup = () => {
     {
       name: localization.foundingDocument,
       links: [
-        "https://grenzenlose-kinderhilfe.com/wp-content/uploads/2021/07/Határtalan-segítség-alapítvány.doc",
-        "https://grenzenlose-kinderhilfe.com/wp-content/uploads/2021/07/HATÁRTALAN-SEGÍTSÉG-egyéb-1.doc",
+        "/docs/hatartalan-segitseg-alapitvany.doc",
+        "/docs/hatartalan-segitseg-egyeb.doc",
       ],
     },
   ];
@@ -30,7 +30,7 @@ const ContactDetailGroup = () => {
   const bankDetails = [
     ["Bank", "Erste Bank Hungary Zrt, H-1138 Budapest, Népfürdő utca 24-26"],
     ["SWIFT-Code", "GIBA HUHB"],
-    ["IBAN/BIC", "HU 1611600006 00000000 83451166 11600006 00000000 83451166"],
+    ["IBAN/BIC", "HU 1611600006 00000000 83451166"],
     [
       "TWINT-Option",
       "+41784063331 János Mester, Gründer mester.jnos@gmail.com",

@@ -28,9 +28,9 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "lefthook install",
-    "build": "vite build",
-    "serve": "vite serve",
-    "dev": "vite dev",
+    "build": "rsbuild build --mode production",
+    "serve": "rsbuild serve",
+    "dev": "rsbuild dev",
     "lint": "pnpm run lint:eslint && pnpm run lint:prettier",
     "lint:eslint": "eslint --fix --ext js,jsx .",
     "lint:prettier": "prettier --write .",
@@ -49,7 +49,8 @@
     ]
   },
   "devDependencies": {
-    "@vitejs/plugin-react-swc": "^3.7.1",
+    "@rsbuild/core": "^1.0.15",
+    "@rsbuild/plugin-react": "^1.0.5",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -57,9 +58,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "i18next-parser": "^7.9.0",
     "lefthook": "^1.7.22",
-    "prettier": "^3.3.3",
-    "vite": "^5.4.9",
-    "vite-plugin-zip-pack": "^1.2.4"
+    "prettier": "^3.3.3"
   },
   "packageManager": "pnpm@8.9.0"
 }

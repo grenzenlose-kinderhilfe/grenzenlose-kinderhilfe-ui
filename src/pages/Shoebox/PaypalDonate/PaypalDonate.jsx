@@ -1,6 +1,6 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
-const clientId = "AdKic1ZZ43rTj81R_vtj1oyNd26NAY7tJp1XjsJx2mqcuGE8CW3etzf0p5NcGxb7UCx6LVjYi--A_A4I"
+const clientId = "Afb49P4EFUTaTmOWzpWHrCvv_VJ-3SYdPn3Xf8FoVXuQghD0_66A3Aj5LowsLNPBi9YC1YKGGAP0UiSE"
 
 const DonateButton = () => (
   <PayPalScriptProvider options={{ "client-id": clientId }}>
