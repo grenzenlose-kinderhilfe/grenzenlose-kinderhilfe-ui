@@ -7,19 +7,19 @@ import Metric from "./Metric/Metric";
 const data = [
   {
     localizationKey: "countries",
-    value: 8,
+    value: 9,
   },
   {
     localizationKey: "locations",
-    value: 95,
+    value: 130,
   },
   {
     localizationKey: "children",
-    value: 15000,
+    value: 20000,
   },
   {
     localizationKey: "volunteers",
-    value: 500,
+    value: 600,
   },
 ];
 

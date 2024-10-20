@@ -24,7 +24,7 @@ const NavBar = ({ routes }) => {
       padding="1rem"
       bg="primary.blue"
       color="primary.white"
-      zIndex="100"
+      zIndex="9999"
     >
       <Flex minWidth="15%" maxWidth="20%">
         <MenuLogo />
