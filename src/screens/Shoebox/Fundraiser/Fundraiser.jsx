@@ -9,7 +9,8 @@ import {
 import React from "react";
 import { LOCALE_DE } from "../../../constants";
 import { useTranslation } from "react-i18next";
-import DonateButton from "../PaypalDonate/PaypalDonate"
+import Donate from "../../../components/Donate/Donate";
+
 const Fundraiser = () => {
   const { i18n, t } = useTranslation();
 
@@ -47,19 +48,21 @@ const Fundraiser = () => {
         </AspectRatio>
       </GridItem>
       <GridItem alignSelf="center" margin={{ base: "25px", xl: 0 }}>
-        <Flex flexDirection="column" alignItems="center" gap={8} maxW="600px">
-          <Heading as="h1" fontsize="2rem">
+        <Flex flexDirection="column" alignItems="center" gap={6} maxW="600px">
+          <Heading as="h1" fontSize="2rem">
             {localization.actionTextHeading}
           </Heading>
-
-          <AspectRatio
-            width="100%"
-            maxWidth="500px"
-            ratio={1/2.5}
-          >
-            <DonateButton />
-          </AspectRatio>
-          <Text mt="-1rem">{localization.actionTextInstruction}</Text>
+          <Flex flexDirection="column" width="100%" alignItems="center">
+            <AspectRatio
+              width="100%"
+              maxWidth="300px"
+              maxHeight="100px"
+              ratio={1}
+            >
+              <Donate />
+            </AspectRatio>
+          </Flex>
+          <Text mt={15}>{localization.actionTextInstruction}</Text>
         </Flex>
       </GridItem>
     </Grid>

@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AppRoutes from "./AppRoutes";
-import Layout from "../components/layout/Layout";
+import Layout from "../layout/Layout";
 import SuspenseBoundary from "./SuspenseBoundary";
 import routes from "./routes";
 

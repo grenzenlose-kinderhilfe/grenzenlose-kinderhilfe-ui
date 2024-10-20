@@ -1,28 +1,29 @@
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import React from "react";
+import { PayPalButtons } from "@paypal/react-paypal-js";
 
-const clientId = "Afb49P4EFUTaTmOWzpWHrCvv_VJ-3SYdPn3Xf8FoVXuQghD0_66A3Aj5LowsLNPBi9YC1YKGGAP0UiSE"
-
-const DonateButton = () => (
-  <PayPalScriptProvider options={{ "client-id": clientId }}>
+const DonateButton = ({ isDisabled, amount }) => {
+  return (
     <PayPalButtons
+      fundingSource="paypal"
+      disabled={isDisabled}
       style={{
         layout: "vertical",
         color: "blue",
         shape: "rect",
         label: "donate",
       }}
-      createOrder={(data, actions) => {
+      createOrder={async (_, actions) => {
         return actions.order.create({
           purchase_units: [
             {
               amount: {
-                value: "5.00"
+                value: amount,
               },
             },
           ],
         });
       }}
-      onApprove={(data, actions) => {
+      onApprove={async (_, actions) => {
         return actions.order.capture().then(function (details) {
           alert(
             "Donation successful! Thank you, " + details.payer.name.given_name,
@@ -30,7 +31,7 @@ const DonateButton = () => (
         });
       }}
     />
-  </PayPalScriptProvider>
-);
+  );
+};
 
 export default DonateButton;

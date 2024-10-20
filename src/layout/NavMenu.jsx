@@ -12,7 +12,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 
-import { LANGUAGES } from "../../constants";
+import { LANGUAGES } from "../constants";
 
 export const MenuLogo = () => (
   <AspectRatio
