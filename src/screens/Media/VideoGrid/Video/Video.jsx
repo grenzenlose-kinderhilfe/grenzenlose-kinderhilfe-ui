@@ -3,10 +3,10 @@ import {
   Grid,
   GridItem,
   HStack,
-  Box,
   Tag,
   Heading,
   Link,
+  AspectRatio,
   Text,
 } from "@chakra-ui/react";
 import React from "react";
@@ -91,7 +91,15 @@ const Video = ({
         justifyContent="center"
         p={{ base: "0 10px 10px", md: "0 25px 25px", xl: "25px" }}
       >
-        <Box as="iframe" src={videoEmbedUrl} width="100%" aspectRatio="16/9" />
+        <AspectRatio width="100%" ratio={16 / 9}>
+          <iframe
+            title={title}
+            width="1268"
+            height="713"
+            src={videoEmbedUrl}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          />
+        </AspectRatio>
       </GridItem>
     </Grid>
   );
