@@ -5,16 +5,16 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "@chakra-ui/react": "^2.10.3",
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
-    "@paypal/react-paypal-js": "^8.7.0",
-    "@tanstack/react-query": "^5.59.15",
+    "@chakra-ui/react": "^2.10.9",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@paypal/react-paypal-js": "^8.9.2",
+    "@tanstack/react-query": "^5.90.9",
     "framer-motion": "^7.10.3",
     "i18next": "^22.5.1",
-    "i18next-browser-languagedetector": "^7.2.1",
-    "i18next-http-backend": "^2.6.2",
-    "luxon": "^3.5.0",
+    "i18next-browser-languagedetector": "^7.2.2",
+    "i18next-http-backend": "^2.7.3",
+    "luxon": "^3.7.2",
     "react": "^18.3.1",
     "react-country-flag": "^3.1.0",
     "react-dom": "^18.3.1",
@@ -22,7 +22,7 @@
     "react-i18next": "^12.3.1",
     "react-icons": "^4.12.0",
     "react-redux": "^8.1.3",
-    "react-router-dom": "^6.27.0",
+    "react-router-dom": "^6.30.2",
     "swiper": "^8.4.7"
   },
   "scripts": {
@@ -49,16 +49,16 @@
     ]
   },
   "devDependencies": {
-    "@rsbuild/core": "^1.0.15",
-    "@rsbuild/plugin-react": "^1.0.5",
+    "@rsbuild/core": "^1.6.6",
+    "@rsbuild/plugin-react": "^1.4.2",
     "eslint": "^8.57.1",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react": "^7.37.1",
+    "eslint-config-prettier": "^9.1.2",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^4.6.2",
     "i18next-parser": "^7.9.0",
-    "lefthook": "^1.7.22",
-    "prettier": "^3.3.3"
+    "lefthook": "^1.13.6",
+    "prettier": "^3.6.2"
   },
   "packageManager": "pnpm@8.9.0"
 }
