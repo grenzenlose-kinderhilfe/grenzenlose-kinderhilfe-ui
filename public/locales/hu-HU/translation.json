@@ -17,6 +17,7 @@
         "kosovo": "Koszovó",
         "romania": "Románia",
         "slovakia": "Szlovákia",
+        "switzerland": "Svájc",
         "ukraine": "Ukrajna"
       },
       "supportedTitle": "Támogatott gyermekotthonok / intézmények"
@@ -76,6 +77,10 @@
     }
   },
   "ui": {
+    "data": {
+      "empty": "Jelenleg nincs megjeleníthető tartalom.",
+      "error": "A tartalom betöltése nem sikerült. Kérjük, próbálja újra később."
+    },
     "navigation": {
       "aboutUs": "Rólunk",
       "blog": "Események",

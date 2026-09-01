@@ -2,15 +2,18 @@ import { Grid, GridItem, Heading, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
+import DataBoundary from "../../components/DataBoundary/DataBoundary";
+import { useLocations } from "../../hooks/useContent";
 import withTracker from "../../utils/tracking";
 import LocationAccordion from "./LocationAccordion/LocationAccordion";
 import LocationGrid from "./LocationGrid/LocationGrid";
-import locations from "./locations";
 
 const Institutions = () => {
   const { t } = useTranslation();
 
   const [isLargerThan426] = useMediaQuery("(min-width: 426px)");
+
+  const { data: locations, isPending, isError } = useLocations();
 
   const localization = {
     supportedTitle: t(
@@ -24,22 +27,15 @@ const Institutions = () => {
       UA: t("pages.donation.country.ukraine", "Ukrajna"),
       DE: t("pages.donation.country.germany", "Németország"),
       AT: t("pages.donation.country.austria", "Ausztria"),
+      CH: t("pages.donation.country.switzerland", "Svájc"),
       XK: t("pages.donation.country.kosovo", "Koszovó"),
     },
   };
 
-  const localizedLocations = locations
-    .map((item) => ({
-      ...item,
-      country: localization.countries[item.countryCode],
-    }))
-    .sort((a, b) =>
-      a.countryCode < b.countryCode
-        ? -1
-        : a.countryCode > b.countryCode
-          ? 1
-          : 0,
-    );
+  const localizedLocations = (locations ?? []).map((item) => ({
+    ...item,
+    country: localization.countries[item.countryCode],
+  }));
 
   return (
     <Grid
@@ -52,11 +48,17 @@ const Institutions = () => {
         <Heading as="h1">{localization.supportedTitle}</Heading>
       </GridItem>
       <GridItem>
-        {isLargerThan426 ? (
-          <LocationGrid locations={localizedLocations} />
-        ) : (
-          <LocationAccordion locations={localizedLocations} />
-        )}
+        <DataBoundary
+          isLoading={isPending}
+          isError={isError}
+          isEmpty={!localizedLocations.length}
+        >
+          {isLargerThan426 ? (
+            <LocationGrid locations={localizedLocations} />
+          ) : (
+            <LocationAccordion locations={localizedLocations} />
+          )}
+        </DataBoundary>
       </GridItem>
     </Grid>
   );
