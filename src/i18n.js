@@ -19,6 +19,13 @@ i18n
     interpolation: {
       escapeValue: false,
     },
+    react: {
+      // Translations are fetched over HTTP. react-i18next re-renders on
+      // "languageChanged", but that fires before the new file has arrived —
+      // without this the previous language stays on screen until something
+      // else happens to re-render the component.
+      bindI18nStore: "added",
+    },
   });
 
 i18n.services.formatter.add("DATE_HUGE", (value, lng) =>

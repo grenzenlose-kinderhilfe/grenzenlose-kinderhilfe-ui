@@ -6,49 +6,26 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { getFeaturedPosts } from "../../../api/wordpress";
-
-const STATUS_INIT = "init";
-const STATUS_LOADING = "loading";
-const STATUS_DONE = "done";
+import { useFeaturedPosts } from "../../../hooks/useContent";
 
 const SlideShow = () => {
-  const [slides, setSlides] = React.useState([]);
-  const [status, setStatus] = React.useState(STATUS_INIT);
-
   const { i18n } = useTranslation();
 
-  React.useEffect(() => {
-    const fetchFeaturedImages = async () => {
-      setStatus(STATUS_LOADING);
+  const { data: slides, isPending } = useFeaturedPosts(i18n.language);
 
-      try {
-        const slides = await getFeaturedPosts(i18n.language);
-        setSlides(slides);
-      } catch (e) {
-        console.error(e);
-      } finally {
-        setStatus(STATUS_DONE);
-      }
-    };
+  if (isPending) {
+    return (
+      <Flex justifyContent="center">
+        <Spinner color="primary.blue" />
+      </Flex>
+    );
+  }
 
-    if (status === STATUS_INIT) {
-      fetchFeaturedImages();
-    }
-  }, [slides, setSlides, i18n, status, setStatus]);
+  // The blog is a separate site; if it cannot be reached the home page simply
+  // carries on without the carousel.
+  if (!slides?.length) return null;
 
-  const getSlides = () =>
-    slides.map(({ img, alt, link }, idx) => (
-      <Link isExternal key={`slide-${idx}`} href={link}>
-        <Image fit="contain" src={img} alt={alt} maxH="750px" />
-      </Link>
-    ));
-
-  return status === "loading" ? (
-    <Flex justifyContent="center">
-      <Spinner />
-    </Flex>
-  ) : (
+  return (
     <Swiper
       spaceBetween={50}
       centeredSlides
@@ -61,9 +38,13 @@ const SlideShow = () => {
       }}
       modules={[Autoplay, Pagination]}
     >
-      {getSlides().map((slide, idx) => (
+      {slides.map(({ img, alt, link }, idx) => (
         <SwiperSlide key={`slide-${idx}`}>
-          <Flex justifyContent="center">{slide}</Flex>
+          <Flex justifyContent="center">
+            <Link isExternal href={link}>
+              <Image fit="contain" src={img} alt={alt} maxH="750px" />
+            </Link>
+          </Flex>
         </SwiperSlide>
       ))}
     </Swiper>

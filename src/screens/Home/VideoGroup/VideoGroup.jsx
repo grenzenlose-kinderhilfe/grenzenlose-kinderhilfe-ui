@@ -25,7 +25,7 @@ const VideoGroup = () => (
         justifyContent="center"
       >
         <Trans i18nKey="pages.home.missionStatement">
-          <Heading as="h1" fontSize="32px" maxW="600px">
+          <Heading as="h2" fontSize="32px" maxW="600px">
             Legfontosabb célunk hogy a Kárpát-medence árváinak mindennapjait
             bearanyozzuk!
           </Heading>

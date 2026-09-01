@@ -2,6 +2,12 @@ import { Flex } from "@chakra-ui/react";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
+import {
+  BANK_DETAILS,
+  CONTACTS,
+  FOUNDING_DOCUMENTS,
+  ORGANIZATION,
+} from "../../../data/organization";
 import ContactDetail from "./ContentDetail/ContactDetail";
 
 const ContactDetailGroup = () => {
@@ -20,43 +26,28 @@ const ContactDetailGroup = () => {
   const documents = [
     {
       name: localization.foundingDocument,
-      links: [
-        "/docs/hatartalan-segitseg-alapitvany.doc",
-        "/docs/hatartalan-segitseg-egyeb.doc",
-      ],
+      links: FOUNDING_DOCUMENTS,
     },
-  ];
-
-  const bankDetails = [
-    ["Bank", "Erste Bank Hungary Zrt, H-1138 Budapest, Népfürdő utca 24-26"],
-    ["SWIFT-Code", "GIBA HUHB"],
-    ["IBAN/BIC", "HU 1611600006 00000000 83451166"],
-    [
-      "TWINT-Option",
-      "+41784063331 János Mester, Gründer mester.jnos@gmail.com",
-    ],
   ];
 
   return (
     <Flex justifyContent="center" flexDirection="column" maxWidth="500px">
+      {CONTACTS.map(({ name, roleKey, phone }) => (
+        <ContactDetail
+          key={name}
+          title={name}
+          phone={phone}
+          subtitle={localization[roleKey]}
+        />
+      ))}
       <ContactDetail
-        title="Kocsik Enikő"
-        subtitle={localization.foundationChairman}
-        phone="36205919590"
-      />
-      <ContactDetail
-        title="Mester János"
-        subtitle={localization.founder}
-        phone="41784063331"
-      />
-      <ContactDetail
-        title="Határtalan Segítség Alapítvány"
-        address="4405 Nyíregyháza, Molnár utca 26"
-        email="hatartalansegitsegalapitvany@gmail.com"
-        taxNumber={`${localization.taxNumber}: 19102186115`}
+        title={ORGANIZATION.name}
+        address={ORGANIZATION.address}
+        email={ORGANIZATION.email}
+        taxNumber={`${localization.taxNumber}: ${ORGANIZATION.taxNumber}`}
         documents={documents}
       />
-      <ContactDetail details={bankDetails} />
+      <ContactDetail details={BANK_DETAILS} />
     </Flex>
   );
 };

@@ -52,15 +52,8 @@ const Fundraiser = () => {
           <Heading as="h1" fontSize="2rem">
             {localization.actionTextHeading}
           </Heading>
-          <Flex flexDirection="column" width="100%" alignItems="center">
-            <AspectRatio
-              width="100%"
-              maxWidth="300px"
-              maxHeight="100px"
-              ratio={1}
-            >
-              <Donate />
-            </AspectRatio>
+          <Flex flexDirection="column" width="100%" maxWidth="320px">
+            <Donate />
           </Flex>
           <Text mt={15}>{localization.actionTextInstruction}</Text>
         </Flex>

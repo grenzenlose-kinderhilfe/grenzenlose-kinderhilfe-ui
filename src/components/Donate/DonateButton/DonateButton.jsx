@@ -1,7 +1,18 @@
 import React from "react";
+import { useToast } from "@chakra-ui/react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
+import { useTranslation } from "react-i18next";
 
-const DonateButton = ({ isDisabled, amount }) => {
+import { formatAmount } from "../amount";
+
+const DonateButton = ({ isDisabled, amount, currency }) => {
+  const toast = useToast();
+
+  const { t } = useTranslation();
+
+  const notify = (status, title, description) =>
+    toast({ status, title, description, duration: 8000, isClosable: true });
+
   return (
     <PayPalButtons
       fundingSource="paypal"
@@ -12,23 +23,53 @@ const DonateButton = ({ isDisabled, amount }) => {
         shape: "rect",
         label: "donate",
       }}
-      createOrder={async (_, actions) => {
-        return actions.order.create({
+      createOrder={(_, actions) =>
+        actions.order.create({
+          intent: "CAPTURE",
           purchase_units: [
             {
               amount: {
-                value: amount,
+                currency_code: currency,
+                value: formatAmount(amount, currency),
               },
             },
           ],
-        });
-      }}
+        })
+      }
       onApprove={async (_, actions) => {
-        return actions.order.capture().then(function (details) {
-          alert(
-            "Donation successful! Thank you, " + details.payer.name.given_name,
-          );
-        });
+        const details = await actions.order.capture();
+
+        notify(
+          "success",
+          t("ui.donate.successTitle", "Köszönjük az adományod!"),
+          details?.payer?.name?.given_name
+            ? t("ui.donate.successNamed", "Köszönjük, {{name}}!", {
+                name: details.payer.name.given_name,
+              })
+            : undefined,
+        );
+      }}
+      onCancel={() =>
+        notify(
+          "info",
+          t("ui.donate.cancelledTitle", "Az adományozás megszakadt"),
+          t(
+            "ui.donate.cancelledText",
+            "Nem történt terhelés. Bármikor újrapróbálhatod.",
+          ),
+        )
+      }
+      onError={(error) => {
+        console.error(error);
+
+        notify(
+          "error",
+          t("ui.donate.errorTitle", "Az adományozás nem sikerült"),
+          t(
+            "ui.donate.errorText",
+            "Kérjük, próbáld újra, vagy támogass minket banki átutalással.",
+          ),
+        );
       }}
     />
   );

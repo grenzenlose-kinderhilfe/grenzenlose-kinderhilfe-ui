@@ -8,6 +8,7 @@ const Media = React.lazy(() => import("../screens/Media"));
 const Pages = React.lazy(() => import("../screens/Pages"));
 const About = React.lazy(() => import("../screens/About"));
 const ShoeBox = React.lazy(() => import("../screens/Shoebox"));
+const Support = React.lazy(() => import("../screens/Support"));
 
 const routes = [
   {
@@ -33,6 +34,11 @@ const routes = [
     element: <Pages />,
   },
   {
+    url: "/pages/shoebox",
+    localizationKey: "shoebox",
+    element: <ShoeBox />,
+  },
+  {
     url: "/about",
     localizationKey: "aboutUs",
     element: <About />,
@@ -45,9 +51,9 @@ const routes = [
   },
   {
     isButton: true,
-    url: "/pages/shoebox",
-    localizationKey: "shoebox",
-    element: <ShoeBox />,
+    url: "/support",
+    localizationKey: "support",
+    element: <Support />,
   },
 ];
 

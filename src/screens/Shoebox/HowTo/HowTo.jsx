@@ -1,11 +1,4 @@
-import {
-  Grid,
-  Flex,
-  GridItem,
-  Heading,
-  Text,
-  Link,
-} from "@chakra-ui/react";
+import { Grid, Flex, GridItem, Heading, Text, Link } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { LOCALE_DE } from "../../../constants";
 
@@ -59,9 +52,17 @@ const HowTo = () => {
         justifyContent="center"
         p={{ base: "0 10px 10px", md: "0 25px 25px", xl: "25px" }}
       >
-        <Flex background="white" color="black" borderRadius="5px" p="10px" fontWeight="700" textAlign="center" textDecoration="underline">
+        <Flex
+          background="white"
+          color="black"
+          borderRadius="5px"
+          p="10px"
+          fontWeight="700"
+          textAlign="center"
+          textDecoration="underline"
+        >
           <Link fontSize="1rem" isExternal href={blogCategoryUrl}>
-              {localization.buttonText}
+            {localization.buttonText}
           </Link>
         </Flex>
       </GridItem>

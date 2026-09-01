@@ -1,5 +1,27 @@
 {
   "pages": {
+    "Shoebox": {
+      "Fundraiser": {
+        "actionTextHeading": "Adományozz most és támogasd a szállítmányozást!",
+        "actionTextInstruction": "Adományoddal te is részese lehetsz ennek az örömteli kezdeményezésnek. Kattints a fenti linkre és csatlakozza nagyobb jó ügyéhez."
+      },
+      "HowTo": {
+        "buttonText": "Kattints ide a legújabb cipősdoboz akció hírekert",
+        "heading": "Hogyan működik a Cipősdoboz Akció?",
+        "headingSub": "Adományozz és Teremtsünk Együtt Karácsonyi Csodát!",
+        "stepDonate": "Adományozás: Az elkészített dobozokat adományozhatod, hogy eljussanak azokhoz, akiknek a legnagyobb szükségük van rá.",
+        "stepHappy": "Együtt Örülni: Nézze meg a gyermekek boldog arcát, amikor kibontják az ajándékokat! Egy egyszerű cipősdoboz hatalmas örömet okozhat.",
+        "stepMakeBox": "Doboz Készítése: Mindenki részt vehet! Töltsd meg egy cipősdobozt olyan hasznos és örömet okozó tárgyakkal, mint játékok, írószerek, ruhák vagy édességek."
+      },
+      "MainContentGroup": {
+        "attention": "Mindannyian tudjuk, hogy egy kis figyelem, szeretet és gondoskodás mennyire feldobhatja egy gyermek napját. Az évente megrendezésre Cipősdoboz Akció célja pontosan ez: örömet és reményt vinni a rászoruló gyerekek számára. Ez már a 7. év, és ez alatt az idő alatt közel 13.000 gyermeket sikerült megajándékozni.",
+        "community": "Az akció része lenni, azért jó, mert nem csak az adományozásról szól, hanem az összetartozásról is. Csatlakozz a Grenzenlose Kinderhilfe közösségéhez, ahol együtt tehetünk azért, hogy minél több gyermek életét tegyük boldoggá.",
+        "joinUs": "Csatlakozz Hozzánk!",
+        "shoeboxMagic": "Gondoltad volna, hogy egy egyszerű cipősdoboz képes varázsolni? Ráadásul gyermekmosolyokat! Karitatív akciónk során célunk, hogy minél több rászoruló gyermek számára hozzunk létre boldog pillanatokat az év végi ünnepek alatt.",
+        "titleHeading": "Cipősdoboz Akció a Gyermekekért",
+        "titleHeadingSub": "Adományozz és Teremtsünk Együtt Karácsonyi Csodát!"
+      }
+    },
     "aboutUs": {
       "contentHeader": "A kérdés egyszerű volt: mire volna szükségetek? <1></1>A válasz még egyszerűbb: törődésre.<3></3>Innen indult a történetünk.",
       "contentText": "<0>2010-ben egy gyermekotthon karácsonyi rendezvényén vettünk részt, ahol fogyatékkal élő gyermekek adtak igazán szívhez szóló műsort, nekünk „egészségeseknek”. Az akkor megélt érzések hatására elkezdtük keresni az utat, hogy mivel tudnánk meghálálni azoknak a gyerekeknek és felnőtteknek, akiktől azokat a leírhatatlanul jó érzéseket kaptuk. A kérdés egyszerű volt: mire volna szükségetek? A válasz még egyszerűbb: törődésre.</0><1>Innen indult a történetünk. Az elmúlt években nagyon sok alkalommal sikerült mosolyt csalni egészséges és fogyatékkal élő gyermekek arcára azokkal a programokkal és meglepetésekkel amelyeket kitaláltunk és megszerveztünk a számukra!</1><2>Ismerősök, Barátok és számtalan Ismeretlen csatlakozott az évek során segítő jószándékkal ahhoz a csapathoz akikkel együtt lelkesen készültünk és készülünk különböző képen szolgálni azokat a Magyarországon és Romániában valamint Ukrajnában árvaként, hátrányos helyzetűként, intézményi körülmények között felnövekvő gyerekeket, akiknek a mindennapi boldogság érzete hiánycikk!</2><3>Számunkra „Az gyerekek mosolya” nagyon fontos! Ez a törődés a szeretet egyik megnyilvánulása! Legyen egészséges, vagy olyan emberfeletti erővel rendelkező emberke, aki lábak és hiányzó újakkal is képes gyönyörűen zongorázni! Nekik és értük hoztuk létre a Határtalan Segítség Alapítványt! Az eddigi programokról és ünnepségekről itt tájékozódhatsz, a jövőbeni eseményekre pedig már személyes részvételeddel is hatással lehetsz!</3><4>Köszönjük az érdeklődésed, jó nézelődést a honlapon és várjuk az aktivitásod, mert most már tudod: Minden gyermek mosolya számít!</4>",
@@ -22,16 +44,64 @@
       },
       "supportedTitle": "Támogatott gyermekotthonok / intézmények"
     },
-    "media": {
-      "videos": "Videók",
-      "articles": "Cikkek"
-    },
     "home": {
+      "campaigns": {
+        "heading": "Mire gyűjtünk most?",
+        "howLabel": "Hogyan csatlakozhatok?",
+        "needLabel": "Mire van szükség?",
+        "rollingKids": {
+          "action": "Tudj meg többet",
+          "how": "Támogasd a programot, vagy hívd el hozzátok — óvodába, iskolába, rendezvényre.",
+          "need": "Gyermekjárművek, láthatósági mellények és eszközök a KRESZ-pályákhoz.",
+          "title": "Rolling Kids SAFE",
+          "who": "Óvodás és iskolás gyermekek, akik játszva tanulják meg a biztonságos közlekedést."
+        },
+        "shoebox": {
+          "action": "Irány a Cipősdoboz Akció",
+          "how": "Készíts egy dobozt, juttasd el hozzánk, vagy támogasd a szállítást online adománnyal.",
+          "need": "Megtöltött cipősdobozok játékkal, írószerrel, ruhával, édességgel — és adomány a szállítás költségeire.",
+          "title": "Cipősdoboz Akció",
+          "who": "Gyermekotthonokban és hátrányos helyzetben élő gyermekek Magyarországon, Ukrajnában és a Kárpát-medencében."
+        },
+        "subHeading": "Ezek a programjaink várnak most támogatásra.",
+        "trafficPark": {
+          "action": "Érdekel a program",
+          "how": "Írj nekünk, és egyeztetünk a lehetőségekről.",
+          "need": "Pályaelemek, közlekedési táblák és oktatási anyagok egy-egy intézmény saját KRESZ-pályájához.",
+          "title": "KRESZ-pálya gyermekintézményeknek",
+          "who": "Óvodák, iskolák, gyermekintézmények és önkormányzatok."
+        },
+        "ukraine": {
+          "action": "Támogatom",
+          "how": "Adományozz online vagy utalással, illetve ajánlj fel tárgyi adományt.",
+          "need": "Tartós élelmiszer, tisztítószer, gyógyászati és iskolai eszközök, valamint hozzájárulás a szállítás költségeihez.",
+          "title": "Segítség Ukrajnában",
+          "who": "Kárpátaljai gyermekek, családok és intézmények — a háború kezdete óta folyamatosan."
+        },
+        "volunteer": {
+          "action": "Jelentkezem önkéntesnek",
+          "how": "Írj nekünk egy e-mailt, és megbeszéljük, miben tudsz segíteni.",
+          "need": "Segítő kezek a gyűjtéshez, a csomagoláshoz, a szállításhoz és a programok lebonyolításához.",
+          "title": "Önkéntes program",
+          "who": "A gyermekek — és a csapat, amelyik évről évre eljuttatja hozzájuk a segítséget."
+        },
+        "whoLabel": "Kiknek segítünk?"
+      },
+      "hero": {
+        "lead": "Több mint tíz éve szervezünk adománygyűjtést, közösségi programokat és gyermekeket támogató kezdeményezéseket Magyarország, Ukrajna és a Kárpát-medence között.",
+        "support": "Támogatom",
+        "tagline": "Gyermekekért. Határok nélkül.",
+        "volunteer": "Önkéntes leszek"
+      },
       "metrics": {
-        "children": "Gyermek",
+        "aidDelivered": "Tonna adomány Ukrajnába",
+        "children": "Megajándékozott gyermek",
         "countries": "Ország",
-        "locations": "Helyszín",
-        "volunteers": "Önkéntes"
+        "heading": "Amit együtt elértünk",
+        "locations": "Helyszín és intézmény",
+        "subHeading": "Minden szám mögött önkéntesek, adományozók és partnerek állnak.",
+        "volunteers": "Önkéntes és támogató",
+        "yearsActive": "Éve a gyermekekért"
       },
       "mission": {
         "education": "Oktatás",
@@ -44,42 +114,102 @@
         "travelOrganization": "Utazásszervezés"
       },
       "missionStatement": "<0>Legfontosabb célunk hogy a Kárpát-medence árváinak mindennapjait bearanyozzuk!</0><1>Az első jótékony akciónk baráti kezdeményezésre indult 2011. karácsonyán, amikor rászoruló gyerekeket ajándékoztunk meg. Látva a felragyogó arcokat úgy gondoltuk, hogy ezt megszeretnénk ismételni és nem csak egyszer egy évben.</1><2>A gyermekotthonok lakói óriási szeretettel fogadják az ajándékokat,a közös programokat és az adományozókat. Törekszünk arra,hogy az adott intézmények speciális helyzetének megfelelően adományozzunk, így a programjaink a megszületésüktől a mai napig folyamatosan fejlődnek, változnak.</2><3>Folyamatos az újratervezés és újabb célok meghatározása az adományozó önkéntesek és a gyermekek, valamint az intézmények elégedettségének igénye szerint.</3>",
+      "partners": {
+        "heading": "Együtt többre megyünk",
+        "subHeading": "Büszkék vagyunk rá, hogy munkánkat civil szervezetek, intézmények, vállalatok, önkéntesek és szakmai partnerek támogatják."
+      },
       "quote": {
         "quoteText": "Aki nem hisz abban, hogy mennyi jó ember van, az kezdjen el valami jót tenni, és meglátja, milyen sokan oda állnak mellé"
       }
+    },
+    "media": {
+      "articles": "Cikkek",
+      "videos": "Videók"
     },
     "pagesTitle": {
       "institutions": "Intézmények",
       "rollingKids": "Rolling Kids",
       "shoebox": "Cipősdoboz"
     },
-    "Shoebox": {
-      "Fundraiser": {
-        "actionTextHeading": "Adományozz most és támogasd a szállítmányozást!",
-        "actionTextInstruction": "Adományoddal te is részese lehetsz ennek az örömteli kezdeményezésnek. Kattints a fenti linkre és csatlakozza nagyobb jó ügyéhez."
+    "support": {
+      "heading": "Támogasd a munkánkat",
+      "lead": "Válaszd azt a módot, amelyik neked a legegyszerűbb. Minden felajánlás a Kárpát-medence gyermekeihez jut el.",
+      "mapHeading": "Hol segítünk?",
+      "options": {
+        "inKind": {
+          "action": "Egyeztetek az átvételről",
+          "description": "Játék, írószer, ruha, tartós élelmiszer, iskolai és gyógyászati eszköz. Az átvételről előre egyeztetünk.",
+          "spending": "Válogatás és csomagolás után közvetlenül a gyermekotthonokba, családokhoz és intézményekbe kerül.",
+          "title": "Tárgyi adománnyal"
+        },
+        "online": {
+          "description": "Néhány kattintás, és azonnal megérkezik. Kártyás fizetéshez nem kell PayPal-fiók.",
+          "spending": "A szállítások üzemanyagára, a csomagok anyagköltségére és a hiányzó ajándékok pótlására.",
+          "title": "Bankkártyával vagy PayPallal"
+        },
+        "transfer": {
+          "description": "Nagyobb összegű és rendszeres támogatáshoz a legegyszerűbb. A közleményben kérjük add meg, melyik programot támogatod.",
+          "spending": "Eszközbeszerzésre, intézményi fejlesztésekre és a programok szervezési költségeire.",
+          "title": "Banki átutalással"
+        },
+        "twint": {
+          "description": "Svájcból a leggyorsabb út: küldd a támogatást TWINT-en keresztül.",
+          "spending": "A Svájcból induló szállítmányok költségeire és a kárpátaljai segélyszállítmányokra.",
+          "title": "TWINT-tel (Svájc)"
+        },
+        "volunteer": {
+          "action": "Jelentkezem",
+          "description": "Csomagolás, szállítás, programok, fordítás, szervezés — sokféleképpen lehet segíteni.",
+          "spending": "Az önkéntes órák a gyűjtésre, a csomagolásra és a gyermekprogramok lebonyolítására fordítódnak.",
+          "title": "Önkéntes munkával"
+        }
       },
-      "HowTo": {
-        "buttonText": "Kattints ide a legújabb cipősdoboz akció hírekert",
-        "heading": "Hogyan működik a Cipősdoboz Akció?",
-        "headingSub": "Adományozz és Teremtsünk Együtt Karácsonyi Csodát!",
-        "stepDonate": "Adományozás: Az elkészített dobozokat adományozhatod, hogy eljussanak azokhoz, akiknek a legnagyobb szükségük van rá.",
-        "stepHappy": "Együtt Örülni: Nézze meg a gyermekek boldog arcát, amikor kibontják az ajándékokat! Egy egyszerű cipősdoboz hatalmas örömet okozhat.",
-        "stepMakeBox": "Doboz Készítése: Mindenki részt vehet! Töltsd meg egy cipősdobozt olyan hasznos és örömet okozó tárgyakkal, mint játékok, írószerek, ruhák vagy édességek."
-      },
-      "MainContentGroup": {
-        "attention": "Mindannyian tudjuk, hogy egy kis figyelem, szeretet és gondoskodás mennyire feldobhatja egy gyermek napját. Az évente megrendezésre Cipősdoboz Akció célja pontosan ez: örömet és reményt vinni a rászoruló gyerekek számára. Ez már a 7. év, és ez alatt az idő alatt közel 13.000 gyermeket sikerült megajándékozni.",
-        "community": "Az akció része lenni, azért jó, mert nem csak az adományozásról szól, hanem az összetartozásról is. Csatlakozz a Grenzenlose Kinderhilfe közösségéhez, ahol együtt tehetünk azért, hogy minél több gyermek életét tegyük boldoggá.",
-        "joinUs": "Csatlakozz Hozzánk!",
-        "shoeboxMagic": "Gondoltad volna, hogy egy egyszerű cipősdoboz képes varázsolni? Ráadásul gyermekmosolyokat! Karitatív akciónk során célunk, hogy minél több rászoruló gyermek számára hozzunk létre boldog pillanatokat az év végi ünnepek alatt.",
-        "titleHeading": "Cipősdoboz Akció a Gyermekekért",
-        "titleHeadingSub": "Adományozz és Teremtsünk Együtt Karácsonyi Csodát!"
-      }
+      "spendingLabel": "Mire fordítjuk?"
     }
   },
   "ui": {
     "data": {
       "empty": "Jelenleg nincs megjeleníthető tartalom.",
       "error": "A tartalom betöltése nem sikerült. Kérjük, próbálja újra később."
+    },
+    "donate": {
+      "amountLabel": "Adomány összege",
+      "cancelledText": "Nem történt terhelés. Bármikor újrapróbálhatod.",
+      "cancelledTitle": "Az adományozás megszakadt",
+      "currencyLabel": "Pénznem",
+      "errorText": "Kérjük, próbáld újra, vagy támogass minket banki átutalással.",
+      "errorTitle": "Az adományozás nem sikerült",
+      "successNamed": "Köszönjük, {{name}}!",
+      "successTitle": "Köszönjük az adományod!"
+    },
+    "footer": {
+      "contact": "Kapcsolat",
+      "links": "Gyors linkek",
+      "organization": "Az alapítvány"
+    },
+    "journey": {
+      "children": {
+        "description": "Gyermekotthonok, családok és intézmények a Kárpát-medencében.",
+        "title": "Gyermekek"
+      },
+      "collection": {
+        "description": "Magánszemélyek, iskolák, gyülekezetek és cégek adományai érkeznek be.",
+        "title": "Gyűjtés"
+      },
+      "handover": {
+        "description": "Helyi partnereinkkel és az intézményekkel közösen adjuk át a segítséget.",
+        "title": "Átadás"
+      },
+      "heading": "Hová jut az adományom?",
+      "sorting": {
+        "description": "Nyíregyházán válogatjuk, ellenőrizzük és csomagoljuk az adományokat.",
+        "title": "Raktározás"
+      },
+      "subHeading": "Az adomány útja a felajánlástól a gyermekekig — minden lépést mi szervezünk.",
+      "transport": {
+        "description": "Saját szervezésben, dokumentált szállítmányokkal indulunk útnak.",
+        "title": "Szállítás"
+      }
     },
     "navigation": {
       "aboutUs": "Rólunk",
@@ -88,7 +218,8 @@
       "institutions": "Intézmények",
       "media": "Média",
       "pages": "Oldalak",
-      "shoebox": "Cipősdoboz"
+      "shoebox": "Cipősdoboz",
+      "support": "Támogatás"
     }
   }
 }

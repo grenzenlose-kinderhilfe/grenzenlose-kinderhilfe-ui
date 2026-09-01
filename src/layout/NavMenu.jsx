@@ -12,7 +12,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 
-import { LANGUAGES } from "../constants";
+import { LANGUAGE_LABELS, LANGUAGES } from "../constants";
 
 export const MenuLogo = () => (
   <AspectRatio
@@ -67,6 +67,7 @@ export const MenuLinks = ({ routes, onClick }) => {
     aboutUs: t("ui.navigation.aboutUs", "Rólunk"),
     institutions: t("ui.navigation.institutions", "Intézmények"),
     shoebox: t("ui.navigation.shoebox", "Cipősdoboz"),
+    support: t("ui.navigation.support", "Támogatás"),
   };
 
   return (
@@ -153,7 +154,7 @@ export const MenuLanguageSwitcher = () => {
     <Select onChange={onChangeHandler} defaultValue={i18n.language}>
       {LANGUAGES.map((item, idx) => (
         <option key={`language-${idx}`} value={item}>
-          {item}
+          {LANGUAGE_LABELS[item]}
         </option>
       ))}
     </Select>

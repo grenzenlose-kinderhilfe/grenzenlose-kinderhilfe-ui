@@ -1,20 +1,40 @@
+import { Flex } from "@chakra-ui/react";
 import React from "react";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+
+import { PAYPAL_CLIENT_ID } from "../../constants";
 import DonateButton from "./DonateButton/DonateButton";
 import DonateSelector from "./DonateSelector/DonateSelector";
+import { DEFAULT_CURRENCY, isValidAmount } from "./amount";
 
-const clientId =
-  "Afb49P4EFUTaTmOWzpWHrCvv_VJ-3SYdPn3Xf8FoVXuQghD0_66A3Aj5LowsLNPBi9YC1YKGGAP0UiSE";
+// Read once: the provider only looks at these when it first mounts, every later
+// change has to go through a "resetOptions" dispatch.
+const options = {
+  clientId: PAYPAL_CLIENT_ID,
+  currency: DEFAULT_CURRENCY,
+  intent: "capture",
+  components: "buttons",
+};
 
 const Donate = () => {
   const [amount, setAmount] = React.useState("5");
-
-  const isDisabled = amount.length === 0 || isNaN(amount);
+  const [currency, setCurrency] = React.useState(DEFAULT_CURRENCY);
 
   return (
-    <PayPalScriptProvider options={{ "client-id": clientId, currency: "EUR" }}>
-      <DonateButton isDisabled={isDisabled} amount={amount} />
-      <DonateSelector amount={amount} setAmount={setAmount} />
+    <PayPalScriptProvider options={options}>
+      <Flex gap={4} width="100%" flexDirection="column">
+        <DonateSelector
+          amount={amount}
+          currency={currency}
+          setAmount={setAmount}
+          setCurrency={setCurrency}
+        />
+        <DonateButton
+          amount={amount}
+          currency={currency}
+          isDisabled={!isValidAmount(amount)}
+        />
+      </Flex>
     </PayPalScriptProvider>
   );
 };

@@ -92,7 +92,7 @@ const Mission = () => {
   ];
 
   return (
-    <Grid templateColumns={{ base: "1fr .", xl: "9fr 4fr" }}>
+    <Grid templateColumns={{ base: "1fr", xl: "9fr 4fr" }}>
       <GridItem borderRadius={{ base: 0, lg: "10px" }}>
         <Accordion defaultIndex={[0]}>
           {missionItems.map((item, idx) => (
@@ -108,6 +108,7 @@ const Mission = () => {
       </GridItem>
       <GridItem
         ml="25px"
+        display={{ base: "none", xl: "block" }}
         backgroundImage={`url(${missionItems[expandedIndex].image})`}
         bgSize="cover"
         borderRadius={{ base: 0, lg: "10px" }}

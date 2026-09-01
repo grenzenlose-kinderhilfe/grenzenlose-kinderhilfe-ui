@@ -1,46 +1,50 @@
 import React from "react";
 import { Input, Select, Flex } from "@chakra-ui/react";
 import { usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import { useTranslation } from "react-i18next";
 
-const DonateSelector = ({ amount, setAmount }) => {
+import { CURRENCIES, isValidAmount } from "../amount";
+
+const DonateSelector = ({ amount, currency, setAmount, setCurrency }) => {
   const [{ options }, dispatch] = usePayPalScriptReducer();
 
-  const onAmountChange = ({ target: { value } }) => {
-    setAmount(value);
-  };
+  const { t } = useTranslation();
 
-  const resetOptionsAmount = () => {
+  const onAmountChange = ({ target: { value } }) => setAmount(value);
+
+  /**
+   * The currency is part of the SDK script URL, so changing it means reloading
+   * the script. Nothing else may dispatch this: a reset tears the rendered
+   * buttons down, which closes an open checkout window.
+   */
+  const onCurrencyChange = ({ target: { value } }) => {
+    setCurrency(value);
+
     dispatch({
       type: "resetOptions",
-      value: {
-        ...options,
-      },
-    });
-  };
-
-  const resetOptionsCurrency = ({ target: { value } }) => {
-    dispatch({
-      type: "resetOptions",
-      value: {
-        ...options,
-        currency: value,
-      },
+      value: { ...options, currency: value },
     });
   };
 
   return (
-    <Flex mt={50} gap={6} maxWidth="300px">
+    <Flex gap={6} maxWidth="300px">
       <Input
-        isInvalid={isNaN(amount)}
         value={amount}
+        inputMode="decimal"
         onChange={onAmountChange}
-        onBlur={resetOptionsAmount}
+        isInvalid={!isValidAmount(amount)}
+        aria-label={t("ui.donate.amountLabel", "Adomány összege")}
       />
-      <Select value={options.currencycurrency} onChange={resetOptionsCurrency}>
-        <option value="EUR">EUR</option>
-        <option value="USD">USD</option>
-        <option value="CHF">CHF</option>
-        <option value="HUF">HUF</option>
+      <Select
+        value={currency}
+        onChange={onCurrencyChange}
+        aria-label={t("ui.donate.currencyLabel", "Pénznem")}
+      >
+        {CURRENCIES.map((item) => (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        ))}
       </Select>
     </Flex>
   );
