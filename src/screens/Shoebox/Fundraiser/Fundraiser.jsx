@@ -1,15 +1,17 @@
 import {
   AspectRatio,
+  Button,
+  Flex,
   Grid,
   GridItem,
   Heading,
   Text,
-  Flex,
 } from "@chakra-ui/react";
 import React from "react";
+import { FaHeart } from "react-icons/fa";
+import { Link as RouterLink } from "react-router-dom";
 import { LOCALE_DE } from "../../../constants";
 import { useTranslation } from "react-i18next";
-import Donate from "../../../components/Donate/Donate";
 
 const Fundraiser = () => {
   const { i18n, t } = useTranslation();
@@ -19,9 +21,10 @@ const Fundraiser = () => {
       "pages.Shoebox.Fundraiser.actionTextHeading",
       "Adományozz most és támogasd a szállítmányozást!",
     ),
+    actionButton: t("pages.Shoebox.Fundraiser.actionButton", "Támogatom"),
     actionTextInstruction: t(
       "pages.Shoebox.Fundraiser.actionTextInstruction",
-      "Adományoddal te is részese lehetsz ennek az örömteli kezdeményezésnek. Kattints a fenti linkre és csatlakozza nagyobb jó ügyéhez.",
+      "Adományoddal te is részese lehetsz ennek az örömteli kezdeményezésnek. A támogatás módjait a Támogatás oldalon találod.",
     ),
   };
 
@@ -49,13 +52,21 @@ const Fundraiser = () => {
       </GridItem>
       <GridItem alignSelf="center" margin={{ base: "25px", xl: 0 }}>
         <Flex flexDirection="column" alignItems="center" gap={6} maxW="600px">
-          <Heading as="h1" fontSize="2rem">
+          <Heading as="h2" fontSize="2rem">
             {localization.actionTextHeading}
           </Heading>
-          <Flex flexDirection="column" width="100%" maxWidth="320px">
-            <Donate />
-          </Flex>
-          <Text mt={15}>{localization.actionTextInstruction}</Text>
+          <Button
+            size="lg"
+            as={RouterLink}
+            to="/support"
+            leftIcon={<FaHeart />}
+            bg="primary.blue"
+            color="primary.white"
+            _hover={{ bg: "#1B3F82" }}
+          >
+            {localization.actionButton}
+          </Button>
+          <Text>{localization.actionTextInstruction}</Text>
         </Flex>
       </GridItem>
     </Grid>

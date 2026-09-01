@@ -2,8 +2,9 @@
   "pages": {
     "Shoebox": {
       "Fundraiser": {
+        "actionButton": "Támogatom",
         "actionTextHeading": "Adományozz most és támogasd a szállítmányozást!",
-        "actionTextInstruction": "Adományoddal te is részese lehetsz ennek az örömteli kezdeményezésnek. Kattints a fenti linkre és csatlakozza nagyobb jó ügyéhez."
+        "actionTextInstruction": "Adományoddal te is részese lehetsz ennek az örömteli kezdeményezésnek. A támogatás módjait a Támogatás oldalon találod."
       },
       "HowTo": {
         "buttonText": "Kattints ide a legújabb cipősdoboz akció hírekert",
@@ -142,11 +143,6 @@
           "spending": "Válogatás és csomagolás után közvetlenül a gyermekotthonokba, családokhoz és intézményekbe kerül.",
           "title": "Tárgyi adománnyal"
         },
-        "online": {
-          "description": "Néhány kattintás, és azonnal megérkezik. Kártyás fizetéshez nem kell PayPal-fiók.",
-          "spending": "A szállítások üzemanyagára, a csomagok anyagköltségére és a hiányzó ajándékok pótlására.",
-          "title": "Bankkártyával vagy PayPallal"
-        },
         "transfer": {
           "description": "Nagyobb összegű és rendszeres támogatáshoz a legegyszerűbb. A közleményben kérjük add meg, melyik programot támogatod.",
           "spending": "Eszközbeszerzésre, intézményi fejlesztésekre és a programok szervezési költségeire.",
@@ -171,18 +167,6 @@
     "data": {
       "empty": "Jelenleg nincs megjeleníthető tartalom.",
       "error": "A tartalom betöltése nem sikerült. Kérjük, próbálja újra később."
-    },
-    "donate": {
-      "amountLabel": "Adomány összege",
-      "cancelledText": "Nem történt terhelés. Bármikor újrapróbálhatod.",
-      "cancelledTitle": "Az adományozás megszakadt",
-      "currencyLabel": "Pénznem",
-      "customLabel": "Vagy adj meg egy összeget",
-      "errorText": "Kérjük, próbáld újra, vagy támogass minket banki átutalással.",
-      "errorTitle": "Az adományozás nem sikerült",
-      "presetLabel": "Válassz összeget",
-      "successNamed": "Köszönjük, {{name}}!",
-      "successTitle": "Köszönjük az adományod!"
     },
     "footer": {
       "contact": "Kapcsolat",

@@ -10,7 +10,6 @@ import {
 import React from "react";
 import { useTranslation } from "react-i18next";
 import {
-  FaCreditCard,
   FaGift,
   FaHandsHelping,
   FaMobileAlt,
@@ -18,7 +17,6 @@ import {
 } from "react-icons/fa";
 
 import { DONATION_MAP_EMBED_URL } from "../../constants";
-import Donate from "../../components/Donate/Donate";
 import DonationJourney from "../../components/DonationJourney/DonationJourney";
 import EmbedMap from "../../components/EmbedMap/EmbedMap";
 import { BANK_ACCOUNT, ORGANIZATION, TWINT } from "../../data/organization";
@@ -74,19 +72,9 @@ const Support = () => {
           templateColumns={{
             base: "1fr",
             md: "repeat(2, 1fr)",
-            xl: "repeat(3, 1fr)",
+            "2xl": "repeat(4, 1fr)",
           }}
         >
-          <SupportOption
-            icon={FaCreditCard}
-            title={option("online", "title")}
-            description={option("online", "description")}
-            spending={option("online", "spending")}
-          >
-            <Flex width="100%" maxWidth="320px">
-              <Donate />
-            </Flex>
-          </SupportOption>
           <SupportOption
             icon={FaUniversity}
             title={option("transfer", "title")}

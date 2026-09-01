@@ -25,11 +25,6 @@ export const GOOGLE_SHEET_ID =
 
 export const GOOGLE_SHEET_BASE_URL = "https://docs.google.com/spreadsheets/d";
 
-// Public client id of the foundation's PayPal business account.
-export const PAYPAL_CLIENT_ID =
-  import.meta.env.PUBLIC_PAYPAL_CLIENT_ID ||
-  "Afb49P4EFUTaTmOWzpWHrCvv_VJ-3SYdPn3Xf8FoVXuQghD0_66A3Aj5LowsLNPBi9YC1YKGGAP0UiSE";
-
 export const SHEET_ARTICLES = "articles";
 export const SHEET_VIDEOS = "videos";
 export const SHEET_LOCATIONS = "locations";
