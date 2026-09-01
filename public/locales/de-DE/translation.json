@@ -177,8 +177,10 @@
       "cancelledText": "Es wurde nichts abgebucht. Sie können es jederzeit erneut versuchen.",
       "cancelledTitle": "Die Spende wurde abgebrochen",
       "currencyLabel": "Währung",
+      "customLabel": "Oder eigenen Betrag eingeben",
       "errorText": "Bitte versuchen Sie es erneut oder unterstützen Sie uns per Banküberweisung.",
       "errorTitle": "Die Spende ist fehlgeschlagen",
+      "presetLabel": "Betrag wählen",
       "successNamed": "Vielen Dank, {{name}}!",
       "successTitle": "Vielen Dank für Ihre Spende!"
     },

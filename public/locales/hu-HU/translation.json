@@ -177,8 +177,10 @@
       "cancelledText": "Nem történt terhelés. Bármikor újrapróbálhatod.",
       "cancelledTitle": "Az adományozás megszakadt",
       "currencyLabel": "Pénznem",
+      "customLabel": "Vagy adj meg egy összeget",
       "errorText": "Kérjük, próbáld újra, vagy támogass minket banki átutalással.",
       "errorTitle": "Az adományozás nem sikerült",
+      "presetLabel": "Válassz összeget",
       "successNamed": "Köszönjük, {{name}}!",
       "successTitle": "Köszönjük az adományod!"
     },
