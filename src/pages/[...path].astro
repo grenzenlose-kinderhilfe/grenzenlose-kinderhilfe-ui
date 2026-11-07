@@ -100,6 +100,7 @@ const jsonLd =
   description={description}
   path={route.path}
   jsonLd={jsonLd}
+  pageType={route.id}
 >
   {route.noIndex && <meta name="robots" content="noindex" slot="head" />}
   <View locale={locale} />

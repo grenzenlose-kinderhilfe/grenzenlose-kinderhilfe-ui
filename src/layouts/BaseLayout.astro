@@ -20,6 +20,9 @@ import { languageOf, localizePath } from "../i18n";
  * `path` is the page path without the language prefix ("/support"); it is
  * used for the canonical URL, the hreflang alternates and the language switch.
  * Leave it out on pages that exist only once (404).
+ *
+ * `pageType` ("support") is sent to Analytics as the content group, so the
+ * same page in its three languages is reported together.
  */
 interface Props {
   locale: string;
@@ -28,9 +31,11 @@ interface Props {
   path?: string;
   activePath?: string;
   jsonLd?: object;
+  pageType?: string;
 }
 
-const { locale, title, description, path, activePath, jsonLd } = Astro.props;
+const { locale, title, description, path, activePath, jsonLd, pageType } =
+  Astro.props;
 
 const site = Astro.site!;
 const absolute = (href: string) => new URL(href, site).toString();
@@ -167,13 +172,20 @@ const languagePrefixes = Object.fromEntries(
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         ></script>
-        <script is:inline define:vars={{ measurementId: GA_MEASUREMENT_ID }}>
+        <script
+          is:inline
+          define:vars={{ measurementId: GA_MEASUREMENT_ID, pageType }}
+        >
           window.dataLayer = window.dataLayer || [];
           window.gtag = function () {
             window.dataLayer.push(arguments);
           };
           window.gtag("js", new Date());
-          window.gtag("config", measurementId);
+          window.gtag(
+            "config",
+            measurementId,
+            pageType ? { content_group: pageType } : {},
+          );
         </script>
       </>
     )}
@@ -192,3 +204,71 @@ const languagePrefixes = Object.fromEntries(
     </div>
   </body>
 </html>
+
+<script>
+  import { track, trackParamsOf } from "../lib/analytics";
+
+  /*
+   * One listener for the clicks Analytics cannot see on its own. It runs in
+   * the capture phase, before the clicked element's own handler, which may
+   * remove it (the video play button does).
+   */
+  document.addEventListener(
+    "click",
+    (event) => {
+      const target = event.target;
+
+      if (!(target instanceof Element)) return;
+
+      // Declared events: data-track="name" data-track-param="value".
+      const tracked = target.closest<HTMLElement>("[data-track]");
+
+      if (tracked) {
+        track(tracked.dataset.track ?? "", trackParamsOf(tracked));
+        return;
+      }
+
+      // Email and phone links, labelled by the nearest data-track-context
+      // (a call to action) or else by where they sit on the page.
+      const contact = target.closest<HTMLAnchorElement>(
+        'a[href^="mailto:"], a[href^="tel:"]',
+      );
+
+      if (contact) {
+        const labelled = contact.closest<HTMLElement>("[data-track-context]");
+
+        track("contact_click", {
+          method: contact.protocol === "tel:" ? "phone" : "email",
+          context:
+            labelled?.dataset.trackContext ??
+            (contact.closest("footer") ? "footer" : "page"),
+        });
+        return;
+      }
+
+      const language = target.closest<HTMLAnchorElement>("[data-lang-link]");
+
+      if (language) {
+        track("language_change", {
+          language_from: document.documentElement.lang,
+          language_to: language.dataset.langLink,
+        });
+        return;
+      }
+
+      // Click-to-play videos: the YouTube player only appears after the
+      // click, so Analytics' own video tracking never sees these.
+      const video = target.closest<HTMLElement>(".lite-youtube-button");
+      const frame = video?.closest<HTMLElement>("[data-video-id]");
+
+      if (frame) {
+        track("video_start", {
+          video_provider: "youtube",
+          video_title: frame.dataset.videoTitle,
+          video_url: `https://www.youtube.com/watch?v=${frame.dataset.videoId}`,
+        });
+      }
+    },
+    { capture: true },
+  );
+</script>

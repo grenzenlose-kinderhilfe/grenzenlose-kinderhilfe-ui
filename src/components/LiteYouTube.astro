@@ -22,6 +22,8 @@ const { videoId, title, playLabel, class: className } = Astro.props;
 <div
   class:list={["video-frame", "lite-youtube", className]}
   data-player-url={youtubePlayerUrl(videoId)}
+  data-video-id={videoId}
+  data-video-title={title}
 >
   <button
     type="button"

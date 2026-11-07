@@ -22,6 +22,7 @@ const t = getTranslator(locale);
   type="button"
   class="copy-button"
   data-copy={value}
+  data-copy-label={label}
   data-copied-label={t("ui.copy.copied")}
   aria-label={`${t("ui.copy.copy")}: ${label}`}
 >
@@ -34,6 +35,8 @@ const t = getTranslator(locale);
 </button>
 
 <script>
+  import { track } from "../lib/analytics";
+
   document
     .querySelectorAll<HTMLButtonElement>(".copy-button")
     .forEach((button) => {
@@ -51,6 +54,11 @@ const t = getTranslator(locale);
         } catch {
           return;
         }
+
+        // The only trace of a bank transfer or TWINT donation on the site.
+        track("copy_payment_detail", {
+          detail: button.dataset.copyLabel,
+        });
 
         button.classList.add("is-copied");
         if (status) status.textContent = button.dataset.copiedLabel ?? "";

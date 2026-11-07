@@ -15,6 +15,7 @@ const t = getTranslator(locale);
   locale={locale}
   title={`404 — ${SITE_NAME}`}
   description={t("pages.home.hero.lead")}
+  pageType="404"
 >
   <meta name="robots" content="noindex" slot="head" />
   <div class="not-found">
@@ -25,6 +26,17 @@ const t = getTranslator(locale);
     </a>
   </div>
 </BaseLayout>
+
+<script>
+  import { track } from "../lib/analytics";
+
+  // Broken links show up in Analytics with the address and where they came
+  // from, so they can be fixed at the source.
+  track("page_not_found", {
+    page_path: location.pathname + location.search,
+    page_referrer: document.referrer,
+  });
+</script>
 
 <style>
   .not-found {

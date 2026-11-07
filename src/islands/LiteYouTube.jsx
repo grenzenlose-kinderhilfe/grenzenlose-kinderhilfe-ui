@@ -14,7 +14,11 @@ const LiteYouTube = ({ videoId, title, playLabel, className = "" }) => {
   const [isPlaying, setIsPlaying] = React.useState(false);
 
   return (
-    <div className={`video-frame lite-youtube ${className}`}>
+    <div
+      className={`video-frame lite-youtube ${className}`}
+      data-video-id={videoId}
+      data-video-title={title}
+    >
       {isPlaying ? (
         <iframe
           title={title}

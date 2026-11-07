@@ -2,6 +2,7 @@ import React from "react";
 import { FaLock } from "react-icons/fa";
 
 import { LANGUAGE_STORAGE_KEY } from "../../constants";
+import { donationParams, rememberDonation, track } from "../../lib/analytics";
 import {
   CURRENCIES,
   CUSTOM_AMOUNT,
@@ -45,9 +46,10 @@ const AmountButton = ({ isSelected, className = "", ...props }) => (
  * visitor's language. Stripe then sends them to the thank-you page.
  *
  * `showLabel` hides the "choose an amount" caption where a heading right
- * above the widget already asks for the donation.
+ * above the widget already asks for the donation. `placement` names the page
+ * the widget is on, for Analytics.
  */
-const Donate = ({ locale, strings, showLabel = true }) => {
+const Donate = ({ locale, strings, showLabel = true, placement }) => {
   const [selection, setSelection] = React.useState(() =>
     selectionFor(defaultCurrency(locale), MONTHLY, undefined),
   );
@@ -141,7 +143,15 @@ const Donate = ({ locale, strings, showLabel = true }) => {
         className="btn btn-lg btn-primary"
         href={href}
         aria-disabled={href ? undefined : "true"}
-        onClick={() => rememberLanguage(locale)}
+        onClick={() => {
+          if (!href) return;
+
+          const donation = { ...selection, placement };
+
+          rememberLanguage(locale);
+          rememberDonation(donation);
+          track("begin_checkout", donationParams(donation));
+        }}
       >
         <FaLock aria-hidden="true" />
         {strings.button}

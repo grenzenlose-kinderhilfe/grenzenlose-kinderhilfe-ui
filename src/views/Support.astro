@@ -64,13 +64,20 @@ const mapHeading = t("pages.support.mapHeading");
       <div class:list={["support-options", { "with-card": hasPaymentLinks }]}>
         {hasPaymentLinks && (
           <SupportOption icon={FaCreditCard} {...option("online")}>
-            <Donate client:load locale={locale} strings={donateStrings} />
+            <Donate
+              client:load
+              locale={locale}
+              strings={donateStrings}
+              placement="support"
+            />
             {STRIPE_CUSTOMER_PORTAL_URL && (
               <p class="support-manage">
                 <span>{t("pages.support.manageMonthly")}</span>
                 <a
                   class="support-manage-link"
                   href={STRIPE_CUSTOMER_PORTAL_URL}
+                  data-track="manage_subscription"
+                  data-track-placement="support"
                 >
                   <FaSyncAlt aria-hidden="true" />
                   {t("pages.support.manageLink")}
@@ -89,6 +96,7 @@ const mapHeading = t("pages.support.mapHeading");
           <a
             class="btn btn-block btn-primary"
             href={`mailto:${ORGANIZATION.email}`}
+            data-track-context="support_in_kind"
           >
             {t("pages.support.options.inKind.action")}
           </a>
@@ -97,6 +105,7 @@ const mapHeading = t("pages.support.mapHeading");
           <a
             class="btn btn-block btn-primary"
             href={`mailto:${ORGANIZATION.email}`}
+            data-track-context="support_volunteer"
           >
             {t("pages.support.options.volunteer.action")}
           </a>

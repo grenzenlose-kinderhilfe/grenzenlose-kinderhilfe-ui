@@ -63,6 +63,8 @@ const steps = [
               <a
                 class="btn btn-sm btn-primary"
                 href={STRIPE_CUSTOMER_PORTAL_URL}
+                data-track="manage_subscription"
+                data-track-placement="thank_you"
               >
                 {thanks("manageButton")}
               </a>
@@ -75,7 +77,11 @@ const steps = [
           </span>
           <p>
             {thanks("questions")}{" "}
-            <a class="text-link" href={`mailto:${ORGANIZATION.email}`}>
+            <a
+              class="text-link"
+              href={`mailto:${ORGANIZATION.email}`}
+              data-track-context="thank_you"
+            >
               {ORGANIZATION.email}
             </a>
           </p>
@@ -92,6 +98,24 @@ const steps = [
     </div>
   </section>
 </div>
+
+<script>
+  import { donationParams, takeDonation, track } from "../lib/analytics";
+
+  /*
+   * The completed donation, as the donor picked it on the site before going
+   * to Stripe. Without that selection (storage blocked, or the page opened
+   * directly) nothing is reported.
+   */
+  const donation = takeDonation();
+
+  if (donation) {
+    track("purchase", {
+      transaction_id: donation.id,
+      ...donationParams(donation),
+    });
+  }
+</script>
 
 <style>
   .thanks-head {
