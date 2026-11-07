@@ -120,6 +120,9 @@ const Footer = () => {
             >
               {localization.support}
             </Button>
+            <Text fontSize="13px" color="whiteAlpha.700">
+              © {currentYear} {ORGANIZATION.name}
+            </Text>
           </Flex>
         </GridItem>
         <GridItem>
@@ -169,19 +172,6 @@ const Footer = () => {
           </FooterColumn>
         </GridItem>
       </Grid>
-      <Flex
-        width="100%"
-        fontSize="0.8rem"
-        padding="1rem"
-        justifyContent="center"
-        borderTop="1px solid"
-        borderColor="whiteAlpha.300"
-        color="whiteAlpha.800"
-      >
-        <Link href="https://github.com/meister245" isExternal>
-          Copyright {currentYear} Zsolt Mester
-        </Link>
-      </Flex>
     </Flex>
   );
 };
