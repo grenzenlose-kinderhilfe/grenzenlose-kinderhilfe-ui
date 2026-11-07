@@ -143,6 +143,11 @@
           "spending": "Nach dem Sortieren und Verpacken geht sie direkt an Kinderheime, Familien und Einrichtungen.",
           "title": "Mit einer Sachspende"
         },
+        "online": {
+          "description": "Wenige Klicks, sofort angekommen. Sichere Zahlung über Stripe, ohne Registrierung.",
+          "spending": "Für den Treibstoff der Transporte, das Material der Pakete und fehlende Geschenke.",
+          "title": "Online mit Karte"
+        },
         "transfer": {
           "description": "Am einfachsten für größere und regelmäßige Unterstützung. Bitte geben Sie im Verwendungszweck an, welches Programm Sie unterstützen.",
           "spending": "Für Anschaffungen, Verbesserungen in den Einrichtungen und die Organisation der Programme.",
@@ -167,6 +172,13 @@
     "data": {
       "empty": "Derzeit sind keine Inhalte verfügbar.",
       "error": "Die Inhalte konnten nicht geladen werden. Bitte versuchen Sie es später erneut."
+    },
+    "donate": {
+      "button": "Jetzt spenden",
+      "currencyLabel": "Währung",
+      "customLabel": "Anderer Betrag",
+      "presetLabel": "Betrag wählen",
+      "successTitle": "Vielen Dank für Ihre Spende!"
     },
     "footer": {
       "contact": "Kontakt",

@@ -16,3 +16,7 @@ running campaigns and the foundation's contact and bank details live in
 [src/data/](src/data/) — one file each, so they can be corrected without
 touching a component. The wording of the campaign and support cards is in
 `public/locales/*/translation.json`.
+
+Card donations go through Stripe Payment Links, configured per currency and
+amount in [src/data/paymentLinks.js](src/data/paymentLinks.js). The donation
+widget stays hidden until at least one link is filled in.

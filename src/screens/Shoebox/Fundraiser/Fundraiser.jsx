@@ -12,6 +12,8 @@ import { FaHeart } from "react-icons/fa";
 import { Link as RouterLink } from "react-router-dom";
 import { LOCALE_DE } from "../../../constants";
 import { useTranslation } from "react-i18next";
+import Donate from "../../../components/Donate/Donate";
+import { hasPaymentLinks } from "../../../components/Donate/amount";
 
 const Fundraiser = () => {
   const { i18n, t } = useTranslation();
@@ -55,17 +57,23 @@ const Fundraiser = () => {
           <Heading as="h2" fontSize="2rem">
             {localization.actionTextHeading}
           </Heading>
-          <Button
-            size="lg"
-            as={RouterLink}
-            to="/support"
-            leftIcon={<FaHeart />}
-            bg="primary.blue"
-            color="primary.white"
-            _hover={{ bg: "#1B3F82" }}
-          >
-            {localization.actionButton}
-          </Button>
+          {hasPaymentLinks ? (
+            <Flex flexDirection="column" width="100%" maxWidth="320px">
+              <Donate />
+            </Flex>
+          ) : (
+            <Button
+              size="lg"
+              as={RouterLink}
+              to="/support"
+              leftIcon={<FaHeart />}
+              bg="primary.blue"
+              color="primary.white"
+              _hover={{ bg: "#1B3F82" }}
+            >
+              {localization.actionButton}
+            </Button>
+          )}
           <Text>{localization.actionTextInstruction}</Text>
         </Flex>
       </GridItem>

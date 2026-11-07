@@ -143,6 +143,11 @@
           "spending": "Válogatás és csomagolás után közvetlenül a gyermekotthonokba, családokhoz és intézményekbe kerül.",
           "title": "Tárgyi adománnyal"
         },
+        "online": {
+          "description": "Néhány kattintás, és azonnal megérkezik. Biztonságos fizetés a Stripe-on keresztül, regisztráció nélkül.",
+          "spending": "A szállítások üzemanyagára, a csomagok anyagköltségére és a hiányzó ajándékok pótlására.",
+          "title": "Online bankkártyával"
+        },
         "transfer": {
           "description": "Nagyobb összegű és rendszeres támogatáshoz a legegyszerűbb. A közleményben kérjük add meg, melyik programot támogatod.",
           "spending": "Eszközbeszerzésre, intézményi fejlesztésekre és a programok szervezési költségeire.",
@@ -167,6 +172,13 @@
     "data": {
       "empty": "Jelenleg nincs megjeleníthető tartalom.",
       "error": "A tartalom betöltése nem sikerült. Kérjük, próbálja újra később."
+    },
+    "donate": {
+      "button": "Adományozok",
+      "currencyLabel": "Pénznem",
+      "customLabel": "Más összeg",
+      "presetLabel": "Válassz összeget",
+      "successTitle": "Köszönjük az adományod!"
     },
     "footer": {
       "contact": "Kapcsolat",

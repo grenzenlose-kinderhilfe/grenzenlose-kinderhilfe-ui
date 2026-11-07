@@ -27,8 +27,8 @@ export const CONTACTS = [
 
 export const BANK_ACCOUNT = {
   bank: "Erste Bank Hungary Zrt, H-1138 Budapest, Népfürdő utca 24-26",
-  swift: "GIBA HUHB",
-  iban: "HU 1611600006 00000000 83451166",
+  swift: "GIBAHUHB",
+  iban: "HU16 1160 0006 0000 0000 8345 1166",
 };
 
 export const TWINT = {
