@@ -4,6 +4,7 @@ import {
   FaGift,
   FaHandsHelping,
   FaMobileAlt,
+  FaSyncAlt,
   FaUniversity,
 } from "react-icons/fa";
 
@@ -66,8 +67,12 @@ const mapHeading = t("pages.support.mapHeading");
             <Donate client:load locale={locale} strings={donateStrings} />
             {STRIPE_CUSTOMER_PORTAL_URL && (
               <p class="support-manage">
-                {t("pages.support.manageMonthly")}{" "}
-                <a class="text-link" href={STRIPE_CUSTOMER_PORTAL_URL}>
+                <span>{t("pages.support.manageMonthly")}</span>
+                <a
+                  class="support-manage-link"
+                  href={STRIPE_CUSTOMER_PORTAL_URL}
+                >
+                  <FaSyncAlt aria-hidden="true" />
                   {t("pages.support.manageLink")}
                 </a>
               </p>
@@ -173,9 +178,33 @@ const mapHeading = t("pages.support.mapHeading");
   }
 
   .support-manage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
     margin-top: 1rem;
     font-size: 14px;
     text-align: center;
+  }
+
+  .support-manage-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--blue);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .support-manage-link:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  .support-manage-link :global(svg) {
+    flex-shrink: 0;
+    width: 0.85em;
+    height: 0.85em;
   }
 
   .support-map {
