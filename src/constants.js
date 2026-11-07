@@ -72,3 +72,16 @@ export const DONATION_MAP_EMBED_URL =
 
 // Video players allowed inside the embed iframe.
 export const VIDEO_EMBED_HOSTS = ["youtube.com", "youtu.be", "videa.hu"];
+
+// Blog category of the Shoebox Campaign posts, and its page on the blog.
+export const WORDPRESS_SHOEBOX_CATEGORIES = {
+  [LOCALE_DE]: 19,
+  [LOCALE_HU]: 17,
+  [LOCALE_EN]: 19,
+};
+
+export const WORDPRESS_SHOEBOX_CATEGORY_URLS = {
+  [LOCALE_DE]: `${WORDPRESS_BLOG_BASE_URL}/de/category/schuhkarton/`,
+  [LOCALE_HU]: `${WORDPRESS_BLOG_BASE_URL}/category/ciposdoboz/`,
+  [LOCALE_EN]: `${WORDPRESS_BLOG_BASE_URL}/de/category/schuhkarton/`,
+};

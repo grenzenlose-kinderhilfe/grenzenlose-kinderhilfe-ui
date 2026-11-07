@@ -4,23 +4,39 @@
       "Fundraiser": {
         "actionButton": "Támogatom",
         "actionTextHeading": "Adományozz most és támogasd a szállítmányozást!",
-        "actionTextInstruction": "Adományoddal te is részese lehetsz ennek az örömteli kezdeményezésnek. A támogatás módjait a Támogatás oldalon találod."
+        "actionTextInstruction": "Adományoddal te is részese lehetsz ennek az örömteli kezdeményezésnek. A támogatás módjait a Támogatás oldalon találod.",
+        "playVideo": "Videó lejátszása",
+        "videoTitle": "Cipősdoboz Akció videó"
       },
       "HowTo": {
-        "buttonText": "Kattints ide a legújabb cipősdoboz akció hírekert",
         "heading": "Hogyan működik a Cipősdoboz Akció?",
-        "headingSub": "Adományozz és Teremtsünk Együtt Karácsonyi Csodát!",
-        "stepDonate": "Adományozás: Az elkészített dobozokat adományozhatod, hogy eljussanak azokhoz, akiknek a legnagyobb szükségük van rá.",
-        "stepHappy": "Együtt Örülni: Nézze meg a gyermekek boldog arcát, amikor kibontják az ajándékokat! Egy egyszerű cipősdoboz hatalmas örömet okozhat.",
-        "stepMakeBox": "Doboz Készítése: Mindenki részt vehet! Töltsd meg egy cipősdobozt olyan hasznos és örömet okozó tárgyakkal, mint játékok, írószerek, ruhák vagy édességek."
+        "steps": {
+          "donate": {
+            "text": "Az elkészített dobozt add át nekünk, mi pedig gondoskodunk róla, hogy eljusson azokhoz a gyerekekhez, akiknek a legnagyobb szükségük van rá.",
+            "title": "Adományozás"
+          },
+          "happy": {
+            "text": "Nézd meg a gyerekek boldog arcát, amikor kibontják az ajándékukat! Egy egyszerű cipősdoboz hatalmas örömet okozhat.",
+            "title": "Közös öröm"
+          },
+          "makeBox": {
+            "text": "Mindenki részt vehet! Tölts meg egy cipősdobozt hasznos és örömet okozó tárgyakkal, például játékokkal, írószerekkel, ruhákkal vagy édességekkel.",
+            "title": "Doboz készítése"
+          }
+        }
       },
       "MainContentGroup": {
-        "attention": "Mindannyian tudjuk, hogy egy kis figyelem, szeretet és gondoskodás mennyire feldobhatja egy gyermek napját. Az évente megrendezésre Cipősdoboz Akció célja pontosan ez: örömet és reményt vinni a rászoruló gyerekek számára. Ez már a 7. év, és ez alatt az idő alatt közel 13.000 gyermeket sikerült megajándékozni.",
-        "community": "Az akció része lenni, azért jó, mert nem csak az adományozásról szól, hanem az összetartozásról is. Csatlakozz a Grenzenlose Kinderhilfe közösségéhez, ahol együtt tehetünk azért, hogy minél több gyermek életét tegyük boldoggá.",
-        "joinUs": "Csatlakozz Hozzánk!",
+        "attention": "Mindannyian tudjuk, hogy egy kis figyelem, szeretet és gondoskodás mennyire feldobhatja egy gyermek napját. Az évente megrendezett Cipősdoboz Akció célja pontosan ez: örömet és reményt vinni a rászoruló gyerekeknek. 2017 óta minden évben megszervezzük, és ez idő alatt közel 13 000 gyermeket sikerült megajándékozni.",
+        "community": "Az akcióban részt venni azért jó, mert nemcsak az adományozásról szól, hanem az összetartozásról is. Csatlakozz a Grenzenlose Kinderhilfe közösségéhez, ahol együtt tehetünk azért, hogy minél több gyermek életét tegyük boldoggá.",
+        "imageAlt": "Gyerekek a cipősdoboz-ajándékukkal",
+        "joinUs": "Csatlakozz hozzánk!",
         "shoeboxMagic": "Gondoltad volna, hogy egy egyszerű cipősdoboz képes varázsolni? Ráadásul gyermekmosolyokat! Karitatív akciónk során célunk, hogy minél több rászoruló gyermek számára hozzunk létre boldog pillanatokat az év végi ünnepek alatt.",
         "titleHeading": "Cipősdoboz Akció a Gyermekekért",
-        "titleHeadingSub": "Adományozz és Teremtsünk Együtt Karácsonyi Csodát!"
+        "titleHeadingSub": "Adományozz, és teremtsünk együtt karácsonyi csodát!"
+      },
+      "News": {
+        "allPosts": "Az összes cipősdoboz-hír",
+        "heading": "Hírek a Cipősdoboz Akcióról"
       }
     },
     "aboutUs": {

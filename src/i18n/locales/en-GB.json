@@ -4,23 +4,39 @@
       "Fundraiser": {
         "actionButton": "Support now",
         "actionTextHeading": "Donate now and help us deliver the boxes!",
-        "actionTextInstruction": "With your donation, you too can be part of this joyful initiative. You will find all the ways to help on the “Support” page."
+        "actionTextInstruction": "With your donation, you too can be part of this joyful initiative. You will find all the ways to help on the “Support” page.",
+        "playVideo": "Play video",
+        "videoTitle": "Shoebox Campaign video"
       },
       "HowTo": {
-        "buttonText": "Click here for the latest news on the Shoebox Campaign",
         "heading": "How does the Shoebox Campaign work?",
-        "headingSub": "Donate and let's create a Christmas miracle together!",
-        "stepDonate": "Donate: Give the boxes you have put together, so they reach the children who need them most.",
-        "stepHappy": "Share the joy: See the happy faces of the children as they unwrap their gifts! A simple shoebox can bring so much joy.",
-        "stepMakeBox": "Pack a box: Anyone can take part! Fill a shoebox with useful and cheerful things such as toys, stationery, clothes or sweets."
+        "steps": {
+          "donate": {
+            "text": "Give us the box you have put together, and we will make sure it reaches the children who need it most.",
+            "title": "Hand it in"
+          },
+          "happy": {
+            "text": "See the happy faces of the children as they unwrap their gifts! A simple shoebox can bring so much joy.",
+            "title": "Share the joy"
+          },
+          "makeBox": {
+            "text": "Anyone can take part! Fill a shoebox with useful and cheerful things such as toys, stationery, clothes or sweets.",
+            "title": "Pack a box"
+          }
+        }
       },
       "MainContentGroup": {
-        "attention": "We all know how much a little attention, love and care can brighten a child's day. That is exactly the goal of our annual Shoebox Campaign: to bring joy and hope to children in need. This is already its 7th year, and in that time nearly 13,000 children have received a gift.",
+        "attention": "We all know how much a little attention, love and care can brighten a child's day. That is exactly the goal of our annual Shoebox Campaign: to bring joy and hope to children in need. We have run it every year since 2017, and in that time nearly 13,000 children have received a gift.",
         "community": "Being part of the campaign feels good, because it is not only about giving — it is also about belonging. Join the Grenzenlose Kinderhilfe community, where we work together to bring happiness to the lives of as many children as possible.",
+        "imageAlt": "Children holding their shoebox gifts",
         "joinUs": "Join us!",
         "shoeboxMagic": "Would you have thought that a simple shoebox could work magic? And create children's smiles, too! With our charity campaign, we aim to bring happy moments to as many children in need as possible during the holidays at the end of the year.",
         "titleHeading": "Shoebox Campaign for Children",
         "titleHeadingSub": "Donate and let's create a Christmas miracle together!"
+      },
+      "News": {
+        "allPosts": "All Shoebox Campaign news",
+        "heading": "News from the Shoebox Campaign"
       }
     },
     "aboutUs": {

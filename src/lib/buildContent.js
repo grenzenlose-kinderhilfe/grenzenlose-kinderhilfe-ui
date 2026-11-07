@@ -1,6 +1,9 @@
 import { getArticles, getLocations, getVideos } from "./content";
-import { WORDPRESS_FEATURED_CATEGORIES } from "../constants";
-import { getFeaturedPosts } from "./wordpress";
+import {
+  WORDPRESS_FEATURED_CATEGORIES,
+  WORDPRESS_SHOEBOX_CATEGORIES,
+} from "../constants";
+import { getCategoryPosts, getFeaturedPosts } from "./wordpress";
 
 /**
  * Content from the spreadsheet and the blog, loaded once while the site is
@@ -36,4 +39,9 @@ export const buildLocations = () => once("locations", getLocations);
 export const buildFeaturedPosts = (locale) =>
   once(`featuredPosts:${WORDPRESS_FEATURED_CATEGORIES[locale]}`, () =>
     getFeaturedPosts(locale),
+  );
+
+export const buildShoeboxPosts = (locale) =>
+  once(`shoeboxPosts:${WORDPRESS_SHOEBOX_CATEGORIES[locale]}`, () =>
+    getCategoryPosts(WORDPRESS_SHOEBOX_CATEGORIES[locale]),
   );
