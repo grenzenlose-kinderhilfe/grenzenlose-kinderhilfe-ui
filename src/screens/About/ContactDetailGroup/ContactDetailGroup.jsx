@@ -3,10 +3,11 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 import {
-  BANK_DETAILS,
+  BANK_ACCOUNT,
   CONTACTS,
   FOUNDING_DOCUMENTS,
   ORGANIZATION,
+  TWINT,
 } from "../../../data/organization";
 import ContactDetail from "./ContentDetail/ContactDetail";
 
@@ -30,6 +31,16 @@ const ContactDetailGroup = () => {
     },
   ];
 
+  const bankDetails = [
+    ["Bank", BANK_ACCOUNT.bank],
+    ["SWIFT-Code", BANK_ACCOUNT.swift],
+    ["IBAN/BIC", BANK_ACCOUNT.iban],
+    [
+      "TWINT",
+      `${TWINT.phone} ${TWINT.name}, ${localization.founder} ${TWINT.email}`,
+    ],
+  ];
+
   return (
     <Flex justifyContent="center" flexDirection="column" maxWidth="500px">
       {CONTACTS.map(({ name, roleKey, phone }) => (
@@ -47,7 +58,7 @@ const ContactDetailGroup = () => {
         taxNumber={`${localization.taxNumber}: ${ORGANIZATION.taxNumber}`}
         documents={documents}
       />
-      <ContactDetail details={BANK_DETAILS} />
+      <ContactDetail details={bankDetails} />
     </Flex>
   );
 };

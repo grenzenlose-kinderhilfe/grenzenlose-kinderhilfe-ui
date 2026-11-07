@@ -1,6 +1,6 @@
 import { Grid, Flex, GridItem, Heading, Text, Link } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
-import { LOCALE_DE } from "../../../constants";
+import { LOCALE_HU } from "../../../constants";
 
 const HowTo = () => {
   const { i18n, t } = useTranslation();
@@ -15,7 +15,8 @@ const HowTo = () => {
   };
 
   const blogCategoryUrl =
-    i18n.language === LOCALE_DE
+    // Hungarian content for Hungarian, the German one for everyone else.
+    i18n.language !== LOCALE_HU
       ? "https://blog.grenzenlose-kinderhilfe.com/de/category/schuhkarton/"
       : "https://blog.grenzenlose-kinderhilfe.com/category/ciposdoboz/";
 

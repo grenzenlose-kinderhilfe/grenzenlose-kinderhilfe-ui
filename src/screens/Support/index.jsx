@@ -87,9 +87,7 @@ const Support = () => {
               description={option("online", "description")}
               spending={option("online", "spending")}
             >
-              <Flex width="100%" maxWidth="320px">
-                <Donate />
-              </Flex>
+              <Donate />
             </SupportOption>
           )}
           <SupportOption

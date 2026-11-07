@@ -10,7 +10,7 @@ import {
 import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { Link as RouterLink } from "react-router-dom";
-import { LOCALE_DE } from "../../../constants";
+import { LOCALE_HU } from "../../../constants";
 import { useTranslation } from "react-i18next";
 import Donate from "../../../components/Donate/Donate";
 import { hasPaymentLinks } from "../../../components/Donate/amount";
@@ -31,7 +31,8 @@ const Fundraiser = () => {
   };
 
   const shoeboxMarketingEmbedSource =
-    i18n.language === LOCALE_DE
+    // Hungarian content for Hungarian, the German one for everyone else.
+    i18n.language !== LOCALE_HU
       ? "https://www.youtube.com/embed/h__srWvtSK4?si=6SPuhV09jUNmORT_"
       : "https://www.youtube.com/embed/tIL6BPiSY1w?si=JxAeMR7Gop2wV2k-";
 
@@ -58,9 +59,7 @@ const Fundraiser = () => {
             {localization.actionTextHeading}
           </Heading>
           {hasPaymentLinks ? (
-            <Flex flexDirection="column" width="100%" maxWidth="320px">
-              <Donate />
-            </Flex>
+            <Donate showLabel={false} />
           ) : (
             <Button
               size="lg"

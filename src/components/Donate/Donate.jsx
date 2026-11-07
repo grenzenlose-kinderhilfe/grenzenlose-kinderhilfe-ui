@@ -45,7 +45,11 @@ const useDonationSuccessToast = () => {
   }, [location.search, navigate, t, toast]);
 };
 
-const Donate = () => {
+/**
+ * `showLabel` hides the "choose an amount" caption where a heading right
+ * above the widget already asks for the donation.
+ */
+const Donate = ({ showLabel = true }) => {
   const [currency, setCurrency] = React.useState(DEFAULT_CURRENCY);
   const [amount, setAmount] = React.useState(defaultAmount(DEFAULT_CURRENCY));
 
@@ -64,11 +68,13 @@ const Donate = () => {
         currency={currency}
         setAmount={setAmount}
         setCurrency={setCurrency}
+        showLabel={showLabel}
       />
       <Button
         as="a"
         href={href}
         isDisabled={!href}
+        size="lg"
         leftIcon={<FaLock />}
         bg="primary.blue"
         color="primary.white"

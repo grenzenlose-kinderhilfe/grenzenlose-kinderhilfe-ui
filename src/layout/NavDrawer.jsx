@@ -9,33 +9,24 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-import { MenuLanguageSwitcher, MenuLinks } from "./NavMenu";
+import { DrawerLanguageSwitcher, DrawerLinks, MenuLogo } from "./NavMenu";
 
-const NavDrawer = ({ isOpen, onClose, routes }) => {
-  const btnRef = React.useRef();
-
-  return (
-    <Drawer
-      isOpen={isOpen}
-      placement="right"
-      onClose={onClose}
-      finalFocusRef={btnRef}
-    >
-      <DrawerOverlay />
-      <DrawerContent>
-        <DrawerCloseButton />
-        <DrawerHeader>Menu</DrawerHeader>
-
-        <DrawerBody>
-          <MenuLinks isOpen={isOpen} routes={routes} onClick={onClose} />
-        </DrawerBody>
-
-        <DrawerFooter>
-          <MenuLanguageSwitcher />
-        </DrawerFooter>
-      </DrawerContent>
-    </Drawer>
-  );
-};
+const NavDrawer = ({ isOpen, onClose, routes }) => (
+  <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+    <DrawerOverlay />
+    <DrawerContent>
+      <DrawerCloseButton color="primary.white" top="18px" size="lg" />
+      <DrawerHeader bg="primary.blue" py={4}>
+        <MenuLogo height="44px" onClick={onClose} />
+      </DrawerHeader>
+      <DrawerBody py={6}>
+        <DrawerLinks routes={routes} onClick={onClose} />
+      </DrawerBody>
+      <DrawerFooter borderTop="1px solid" borderColor="gray.100">
+        <DrawerLanguageSwitcher />
+      </DrawerFooter>
+    </DrawerContent>
+  </Drawer>
+);
 
 export default NavDrawer;

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { LOCALE_DE, WORDPRESS_BLOG_BASE_URL } from "../constants";
+import { LOCALE_DE, LOCALE_EN, WORDPRESS_BLOG_BASE_URL } from "../constants";
 
 const Home = React.lazy(() => import("../screens/Home"));
 const Institutions = React.lazy(() => import("../screens/Institutions"));
@@ -25,7 +25,8 @@ const routes = [
     url: WORDPRESS_BLOG_BASE_URL,
     isExternal: true,
     isLocaleContext: true,
-    localeSuffix: { [LOCALE_DE]: "/de" },
+    // The blog has no English version; English visitors get the German one.
+    localeSuffix: { [LOCALE_DE]: "/de", [LOCALE_EN]: "/de" },
     localizationKey: "blog",
   },
   {

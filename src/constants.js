@@ -1,12 +1,21 @@
 export const LOCALE_DE = "de-DE";
 export const LOCALE_HU = "hu-HU";
+export const LOCALE_EN = "en-GB";
 
-export const LANGUAGES = [LOCALE_DE, LOCALE_HU];
+export const LANGUAGES = [LOCALE_DE, LOCALE_HU, LOCALE_EN];
 
 // Shown in the language switcher, each in its own language.
 export const LANGUAGE_LABELS = {
   [LOCALE_DE]: "Deutsch",
   [LOCALE_HU]: "Magyar",
+  [LOCALE_EN]: "English",
+};
+
+// Compact form shown on the language switcher button.
+export const LANGUAGE_CODES = {
+  [LOCALE_DE]: "DE",
+  [LOCALE_HU]: "HU",
+  [LOCALE_EN]: "EN",
 };
 
 export const GA_MEASUREMENT_ID = "G-NPSNCSC1YX";
@@ -17,6 +26,8 @@ export const WORDPRESS_BLOG_BASE_URL =
 export const WORDPRESS_FEATURED_CATEGORIES = {
   [LOCALE_DE]: 38,
   [LOCALE_HU]: 36,
+  // The blog has no English posts; English visitors get the German ones.
+  [LOCALE_EN]: 38,
 };
 
 export const GOOGLE_SHEET_ID =

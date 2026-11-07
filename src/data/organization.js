@@ -37,14 +37,6 @@ export const TWINT = {
   email: "mester.jnos@gmail.com",
 };
 
-// Kept in the shape the contact cards on the about page render.
-export const BANK_DETAILS = [
-  ["Bank", BANK_ACCOUNT.bank],
-  ["SWIFT-Code", BANK_ACCOUNT.swift],
-  ["IBAN/BIC", BANK_ACCOUNT.iban],
-  ["TWINT-Option", `${TWINT.phone} ${TWINT.name}, Gründer ${TWINT.email}`],
-];
-
 export const FOUNDING_DOCUMENTS = [
   "/docs/hatartalan-segitseg-alapitvany.doc",
   "/docs/hatartalan-segitseg-egyeb.doc",

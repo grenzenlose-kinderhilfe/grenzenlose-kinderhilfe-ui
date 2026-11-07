@@ -25,7 +25,8 @@ const Label = ({ children }) => (
 
 const AmountButton = ({ isSelected, children, ...props }) => (
   <Button
-    size="sm"
+    size="md"
+    fontWeight={700}
     color={isSelected ? "primary.white" : "primary.blue"}
     bg={isSelected ? "primary.blue" : "transparent"}
     border="1px solid"
@@ -38,7 +39,13 @@ const AmountButton = ({ isSelected, children, ...props }) => (
   </Button>
 );
 
-const DonateSelector = ({ amount, currency, setAmount, setCurrency }) => {
+const DonateSelector = ({
+  amount,
+  currency,
+  setAmount,
+  setCurrency,
+  showLabel = true,
+}) => {
   const { t, i18n } = useTranslation();
 
   const localization = {
@@ -54,26 +61,36 @@ const DonateSelector = ({ amount, currency, setAmount, setCurrency }) => {
     setAmount(defaultAmount(value));
   };
 
+  const hasCurrencyChoice = CURRENCIES.length > 1;
+
   return (
     <Flex gap={3} flexDirection="column">
-      <Flex justify="space-between" align="center" gap={3}>
-        <Label>{localization.preset}</Label>
-        {CURRENCIES.length > 1 && (
-          <Select
-            size="sm"
-            width="auto"
-            value={currency}
-            onChange={onCurrencyChange}
-            aria-label={localization.currency}
-          >
-            {CURRENCIES.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </Select>
-        )}
-      </Flex>
+      {(showLabel || hasCurrencyChoice) && (
+        <Flex
+          justify={showLabel ? "space-between" : "flex-end"}
+          align="center"
+          gap={3}
+        >
+          {showLabel && <Label>{localization.preset}</Label>}
+          {hasCurrencyChoice && (
+            <Select
+              size="sm"
+              width="auto"
+              borderRadius="md"
+              borderColor="primary.blue"
+              value={currency}
+              onChange={onCurrencyChange}
+              aria-label={localization.currency}
+            >
+              {CURRENCIES.map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
+            </Select>
+          )}
+        </Flex>
+      )}
       <SimpleGrid columns={2} spacing={2}>
         {presetsOf(currency).map((preset) => (
           <AmountButton
