@@ -24,7 +24,7 @@
   --white-20: rgba(255, 255, 255, 0.08);
   --white-30: rgba(255, 255, 255, 0.16);
 
-  --font-heading: "Barlow Condensed", sans-serif;
+  --font-heading: "Bricolage Grotesque", sans-serif;
   --font-body: Montserrat, sans-serif;
 
   --nav-height: 5rem;
@@ -60,7 +60,7 @@ h3,
 h4 {
   margin: 0;
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
 }
 
