@@ -38,23 +38,29 @@ const items = [
 ];
 ---
 
-<section class="mission" data-mission>
-  <div class="mission-list">
-    {items.map(({ title, content, image }, idx) => (
-      <details name="mission" open={idx === 0} data-image={image}>
-        <summary>
-          <h3>{title}</h3>
-          <FaChevronDown aria-hidden="true" />
-        </summary>
-        <p>{content}</p>
-      </details>
-    ))}
+<section class="mission">
+  <div class="section-head">
+    <h2>{t("pages.home.mission.heading")}</h2>
+    <p>{t("pages.home.mission.subHeading")}</p>
   </div>
-  <div
-    class="mission-image"
-    style={`background-image: url(${items[0].image})`}
-    data-mission-image
-  ></div>
+  <div class="mission-body" data-mission>
+    <div class="mission-list">
+      {items.map(({ title, content, image }, idx) => (
+        <details name="mission" open={idx === 0} data-image={image}>
+          <summary>
+            <h3>{title}</h3>
+            <FaChevronDown aria-hidden="true" />
+          </summary>
+          <p>{content}</p>
+        </details>
+      ))}
+    </div>
+    <div
+      class="mission-image"
+      style={`background-image: url(${items[0].image})`}
+      data-mission-image
+    ></div>
+  </div>
 </section>
 
 <script>
@@ -89,16 +95,28 @@ const items = [
 
 <style>
   .mission {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .mission-body {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
   }
 
-  details {
+  .mission-list {
+    align-self: start;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  details + details {
     border-top: 1px solid var(--border);
-  }
-
-  details:last-child {
-    border-bottom: 1px solid var(--border);
   }
 
   summary {
@@ -106,7 +124,7 @@ const items = [
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 1rem 1.25rem;
     list-style: none;
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -117,17 +135,15 @@ const items = [
   }
 
   summary:hover {
-    background: #ededed;
-    border-radius: var(--radius);
+    background: var(--surface);
   }
 
   details[open] summary {
-    background: var(--lightblue);
-    border-radius: var(--radius);
+    color: var(--blue);
   }
 
   summary h3 {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   summary :global(svg) {
@@ -142,25 +158,22 @@ const items = [
   }
 
   details p {
-    padding: 0.5rem 50px 1rem 1rem;
+    padding: 0 1.25rem 1.25rem;
+    font-size: 15px;
   }
 
   .mission-image {
     display: none;
-    margin-left: 25px;
+    min-height: 360px;
+    border-radius: var(--radius-lg);
     background-size: cover;
     background-position: center;
   }
 
   @media (min-width: 992px) {
-    .mission-image {
-      border-radius: var(--radius);
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .mission {
-      grid-template-columns: 9fr 4fr;
+    .mission-body {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      gap: 2rem;
     }
 
     .mission-image {

@@ -63,17 +63,26 @@ const labels = {
   .campaigns {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 25px;
+    gap: 2.5rem;
   }
 
+  /* Flex rather than grid, so an incomplete last row is centred. */
   .campaign-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    --gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--gap);
+  }
+
+  .campaign-grid > li {
+    flex: 1 1 100%;
   }
 
   .campaign-card {
+    border-color: var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
     transition:
       box-shadow 0.2s ease,
       transform 0.2s ease;
@@ -105,20 +114,14 @@ const labels = {
   }
 
   @media (min-width: 768px) {
-    .campaign-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 992px) {
-    .campaigns {
-      padding: 0;
+    .campaign-grid > li {
+      flex: 0 1 calc((100% - var(--gap)) / 2);
     }
   }
 
   @media (min-width: 1280px) {
-    .campaign-grid {
-      grid-template-columns: repeat(3, 1fr);
+    .campaign-grid > li {
+      flex-basis: calc((100% - 2 * var(--gap)) / 3);
     }
   }
 </style>

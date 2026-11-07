@@ -6,7 +6,8 @@ import { getTranslator, localizePath } from "../../i18n";
 
 /**
  * The first thing a visitor sees: who the foundation is, what it does and the
- * three things they can do about it.
+ * three things they can do about it. The slot takes the featured-posts
+ * carousel, shown next to the text on wide screens.
  */
 interface Props {
   locale: string;
@@ -17,41 +18,43 @@ const t = getTranslator(locale);
 ---
 
 <section class="hero">
-  <p class="hero-eyebrow">Grenzenlose Kinderhilfe · {ORGANIZATION.name}</p>
-  <h1>{t("pages.home.hero.tagline")}</h1>
-  <p class="hero-lead">{t("pages.home.hero.lead")}</p>
-  <div class="hero-actions">
-    <a class="btn btn-lg btn-light" href={localizePath(locale, "/support")}>
-      <FaHeart aria-hidden="true" />
-      {t("pages.home.hero.support")}
-    </a>
-    <a
-      class="btn btn-lg btn-outline-light"
-      href={`mailto:${ORGANIZATION.email}`}
-    >
-      <FaHandsHelping aria-hidden="true" />
-      {t("pages.home.hero.volunteer")}
-    </a>
-    <a
-      class="btn btn-lg btn-outline-light"
-      href={ROLLING_KIDS_URL}
-      target="_blank"
-      rel="noreferrer"
-    >
-      <FaTrafficLight aria-hidden="true" />
-      Rolling Kids
-    </a>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Grenzenlose Kinderhilfe · {ORGANIZATION.name}</p>
+      <h1>{t("pages.home.hero.tagline")}</h1>
+      <p class="hero-lead">{t("pages.home.hero.lead")}</p>
+      <div class="hero-actions">
+        <a class="btn btn-lg btn-light" href={localizePath(locale, "/support")}>
+          <FaHeart aria-hidden="true" />
+          {t("pages.home.hero.support")}
+        </a>
+        <a
+          class="btn btn-lg btn-outline-light"
+          href={`mailto:${ORGANIZATION.email}`}
+        >
+          <FaHandsHelping aria-hidden="true" />
+          {t("pages.home.hero.volunteer")}
+        </a>
+        <a
+          class="btn btn-lg btn-outline-light"
+          href={ROLLING_KIDS_URL}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FaTrafficLight aria-hidden="true" />
+          Rolling Kids
+        </a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <slot />
+    </div>
   </div>
 </section>
 
 <style>
   .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 40px 25px;
-    text-align: center;
+    padding-block: 48px;
     color: var(--white);
     background-color: var(--blue);
     background-image:
@@ -61,10 +64,27 @@ const t = getTranslator(locale);
     background-size: cover;
   }
 
+  .hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
   .hero-eyebrow {
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
+    color: var(--white-80);
   }
 
   h1 {
@@ -73,16 +93,16 @@ const t = getTranslator(locale);
   }
 
   .hero-lead {
-    max-width: 800px;
+    max-width: 640px;
     font-size: 16px;
+    color: var(--white-90);
   }
 
   .hero-actions {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+    gap: 0.75rem;
     width: 100%;
     margin-top: 0.5rem;
   }
@@ -91,32 +111,45 @@ const t = getTranslator(locale);
     background: var(--grey);
   }
 
+  /* The carousel hides itself when the blog cannot be reached. */
+  .hero-media:not(:has(.swiper)) {
+    display: none;
+  }
+
   @media (min-width: 768px) {
     .hero {
-      padding: 70px 50px;
-    }
-
-    .hero-eyebrow {
-      font-size: 16px;
+      padding-block: 72px;
     }
 
     h1 {
-      font-size: 56px;
+      font-size: 52px;
     }
 
     .hero-lead {
-      font-size: 20px;
+      font-size: 18px;
     }
 
     .hero-actions {
       flex-direction: row;
+      justify-content: center;
       width: auto;
     }
   }
 
+  /* Text and carousel side by side; without a carousel the text stays centred. */
   @media (min-width: 992px) {
-    .hero {
-      border-radius: var(--radius);
+    .hero-inner:has(.swiper) {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+      gap: 3.5rem;
+    }
+
+    .hero-inner:has(.swiper) .hero-text {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .hero-inner:has(.swiper) .hero-actions {
+      justify-content: flex-start;
     }
   }
 </style>

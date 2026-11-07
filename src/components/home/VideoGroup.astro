@@ -24,63 +24,53 @@ const statement = trans(t("pages.home.missionStatement"), {
       videoId="09MPqyp8ggE"
       title="Határtalan Segítség Alapítvány"
       playLabel={t("ui.video.play")}
+      class="media-frame"
     />
   </div>
 </section>
 
 <style>
+  /* Sits on a dark band (see Home.astro). */
   .video-group {
     display: grid;
-    grid-template-columns: 1fr;
-    background: var(--blue);
-    color: var(--white);
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: 2.5rem;
   }
 
   .video-group-text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    height: 100%;
-    padding: 25px;
+    gap: 1.25rem;
     text-align: center;
   }
 
   .video-group-text :global(h2) {
     max-width: 600px;
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .video-group-text :global(p) {
-    max-width: 800px;
-  }
-
-  .video-group-player {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 700px;
+    color: var(--white-90);
   }
 
   @media (min-width: 768px) {
-    .video-group-player {
-      padding: 0 0 25px;
+    .video-group-text :global(h2) {
+      font-size: 36px;
     }
   }
 
   @media (min-width: 992px) {
     .video-group {
-      border-radius: var(--radius);
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .video-group {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+      gap: 3.5rem;
     }
 
-    .video-group-player {
-      padding: 25px;
+    .video-group-text {
+      align-items: flex-start;
+      text-align: left;
     }
   }
 </style>

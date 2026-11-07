@@ -37,7 +37,11 @@ export const TWINT = {
   email: "mester.jnos@gmail.com",
 };
 
+// `labelKey` is under pages.aboutUs in the translation files.
 export const FOUNDING_DOCUMENTS = [
-  "/docs/hatartalan-segitseg-alapitvany.doc",
-  "/docs/hatartalan-segitseg-egyeb.doc",
+  {
+    url: "/docs/hatartalan-segitseg-alapitvany.doc",
+    labelKey: "foundingDocument",
+  },
+  { url: "/docs/hatartalan-segitseg-egyeb.doc", labelKey: "otherDocument" },
 ];

@@ -59,130 +59,151 @@ const donateStrings = {
 
 <div class="shoebox">
   <section class="hero">
-    <div class="hero-text">
-      <h1>{main("titleHeading")}</h1>
-      <p class="hero-lead">{main("titleHeadingSub")}</p>
-      <p>{main("shoeboxMagic")}</p>
-      <a class="btn btn-lg btn-light" href="#donate">
-        <FaHeart aria-hidden="true" />
-        {fundraiser("actionButton")}
-      </a>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>{main("titleHeading")}</h1>
+        <p class="hero-lead">{main("titleHeadingSub")}</p>
+        <p>{main("shoeboxMagic")}</p>
+        <a class="btn btn-lg btn-light" href="#donate">
+          <FaHeart aria-hidden="true" />
+          {fundraiser("actionButton")}
+        </a>
+      </div>
+      <div class="hero-media">
+        <Image
+          src={shoeboxImage}
+          alt={main("imageAlt")}
+          widths={[480, 800, shoeboxImage.width]}
+          sizes="(min-width: 992px) 600px, 100vw"
+          loading="eager"
+        />
+      </div>
     </div>
-    <div class="hero-media">
-      <Image
-        src={shoeboxImage}
-        alt={main("imageAlt")}
-        widths={[480, 800, shoeboxImage.width]}
-        sizes="(min-width: 1280px) 600px, 100vw"
-        loading="eager"
+  </section>
+
+  <section class="band" aria-labelledby="shoebox-how">
+    <div class="container how">
+      <div class="section-head">
+        <h2 id="shoebox-how">{howTo("heading")}</h2>
+      </div>
+      <ol class="steps">
+        {steps.map(({ key, icon: Icon }, idx) => (
+          <li class="step">
+            <span class="step-icon" aria-hidden="true">
+              <Icon />
+              <span class="step-number">{idx + 1}</span>
+            </span>
+            <h3>{howTo(`steps.${key}.title`)}</h3>
+            <p>{howTo(`steps.${key}.text`)}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band band-dark" aria-labelledby="shoebox-join">
+    <div class="container join">
+      <div class="join-text">
+        <h2 id="shoebox-join">{main("joinUs")}</h2>
+        <p>{main("community")}</p>
+        <p>{main("attention")}</p>
+      </div>
+      <LiteYouTube
+        videoId={videoId}
+        title={fundraiser("videoTitle")}
+        playLabel={t("ui.video.play")}
+        class="media-frame"
       />
     </div>
   </section>
 
-  <section class="how" aria-labelledby="shoebox-how">
-    <h2 id="shoebox-how">{howTo("heading")}</h2>
-    <ol class="steps">
-      {steps.map(({ key, icon: Icon }, idx) => (
-        <li class="step">
-          <span class="step-icon" aria-hidden="true">
-            <Icon />
-            <span class="step-number">{idx + 1}</span>
-          </span>
-          <h3>{howTo(`steps.${key}.title`)}</h3>
-          <p>{howTo(`steps.${key}.text`)}</p>
-        </li>
-      ))}
-    </ol>
-  </section>
-
-  <section class="join" aria-labelledby="shoebox-join">
-    <h2 id="shoebox-join">{main("joinUs")}</h2>
-    <p>{main("community")}</p>
-    <p>{main("attention")}</p>
-  </section>
-
-  <section id="donate" class="fundraiser">
-    <LiteYouTube
-      videoId={videoId}
-      title={fundraiser("videoTitle")}
-      playLabel={t("ui.video.play")}
-    />
-    <div class="fundraiser-action">
-      <h2>{fundraiser("actionTextHeading")}</h2>
-      {hasPaymentLinks ? (
-        <Donate
-          client:visible
-          locale={locale}
-          strings={donateStrings}
-          showLabel={false}
-        />
-      ) : (
-        <a
-          class="btn btn-lg btn-primary"
-          href={localizePath(locale, "/support")}
-        >
-          <FaHeart aria-hidden="true" />
-          {fundraiser("actionButton")}
-        </a>
-      )}
-      <p>{fundraiser("actionTextInstruction")}</p>
+  <section id="donate" class="band band-tint" aria-labelledby="shoebox-donate">
+    <div class="container">
+      <div class="donate-card">
+        <h2 id="shoebox-donate">{fundraiser("actionTextHeading")}</h2>
+        {hasPaymentLinks ? (
+          <Donate
+            client:visible
+            locale={locale}
+            strings={donateStrings}
+            showLabel={false}
+          />
+        ) : (
+          <a
+            class="btn btn-lg btn-primary"
+            href={localizePath(locale, "/support")}
+          >
+            <FaHeart aria-hidden="true" />
+            {fundraiser("actionButton")}
+          </a>
+        )}
+        <p>{fundraiser("actionTextInstruction")}</p>
+      </div>
     </div>
   </section>
 
-  <section class="news" aria-labelledby="shoebox-news">
-    <h2 id="shoebox-news">{news("heading")}</h2>
-    <ShoeboxNews
-      client:visible
-      locale={locale}
-      categoryId={blogCategoryId}
-      initialPosts={initialPosts}
-    />
-    <a
-      class="btn btn-lg btn-primary news-all"
-      href={blogCategoryUrl}
-      target="_blank"
-      rel="noreferrer"
-    >
-      {news("allPosts")}
-      <FiArrowUpRight aria-hidden="true" />
-    </a>
+  <section class="band" aria-labelledby="shoebox-news">
+    <div class="container news">
+      <div class="section-head">
+        <h2 id="shoebox-news">{news("heading")}</h2>
+      </div>
+      <ShoeboxNews
+        client:visible
+        locale={locale}
+        categoryId={blogCategoryId}
+        initialPosts={initialPosts}
+      />
+      <a
+        class="btn btn-lg btn-primary"
+        href={blogCategoryUrl}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {news("allPosts")}
+        <FiArrowUpRight aria-hidden="true" />
+      </a>
+    </div>
   </section>
 
-  <section class="map" aria-labelledby="shoebox-map">
-    <h2 id="shoebox-map">{mapHeading}</h2>
-    <EmbedMap src={DONATION_MAP_EMBED_URL} title={mapHeading} />
+  <section class="band band-tint" aria-labelledby="shoebox-map">
+    <div class="container map">
+      <div class="section-head">
+        <h2 id="shoebox-map">{mapHeading}</h2>
+      </div>
+      <EmbedMap src={DONATION_MAP_EMBED_URL} title={mapHeading} />
+    </div>
   </section>
 </div>
 
 <style>
+  /*
+   * Full-width bands alternating dark, white and tint (see global.css), the
+   * same rhythm as the home page. The footer is dark, so the last band is not.
+   */
   .shoebox {
-    display: grid;
-    gap: 3rem;
-    margin: 0.5rem 0.5rem 3rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-    text-align: center;
+    min-width: 0;
   }
 
   /* Hero */
 
   .hero {
-    display: grid;
-    grid-template-columns: 1fr;
-    border-radius: var(--radius);
-    background: var(--blue);
+    padding-block: 48px;
     color: var(--white);
+    background: var(--blue);
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: 2.5rem;
   }
 
   .hero-text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 1.25rem;
-    padding: 2rem 1.5rem 1rem;
     text-align: center;
   }
 
@@ -208,9 +229,7 @@ const donateStrings = {
 
   .hero-media {
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 1rem 1.5rem 1.5rem;
   }
 
   .hero-media img {
@@ -219,16 +238,21 @@ const donateStrings = {
     height: auto;
   }
 
-  /* How it works */
+  /* Shared column layout for the sections below the hero */
 
-  .how {
-    display: grid;
-    gap: 2rem;
+  .how,
+  .news,
+  .map {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
   }
+
+  /* How it works */
 
   .steps {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
   }
 
@@ -238,8 +262,8 @@ const donateStrings = {
     align-items: center;
     gap: 0.75rem;
     padding: 1.75rem 1.5rem;
-    border-radius: var(--radius);
-    background: var(--lightblue);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
     text-align: center;
   }
 
@@ -276,98 +300,102 @@ const donateStrings = {
     color: var(--blue);
   }
 
-  /* Join us */
+  /* Join us, next to the campaign video */
 
   .join {
     display: grid;
-    justify-items: center;
-    gap: 1rem;
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .join-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
     text-align: center;
   }
 
-  /* Fundraiser */
-
-  .fundraiser {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    gap: 2rem;
-    scroll-margin-top: calc(var(--nav-height) + 1rem);
+  .join-text h2 {
+    font-size: 28px;
   }
 
-  .fundraiser :global(.lite-youtube) {
-    border-radius: var(--radius);
+  .join-text p {
+    max-width: 640px;
+    color: var(--white-90);
   }
 
-  .fundraiser-action {
+  /* Donate */
+
+  .donate-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    max-width: 720px;
+    margin-inline: auto;
+    padding: 32px 20px;
     text-align: center;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--blue);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .donate-card h2 {
+    max-width: 560px;
+    font-size: 26px;
   }
 
   /* News */
 
   .news {
-    display: grid;
-    justify-items: center;
-    gap: 1.5rem;
+    align-items: center;
   }
 
   .news :global(.shoebox-news) {
     width: 100%;
   }
 
-  /* Map */
-
-  .map {
-    display: grid;
-    gap: 1.5rem;
-  }
-
   @media (min-width: 768px) {
-    .shoebox {
-      margin: 1.5rem 1.5rem 4rem;
-      gap: 4rem;
-    }
-
-    .steps {
-      grid-template-columns: repeat(3, 1fr);
+    .hero {
+      padding-block: 72px;
     }
 
     .hero-text h1 {
       font-size: 2.75rem;
     }
+
+    .steps {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .join-text h2 {
+      font-size: 36px;
+    }
+
+    .donate-card {
+      padding: 48px;
+    }
+
+    .donate-card h2 {
+      font-size: 32px;
+    }
   }
 
-  @media (min-width: 1280px) {
-    .shoebox {
-      width: min(100% - 3rem, 1280px);
-      margin-inline: auto;
+  @media (min-width: 992px) {
+    .hero-inner,
+    .join {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 3.5rem;
     }
 
-    .hero {
-      grid-template-columns: 1fr 1fr;
-      min-height: 480px;
-    }
-
-    .hero-text {
-      padding: 3rem;
-    }
-
-    .hero-media {
-      padding: 2rem;
-    }
-
-    .fundraiser {
-      grid-template-columns: 1fr 1fr;
+    .hero-text,
+    .join-text {
+      align-items: flex-start;
+      text-align: left;
     }
   }
 </style>

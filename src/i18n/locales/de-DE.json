@@ -39,12 +39,14 @@
       }
     },
     "aboutUs": {
-      "contentHeader": "Die Frage war einfach: Was würden Sie brauchen? <1></1>Die Antwort ist noch einfacher: Pflege.<3></3>Hier begann unsere Geschichte.",
-      "contentText": "<0>Im Jahr 2010 besuchten wir eine Weihnachtsveranstaltung in einem Kinderheim, wo Kinder mit Behinderung eine wirklich herzliche Show gaben, für uns \"gesund\". Aufgrund der Gefühle, die wir damals erlebten, begannen wir, nach Wegen zu suchen, den Kindern und Erwachsenen zu danken, von denen wir diese unbeschreiblich guten Gefühle erhielten. Die Frage war einfach: Was würden Sie brauchen? Die Antwort ist noch einfacher: sich kümmern.</0><1>Dort begann unsere Geschichte. In den letzten Jahren haben wir es geschafft, gesunden und behinderten Kindern bei vielen Gelegenheiten mit den Programmen und Überraschungen, die wir uns ausgedacht und organisiert haben, ein Lächeln auf die Gesichter zu zaubern!</1><2>Bekannte, Freunde und unzählige Unbekannte haben sich dem Team angeschlossen, mit dem wir uns begeistert vorbereitet haben und vorbereiten, in verschiedenen Bildern jenen Kindern zu dienen, die in Ungarn und Rumänien und der Ukraine als Waisen, benachteiligte Menschen und institutionelle Bedingungen aufgewachsen sind, deren Alltagsglück fehlt!</2><3>Für uns ist \"Das Lächeln der Kinder\" sehr wichtig! Diese Fürsorge ist eine Manifestation der Liebe! Seien Sie ein gesunder Mensch oder ein Mann mit übermenschlichen Kräften, der auch mit Beinen und fehlenden Beinen wunderbar Klavier spielen kann! Für sie und für sie haben wir die Limitless Help Foundation gegründet! Hier können Sie sich über die bisherigen Programme und Feierlichkeiten informieren und mit Ihrer persönlichen Teilnahme zukünftige Veranstaltungen beeinflussen!</3><4>Vielen Dank für Ihr Interesse, einen guten Blick auf die Website und wir freuen uns auf Ihre Aktivität, denn jetzt wissen Sie: Jedes Kinderlächeln zählt!</4>",
+      "contentHeader": "Die Frage war einfach: Was würdet ihr brauchen? <1></1>Die Antwort war noch einfacher: Zuwendung.<3></3>Hier begann unsere Geschichte.",
+      "contentText": "<0>Im Jahr 2010 besuchten wir die Weihnachtsfeier eines Kinderheims, bei der Kinder mit Behinderung für uns „Gesunde“ ein wirklich herzergreifendes Programm aufführten. Die Gefühle jenes Tages ließen uns nicht mehr los, und wir suchten nach einem Weg, den Kindern und Erwachsenen zu danken, die uns diese unbeschreiblich schönen Momente geschenkt hatten. Die Frage war einfach: Was würdet ihr brauchen? Die Antwort war noch einfacher: Zuwendung.</0><1>Hier begann unsere Geschichte. In den vergangenen Jahren ist es uns immer wieder gelungen, Kindern mit und ohne Behinderung mit Programmen und Überraschungen, die wir uns für sie ausgedacht und organisiert haben, ein Lächeln ins Gesicht zu zaubern!</1><2>Im Laufe der Jahre haben sich Bekannte, Freunde und unzählige Unbekannte unserem Team angeschlossen, um zu helfen. Gemeinsam setzen wir uns mit Begeisterung dafür ein, auf vielfältige Weise für die Kinder da zu sein, die in Ungarn, Rumänien und der Ukraine als Waisen, in benachteiligten Verhältnissen oder in Heimen aufwachsen und denen das Glück im Alltag fehlt!</2><3>„Das Lächeln der Kinder“ ist uns sehr wichtig! Diese Zuwendung ist eine Form der Liebe. Ob ein gesundes Kind oder ein kleiner Mensch mit übermenschlicher Kraft, der trotz fehlender Beine und Finger wunderschön Klavier spielt – für sie und um ihretwillen haben wir die Stiftung Határtalan Segítség gegründet! Hier können Sie sich über unsere bisherigen Programme und Feste informieren, und mit Ihrer persönlichen Teilnahme können Sie die kommenden Veranstaltungen mitgestalten!</3><4>Vielen Dank für Ihr Interesse und viel Freude beim Stöbern auf unserer Website! Wir freuen uns auf Ihre Mitwirkung, denn jetzt wissen Sie: Jedes Kinderlächeln zählt!</4>",
+      "documents": "Dokumente",
       "foundationChairman": "Stiftungsratsvorsitzender",
       "founder": "Gründer",
       "foundingDocument": "Gründungsurkunde",
-      "link": "Link",
+      "imageAlt": "Schwarz-Weiß-Foto: ein Mann und eine Frau lächeln am Strand",
+      "otherDocument": "Weitere Unterlagen",
       "taxNumber": "Steuernummer"
     },
     "donation": {
@@ -123,8 +125,10 @@
         "educationContent": "Spielerisches Lernen ist für interessierte Kinder das Wichtigste. Durch das ungetrübte gemeinsame Spiel können sich die Bewohner des Heims weiterentwickeln und die gemeinsamen Erlebnisse wirken sich sowohl auf die Kinder als auch auf die Spender wohltuend aus. Deshalb erachten wir das Treffen der Generationen als wichtig, die Möglichkeit voneinander zu lernen und den Kindern die passenden Werkzeuge zu schenken. Vom Buntstift bis zum Computer, vom Basteln bis zum Sprachenlernen ist alles für die Entwicklung Bedürftiger da! Spenden Sie selbst gebrauchte oder neue Geräte, damit Waisenkinder gleichberechtigt ins Leben starten können!",
         "experiences": "Erlebnisse",
         "experiencesContent": "Es ist ein menschliches Grundbedürfnis, als Mitglieder einer Gemeinschaft gemeinsame Erfahrungen geben und empfangen zu können. Kinder, die in Heimen leben, leben in einer weniger anregenden Umgebung, daher ist es für sie eine große Freude, wenn Besucher zu einem gemeinsamen Programm oder Spiel kommen oder eingeladen werden. Das größte Abenteuer für sie ist ein gemeinsames Freizeitprogramm, Spiele, Ausflüge, Backen und Kochen, Eis, Radfahren! Spenden Sie selbst Erfahrungen für die Kinder!",
+        "heading": "Wofür wir uns einsetzen",
         "infrastructure": "Infrastruktur",
         "infrastructureContent": "Für den Ausbau von Kinderheimen gibt es kaum Fördergelder, die Betreiber sind froh, wenn sie vorschriftsmäßig arbeiten können. In den meisten Fällen befinden sie sich in veralteten Gebäuden mit alter Einrichtung und Ausstattung. Die Modernisierung bereitet den Managern von Institutionen große Kopfschmerzen. Auch die Reinigung der Lackierung kann in den meisten Fällen dank freiwilliger Helfer erfolgen. Geplant ist auch die Installation eines Solarkollektors, der die Warmwasserversorgung stark unterstützen würde, aber an den meisten Orten die Küchengeräte und andere Geräte, z. Auch Waschmaschinen und Trockner müssen ersetzt werden. Fast überall sollten auch die Kinderbetten und Möbel ausgetauscht werden. In diesem Zusammenhang haben wir ein Programm aufgelegt, das den kompletten Geräteaustausch und Ausbau von 80 Wohnungen bis Ende 2018 zum Ziel hat.",
+        "subHeading": "Vier Bereiche, in denen wir den Alltag in Kinderheimen verbessern.",
         "transporationContent": "\"Das Ziel ist die Reise selbst.\" Es gibt kein aufregenderes Gefühl, als sich auf eine Reise vorzubereiten. Eine Auslandsreise oder überhaupt eine Reise ist ein sehr großer Traum im Leben von Waisenkindern. Das haben wir in den letzten Jahren leider bei Gesprächen mit Kindern erlebt. Da lag es fast auf der Hand, dass wir eine Reise für sie organisieren würden. Es ist eine tolle Erfahrung, den Menschen, die zu Hause leben, dieses Gefühl von Freiheit zu vermitteln! Gemeinsam reisen lädt alle auf! Unsere Kamele beinhalten auch die Erstellung eines Transportfahrzeugs und eines österreichischen Resorts! Spende Reiseerlebnisse, Sommercamping oder Wintererlebnisse an die Waisenkinder!",
         "travelOrganization": "Reiseorganisation"
       },
@@ -189,6 +193,10 @@
     }
   },
   "ui": {
+    "copy": {
+      "copied": "Kopiert",
+      "copy": "Kopieren"
+    },
     "data": {
       "empty": "Derzeit sind keine Inhalte verfügbar.",
       "error": "Die Inhalte konnten nicht geladen werden. Bitte versuchen Sie es später erneut."

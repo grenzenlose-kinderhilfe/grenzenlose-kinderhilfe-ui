@@ -16,62 +16,68 @@ interface Props {
 
 const { locale } = Astro.props;
 const initialSlides = await buildFeaturedPosts(locale);
+
+/*
+ * Every block is a full-width band; the tones alternate (dark, white, tint)
+ * so neighbouring blocks never blend into each other. The footer is dark, so
+ * the last band is not.
+ */
 ---
 
 <div class="home">
-  <Hero locale={locale} />
-  <div class="home-slideshow">
+  <Hero locale={locale}>
     <SlideShow client:load locale={locale} initialSlides={initialSlides} />
+  </Hero>
+
+  <div class="band">
+    <div class="container">
+      <Counters locale={locale} />
+    </div>
   </div>
-  <Counters locale={locale} />
-  <Campaigns locale={locale} />
-  <VideoGroup locale={locale} />
-  <div class="home-journey">
-    <DonationJourney locale={locale} />
+
+  <div class="band band-tint">
+    <div class="container">
+      <Campaigns locale={locale} />
+    </div>
   </div>
-  <Mission locale={locale} />
-  <Partners locale={locale} />
-  <Quote locale={locale} />
+
+  <div class="band band-dark">
+    <div class="container">
+      <VideoGroup locale={locale} />
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="container">
+      <DonationJourney locale={locale} />
+    </div>
+  </div>
+
+  <div class="band band-tint">
+    <div class="container">
+      <Mission locale={locale} />
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="container">
+      <Partners locale={locale} />
+    </div>
+  </div>
+
+  <div class="band band-tint">
+    <div class="container">
+      <Quote locale={locale} />
+    </div>
+  </div>
 </div>
 
 <style>
   .home {
-    display: grid;
-    gap: 2rem;
     min-width: 0;
   }
 
-  .home > :global(*) {
+  .home :global(.container) > :global(*) {
     min-width: 0;
-  }
-
-  .home-slideshow {
-    overflow: hidden;
-  }
-
-  .home-journey {
-    padding: 25px;
-  }
-
-  @media (min-width: 768px) {
-    .home {
-      gap: 3rem;
-    }
-  }
-
-  @media (min-width: 992px) {
-    .home {
-      margin: 25px;
-    }
-
-    .home-journey {
-      padding: 0;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .home {
-      margin: 50px 50px 25px;
-    }
   }
 </style>

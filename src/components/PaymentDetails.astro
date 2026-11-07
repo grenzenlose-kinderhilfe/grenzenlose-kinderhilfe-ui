@@ -1,0 +1,103 @@
+---
+import { BANK_ACCOUNT, TWINT } from "../data/organization";
+import { getTranslator } from "../i18n";
+import CopyButton from "./CopyButton.astro";
+
+/**
+ * Bank account or TWINT details, shown on the about and the support page.
+ * Values a donor has to type into their banking app get a copy button; the
+ * IBAN is copied without spaces, which every banking app accepts.
+ */
+interface Props {
+  locale: string;
+  method: "bank" | "twint";
+}
+
+interface Row {
+  label: string;
+  value: string;
+  copy?: string;
+  email?: string;
+}
+
+const { locale, method } = Astro.props;
+const t = getTranslator(locale);
+
+const rows: Row[] =
+  method === "bank"
+    ? [
+        { label: "Bank", value: BANK_ACCOUNT.bank },
+        { label: "SWIFT", value: BANK_ACCOUNT.swift, copy: BANK_ACCOUNT.swift },
+        {
+          label: "IBAN",
+          value: BANK_ACCOUNT.iban,
+          copy: BANK_ACCOUNT.iban.replace(/\s/g, ""),
+        },
+      ]
+    : [
+        { label: "TWINT", value: TWINT.phone, copy: TWINT.phone },
+        {
+          label: t("pages.aboutUs.founder"),
+          value: TWINT.name,
+          email: TWINT.email,
+        },
+      ];
+---
+
+<dl class="payment-details">
+  {rows.map(({ label, value, copy, email }) => (
+    <div class="payment-row">
+      <dt class="eyebrow">{label}</dt>
+      <dd>
+        <span class:list={["payment-value", { "is-code": copy }]}>
+          {value}
+          {email && (
+            <a class="text-link payment-email" href={`mailto:${email}`}>
+              {email}
+            </a>
+          )}
+        </span>
+        {copy && <CopyButton locale={locale} value={copy} label={label} />}
+      </dd>
+    </div>
+  ))}
+</dl>
+
+<style>
+  .payment-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .payment-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  dd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.375rem 0.375rem 0.375rem 0.75rem;
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    font-size: 14px;
+  }
+
+  .payment-value {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .is-code {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+  }
+</style>

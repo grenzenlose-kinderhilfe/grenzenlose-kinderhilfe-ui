@@ -12,7 +12,7 @@
   height: 100%;
   padding: 1.25rem 1.25rem 1.5rem;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   background: var(--white);
   transition:
     border-color 0.15s,
@@ -40,7 +40,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
 }
 
 .shoebox-news-card p {

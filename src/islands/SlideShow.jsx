@@ -2,6 +2,7 @@ import React from "react";
 import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import "./SlideShow.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { getFeaturedPosts } from "../lib/wordpress";
@@ -28,8 +29,8 @@ const SlideShow = ({ locale, initialSlides }) => {
 
   return (
     <Swiper
-      spaceBetween={50}
-      centeredSlides
+      className="slideshow media-frame"
+      spaceBetween={0}
       autoplay={{ delay: 8000, disableOnInteraction: false }}
       pagination={{ clickable: true }}
       modules={[Autoplay, Pagination]}
@@ -37,16 +38,17 @@ const SlideShow = ({ locale, initialSlides }) => {
       {slides.map(({ img, alt, link }, idx) => (
         <SwiperSlide key={link ?? idx}>
           <a
+            className="slide"
             href={link}
             target="_blank"
             rel="noreferrer"
-            style={{ display: "flex", justifyContent: "center" }}
+            style={{ "--slide-image": `url(${JSON.stringify(img)})` }}
           >
             <img
+              className="slide-image"
               src={img}
               alt={alt ?? ""}
               loading={idx === 0 ? "eager" : "lazy"}
-              style={{ maxHeight: "750px", objectFit: "contain" }}
             />
           </a>
         </SwiperSlide>

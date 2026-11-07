@@ -13,8 +13,10 @@ const { src, title } = Astro.props;
 
 <style>
   .embed-map {
-    display: flex;
-    justify-content: center;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
   }
 
   iframe {
@@ -25,8 +27,7 @@ const { src, title } = Astro.props;
 
   @media (min-width: 768px) {
     iframe {
-      max-width: 95%;
-      aspect-ratio: 3;
+      aspect-ratio: 16 / 7;
     }
   }
 </style>
