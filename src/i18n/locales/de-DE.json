@@ -57,8 +57,7 @@
         "slovakia": "Slowakei",
         "switzerland": "Schweiz",
         "ukraine": "Ukraine"
-      },
-      "supportedTitle": "Unterstützte Kinderheime / Einrichtungen"
+      }
     },
     "home": {
       "campaigns": {
@@ -140,6 +139,8 @@
     },
     "media": {
       "articles": "Artikel",
+      "institutions": "Einrichtungen",
+      "institutionsLead": "Die Kinderheime und Einrichtungen, die unsere Spenden erhalten.",
       "lead": "Berichte, Interviews und Filme über unsere Arbeit mit den Kindern im Karpatenbecken.",
       "readArticle": "Artikel lesen",
       "showLess": "Weniger anzeigen",
@@ -148,7 +149,6 @@
       "viewSource": "Zur Quelle"
     },
     "pagesTitle": {
-      "institutions": "Institutionen",
       "rollingKids": "Rolling Kids",
       "shoebox": "Schuhkarton"
     },
@@ -234,7 +234,6 @@
       "blog": "Veranstaltungen",
       "close": "Schließen",
       "home": "Startseite",
-      "institutions": "Institutionen",
       "language": "Sprache",
       "media": "Medien",
       "menu": "Menü",

@@ -23,12 +23,6 @@ const routes = [
   { id: "shoebox", path: "/pages/shoebox", localizationKey: "shoebox" },
   { id: "about", path: "/about", localizationKey: "aboutUs" },
   {
-    id: "institutions",
-    path: "/pages/institutions",
-    localizationKey: "institutions",
-    display: false,
-  },
-  {
     id: "support",
     path: "/support",
     localizationKey: "support",

@@ -57,8 +57,7 @@
         "slovakia": "Szlovákia",
         "switzerland": "Svájc",
         "ukraine": "Ukrajna"
-      },
-      "supportedTitle": "Támogatott gyermekotthonok / intézmények"
+      }
     },
     "home": {
       "campaigns": {
@@ -140,6 +139,8 @@
     },
     "media": {
       "articles": "Cikkek",
+      "institutions": "Intézmények",
+      "institutionsLead": "A gyermekotthonok és intézmények, amelyekhez adományaink eljutnak.",
       "lead": "Riportok, interjúk és filmek a Kárpát-medencei gyermekekért végzett munkánkról.",
       "readArticle": "Cikk elolvasása",
       "showLess": "Kevesebb",
@@ -148,7 +149,6 @@
       "viewSource": "Forrás megtekintése"
     },
     "pagesTitle": {
-      "institutions": "Intézmények",
       "rollingKids": "Rolling Kids",
       "shoebox": "Cipősdoboz"
     },
@@ -234,7 +234,6 @@
       "blog": "Események",
       "close": "Bezárás",
       "home": "Kezdőoldal",
-      "institutions": "Intézmények",
       "language": "Nyelv",
       "media": "Média",
       "menu": "Menü",

@@ -1,21 +1,28 @@
 import React from "react";
+import { FaHome } from "react-icons/fa";
 import { GoVideo } from "react-icons/go";
 import { ImNewspaper } from "react-icons/im";
 
-import { getArticles, getVideos } from "../../lib/content";
+import { getArticles, getLocations, getVideos } from "../../lib/content";
 import useLiveContent from "../useLiveContent";
 import ArticleGrid from "./ArticleGrid";
+import InstitutionList from "./InstitutionList";
 import VideoList from "./VideoList";
 import "./Media.css";
 
 const TABS = [
   { id: "videos", icon: GoVideo },
   { id: "articles", icon: ImNewspaper },
+  { id: "institutions", icon: FaHome },
 ];
 
+const isTab = (id) => TABS.some((tab) => tab.id === id);
+
 /**
- * Videos and press articles from the content spreadsheet, one tab each. Both
- * panels are in the HTML; the inactive one is only hidden.
+ * Videos, press articles and the supported institutions from the content
+ * spreadsheet, one tab each. Every panel is in the HTML; the inactive ones are
+ * only hidden. The selected tab is kept in the URL hash (/media#articles), so
+ * a tab can be linked to directly.
  */
 const MediaTabs = ({
   locale,
@@ -23,14 +30,34 @@ const MediaTabs = ({
   countries,
   initialVideos,
   initialArticles,
+  initialLocations,
 }) => {
   const [selected, setSelected] = React.useState(TABS[0].id);
   const tabRefs = React.useRef({});
 
   const videos = useLiveContent(getVideos, initialVideos);
   const articles = useLiveContent(getArticles, initialArticles);
-  const content = { videos, articles };
+  const institutions = useLiveContent(getLocations, initialLocations);
+  const content = { videos, articles, institutions };
   const shared = { strings, locale, countries };
+
+  React.useEffect(() => {
+    const fromHash = () => {
+      const id = window.location.hash.slice(1);
+
+      if (isTab(id)) setSelected(id);
+    };
+
+    fromHash();
+    window.addEventListener("hashchange", fromHash);
+
+    return () => window.removeEventListener("hashchange", fromHash);
+  }, []);
+
+  const select = (id) => {
+    setSelected(id);
+    window.history.replaceState(window.history.state, "", `#${id}`);
+  };
 
   // Arrow keys move between the tabs, as in the WAI-ARIA tabs pattern.
   const onKeyDown = (event) => {
@@ -41,7 +68,7 @@ const MediaTabs = ({
     const index = TABS.findIndex(({ id }) => id === selected);
     const next = TABS[(index + step + TABS.length) % TABS.length].id;
 
-    setSelected(next);
+    select(next);
     tabRefs.current[next]?.focus();
   };
 
@@ -61,7 +88,7 @@ const MediaTabs = ({
             aria-selected={selected === id}
             tabIndex={selected === id ? 0 : -1}
             className="media-tab"
-            onClick={() => setSelected(id)}
+            onClick={() => select(id)}
           >
             <Icon aria-hidden="true" />
             <span>{strings[id]}</span>
@@ -88,6 +115,15 @@ const MediaTabs = ({
         hidden={selected !== "articles"}
       >
         <ArticleGrid {...articles} {...shared} />
+      </div>
+      <div
+        role="tabpanel"
+        id="media-panel-institutions"
+        aria-labelledby="media-tab-institutions"
+        className="media-panel"
+        hidden={selected !== "institutions"}
+      >
+        <InstitutionList {...institutions} {...shared} />
       </div>
     </div>
   );

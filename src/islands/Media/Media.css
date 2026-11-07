@@ -57,6 +57,23 @@
   background: var(--white-30);
 }
 
+/* Three tabs do not fit a phone with icons and counts; keep just the names. */
+@media (max-width: 479px) {
+  .media-tablist {
+    max-width: 100%;
+  }
+
+  .media-tab {
+    padding: 0.55rem 0.85rem;
+    font-size: 0.9375rem;
+  }
+
+  .media-tab svg,
+  .media-tab .media-tab-count {
+    display: none;
+  }
+}
+
 /* ---- Meta line (country · source · date) ---- */
 
 .media-meta {
@@ -280,4 +297,41 @@
 
 .article-card:hover .article-cta {
   text-decoration: underline;
+}
+
+/* ---- Institutions ---- */
+
+.institution-intro {
+  max-width: 700px;
+  justify-self: center;
+  color: #4a5568;
+  text-align: center;
+}
+
+.institution-country .media-tab-count {
+  color: var(--blue);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+}
+
+.institution-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--blue);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.institution-card h3 {
+  color: var(--blue);
+  font-size: 1.25rem;
+}
+
+@media (min-width: 1280px) {
+  .institution-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

@@ -57,8 +57,7 @@
         "slovakia": "Slovakia",
         "switzerland": "Switzerland",
         "ukraine": "Ukraine"
-      },
-      "supportedTitle": "Supported children's homes / institutions"
+      }
     },
     "home": {
       "campaigns": {
@@ -140,6 +139,8 @@
     },
     "media": {
       "articles": "Articles",
+      "institutions": "Institutions",
+      "institutionsLead": "The children's homes and institutions that receive our donations.",
       "lead": "Reports, interviews and films about our work with the children of the Carpathian Basin.",
       "readArticle": "Read article",
       "showLess": "Show less",
@@ -148,7 +149,6 @@
       "viewSource": "View source"
     },
     "pagesTitle": {
-      "institutions": "Institutions",
       "rollingKids": "Rolling Kids",
       "shoebox": "Shoebox"
     },
@@ -234,7 +234,6 @@
       "blog": "Events",
       "close": "Close",
       "home": "Home",
-      "institutions": "Institutions",
       "language": "Language",
       "media": "Media",
       "menu": "Menu",

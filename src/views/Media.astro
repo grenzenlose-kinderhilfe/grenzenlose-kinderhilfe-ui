@@ -1,6 +1,10 @@
 ---
 import MediaTabs from "../islands/Media/MediaTabs.jsx";
-import { buildArticles, buildVideos } from "../lib/buildContent";
+import {
+  buildArticles,
+  buildLocations,
+  buildVideos,
+} from "../lib/buildContent";
 import { getTranslator } from "../i18n";
 
 interface Props {
@@ -10,9 +14,10 @@ interface Props {
 const { locale } = Astro.props;
 const t = getTranslator(locale);
 
-const [initialVideos, initialArticles] = await Promise.all([
+const [initialVideos, initialArticles, initialLocations] = await Promise.all([
   buildVideos(),
   buildArticles(),
+  buildLocations(),
 ]);
 
 const countries = {
@@ -29,6 +34,8 @@ const countries = {
 const strings = {
   videos: t("pages.media.videos"),
   articles: t("pages.media.articles"),
+  institutions: t("pages.media.institutions"),
+  institutionsLead: t("pages.media.institutionsLead"),
   readArticle: t("pages.media.readArticle"),
   viewSource: t("pages.media.viewSource"),
   showMore: t("pages.media.showMore"),
@@ -51,6 +58,7 @@ const strings = {
     countries={countries}
     initialVideos={initialVideos}
     initialArticles={initialArticles}
+    initialLocations={initialLocations}
   />
 </div>
 
