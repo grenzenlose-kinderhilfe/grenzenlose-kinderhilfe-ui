@@ -1,42 +1,55 @@
 ---
+import {
+  PLAYER_ALLOW,
+  youtubePlayerUrl,
+  youtubeThumbnailUrl,
+} from "../lib/youtube";
+
 interface Props {
   videoId: string;
   title: string;
   playLabel: string;
+  class?: string;
 }
 
-const { videoId, title, playLabel } = Astro.props;
-
 /**
- * A YouTube video that loads nothing from YouTube until it is played: the
- * page shows a thumbnail and a play button, and only a click swaps in the
- * real player (from the privacy-enhanced youtube-nocookie.com domain). This
- * keeps the page light and sets no YouTube cookies for visitors who never
- * press play.
+ * Click-to-play YouTube video for static markup (see src/lib/youtube.js).
+ * Islands use src/islands/LiteYouTube.jsx, which renders the same markup.
  */
-const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
-const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+const { videoId, title, playLabel, class: className } = Astro.props;
 ---
 
-<div class="video-frame lite-youtube" data-embed-url={embedUrl}>
-  <button type="button" aria-label={`${playLabel}: ${title}`}>
-    <img src={thumbnailUrl} alt="" loading="lazy" width="480" height="360" />
-    <span class="lite-youtube-play" aria-hidden="true">
-      <svg viewBox="0 0 68 48" width="68" height="48">
-        <path
-          d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.3.3 34 .3 34 .3s-21.3 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 12.9.1 24 .1 24s0 11.1 1.4 16.3a8.5 8.5 0 0 0 6 6C12.7 47.7 34 47.7 34 47.7s21.3 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35.1 67.9 24 67.9 24s0-11.1-1.4-16.3z"
-          fill="#f00"
-        ></path>
-        <path d="M45 24 27 14v20z" fill="#fff"></path>
-      </svg>
-    </span>
+<div
+  class:list={["video-frame", "lite-youtube", className]}
+  data-player-url={youtubePlayerUrl(videoId)}
+>
+  <button
+    type="button"
+    class="lite-youtube-button"
+    aria-label={`${playLabel}: ${title}`}
+  >
+    <img
+      src={youtubeThumbnailUrl(videoId)}
+      alt=""
+      loading="lazy"
+      width="480"
+      height="360"
+    />
+    <svg
+      class="lite-youtube-play"
+      viewBox="0 0 68 48"
+      width="68"
+      height="48"
+      aria-hidden="true"
+    >
+      <path
+        d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.3.3 34 .3 34 .3s-21.3 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 12.9.1 24 .1 24s0 11.1 1.4 16.3a8.5 8.5 0 0 0 6 6C12.7 47.7 34 47.7 34 47.7s21.3 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35.1 67.9 24 67.9 24s0-11.1-1.4-16.3z"
+        fill="#f00"
+      ></path>
+      <path d="M45 24 27 14v20z" fill="#fff"></path>
+    </svg>
   </button>
-  <iframe
-    hidden
-    title={title}
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-  ></iframe>
+  <iframe hidden title={title} allow={PLAYER_ALLOW} allowfullscreen></iframe>
 </div>
 
 <script>
@@ -49,7 +62,7 @@ const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
       () => {
         if (!iframe) return;
 
-        iframe.src = frame.dataset.embedUrl ?? "";
+        iframe.src = frame.dataset.playerUrl ?? "";
         iframe.hidden = false;
         button.remove();
         iframe.focus();
@@ -58,41 +71,3 @@ const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
     );
   });
 </script>
-
-<style>
-  .lite-youtube {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius);
-    background: #000;
-  }
-
-  button {
-    position: absolute;
-    inset: 0;
-    padding: 0;
-    border: 0;
-    background: none;
-    cursor: pointer;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .lite-youtube-play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.85;
-    transition: opacity 0.15s;
-  }
-
-  button:hover .lite-youtube-play,
-  button:focus-visible .lite-youtube-play {
-    opacity: 1;
-  }
-</style>

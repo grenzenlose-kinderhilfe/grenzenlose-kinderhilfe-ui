@@ -5,7 +5,6 @@
         "actionButton": "Support now",
         "actionTextHeading": "Donate now and help us deliver the boxes!",
         "actionTextInstruction": "With your donation, you too can be part of this joyful initiative. You will find all the ways to help on the “Support” page.",
-        "playVideo": "Play video",
         "videoTitle": "Shoebox Campaign video"
       },
       "HowTo": {
@@ -242,6 +241,9 @@
       "pages": "Pages",
       "shoebox": "Shoebox",
       "support": "Support"
+    },
+    "video": {
+      "play": "Play video"
     }
   }
 }

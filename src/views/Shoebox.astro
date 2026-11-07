@@ -105,7 +105,7 @@ const donateStrings = {
     <LiteYouTube
       videoId={videoId}
       title={fundraiser("videoTitle")}
-      playLabel={fundraiser("playVideo")}
+      playLabel={t("ui.video.play")}
     />
     <div class="fundraiser-action">
       <h2>{fundraiser("actionTextHeading")}</h2>
@@ -296,6 +296,10 @@ const donateStrings = {
     align-items: center;
     gap: 2rem;
     scroll-margin-top: calc(var(--nav-height) + 1rem);
+  }
+
+  .fundraiser :global(.lite-youtube) {
+    border-radius: var(--radius);
   }
 
   .fundraiser-action {

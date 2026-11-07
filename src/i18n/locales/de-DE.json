@@ -5,7 +5,6 @@
         "actionButton": "Jetzt unterstützen",
         "actionTextHeading": "Jetzt spenden und den Versand unterstützen!",
         "actionTextInstruction": "Mit Ihrer Spende können Sie Teil dieser freudigen Initiative sein. Alle Unterstützungsmöglichkeiten finden Sie auf der Seite „Unterstützen“.",
-        "playVideo": "Video abspielen",
         "videoTitle": "Video zur Schuhkartonaktion"
       },
       "HowTo": {
@@ -242,6 +241,9 @@
       "pages": "Seiten",
       "shoebox": "Schuhkarton",
       "support": "Unterstützen"
+    },
+    "video": {
+      "play": "Video abspielen"
     }
   }
 }

@@ -1,4 +1,5 @@
 ---
+import LiteYouTube from "../LiteYouTube.astro";
 import { getTranslator, trans } from "../../i18n";
 
 interface Props {
@@ -19,15 +20,11 @@ const statement = trans(t("pages.home.missionStatement"), {
 <section class="video-group">
   <div class="video-group-text" set:html={statement} />
   <div class="video-group-player">
-    <div class="video-frame">
-      <iframe
-        title="Határtalan Segítség Alapítvány"
-        src="https://www.youtube.com/embed/09MPqyp8ggE?controls=0&rel=0"
-        loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
+    <LiteYouTube
+      videoId="09MPqyp8ggE"
+      title="Határtalan Segítség Alapítvány"
+      playLabel={t("ui.video.play")}
+    />
   </div>
 </section>
 

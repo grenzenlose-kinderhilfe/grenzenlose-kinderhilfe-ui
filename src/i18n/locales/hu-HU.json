@@ -5,7 +5,6 @@
         "actionButton": "Támogatom",
         "actionTextHeading": "Adományozz most és támogasd a szállítmányozást!",
         "actionTextInstruction": "Adományoddal te is részese lehetsz ennek az örömteli kezdeményezésnek. A támogatás módjait a Támogatás oldalon találod.",
-        "playVideo": "Videó lejátszása",
         "videoTitle": "Cipősdoboz Akció videó"
       },
       "HowTo": {
@@ -242,6 +241,9 @@
       "pages": "Oldalak",
       "shoebox": "Cipősdoboz",
       "support": "Támogatás"
+    },
+    "video": {
+      "play": "Videó lejátszása"
     }
   }
 }

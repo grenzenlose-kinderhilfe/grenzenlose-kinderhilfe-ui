@@ -1,7 +1,9 @@
 import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 
+import { PLAYER_ALLOW, youtubeIdOf } from "../../lib/youtube";
 import DataBoundary from "../DataBoundary";
+import LiteYouTube from "../LiteYouTube";
 import MediaMeta from "./MediaMeta";
 
 const MEDIA_CHUNK_SIZE = 4;
@@ -57,6 +59,29 @@ const VideoDescription = ({ id, text, strings }) => {
   );
 };
 
+/** YouTube waits for a click; other players (videa.hu) embed as they are. */
+const VideoPlayer = ({ title, videoEmbedUrl, playLabel }) => {
+  const youtubeId = youtubeIdOf(videoEmbedUrl);
+
+  if (youtubeId) {
+    return (
+      <LiteYouTube videoId={youtubeId} title={title} playLabel={playLabel} />
+    );
+  }
+
+  return (
+    <div className="video-frame">
+      <iframe
+        title={title}
+        src={videoEmbedUrl}
+        loading="lazy"
+        allow={PLAYER_ALLOW}
+        allowFullScreen
+      />
+    </div>
+  );
+};
+
 const Video = ({
   title,
   description,
@@ -68,15 +93,11 @@ const Video = ({
 }) => (
   <article className="video-card">
     <div className="video-card-player">
-      <div className="video-frame">
-        <iframe
-          title={title}
-          src={videoEmbedUrl}
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
+      <VideoPlayer
+        title={title}
+        videoEmbedUrl={videoEmbedUrl}
+        playLabel={strings.playVideo}
+      />
     </div>
     <div className="video-card-text">
       <MediaMeta {...meta} />
