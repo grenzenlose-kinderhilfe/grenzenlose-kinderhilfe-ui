@@ -28,7 +28,6 @@
   },
   "ignorePatterns": [
     "dist",
-    "dist-zip",
     "node_modules",
     ".astro"
   ],

@@ -6,7 +6,7 @@ with [Astro](https://astro.build) as a static, search-engine friendly site.
 ```bash
 pnpm install
 pnpm dev       # http://localhost:4321
-pnpm build     # static site in dist/, plus dist/grenzenlose-kinderhilfe.zip
+pnpm build     # static site in dist/
 pnpm preview   # serve the build locally
 ```
 

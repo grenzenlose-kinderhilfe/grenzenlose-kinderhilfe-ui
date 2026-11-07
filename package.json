@@ -18,7 +18,7 @@
     "preinstall": "npx only-allow pnpm",
     "postinstall": "lefthook install",
     "dev": "astro dev",
-    "build": "astro build && cd ./dist && zip -r ./grenzenlose-kinderhilfe.zip ./*",
+    "build": "astro build",
     "preview": "astro preview",
     "lint": "pnpm run lint:eslint && pnpm run lint:prettier",
     "lint:eslint": "eslint --fix --ext js,jsx .",
