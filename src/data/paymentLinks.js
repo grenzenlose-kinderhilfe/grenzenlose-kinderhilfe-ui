@@ -15,11 +15,11 @@ export const STRIPE_PAYMENT_LINKS = {
   EUR: { 10: "", 25: "", 50: "", 100: "", custom: "" },
   CHF: { 10: "", 25: "", 50: "", 100: "", custom: "" },
   USD: { 10: "", 25: "", 50: "", 100: "", custom: "" },
-  HUF: { 
+  HUF: {
     5000: "https://donate.stripe.com/00w7sK2ZX1M48WWew5gjC00",
     10000: "https://donate.stripe.com/28EdR8asp8as0qqds1gjC01",
     25000: "https://donate.stripe.com/5kQ5kC0RPbmE4GG2NngjC02",
     50000: "https://donate.stripe.com/28E6oGbwt76oddcafPgjC03",
-    custom: "https://donate.stripe.com/00wcN40RPeyQflkbjTgjC04"
+    custom: "https://donate.stripe.com/00wcN40RPeyQflkbjTgjC04",
   },
 };

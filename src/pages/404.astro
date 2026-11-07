@@ -1,0 +1,50 @@
+---
+import { DEFAULT_LOCALE, SITE_NAME } from "../constants";
+import { getTranslator, localizePath } from "../i18n";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+/**
+ * Served by the host for unknown addresses. It is a real 404 page rather than
+ * a redirect to the home page, so search engines drop dead links.
+ */
+const locale = DEFAULT_LOCALE;
+const t = getTranslator(locale);
+---
+
+<BaseLayout
+  locale={locale}
+  title={`404 — ${SITE_NAME}`}
+  description={t("pages.home.hero.lead")}
+>
+  <meta name="robots" content="noindex" slot="head" />
+  <div class="not-found">
+    <p class="code">404</p>
+    <h1>{t("pages.home.hero.tagline")}</h1>
+    <a class="btn btn-lg btn-primary" href={localizePath(locale, "/")}>
+      {t("ui.navigation.home")}
+    </a>
+  </div>
+</BaseLayout>
+
+<style>
+  .not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 80px 25px;
+    text-align: center;
+  }
+
+  .code {
+    font-family: var(--font-heading);
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--blue);
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+</style>

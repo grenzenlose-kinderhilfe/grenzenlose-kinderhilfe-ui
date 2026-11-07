@@ -1,0 +1,231 @@
+---
+import { BsTelephoneFill } from "react-icons/bs";
+import { FaHeart } from "react-icons/fa";
+import { HiOutlineDocumentText } from "react-icons/hi";
+import { MdEmail, MdLocationPin } from "react-icons/md";
+
+import { WORDPRESS_BLOG_BASE_URL } from "../../constants";
+import {
+  CONTACTS,
+  ORGANIZATION,
+  ROLLING_KIDS_URL,
+} from "../../data/organization";
+import { getTranslator, localizePath } from "../../i18n";
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const t = getTranslator(locale);
+
+const localization = {
+  organization: t("ui.footer.organization"),
+  contact: t("ui.footer.contact"),
+  links: t("ui.footer.links"),
+  taxNumber: t("pages.aboutUs.taxNumber"),
+  tagline: t("pages.home.hero.tagline"),
+  home: t("ui.navigation.home"),
+  support: t("ui.navigation.support"),
+  pages: t("ui.navigation.pages"),
+  aboutUs: t("ui.navigation.aboutUs"),
+  blog: t("ui.navigation.blog"),
+};
+
+const href = (path: string) => localizePath(locale, path);
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href={href("/")} aria-label={localization.home}>
+        <img
+          src="/assets/img/logo.svg"
+          alt="Grenzenlose Kinderhilfe"
+          width="220"
+          height="62"
+          loading="lazy"
+        />
+      </a>
+      <p class="footer-tagline">{localization.tagline}</p>
+      <a class="btn btn-light" href={href("/support")}>
+        <FaHeart aria-hidden="true" />
+        {localization.support}
+      </a>
+      <p class="footer-copyright">
+        © {currentYear} {ORGANIZATION.name}
+      </p>
+    </div>
+
+    <section class="footer-column">
+      <h3>{localization.organization}</h3>
+      <p>
+        <strong>{ORGANIZATION.name}</strong>
+      </p>
+      <p class="footer-detail">
+        <MdLocationPin aria-hidden="true" />
+        <span>{ORGANIZATION.address}</span>
+      </p>
+      <p class="footer-detail">
+        <HiOutlineDocumentText aria-hidden="true" />
+        <span>
+          {localization.taxNumber}: {ORGANIZATION.taxNumber}
+        </span>
+      </p>
+    </section>
+
+    <section class="footer-column">
+      <h3>{localization.contact}</h3>
+      <p class="footer-detail">
+        <MdEmail aria-hidden="true" />
+        <span>
+          <a class="footer-link" href={`mailto:${ORGANIZATION.email}`}>
+            {ORGANIZATION.email}
+          </a>
+        </span>
+      </p>
+      {CONTACTS.map(({ name, phone }) => (
+        <p class="footer-detail">
+          <BsTelephoneFill aria-hidden="true" />
+          <span>
+            {name}
+            <br />
+            <a class="footer-link" href={`tel:+${phone}`}>
+              +{phone}
+            </a>
+          </span>
+        </p>
+      ))}
+    </section>
+
+    <nav class="footer-column" aria-label={localization.links}>
+      <h3>{localization.links}</h3>
+      <a class="footer-link" href={href("/support")}>
+        {localization.support}
+      </a>
+      <a class="footer-link" href={href("/pages")}>
+        {localization.pages}
+      </a>
+      <a class="footer-link" href={href("/about")}>
+        {localization.aboutUs}
+      </a>
+      <a
+        class="footer-link"
+        href={WORDPRESS_BLOG_BASE_URL}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {localization.blog}
+      </a>
+      <a
+        class="footer-link"
+        href={ROLLING_KIDS_URL}
+        target="_blank"
+        rel="noreferrer"
+      >
+        Rolling Kids
+      </a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    width: 100%;
+    margin-top: auto;
+    background: var(--blue);
+    color: var(--white);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 40px 25px;
+    font-size: 15px;
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 992px) {
+    .footer-grid {
+      padding: 50px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .footer-grid {
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .footer-brand img {
+    width: 220px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .footer-tagline {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .footer-copyright {
+    font-size: 13px;
+    color: var(--white-70);
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-column h3 {
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white-80);
+  }
+
+  .footer-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .footer-detail :global(svg) {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+  }
+
+  .footer-detail span {
+    overflow-wrap: anywhere;
+  }
+
+  .footer-link {
+    width: fit-content;
+  }
+
+  .footer-link:hover {
+    text-decoration: underline;
+    color: var(--white-80);
+  }
+</style>

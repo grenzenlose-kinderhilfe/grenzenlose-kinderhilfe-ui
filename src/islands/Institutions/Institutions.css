@@ -1,0 +1,123 @@
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.location-tile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 10px;
+  padding: 10px 10px 10px 15px;
+  border-radius: var(--radius);
+  background: var(--blue);
+  color: var(--white);
+}
+
+.location-tile img {
+  flex-shrink: 0;
+}
+
+.location-tile span {
+  max-width: 400px;
+}
+
+@media (min-width: 768px) {
+  .location-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .location-tile {
+    margin: 5px;
+  }
+}
+
+@media (min-width: 992px) {
+  .location-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .location-tile {
+    margin: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .location-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Narrow phones get the institutions grouped by country instead. */
+.location-accordion {
+  display: none;
+}
+
+@media (max-width: 425px) {
+  .location-grid {
+    display: none;
+  }
+
+  .location-accordion {
+    display: block;
+  }
+}
+
+.location-country {
+  border-top: 1px solid var(--border);
+}
+
+.location-country:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.location-country summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  background: var(--blue);
+  color: var(--white);
+  list-style: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.location-country summary::-webkit-details-marker {
+  display: none;
+}
+
+.location-country summary:hover {
+  background: teal;
+}
+
+.location-country summary svg {
+  width: 0.8rem;
+  height: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+.location-country[open] summary svg {
+  transform: rotate(180deg);
+}
+
+.location-country ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem 1.25rem;
+}
+
+.location-country li {
+  padding: 2px;
+  border: 1px solid #000;
+  border-radius: var(--radius);
+  font-weight: 700;
+  text-align: center;
+}

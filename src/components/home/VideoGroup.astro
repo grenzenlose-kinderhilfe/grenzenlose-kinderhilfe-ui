@@ -1,0 +1,89 @@
+---
+import { getTranslator, trans } from "../../i18n";
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const t = getTranslator(locale);
+
+const statement = trans(t("pages.home.missionStatement"), {
+  0: "h2",
+  1: "p",
+  2: "p",
+  3: "p",
+});
+---
+
+<section class="video-group">
+  <div class="video-group-text" set:html={statement} />
+  <div class="video-group-player">
+    <div class="video-frame">
+      <iframe
+        title="Határtalan Segítség Alapítvány"
+        src="https://www.youtube.com/embed/09MPqyp8ggE?controls=0&rel=0"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<style>
+  .video-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: var(--blue);
+    color: var(--white);
+  }
+
+  .video-group-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    height: 100%;
+    padding: 25px;
+    text-align: center;
+  }
+
+  .video-group-text :global(h2) {
+    max-width: 600px;
+    font-size: 32px;
+  }
+
+  .video-group-text :global(p) {
+    max-width: 800px;
+  }
+
+  .video-group-player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    .video-group-player {
+      padding: 0 0 25px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .video-group {
+      border-radius: var(--radius);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .video-group {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .video-group-player {
+      padding: 25px;
+    }
+  }
+</style>

@@ -1,0 +1,33 @@
+---
+import MediaTabs from "../islands/Media/MediaTabs.jsx";
+import { buildArticles, buildVideos } from "../lib/buildContent";
+import { getTranslator } from "../i18n";
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const t = getTranslator(locale);
+
+const [initialVideos, initialArticles] = await Promise.all([
+  buildVideos(),
+  buildArticles(),
+]);
+
+const strings = {
+  videos: t("pages.media.videos"),
+  articles: t("pages.media.articles"),
+  error: t("ui.data.error"),
+  empty: t("ui.data.empty"),
+  sourceLink: t("pages.aboutUs.link"),
+};
+---
+
+<h1 class="visually-hidden">{t("ui.navigation.media")}</h1>
+<MediaTabs
+  client:load
+  strings={strings}
+  initialVideos={initialVideos}
+  initialArticles={initialArticles}
+/>

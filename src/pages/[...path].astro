@@ -1,0 +1,104 @@
+---
+import { LANGUAGES, LOCALE_PREFIXES, SITE_NAME, SITE_URL } from "../constants";
+import { CONTACTS, ORGANIZATION } from "../data/organization";
+import { getTranslator, localizePath } from "../i18n";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { pageRoutes } from "../routes";
+import About from "../views/About.astro";
+import Home from "../views/Home.astro";
+import Institutions from "../views/Institutions.astro";
+import Media from "../views/Media.astro";
+import Pages from "../views/Pages.astro";
+import Shoebox from "../views/Shoebox.astro";
+import Support from "../views/Support.astro";
+
+/**
+ * Every page in every language from the route table in src/routes.js:
+ * /support for the default language, /de/support and /en/support for the
+ * others.
+ */
+export function getStaticPaths() {
+  return LANGUAGES.flatMap((locale) =>
+    pageRoutes.map((route) => {
+      const path = [LOCALE_PREFIXES[locale], route.path.replace(/^\/|\/$/g, "")]
+        .filter(Boolean)
+        .join("/");
+
+      return { params: { path: path || undefined }, props: { locale, route } };
+    }),
+  );
+}
+
+const VIEWS = {
+  home: Home,
+  media: Media,
+  pages: Pages,
+  shoebox: Shoebox,
+  about: About,
+  institutions: Institutions,
+  support: Support,
+};
+
+// The page's own lead text where it has one; the site description otherwise.
+const DESCRIPTION_KEYS = {
+  support: "pages.support.lead",
+  shoebox: "pages.Shoebox.MainContentGroup.shoeboxMagic",
+};
+
+const { locale, route } = Astro.props;
+const t = getTranslator(locale);
+const View = VIEWS[route.id as keyof typeof VIEWS];
+
+const siteTitle = `${SITE_NAME} — ${ORGANIZATION.name}`;
+
+const title =
+  route.id === "home"
+    ? siteTitle
+    : `${t(`ui.navigation.${route.localizationKey}`)} — ${SITE_NAME}`;
+
+const description = t(
+  DESCRIPTION_KEYS[route.id as keyof typeof DESCRIPTION_KEYS] ??
+    "pages.home.hero.lead",
+);
+
+// Structured data about the foundation, so search engines can show it as an
+// organisation with its contact details.
+const jsonLd =
+  route.id === "home"
+    ? {
+        "@context": "https://schema.org",
+        "@type": "NGO",
+        name: ORGANIZATION.name,
+        alternateName: SITE_NAME,
+        url: new URL(localizePath(locale, "/"), SITE_URL).toString(),
+        logo: new URL("/logo512.png", SITE_URL).toString(),
+        description,
+        email: ORGANIZATION.email,
+        taxID: ORGANIZATION.taxNumber,
+        foundingDate: "2010",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: ORGANIZATION.address.replace(/^\d+\s+\S+,\s*/, ""),
+          postalCode: ORGANIZATION.address.match(/^\d+/)?.[0],
+          addressLocality: ORGANIZATION.address.match(/^\d+\s+([^,]+)/)?.[1],
+          addressCountry: "HU",
+        },
+        contactPoint: CONTACTS.map(({ name, phone }) => ({
+          "@type": "ContactPoint",
+          name,
+          telephone: `+${phone}`,
+          contactType: "general",
+        })),
+      }
+    : undefined;
+---
+
+<BaseLayout
+  locale={locale}
+  title={title}
+  description={description}
+  path={route.path}
+  jsonLd={jsonLd}
+>
+  <View locale={locale} />
+</BaseLayout>

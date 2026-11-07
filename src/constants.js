@@ -4,6 +4,28 @@ export const LOCALE_EN = "en-GB";
 
 export const LANGUAGES = [LOCALE_DE, LOCALE_HU, LOCALE_EN];
 
+// Served without a prefix (/, /support, …). It keeps the URLs the site had
+// before every language got its own address.
+export const DEFAULT_LOCALE = LOCALE_HU;
+
+// Visitors whose browser language is none of LANGUAGES get this one.
+export const FALLBACK_LOCALE = LOCALE_DE;
+
+// URL prefix of each language: /de/support, /en/support. Empty for the default.
+export const LOCALE_PREFIXES = {
+  [LOCALE_HU]: "",
+  [LOCALE_DE]: "de",
+  [LOCALE_EN]: "en",
+};
+
+// Where the language picked in the switcher is remembered. The key is the one
+// i18next used, so returning visitors keep the language they chose before.
+export const LANGUAGE_STORAGE_KEY = "i18nextLng";
+
+export const SITE_URL = "https://grenzenlose-kinderhilfe.com";
+
+export const SITE_NAME = "Grenzenlose Kinderhilfe";
+
 // Shown in the language switcher, each in its own language.
 export const LANGUAGE_LABELS = {
   [LOCALE_DE]: "Deutsch",

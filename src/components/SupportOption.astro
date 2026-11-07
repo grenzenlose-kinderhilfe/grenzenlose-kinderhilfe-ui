@@ -1,0 +1,56 @@
+---
+/**
+ * One way of supporting the foundation. Every option says out loud what the
+ * donation is spent on — that answer is what turns an interested visitor into
+ * a donor.
+ */
+interface Props {
+  icon: (props: Record<string, unknown>) => unknown;
+  title: string;
+  description: string;
+  spending: string;
+  spendingLabel: string;
+}
+
+const { icon: Icon, title, description, spending, spendingLabel } = Astro.props;
+---
+
+<article class="card">
+  <div class="card-title">
+    <span class="icon-badge">
+      <Icon aria-hidden="true" />
+    </span>
+    <h3>{title}</h3>
+  </div>
+  <p class="option-description">{description}</p>
+  <div class="option-body">
+    <slot />
+  </div>
+  <div class="option-spending">
+    <p class="eyebrow">{spendingLabel}</p>
+    <p>{spending}</p>
+  </div>
+</article>
+
+<style>
+  .option-description {
+    font-size: 15px;
+  }
+
+  .option-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .option-spending {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--lightblue);
+    font-size: 14px;
+  }
+</style>

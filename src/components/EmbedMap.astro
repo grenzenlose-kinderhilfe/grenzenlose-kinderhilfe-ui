@@ -1,0 +1,32 @@
+---
+interface Props {
+  src: string;
+  title: string;
+}
+
+const { src, title } = Astro.props;
+---
+
+<div class="embed-map">
+  <iframe src={src} title={title} loading="lazy"></iframe>
+</div>
+
+<style>
+  .embed-map {
+    display: flex;
+    justify-content: center;
+  }
+
+  iframe {
+    width: 100%;
+    aspect-ratio: 1;
+    border: 0;
+  }
+
+  @media (min-width: 768px) {
+    iframe {
+      max-width: 95%;
+      aspect-ratio: 3;
+    }
+  }
+</style>

@@ -1,0 +1,125 @@
+---
+import { ROLLING_KIDS_URL } from "../data/organization";
+import { getTranslator, localizePath } from "../i18n";
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const t = getTranslator(locale);
+
+const pageItems = [
+  {
+    isExternal: true,
+    localizationKey: "rollingKids",
+    url: ROLLING_KIDS_URL,
+    image: "/assets/img/pages/thumbnail/rolling-kids.jpeg",
+  },
+  {
+    localizationKey: "shoebox",
+    url: localizePath(locale, "/pages/shoebox"),
+    image: "/assets/img/pages/thumbnail/shoebox.jpeg",
+  },
+  {
+    localizationKey: "institutions",
+    url: localizePath(locale, "/pages/institutions"),
+    image: "/assets/img/pages/thumbnail/institutions.jpeg",
+  },
+];
+---
+
+<h1 class="visually-hidden">{t("ui.navigation.pages")}</h1>
+<ul class="pages-grid">
+  {pageItems.map(({ localizationKey, url, image, isExternal }) => {
+    const title = t(`pages.pagesTitle.${localizationKey}`);
+
+    return (
+      <li>
+        <a
+          class="page-tile"
+          href={url}
+          {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
+        >
+          <img
+            src={image}
+            alt={title}
+            loading="lazy"
+            width="320"
+            height="320"
+          />
+          <span>{title}</span>
+        </a>
+      </li>
+    );
+  })}
+</ul>
+
+<style>
+  .pages-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 25px;
+  }
+
+  .page-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  img {
+    width: 100%;
+    min-width: 250px;
+    max-width: 320px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    background-color: lightgrey;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+  }
+
+  span {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .page-tile:hover img {
+    opacity: 0.5;
+  }
+
+  .page-tile:hover span {
+    text-decoration: underline;
+  }
+
+  @media (min-width: 768px) {
+    .pages-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    img {
+      height: 320px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .pages-grid {
+      margin: 50px 100px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .pages-grid {
+      margin: 50px 250px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .pages-grid {
+      margin: 50px 500px;
+    }
+  }
+</style>

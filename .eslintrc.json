@@ -5,7 +5,11 @@
     "plugin:react-hooks/recommended",
     "prettier"
   ],
-  "plugins": ["react", "react-hooks", "prettier"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "prettier"
+  ],
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module",
@@ -15,13 +19,19 @@
   },
   "env": {
     "browser": true,
-    "es2020": true
+    "es2020": true,
+    "node": true
   },
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off"
   },
-  "ignorePatterns": ["dist", "dist-zip", "node_modules"],
+  "ignorePatterns": [
+    "dist",
+    "dist-zip",
+    "node_modules",
+    ".astro"
+  ],
   "settings": {
     "react": {
       "version": "detect"

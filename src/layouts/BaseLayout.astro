@@ -1,0 +1,190 @@
+---
+import "../styles/global.css";
+
+import Footer from "../components/layout/Footer.astro";
+import NavBar from "../components/layout/NavBar.astro";
+import {
+  DEFAULT_LOCALE,
+  FALLBACK_LOCALE,
+  GA_MEASUREMENT_ID,
+  LANGUAGE_STORAGE_KEY,
+  LANGUAGES,
+  LOCALE_PREFIXES,
+  SITE_NAME,
+} from "../constants";
+import { languageOf, localizePath } from "../i18n";
+
+/**
+ * The frame of every page: head with the SEO tags, navigation and footer.
+ *
+ * `path` is the page path without the language prefix ("/support"); it is
+ * used for the canonical URL, the hreflang alternates and the language switch.
+ * Leave it out on pages that exist only once (404).
+ */
+interface Props {
+  locale: string;
+  title: string;
+  description: string;
+  path?: string;
+  activePath?: string;
+  jsonLd?: object;
+}
+
+const { locale, title, description, path, activePath, jsonLd } = Astro.props;
+
+const site = Astro.site!;
+const absolute = (href: string) => new URL(href, site).toString();
+
+const alternates = path
+  ? LANGUAGES.map((language) => ({
+      locale: language,
+      href: localizePath(language, path),
+    }))
+  : [];
+
+const canonical = path ? absolute(localizePath(locale, path)) : undefined;
+
+const ogLocale = (language: string) => language.replace("-", "_");
+
+// Only the unprefixed (default language) pages send visitors on to their own
+// language; a /de/ or /en/ address is always an explicit choice.
+const redirectByLanguage = Boolean(path) && locale === DEFAULT_LOCALE;
+
+const languagePrefixes = Object.fromEntries(
+  LANGUAGES.map((language) => [
+    languageOf(language),
+    LOCALE_PREFIXES[language],
+  ]),
+);
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {redirectByLanguage && <script
+      is:inline
+      define:vars={{
+        storageKey: LANGUAGE_STORAGE_KEY,
+        prefixes: languagePrefixes,
+        fallback: languageOf(FALLBACK_LOCALE),
+      }}
+    >
+      // Sends the visitor to the language they picked before or, on a
+      // first visit, to their browser's language — the way i18next's
+      // language detector did. Crawlers are left on the requested page.
+      try {
+        var saved = localStorage.getItem(storageKey);
+        var code = saved ? saved.slice(0, 2).toLowerCase() : null;
+
+        if (
+          !code &&
+          !/bot|crawl|spider|slurp|lighthouse|headless/i.test(
+            navigator.userAgent,
+          )
+        ) {
+          var languages =
+            navigator.languages && navigator.languages.length
+              ? navigator.languages
+              : [navigator.language || ""];
+
+          code = fallback;
+
+          for (var i = 0; i < languages.length; i++) {
+            var candidate = String(languages[i]).slice(0, 2).toLowerCase();
+
+            if (candidate in prefixes) {
+              code = candidate;
+              break;
+            }
+          }
+        }
+
+        if (code && prefixes[code]) {
+          location.replace(
+            "/" +
+              prefixes[code] +
+              location.pathname +
+              location.search +
+              location.hash,
+          );
+        }
+      } catch (error) {}
+    </script>}
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#112B5C" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    {canonical && <link rel="canonical" href={canonical} />}
+    {alternates.map(({ locale: language, href }) => (
+      <link rel="alternate" hreflang={language} href={absolute(href)} />
+    ))}
+    {path && (
+      <link
+        rel="alternate"
+        hreflang="x-default"
+        href={absolute(localizePath(DEFAULT_LOCALE, path))}
+      />
+    )}
+
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={absolute("/logo512.png")} />
+    <meta property="og:locale" content={ogLocale(locale)} />
+    {LANGUAGES.filter((language) => language !== locale).map((language) => (
+      <meta property="og:locale:alternate" content={ogLocale(language)} />
+    ))}
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+    />
+
+    <slot name="head" />
+
+    {jsonLd && (
+      <script
+        is:inline
+        type="application/ld+json"
+        set:html={JSON.stringify(jsonLd)}
+      />
+    )}
+
+    <script
+      is:inline
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+    ></script>
+    <script is:inline define:vars={{ measurementId: GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag("js", new Date());
+      window.gtag("config", measurementId);
+    </script>
+  </head>
+  <body>
+    <div class="page">
+      <NavBar
+        locale={locale}
+        activePath={activePath ?? path}
+        alternates={alternates}
+      />
+      <main id="main">
+        <slot />
+      </main>
+      <Footer locale={locale} />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+---
+import {
+  FaArrowDown,
+  FaArrowRight,
+  FaBoxes,
+  FaChild,
+  FaHandsHelping,
+  FaTruck,
+  FaWarehouse,
+} from "react-icons/fa";
+
+import { getTranslator } from "../i18n";
+
+/**
+ * "Where does my donation go?" — the route a donation takes, from the person
+ * handing it over to the children receiving it.
+ */
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const t = getTranslator(locale);
+
+const STEPS = [
+  { id: "collection", icon: FaBoxes },
+  { id: "sorting", icon: FaWarehouse },
+  { id: "transport", icon: FaTruck },
+  { id: "handover", icon: FaHandsHelping },
+  { id: "children", icon: FaChild },
+];
+---
+
+<section class="journey">
+  <div class="section-head">
+    <h2>{t("ui.journey.heading")}</h2>
+    <p>{t("ui.journey.subHeading")}</p>
+  </div>
+  <ol class="journey-steps">
+    {STEPS.map(({ id, icon: Icon }, idx) => (
+      <>
+        {idx > 0 && (
+          <li class="journey-arrow" aria-hidden="true">
+            <FaArrowDown className="arrow-down" />
+            <FaArrowRight className="arrow-right" />
+          </li>
+        )}
+        <li class="journey-step">
+          <span class="icon-badge">
+            <Icon aria-hidden="true" />
+          </span>
+          <h3>{t(`ui.journey.${id}.title`)}</h3>
+          <p>{t(`ui.journey.${id}.description`)}</p>
+        </li>
+      </>
+    ))}
+  </ol>
+  <slot />
+</section>
+
+<style>
+  .journey {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .journey-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .journey-step {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 20px;
+    text-align: center;
+    background: var(--white);
+    border: 1px solid var(--blue);
+    border-radius: var(--radius);
+  }
+
+  .journey-step h3 {
+    font-size: 20px;
+  }
+
+  .journey-step p {
+    font-size: 14px;
+  }
+
+  .journey-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue);
+  }
+
+  .journey-arrow :global(.arrow-right) {
+    display: none;
+  }
+
+  @media (min-width: 992px) {
+    .journey-steps {
+      flex-direction: row;
+    }
+
+    .journey-arrow :global(.arrow-down) {
+      display: none;
+    }
+
+    .journey-arrow :global(.arrow-right) {
+      display: block;
+    }
+  }
+</style>

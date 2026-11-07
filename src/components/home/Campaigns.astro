@@ -1,0 +1,124 @@
+---
+import { CAMPAIGNS } from "../../data/campaigns";
+import { getTranslator, localizeUrl } from "../../i18n";
+
+/**
+ * "What are we collecting for right now" — one card per running programme,
+ * each answering what is needed, who it helps and how to join in.
+ */
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const t = getTranslator(locale);
+
+const key = (id: string, field: string) =>
+  t(`pages.home.campaigns.${id}.${field}`);
+
+const labels = {
+  need: t("pages.home.campaigns.needLabel"),
+  who: t("pages.home.campaigns.whoLabel"),
+  how: t("pages.home.campaigns.howLabel"),
+};
+---
+
+<section class="campaigns">
+  <div class="section-head">
+    <h2>{t("pages.home.campaigns.heading")}</h2>
+    <p>{t("pages.home.campaigns.subHeading")}</p>
+  </div>
+  <ul class="campaign-grid">
+    {CAMPAIGNS.map(({ id, icon: Icon, url, isExternal }) => (
+      <li>
+        <article class="card campaign-card">
+          <div class="card-title">
+            <span class="icon-badge">
+              <Icon aria-hidden="true" />
+            </span>
+            <h3>{key(id, "title")}</h3>
+          </div>
+          <dl class="campaign-details">
+            {(["need", "who", "how"] as const).map((field) => (
+              <div>
+                <dt class="eyebrow">{labels[field]}</dt>
+                <dd>{key(id, field)}</dd>
+              </div>
+            ))}
+          </dl>
+          <a
+            class="btn btn-block btn-primary"
+            href={localizeUrl(locale, url)}
+            {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
+          >
+            {key(id, "action")}
+          </a>
+        </article>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .campaigns {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 25px;
+  }
+
+  .campaign-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .campaign-card {
+    transition:
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .campaign-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .campaign-details {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  dd {
+    font-size: 15px;
+  }
+
+  /* Long action labels wrap instead of overflowing the card. */
+  .btn {
+    height: auto;
+    min-height: 2.5rem;
+    padding-block: 0.5rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .campaign-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 992px) {
+    .campaigns {
+      padding: 0;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .campaign-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

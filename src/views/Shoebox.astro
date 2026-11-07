@@ -1,0 +1,262 @@
+---
+import { FaHeart } from "react-icons/fa";
+
+import EmbedMap from "../components/EmbedMap.astro";
+import { DONATION_MAP_EMBED_URL, LOCALE_HU } from "../constants";
+import Donate from "../islands/Donate/Donate.jsx";
+import { hasPaymentLinks } from "../lib/amount";
+import { getTranslator, localizePath } from "../i18n";
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const t = getTranslator(locale);
+
+const main = (key: string) => t(`pages.Shoebox.MainContentGroup.${key}`);
+const fundraiser = (key: string) => t(`pages.Shoebox.Fundraiser.${key}`);
+const howTo = (key: string) => t(`pages.Shoebox.HowTo.${key}`);
+
+// Hungarian content for Hungarian, the German one for everyone else.
+const isHungarian = locale === LOCALE_HU;
+
+const marketingVideoUrl = isHungarian
+  ? "https://www.youtube.com/embed/tIL6BPiSY1w?si=JxAeMR7Gop2wV2k-"
+  : "https://www.youtube.com/embed/h__srWvtSK4?si=6SPuhV09jUNmORT_";
+
+const blogCategoryUrl = isHungarian
+  ? "https://blog.grenzenlose-kinderhilfe.com/category/ciposdoboz/"
+  : "https://blog.grenzenlose-kinderhilfe.com/de/category/schuhkarton/";
+
+const donateStrings = {
+  button: t("ui.donate.button"),
+  presetLabel: t("ui.donate.presetLabel"),
+  customLabel: t("ui.donate.customLabel"),
+  currencyLabel: t("ui.donate.currencyLabel"),
+  successTitle: t("ui.donate.successTitle"),
+  close: t("ui.navigation.close"),
+};
+---
+
+<div class="shoebox">
+  <EmbedMap
+    src={DONATION_MAP_EMBED_URL}
+    title={t("pages.support.mapHeading")}
+  />
+
+  <section class="panel panel-main">
+    <div class="panel-text">
+      <h1>{main("titleHeading")}</h1>
+      <p class="italic">{main("titleHeadingSub")}</p>
+      <p class="italic narrow">{main("shoeboxMagic")}</p>
+      <h2 class="join-us">{main("joinUs")}</h2>
+      <p class="italic">{main("community")}</p>
+      <p class="italic">{main("attention")}</p>
+    </div>
+    <div class="panel-media">
+      <img
+        class="shoebox-image"
+        src="/assets/img/pages/shoebox/shoebox.png"
+        alt={main("titleHeading")}
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <section class="fundraiser">
+    <div class="video-frame">
+      <iframe
+        title="Határtalan Segítség Alapítvány"
+        src={marketingVideoUrl}
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="fundraiser-action">
+      <h2>{fundraiser("actionTextHeading")}</h2>
+      {hasPaymentLinks ? (
+        <Donate
+          client:load
+          locale={locale}
+          strings={donateStrings}
+          showLabel={false}
+        />
+      ) : (
+        <a
+          class="btn btn-lg btn-primary"
+          href={localizePath(locale, "/support")}
+        >
+          <FaHeart aria-hidden="true" />
+          {fundraiser("actionButton")}
+        </a>
+      )}
+      <p>{fundraiser("actionTextInstruction")}</p>
+    </div>
+  </section>
+
+  <section class="panel panel-how">
+    <div class="panel-text">
+      <h2>{howTo("heading")}</h2>
+      <p class="italic">{howTo("headingSub")}</p>
+      <p class="italic">{howTo("stepMakeBox")}</p>
+      <p class="italic">{howTo("stepDonate")}</p>
+      <p class="italic">{howTo("stepHappy")}</p>
+    </div>
+    <div class="panel-media">
+      <a
+        class="blog-link"
+        href={blogCategoryUrl}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {howTo("buttonText")}
+      </a>
+    </div>
+  </section>
+</div>
+
+<style>
+  .shoebox {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .panel {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: var(--radius);
+    background: var(--blue);
+    color: var(--white);
+  }
+
+  .panel-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    height: 100%;
+    padding: 25px;
+    text-align: center;
+  }
+
+  .panel-main .panel-text {
+    min-height: 250px;
+  }
+
+  .panel-how .panel-text {
+    min-height: 300px;
+  }
+
+  .panel-text h1,
+  .panel-text h2 {
+    max-width: 600px;
+    font-size: 2rem;
+  }
+
+  .panel-text .join-us {
+    font-size: 1.75rem;
+  }
+
+  .italic {
+    font-style: italic;
+  }
+
+  .narrow {
+    max-width: 800px;
+  }
+
+  .panel-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px 10px;
+  }
+
+  .shoebox-image {
+    width: 80%;
+    aspect-ratio: 7 / 4;
+    object-fit: cover;
+  }
+
+  .blog-link {
+    padding: 10px;
+    border-radius: 5px;
+    background: var(--white);
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  .fundraiser {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 0 50px;
+    text-align: center;
+  }
+
+  .fundraiser > * {
+    align-self: center;
+  }
+
+  .fundraiser-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 25px auto;
+  }
+
+  .fundraiser-action h2 {
+    font-size: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .shoebox {
+      gap: 2rem;
+    }
+
+    .panel-media {
+      padding: 0 25px 25px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .shoebox {
+      margin: 25px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .panel-main {
+      grid-template-columns: 2fr 3fr;
+    }
+
+    .panel-how {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .panel-main .panel-text {
+      min-height: 450px;
+    }
+
+    .panel-media {
+      padding: 25px;
+    }
+
+    .fundraiser {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .fundraiser-action {
+      margin: 0 auto;
+    }
+  }
+</style>

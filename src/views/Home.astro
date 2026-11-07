@@ -1,0 +1,77 @@
+---
+import DonationJourney from "../components/DonationJourney.astro";
+import Campaigns from "../components/home/Campaigns.astro";
+import Counters from "../components/home/Counters.astro";
+import Hero from "../components/home/Hero.astro";
+import Mission from "../components/home/Mission.astro";
+import Partners from "../components/home/Partners.astro";
+import Quote from "../components/home/Quote.astro";
+import VideoGroup from "../components/home/VideoGroup.astro";
+import SlideShow from "../islands/SlideShow.jsx";
+import { buildFeaturedPosts } from "../lib/buildContent";
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const initialSlides = await buildFeaturedPosts(locale);
+---
+
+<div class="home">
+  <Hero locale={locale} />
+  <div class="home-slideshow">
+    <SlideShow client:load locale={locale} initialSlides={initialSlides} />
+  </div>
+  <Counters locale={locale} />
+  <Campaigns locale={locale} />
+  <VideoGroup locale={locale} />
+  <div class="home-journey">
+    <DonationJourney locale={locale} />
+  </div>
+  <Mission locale={locale} />
+  <Partners locale={locale} />
+  <Quote locale={locale} />
+</div>
+
+<style>
+  .home {
+    display: grid;
+    gap: 2rem;
+    min-width: 0;
+  }
+
+  .home > :global(*) {
+    min-width: 0;
+  }
+
+  .home-slideshow {
+    overflow: hidden;
+  }
+
+  .home-journey {
+    padding: 25px;
+  }
+
+  @media (min-width: 768px) {
+    .home {
+      gap: 3rem;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .home {
+      margin: 25px;
+    }
+
+    .home-journey {
+      padding: 0;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .home {
+      margin: 50px 50px 25px;
+    }
+  }
+</style>

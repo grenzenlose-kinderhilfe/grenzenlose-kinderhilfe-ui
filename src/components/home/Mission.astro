@@ -1,0 +1,170 @@
+---
+import { FaChevronDown } from "react-icons/fa";
+
+import { getTranslator } from "../../i18n";
+
+/**
+ * The four fields the foundation works in, as an accordion. Exactly one item
+ * is open at a time, and its photo is shown next to the list on wide screens.
+ */
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const t = getTranslator(locale);
+
+const items = [
+  {
+    title: t("pages.home.mission.education"),
+    content: t("pages.home.mission.educationContent"),
+    image: "/assets/img/mission/education.jpg",
+  },
+  {
+    title: t("pages.home.mission.infrastructure"),
+    content: t("pages.home.mission.infrastructureContent"),
+    image: "/assets/img/mission/infrastructure.jpg",
+  },
+  {
+    title: t("pages.home.mission.travelOrganization"),
+    content: t("pages.home.mission.transporationContent"),
+    image: "/assets/img/mission/transportation.jpg",
+  },
+  {
+    title: t("pages.home.mission.experiences"),
+    content: t("pages.home.mission.experiencesContent"),
+    image: "/assets/img/mission/experiences.jpg",
+  },
+];
+---
+
+<section class="mission" data-mission>
+  <div class="mission-list">
+    {items.map(({ title, content, image }, idx) => (
+      <details name="mission" open={idx === 0} data-image={image}>
+        <summary>
+          <h3>{title}</h3>
+          <FaChevronDown aria-hidden="true" />
+        </summary>
+        <p>{content}</p>
+      </details>
+    ))}
+  </div>
+  <div
+    class="mission-image"
+    style={`background-image: url(${items[0].image})`}
+    data-mission-image
+  ></div>
+</section>
+
+<script>
+  document
+    .querySelectorAll<HTMLElement>("[data-mission]")
+    .forEach((mission) => {
+      const items = [
+        ...mission.querySelectorAll<HTMLDetailsElement>("details"),
+      ];
+      const image = mission.querySelector<HTMLElement>("[data-mission-image]");
+
+      items.forEach((item) => {
+        // The open item stays open — the accordion always shows one entry.
+        item.querySelector("summary")?.addEventListener("click", (event) => {
+          if (item.open) event.preventDefault();
+        });
+
+        item.addEventListener("toggle", () => {
+          if (!item.open) return;
+
+          // `name` already makes the group exclusive in current browsers; this
+          // covers the ones that do not support it yet.
+          items.forEach((other) => {
+            if (other !== item) other.open = false;
+          });
+
+          if (image) image.style.backgroundImage = `url(${item.dataset.image})`;
+        });
+      });
+    });
+</script>
+
+<style>
+  .mission {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  details {
+    border-top: 1px solid var(--border);
+  }
+
+  details:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    list-style: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary:hover {
+    background: #ededed;
+    border-radius: var(--radius);
+  }
+
+  details[open] summary {
+    background: var(--lightblue);
+    border-radius: var(--radius);
+  }
+
+  summary h3 {
+    font-size: 24px;
+  }
+
+  summary :global(svg) {
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+    transition: transform 0.2s ease;
+  }
+
+  details[open] summary :global(svg) {
+    transform: rotate(180deg);
+  }
+
+  details p {
+    padding: 0.5rem 50px 1rem 1rem;
+  }
+
+  .mission-image {
+    display: none;
+    margin-left: 25px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  @media (min-width: 992px) {
+    .mission-image {
+      border-radius: var(--radius);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .mission {
+      grid-template-columns: 9fr 4fr;
+    }
+
+    .mission-image {
+      display: block;
+    }
+  }
+</style>

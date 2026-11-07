@@ -1,0 +1,154 @@
+---
+import { IMPACT_METRICS } from "../../data/impact";
+import { getTranslator } from "../../i18n";
+
+/**
+ * "What we achieved together". The final figures are in the HTML; a script
+ * counts up to them once the block scrolls into view.
+ */
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const t = getTranslator(locale);
+---
+
+<section class="counters">
+  <div class="section-head">
+    <h2>{t("pages.home.metrics.heading")}</h2>
+    <p>{t("pages.home.metrics.subHeading")}</p>
+  </div>
+  <dl class="counters-grid">
+    {IMPACT_METRICS.map(({ localizationKey, value, suffix = "" }) => (
+      <div class="metric">
+        <dt>{t(`pages.home.metrics.${localizationKey}`)}</dt>
+        <dd>
+          <span data-count-to={value} data-locale={locale}>
+            {value.toLocaleString(locale)}
+          </span>
+          {suffix}
+        </dd>
+      </div>
+    ))}
+  </dl>
+</section>
+
+<script>
+  const DURATION = 1400;
+
+  // Ease-out, so the number slows down as it approaches its final value.
+  const easeOut = (progress: number) => 1 - (1 - progress) ** 3;
+
+  const countUp = (node: HTMLElement) => {
+    const value = Number(node.dataset.countTo);
+    const format = new Intl.NumberFormat(node.dataset.locale);
+    let start: number | undefined;
+
+    const step = (now: number) => {
+      start ??= now;
+
+      const progress = Math.min((now - start) / DURATION, 1);
+      node.textContent = format.format(Math.round(value * easeOut(progress)));
+
+      if (progress < 1) requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
+  };
+
+  // Visitors who asked for reduced motion keep the final values.
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(({ isIntersecting, target }) => {
+        if (!isIntersecting) return;
+
+        observer.unobserve(target);
+        countUp(target as HTMLElement);
+      });
+    });
+
+    document
+      .querySelectorAll<HTMLElement>("[data-count-to]")
+      .forEach((node) => {
+        // Already on screen: leave the final value rather than flashing a zero.
+        const { top } = node.getBoundingClientRect();
+        if (top < window.innerHeight) return;
+
+        node.textContent = "0";
+        observer.observe(node);
+      });
+  }
+</script>
+
+<style>
+  .counters {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .counters .section-head {
+    padding: 0 25px;
+  }
+
+  .counters-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-image: url(/assets/img/background/background-field.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+
+  .metric {
+    display: flex;
+    flex: 1;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    margin: 10px;
+    padding: 15px 10px;
+    text-align: center;
+    border: 2px solid var(--blue);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.75);
+  }
+
+  dd {
+    font-family: var(--font-heading);
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  dt {
+    margin-top: 0.25rem;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  @media (min-width: 768px) {
+    .counters-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .metric {
+      margin: 20px;
+      padding: 20px 15px;
+    }
+
+    dd {
+      font-size: 44px;
+    }
+
+    dt {
+      font-size: 16px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .counters-grid {
+      border-radius: var(--radius);
+    }
+  }
+</style>

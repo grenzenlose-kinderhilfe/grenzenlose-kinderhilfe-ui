@@ -1,0 +1,122 @@
+---
+import { FaHandsHelping, FaHeart, FaTrafficLight } from "react-icons/fa";
+
+import { ORGANIZATION, ROLLING_KIDS_URL } from "../../data/organization";
+import { getTranslator, localizePath } from "../../i18n";
+
+/**
+ * The first thing a visitor sees: who the foundation is, what it does and the
+ * three things they can do about it.
+ */
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const t = getTranslator(locale);
+---
+
+<section class="hero">
+  <p class="hero-eyebrow">Grenzenlose Kinderhilfe · {ORGANIZATION.name}</p>
+  <h1>{t("pages.home.hero.tagline")}</h1>
+  <p class="hero-lead">{t("pages.home.hero.lead")}</p>
+  <div class="hero-actions">
+    <a class="btn btn-lg btn-light" href={localizePath(locale, "/support")}>
+      <FaHeart aria-hidden="true" />
+      {t("pages.home.hero.support")}
+    </a>
+    <a
+      class="btn btn-lg btn-outline-light"
+      href={`mailto:${ORGANIZATION.email}`}
+    >
+      <FaHandsHelping aria-hidden="true" />
+      {t("pages.home.hero.volunteer")}
+    </a>
+    <a
+      class="btn btn-lg btn-outline-light"
+      href={ROLLING_KIDS_URL}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <FaTrafficLight aria-hidden="true" />
+      Rolling Kids
+    </a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 40px 25px;
+    text-align: center;
+    color: var(--white);
+    background-color: var(--blue);
+    background-image:
+      linear-gradient(rgba(17, 43, 92, 0.88), rgba(17, 43, 92, 0.95)),
+      url(/assets/img/background/background-field.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+
+  .hero-eyebrow {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    max-width: 900px;
+    font-size: 36px;
+  }
+
+  .hero-lead {
+    max-width: 800px;
+    font-size: 16px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .hero-actions .btn-light:hover {
+    background: var(--grey);
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      padding: 70px 50px;
+    }
+
+    .hero-eyebrow {
+      font-size: 16px;
+    }
+
+    h1 {
+      font-size: 56px;
+    }
+
+    .hero-lead {
+      font-size: 20px;
+    }
+
+    .hero-actions {
+      flex-direction: row;
+      width: auto;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .hero {
+      border-radius: var(--radius);
+    }
+  }
+</style>

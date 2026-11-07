@@ -1,0 +1,109 @@
+.donate {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  text-align: left;
+}
+
+.donate-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.donate-currency {
+  height: 2rem;
+  padding: 0 2rem 0 0.75rem;
+  border: 1px solid var(--blue);
+  border-radius: var(--radius-sm);
+  background: var(--white)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23112b5c' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E")
+    no-repeat right 0.4rem center / 1.2rem;
+  font-size: 0.875rem;
+  appearance: none;
+  cursor: pointer;
+}
+
+.donate-amounts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.donate-amount {
+  height: 2.5rem;
+  padding: 0 1rem;
+  border: 1px solid var(--blue);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--blue);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.donate-amount:hover {
+  background: var(--lightblue);
+}
+
+.donate-amount[aria-pressed="true"] {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.donate-amount[aria-pressed="true"]:hover {
+  background: var(--blue-hover);
+}
+
+.donate-amount-custom {
+  grid-column: 1 / -1;
+}
+
+.donate-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: calc(100% - 2rem);
+  max-width: 560px;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--success);
+  color: var(--white);
+  box-shadow: var(--shadow-lg);
+  font-weight: 700;
+  transform: translateX(-50%);
+}
+
+.donate-toast p {
+  flex: 1;
+}
+
+.donate-toast svg {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.donate-toast button {
+  display: flex;
+  padding: 0.25rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.donate-toast button:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.donate-toast button svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}

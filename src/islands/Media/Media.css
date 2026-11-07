@@ -1,0 +1,131 @@
+.media-tablist {
+  display: flex;
+  border-bottom: 2px solid var(--border);
+}
+
+.media-tab {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: -2px;
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.media-tab[aria-selected="true"] {
+  border-bottom-color: currentColor;
+  color: var(--blue);
+}
+
+.media-tab:hover {
+  background: var(--lightblue);
+}
+
+.media-panel {
+  padding: 1rem;
+}
+
+/* ---- Videos ---- */
+
+.video-list {
+  display: grid;
+  gap: 2rem;
+  margin: 25px;
+}
+
+.video-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-radius: var(--radius);
+  background: var(--blue);
+  color: var(--white);
+}
+
+.video-card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  height: 100%;
+  padding: 25px;
+  text-align: center;
+}
+
+.video-card-text h2 {
+  max-width: 600px;
+  font-size: 32px;
+}
+
+.video-card-description {
+  max-width: 800px;
+  font-style: italic;
+}
+
+.video-card-player {
+  display: flex;
+  justify-content: center;
+  padding: 0 10px 10px;
+}
+
+@media (min-width: 768px) {
+  .video-card-player {
+    padding: 0 25px 25px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .video-card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .video-card-player {
+    align-items: center;
+    padding: 25px;
+  }
+}
+
+/* ---- Articles ---- */
+
+.article-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .article-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .article-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background: var(--blue);
+  color: var(--white);
+  text-align: center;
+}

@@ -1,8 +1,12 @@
 # Content spreadsheet
 
-The media articles, the videos and the supported institutions are read at
-runtime from a public Google Spreadsheet, so the content can be edited without a
-new deployment.
+The media articles, the videos and the supported institutions come from a
+public Google Spreadsheet. The sheet is read twice:
+
+- **at build time**, and the content is written into the HTML, so search
+  engines index it and visitors see it immediately;
+- **in the browser** on every page view, so an edit shows up without a new
+  deployment.
 
 ## Setting it up
 
@@ -20,8 +24,10 @@ new deployment.
    in [`src/constants.js`](../src/constants.js), or provide it at build time as
    the `PUBLIC_GOOGLE_SHEET_ID` environment variable.
 
-Edits appear on the site within a few minutes (each visitor caches the content
-for 5 minutes).
+Edits appear for visitors on their next page load. Search engines see them after
+the next build, so rebuild now and then to keep the indexed version current. If
+the sheet cannot be reached during a build, the build still succeeds and those
+pages load the content in the browser only.
 
 ## Columns
 
@@ -62,8 +68,8 @@ A normal link copied from the browser is fine
 | `place`       | yes      | max. 120 characters                                   |
 
 Adding a new country means adding its code to `COUNTRY_CODES` in
-[`src/constants.js`](../src/constants.js) and a country name to both files under
-`public/locales/*/translation.json`.
+[`src/constants.js`](../src/constants.js) and a country name to each translation file in
+`src/i18n/locales/*.json`.
 
 ## What happens to invalid rows
 
@@ -77,7 +83,7 @@ In the `locations` tab rows describing the same institution are also collapsed:
 capitalisation or spacing, and only the first occurrence is displayed. Adding an
 institution that is already listed therefore changes nothing.
 
-Skipped rows are reported in the browser console with their row number, for
+Skipped rows are reported in the build log and the browser console with their row number, for
 example:
 
 ```
@@ -95,11 +101,12 @@ value ends up inside an iframe on the site.
 
 ## How it is wired together
 
-| File                          | Role                                         |
-| ----------------------------- | -------------------------------------------- |
-| `src/api/googleSheet.js`      | reads a tab through the public gviz endpoint |
-| `src/utils/schema.js`         | field validators and row filtering           |
-| `src/api/content.js`          | the schema of each tab                       |
-| `src/hooks/useContent.js`     | React Query hooks used by the screens        |
-| `src/components/DataBoundary` | loading / error / empty states               |
-| `data/*.csv`                  | seed export of the original hard-coded data  |
+| File                            | Role                                              |
+| ------------------------------- | ------------------------------------------------- |
+| `src/lib/googleSheet.js`        | reads a tab through the public gviz endpoint      |
+| `src/lib/schema.js`             | field validators and row filtering                |
+| `src/lib/content.js`            | the schema of each tab                            |
+| `src/lib/buildContent.js`       | loads the content once per build for prerendering |
+| `src/islands/useLiveContent.js` | refreshes the prerendered content in the browser  |
+| `src/islands/DataBoundary.jsx`  | loading / error / empty states                    |
+| `data/*.csv`                    | seed export of the original hard-coded data       |

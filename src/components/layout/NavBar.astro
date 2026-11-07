@@ -1,0 +1,639 @@
+---
+import { HiMenu, HiX } from "react-icons/hi";
+import {
+  FaCheck,
+  FaChevronDown,
+  FaExternalLinkAlt,
+  FaGlobe,
+  FaHeart,
+} from "react-icons/fa";
+
+import { LANGUAGE_CODES, LANGUAGE_LABELS, LANGUAGES } from "../../constants";
+import { getTranslator, localizePath } from "../../i18n";
+import { navigationRoutes } from "../../routes";
+
+interface Props {
+  locale: string;
+  activePath?: string;
+  alternates: { locale: string; href: string }[];
+}
+
+const { locale, activePath, alternates } = Astro.props;
+const t = getTranslator(locale);
+
+const label = (key: string) => t(`ui.navigation.${key}`);
+
+/**
+ * The route the visitor is on: the internal route with the longest path that
+ * the current path starts with, so /pages/shoebox marks "Shoebox" and not
+ * "Pages" as well.
+ */
+const activeRoutePath = navigationRoutes
+  .filter(({ isExternal }) => !isExternal)
+  .map(({ path }) => path)
+  .filter(
+    (path) =>
+      activePath === path ||
+      (path !== "/" && activePath?.startsWith(`${path}/`)),
+  )
+  .sort((a, b) => b.length - a.length)[0];
+
+const items = navigationRoutes.map((route) => ({
+  ...route,
+  label: label(route.localizationKey),
+  href: route.isExternal
+    ? route.url + (route.localeSuffix?.[locale] ?? "")
+    : localizePath(locale, route.path),
+  isActive: !route.isExternal && route.path === activeRoutePath,
+}));
+
+const links = items.filter(({ isButton }) => !isButton);
+const buttons = items.filter(({ isButton }) => isButton);
+
+const homeHref = localizePath(locale, "/");
+
+// The same page in every language; pages without a translation (404) switch
+// to the home page of the other language.
+const languages = LANGUAGES.map((language) => ({
+  locale: language,
+  href:
+    alternates.find((item) => item.locale === language)?.href ??
+    localizePath(language, "/"),
+  isCurrent: language === locale,
+}));
+
+const languageLabel = label("language");
+const externalProps = { target: "_blank", rel: "noreferrer" };
+---
+
+<header class="nav" data-nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href={homeHref} aria-label={label("home")}>
+      <img
+        src="/assets/img/logo.svg"
+        alt="Grenzenlose Kinderhilfe"
+        width="186"
+        height="52"
+      />
+    </a>
+
+    <nav class="nav-links" aria-label={label("menu")}>
+      <ul>
+        {items.map((item) => (
+          <li>
+            {item.isButton ? (
+              <a class="btn btn-light" href={item.href}>
+                <FaHeart aria-hidden="true" />
+                {item.label}
+              </a>
+            ) : (
+              <a
+                class:list={["nav-link", { "is-active": item.isActive }]}
+                href={item.href}
+                aria-current={item.isActive ? "page" : undefined}
+                {...(item.isExternal ? externalProps : {})}
+              >
+                {item.label}
+                {item.isExternal && (
+                  <FaExternalLinkAlt
+                    className="external-mark"
+                    aria-hidden="true"
+                  />
+                )}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="nav-end">
+      <details class="lang-menu" data-lang-menu>
+        <summary
+          class="btn btn-sm btn-outline-light"
+          aria-label={`${languageLabel}: ${LANGUAGE_LABELS[locale]}`}
+        >
+          <FaGlobe aria-hidden="true" />
+          {LANGUAGE_CODES[locale]}
+          <FaChevronDown className="lang-chevron" aria-hidden="true" />
+        </summary>
+        <ul class="lang-menu-list">
+          {languages.map((language) => (
+            <li>
+              <a
+                href={language.href}
+                lang={language.locale}
+                hreflang={language.locale}
+                aria-current={language.isCurrent ? "true" : undefined}
+                data-lang-link={language.locale}
+              >
+                <span class="lang-check">
+                  {language.isCurrent && <FaCheck aria-hidden="true" />}
+                </span>
+                {LANGUAGE_LABELS[language.locale]}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    </div>
+
+    <button
+      type="button"
+      class="nav-toggle btn"
+      aria-label={label("menu")}
+      aria-expanded="false"
+      aria-controls="nav-drawer"
+      data-drawer-open
+    >
+      <HiMenu aria-hidden="true" />
+    </button>
+  </div>
+
+  <dialog id="nav-drawer" class="drawer" aria-label={label("menu")}>
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <a class="nav-logo" href={homeHref} aria-label={label("home")}>
+          <img
+            src="/assets/img/logo.svg"
+            alt="Grenzenlose Kinderhilfe"
+            width="157"
+            height="44"
+          />
+        </a>
+        <button
+          type="button"
+          class="drawer-close btn"
+          aria-label={label("close")}
+          data-drawer-close
+        >
+          <HiX aria-hidden="true" />
+        </button>
+      </div>
+
+      <div class="drawer-body">
+        <ul class="drawer-links">
+          {links.map((item) => (
+            <li>
+              <a
+                class:list={["drawer-link", { "is-active": item.isActive }]}
+                href={item.href}
+                aria-current={item.isActive ? "page" : undefined}
+                {...(item.isExternal ? externalProps : {})}
+              >
+                {item.label}
+                {item.isExternal && (
+                  <FaExternalLinkAlt
+                    className="external-mark"
+                    aria-hidden="true"
+                  />
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+        {buttons.map((item) => (
+          <a class="btn btn-lg btn-block btn-primary" href={item.href}>
+            <FaHeart aria-hidden="true" />
+            {item.label}
+          </a>
+        ))}
+      </div>
+
+      <div class="drawer-footer" role="group" aria-label={languageLabel}>
+        {languages.map((language) => (
+          <a
+            class="lang-segment"
+            href={language.href}
+            lang={language.locale}
+            hreflang={language.locale}
+            aria-current={language.isCurrent ? "true" : undefined}
+            data-lang-link={language.locale}
+          >
+            {LANGUAGE_LABELS[language.locale]}
+          </a>
+        ))}
+      </div>
+    </div>
+  </dialog>
+</header>
+
+<script>
+  import { LANGUAGE_STORAGE_KEY } from "../../constants";
+
+  const nav = document.querySelector<HTMLElement>("[data-nav]");
+  const drawer = document.querySelector<HTMLDialogElement>("#nav-drawer");
+  const openButton =
+    document.querySelector<HTMLButtonElement>("[data-drawer-open]");
+  const languageMenu =
+    document.querySelector<HTMLDetailsElement>("[data-lang-menu]");
+
+  // Lift the bar off the content once the page has scrolled.
+  const onScroll = () =>
+    nav?.classList.toggle("is-scrolled", window.scrollY > 0);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  // Mobile drawer. <dialog> provides the focus trap, Escape and the backdrop.
+  const closeDrawer = () => drawer?.close();
+
+  openButton?.addEventListener("click", () => {
+    drawer?.showModal();
+    openButton.setAttribute("aria-expanded", "true");
+  });
+
+  drawer?.addEventListener("close", () => {
+    openButton?.setAttribute("aria-expanded", "false");
+  });
+
+  drawer
+    ?.querySelector("[data-drawer-close]")
+    ?.addEventListener("click", closeDrawer);
+
+  // A click on the backdrop lands on the <dialog> itself, not on the panel.
+  drawer?.addEventListener("click", (event) => {
+    if (event.target === drawer) closeDrawer();
+  });
+
+  // The drawer is only for narrow screens; close it when the window grows.
+  window
+    .matchMedia("(min-width: 1200px)")
+    .addEventListener("change", (event) => {
+      if (event.matches) closeDrawer();
+    });
+
+  // Language dropdown: close on outside click and on Escape.
+  document.addEventListener("click", (event) => {
+    if (languageMenu?.open && !languageMenu.contains(event.target as Node)) {
+      languageMenu.open = false;
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && languageMenu?.open) {
+      languageMenu.open = false;
+      languageMenu.querySelector("summary")?.focus();
+    }
+  });
+
+  // Remember an explicit language choice, so the unprefixed pages stop
+  // redirecting to the browser language.
+  document
+    .querySelectorAll<HTMLAnchorElement>("[data-lang-link]")
+    .forEach((link) => {
+      link.addEventListener("click", () => {
+        try {
+          localStorage.setItem(
+            LANGUAGE_STORAGE_KEY,
+            link.dataset.langLink ?? "",
+          );
+        } catch {
+          // Storage can be unavailable (private mode); the link still works.
+        }
+      });
+    });
+</script>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    z-index: 1100;
+    width: 100%;
+    height: var(--nav-height);
+    background: var(--blue);
+    color: var(--white);
+    transition: box-shadow 0.2s ease;
+  }
+
+  .nav.is-scrolled {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    height: 100%;
+    padding: 0 20px;
+  }
+
+  .nav-logo {
+    display: flex;
+  }
+
+  .nav-logo img {
+    width: auto;
+    height: 44px;
+  }
+
+  .nav-links,
+  .nav-end {
+    display: none;
+  }
+
+  .nav-toggle {
+    color: var(--white);
+    padding: 0;
+  }
+
+  .nav-toggle:hover {
+    background: var(--white-20);
+  }
+
+  .nav-toggle:active {
+    background: var(--white-30);
+  }
+
+  .nav-toggle :global(svg) {
+    width: 28px;
+    height: 28px;
+  }
+
+  @media (min-width: 992px) {
+    .nav-inner {
+      padding: 0 40px;
+    }
+  }
+
+  /* Equal outer columns keep the links centred on the page itself, whatever
+     the width of the logo and the language picker. */
+  @media (min-width: 1200px) {
+    .nav-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+    }
+
+    .nav-logo img {
+      height: 52px;
+    }
+
+    .nav-links,
+    .nav-end {
+      display: flex;
+    }
+
+    .nav-end {
+      justify-self: end;
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+  }
+
+  .nav-links ul {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  .nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 6px 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white-90);
+  }
+
+  .nav-link.is-active {
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .nav-link:hover {
+    color: var(--white);
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    border-radius: 9999px;
+    background: var(--white);
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+  }
+
+  .nav-link.is-active::after,
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  :global(.external-mark) {
+    width: 10px;
+    height: 10px;
+    margin-left: 6px;
+    opacity: 0.7;
+  }
+
+  /* ---- Language dropdown ---- */
+
+  .lang-menu {
+    position: relative;
+  }
+
+  .lang-menu summary {
+    list-style: none;
+    border-color: var(--white-60);
+  }
+
+  .lang-menu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .lang-menu[open] summary {
+    background: var(--white-30);
+  }
+
+  :global(.lang-chevron) {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.2s ease;
+  }
+
+  .lang-menu[open] :global(.lang-chevron) {
+    transform: rotate(180deg);
+  }
+
+  .lang-menu-list {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 160px;
+    padding: 0.5rem 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--white);
+    color: var(--text);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .lang-menu-list a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .lang-menu-list a:hover,
+  .lang-menu-list a:focus-visible {
+    background: var(--tag-bg);
+  }
+
+  .lang-check {
+    display: flex;
+    width: 0.8rem;
+  }
+
+  .lang-check :global(svg) {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  /* ---- Mobile drawer ---- */
+
+  .drawer {
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: 100%;
+    max-width: 20rem;
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: var(--white);
+    color: var(--text);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .drawer[open] {
+    animation: slide-in 0.2s ease-out;
+  }
+
+  .drawer::backdrop {
+    background: rgba(0, 0, 0, 0.48);
+  }
+
+  @keyframes slide-in {
+    from {
+      transform: translateX(100%);
+    }
+  }
+
+  .drawer-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background: var(--blue);
+  }
+
+  .drawer-close {
+    color: var(--white);
+    padding: 0;
+  }
+
+  .drawer-close:hover {
+    background: var(--white-20);
+  }
+
+  .drawer-close :global(svg) {
+    width: 24px;
+    height: 24px;
+  }
+
+  .drawer-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    overflow-y: auto;
+  }
+
+  .drawer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .drawer-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-left: 3px solid transparent;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--blue);
+  }
+
+  .drawer-link:hover {
+    background: var(--lightblue);
+  }
+
+  .drawer-link.is-active {
+    border-color: var(--blue);
+    background: var(--lightblue);
+    font-weight: 700;
+  }
+
+  .drawer-footer {
+    display: flex;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--grey);
+  }
+
+  .lang-segment {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    padding: 0 0.5rem;
+    border: 1px solid var(--blue);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--blue);
+  }
+
+  .lang-segment + .lang-segment {
+    margin-left: -1px;
+  }
+
+  .lang-segment:first-child {
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  }
+
+  .lang-segment:last-child {
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+
+  .lang-segment:hover {
+    background: var(--lightblue);
+  }
+
+  .lang-segment[aria-current] {
+    background: var(--blue);
+    color: var(--white);
+  }
+
+  .lang-segment[aria-current]:hover {
+    background: var(--blue-hover);
+  }
+</style>
