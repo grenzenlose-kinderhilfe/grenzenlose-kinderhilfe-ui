@@ -6,6 +6,7 @@ import { LOCALE_DE, LOCALE_EN, WORDPRESS_BLOG_BASE_URL } from "./constants";
  *
  * - `display: false` keeps a page out of the navigation.
  * - `isButton` renders the entry as the highlighted call to action.
+ * - `noIndex` keeps a page out of search results and the sitemap.
  * - external entries only appear in the navigation.
  */
 const routes = [
@@ -28,9 +29,21 @@ const routes = [
     localizationKey: "support",
     isButton: true,
   },
+  {
+    id: "thankYou",
+    path: "/thank-you",
+    localizationKey: "thankYou",
+    display: false,
+    noIndex: true,
+  },
 ];
 
 export const pageRoutes = routes.filter(({ isExternal }) => !isExternal);
+
+/** Paths ("/thank-you") that search engines should not index. */
+export const noIndexPaths = pageRoutes
+  .filter(({ noIndex }) => noIndex)
+  .map(({ path }) => path);
 
 export const navigationRoutes = routes.filter(({ display }) => display ?? true);
 

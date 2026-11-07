@@ -10,6 +10,7 @@ import Media from "../views/Media.astro";
 import Pages from "../views/Pages.astro";
 import Shoebox from "../views/Shoebox.astro";
 import Support from "../views/Support.astro";
+import ThankYou from "../views/ThankYou.astro";
 
 /**
  * Every page in every language from the route table in src/routes.js:
@@ -35,12 +36,14 @@ const VIEWS = {
   shoebox: Shoebox,
   about: About,
   support: Support,
+  thankYou: ThankYou,
 };
 
 // The page's own lead text where it has one; the site description otherwise.
 const DESCRIPTION_KEYS = {
   support: "pages.support.lead",
   shoebox: "pages.Shoebox.MainContentGroup.shoeboxMagic",
+  thankYou: "pages.thankYou.lead",
 };
 
 const { locale, route } = Astro.props;
@@ -98,5 +101,6 @@ const jsonLd =
   path={route.path}
   jsonLd={jsonLd}
 >
+  {route.noIndex && <meta name="robots" content="noindex" slot="head" />}
   <View locale={locale} />
 </BaseLayout>

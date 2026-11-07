@@ -1,56 +1,34 @@
 import React from "react";
-import { FaCheckCircle, FaLock, FaTimes } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
 
+import { LANGUAGE_STORAGE_KEY } from "../../constants";
 import {
   CURRENCIES,
   CUSTOM_AMOUNT,
-  DEFAULT_CURRENCY,
-  defaultAmount,
-  formatCurrency,
+  MONTHLY,
+  defaultCurrency,
+  formatAmount,
+  frequenciesOf,
   hasCustomAmount,
   hasPaymentLinks,
   paymentLinkOf,
   presetsOf,
+  selectionFor,
 } from "../../lib/amount";
 import "./Donate.css";
 
-const TOAST_DURATION = 8000;
-
 /**
- * Stripe sends the donor back with `?donation=success` (set as the Payment
- * Links' redirect URL). Thank them once, then drop the flag so a reload or a
- * shared link does not repeat it.
+ * Stripe sends every donor back to the one thank-you address of the default
+ * language; its language redirect then forwards them to their own language
+ * when it is saved, so save the page's language on the way out.
  */
-const useDonationSuccess = () => {
-  const [isVisible, setIsVisible] = React.useState(false);
-
-  React.useEffect(() => {
-    const url = new URL(window.location.href);
-
-    if (url.searchParams.get("donation") !== "success") return;
-
-    setIsVisible(true);
-
-    url.searchParams.delete("donation");
-    window.history.replaceState(window.history.state, "", url);
-
-    const timer = window.setTimeout(() => setIsVisible(false), TOAST_DURATION);
-
-    return () => window.clearTimeout(timer);
-  }, []);
-
-  return [isVisible, () => setIsVisible(false)];
+const rememberLanguage = (locale) => {
+  try {
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, locale);
+  } catch {
+    // Storage can be unavailable (private mode); the link still works.
+  }
 };
-
-const SuccessToast = ({ title, closeLabel, onClose }) => (
-  <div className="donate-toast" role="status" aria-live="polite">
-    <FaCheckCircle aria-hidden="true" />
-    <p>{title}</p>
-    <button type="button" aria-label={closeLabel} onClick={onClose}>
-      <FaTimes aria-hidden="true" />
-    </button>
-  </div>
-);
 
 const AmountButton = ({ isSelected, className = "", ...props }) => (
   <button
@@ -62,28 +40,39 @@ const AmountButton = ({ isSelected, className = "", ...props }) => (
 );
 
 /**
- * Card donation through Stripe Payment Links: pick a currency and an amount,
- * then continue to Stripe's checkout page in the visitor's language.
+ * Card donation through Stripe Payment Links: pick a currency, monthly or
+ * one-time and an amount, then continue to Stripe's checkout page in the
+ * visitor's language. Stripe then sends them to the thank-you page.
  *
  * `showLabel` hides the "choose an amount" caption where a heading right
  * above the widget already asks for the donation.
  */
 const Donate = ({ locale, strings, showLabel = true }) => {
-  const [currency, setCurrency] = React.useState(DEFAULT_CURRENCY);
-  const [amount, setAmount] = React.useState(defaultAmount(DEFAULT_CURRENCY));
-  const [isSuccessVisible, closeSuccess] = useDonationSuccess();
+  const [selection, setSelection] = React.useState(() =>
+    selectionFor(defaultCurrency(locale), MONTHLY, undefined),
+  );
 
   if (!hasPaymentLinks) return null;
 
-  const href = paymentLinkOf(currency, amount, locale);
+  const { currency, frequency, amount } = selection;
+  const frequencies = frequenciesOf(currency);
+  const href = paymentLinkOf(selection, locale);
+  const suffix = frequency === MONTHLY ? strings.perMonth : "";
   const hasCurrencyChoice = CURRENCIES.length > 1;
 
-  // The amounts are not comparable across currencies, so start over on the
-  // new currency's own suggestion rather than carrying the selection across.
-  const onCurrencyChange = ({ target: { value } }) => {
-    setCurrency(value);
-    setAmount(defaultAmount(value));
-  };
+  // Amounts are not comparable across currencies, so a new currency starts
+  // on its own suggestion; the frequency is kept where it is offered.
+  const onCurrencyChange = ({ target: { value } }) =>
+    setSelection(selectionFor(value, frequency, undefined));
+
+  const select = (changes) =>
+    setSelection(
+      selectionFor(
+        currency,
+        changes.frequency ?? frequency,
+        changes.amount ?? amount,
+      ),
+    );
 
   return (
     <div className="donate">
@@ -109,21 +98,40 @@ const Donate = ({ locale, strings, showLabel = true }) => {
           )}
         </div>
       )}
+      {frequencies.length > 1 && (
+        <div
+          className="donate-frequency"
+          role="group"
+          aria-label={strings.frequencyLabel}
+        >
+          {frequencies.map((item) => (
+            <button
+              key={item}
+              type="button"
+              aria-pressed={frequency === item}
+              onClick={() => select({ frequency: item })}
+            >
+              {strings[item]}
+            </button>
+          ))}
+        </div>
+      )}
       <div className="donate-amounts">
-        {presetsOf(currency).map((preset) => (
+        {presetsOf(currency, frequency).map((preset) => (
           <AmountButton
             key={preset}
             isSelected={amount === String(preset)}
-            onClick={() => setAmount(String(preset))}
+            onClick={() => select({ amount: String(preset) })}
           >
-            {formatCurrency(preset, currency, locale)}
+            {formatAmount(preset, currency, locale)}
+            {suffix}
           </AmountButton>
         ))}
-        {hasCustomAmount(currency) && (
+        {hasCustomAmount(currency, frequency) && (
           <AmountButton
             className="donate-amount-custom"
             isSelected={amount === CUSTOM_AMOUNT}
-            onClick={() => setAmount(CUSTOM_AMOUNT)}
+            onClick={() => select({ amount: CUSTOM_AMOUNT })}
           >
             {strings.customLabel}
           </AmountButton>
@@ -133,17 +141,11 @@ const Donate = ({ locale, strings, showLabel = true }) => {
         className="btn btn-lg btn-primary"
         href={href}
         aria-disabled={href ? undefined : "true"}
+        onClick={() => rememberLanguage(locale)}
       >
         <FaLock aria-hidden="true" />
         {strings.button}
       </a>
-      {isSuccessVisible && (
-        <SuccessToast
-          title={strings.successTitle}
-          closeLabel={strings.close}
-          onClose={closeSuccess}
-        />
-      )}
     </div>
   );
 };

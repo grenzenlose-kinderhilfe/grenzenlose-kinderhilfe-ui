@@ -159,6 +159,8 @@
     "support": {
       "heading": "Támogasd a munkánkat",
       "lead": "Válaszd azt a módot, amelyik neked a legegyszerűbb. Minden felajánlás a Kárpát-medence gyermekeihez jut el.",
+      "manageLink": "Adomány módosítása vagy lemondása",
+      "manageMonthly": "Már havonta adományozol?",
       "mapHeading": "Hol segítünk?",
       "mapLead": "Gyermekotthonok és intézmények, ahová az adományaink eljutnak.",
       "options": {
@@ -191,6 +193,18 @@
         }
       },
       "spendingLabel": "Mire fordítjuk?"
+    },
+    "thankYou": {
+      "heading": "Köszönjük az adományod!",
+      "homeButton": "Vissza a főoldalra",
+      "lead": "A támogatásod megérkezett. Segít, hogy csomagokat, ajándékokat és segélyt juttassunk el a Kárpát-medence gyermekeihez.",
+      "manage": "Havonta adományozol? A bankkártyádat bármikor módosíthatod, vagy lemondhatod az adományt, saját magad.",
+      "manageButton": "Havi adomány kezelése",
+      "mediaButton": "Nézd meg a munkánkat",
+      "nextHeading": "Mi történik ezután?",
+      "questions": "Kérdésed van, vagy igazolásra van szükséged a befizetésről? Írj nekünk:",
+      "receipt": "E-mailben visszaigazolást kapsz a fizetésedről.",
+      "transport": "Az adományod a következő szállításainkat segíti: üzemanyag, a csomagok anyaga és a hiányzó ajándékok."
     }
   },
   "ui": {
@@ -206,8 +220,11 @@
       "button": "Adományozok",
       "currencyLabel": "Pénznem",
       "customLabel": "Más összeg",
-      "presetLabel": "Válassz összeget",
-      "successTitle": "Köszönjük az adományod!"
+      "frequencyLabel": "Adományozás gyakorisága",
+      "monthly": "Havonta",
+      "once": "Egyszeri",
+      "perMonth": "/hó",
+      "presetLabel": "Válassz összeget"
     },
     "footer": {
       "contact": "Kapcsolat",
@@ -252,7 +269,8 @@
       "menu": "Menü",
       "pages": "Oldalak",
       "shoebox": "Cipősdoboz",
-      "support": "Támogatás"
+      "support": "Támogatás",
+      "thankYou": "Köszönjük"
     },
     "video": {
       "play": "Videó lejátszása"

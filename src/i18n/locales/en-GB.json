@@ -159,6 +159,8 @@
     "support": {
       "heading": "Support our work",
       "lead": "Choose whichever way is easiest for you. Every contribution reaches the children in the Carpathian Basin.",
+      "manageLink": "Update or cancel your donation",
+      "manageMonthly": "Already donating monthly?",
       "mapHeading": "Where we help",
       "mapLead": "Children's homes and institutions our donations reach.",
       "options": {
@@ -191,6 +193,18 @@
         }
       },
       "spendingLabel": "What do we use it for?"
+    },
+    "thankYou": {
+      "heading": "Thank you for your donation!",
+      "homeButton": "Back to the home page",
+      "lead": "Your support has arrived. It helps us bring parcels, gifts and supplies to children across the Carpathian Basin.",
+      "manage": "Donating monthly? You can update your card or cancel at any time, yourself.",
+      "manageButton": "Manage monthly donation",
+      "mediaButton": "See our work",
+      "nextHeading": "What happens next",
+      "questions": "Have questions or need a proof of payment? Write to us:",
+      "receipt": "You will receive a confirmation of your payment by email.",
+      "transport": "Your donation goes towards our next transports: fuel, parcel materials and any missing gifts."
     }
   },
   "ui": {
@@ -206,8 +220,11 @@
       "button": "Donate now",
       "currencyLabel": "Currency",
       "customLabel": "Other amount",
-      "presetLabel": "Choose an amount",
-      "successTitle": "Thank you for your donation!"
+      "frequencyLabel": "Donation frequency",
+      "monthly": "Monthly",
+      "once": "One-time",
+      "perMonth": "/month",
+      "presetLabel": "Choose an amount"
     },
     "footer": {
       "contact": "Contact",
@@ -252,7 +269,8 @@
       "menu": "Menu",
       "pages": "Pages",
       "shoebox": "Shoebox",
-      "support": "Support"
+      "support": "Support",
+      "thankYou": "Thank you"
     },
     "video": {
       "play": "Play video"

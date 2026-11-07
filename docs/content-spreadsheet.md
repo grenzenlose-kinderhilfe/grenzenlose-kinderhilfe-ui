@@ -20,9 +20,10 @@ public Google Spreadsheet. The sheet is read twice:
 4. Share the spreadsheet: **Share → General access → Anyone with the link →
    Viewer**. No API key is needed, but the sheet must stay link-viewable.
 5. Copy the id from the URL
-   (`https://docs.google.com/spreadsheets/d/<id>/edit`) into `GOOGLE_SHEET_ID`
-   in [`src/constants.js`](../src/constants.js), or provide it at build time as
-   the `PUBLIC_GOOGLE_SHEET_ID` environment variable.
+   (`https://docs.google.com/spreadsheets/d/<id>/edit`) and provide it at build
+   time as the `PUBLIC_GOOGLE_SHEET_ID` environment variable: a GitHub
+   repository variable for the Actions build, `.env` locally (see
+   [`.env.example`](../.env.example)). The build stops if it is missing.
 
 Edits appear for visitors on their next page load. Search engines see them after
 the next build, so rebuild now and then to keep the indexed version current. If

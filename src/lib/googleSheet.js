@@ -69,7 +69,7 @@ const toRows = (table) => {
 export const fetchSheetRows = async (sheetName) => {
   if (!GOOGLE_SHEET_ID) {
     throw new Error(
-      "Missing Google Sheet id: set GOOGLE_SHEET_ID in src/constants.js or the PUBLIC_GOOGLE_SHEET_ID environment variable",
+      "Missing Google Sheet id: set the PUBLIC_GOOGLE_SHEET_ID environment variable (or put it in .env)",
     );
   }
 

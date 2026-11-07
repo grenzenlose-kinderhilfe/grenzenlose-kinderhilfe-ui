@@ -159,6 +159,8 @@
     "support": {
       "heading": "Unterstützen Sie unsere Arbeit",
       "lead": "Wählen Sie den Weg, der für Sie am einfachsten ist. Jede Zuwendung erreicht die Kinder im Karpatenbecken.",
+      "manageLink": "Spende ändern oder beenden",
+      "manageMonthly": "Sie spenden bereits monatlich?",
       "mapHeading": "Wo wir helfen",
       "mapLead": "Kinderheime und Einrichtungen, die unsere Spenden erreichen.",
       "options": {
@@ -191,6 +193,18 @@
         }
       },
       "spendingLabel": "Wofür verwenden wir das?"
+    },
+    "thankYou": {
+      "heading": "Vielen Dank für Ihre Spende!",
+      "homeButton": "Zur Startseite",
+      "lead": "Ihre Unterstützung ist angekommen. Sie hilft uns, Pakete, Geschenke und Hilfsgüter zu Kindern im Karpatenbecken zu bringen.",
+      "manage": "Sie spenden monatlich? Ihre Karte ändern oder die Spende beenden können Sie jederzeit selbst.",
+      "manageButton": "Monatliche Spende verwalten",
+      "mediaButton": "Unsere Arbeit ansehen",
+      "nextHeading": "Wie es weitergeht",
+      "questions": "Haben Sie Fragen oder benötigen Sie einen Zahlungsnachweis? Schreiben Sie uns:",
+      "receipt": "Sie erhalten eine Bestätigung Ihrer Zahlung per E-Mail.",
+      "transport": "Ihre Spende fließt in unsere nächsten Transporte: Treibstoff, Material für die Pakete und fehlende Geschenke."
     }
   },
   "ui": {
@@ -206,8 +220,11 @@
       "button": "Jetzt spenden",
       "currencyLabel": "Währung",
       "customLabel": "Anderer Betrag",
-      "presetLabel": "Betrag wählen",
-      "successTitle": "Vielen Dank für Ihre Spende!"
+      "frequencyLabel": "Spendenhäufigkeit",
+      "monthly": "Monatlich",
+      "once": "Einmalig",
+      "perMonth": "/Monat",
+      "presetLabel": "Betrag wählen"
     },
     "footer": {
       "contact": "Kontakt",
@@ -252,7 +269,8 @@
       "menu": "Menü",
       "pages": "Seiten",
       "shoebox": "Schuhkarton",
-      "support": "Unterstützen"
+      "support": "Unterstützen",
+      "thankYou": "Danke"
     },
     "video": {
       "play": "Video abspielen"

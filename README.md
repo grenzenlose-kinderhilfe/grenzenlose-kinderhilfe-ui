@@ -44,9 +44,27 @@ running campaigns and the foundation's contact and bank details live in
 touching a component. The wording of the campaign and support cards is in
 `src/i18n/locales/*.json`.
 
-Card donations go through Stripe Payment Links, configured per currency and
-amount in [src/data/paymentLinks.js](src/data/paymentLinks.js). The donation
+Card donations go through Stripe Payment Links, configured per currency (EUR,
+HUF, CHF, USD), frequency (monthly or one-time) and amount in
+[src/data/paymentLinks.js](src/data/paymentLinks.js). The donation
 widget stays hidden until at least one link is filled in.
+
+## Build settings
+
+A few values are read from environment variables at build time, with a `.env`
+file as the local fallback (a variable set in the environment wins). Copy
+[.env.example](.env.example) to `.env` to set them locally; the GitHub Actions
+build takes them from the repository variables of the same name (Settings →
+Secrets and variables → Actions → Variables).
+
+The build stops with an error naming the variable when a required one is
+missing.
+
+| Variable                            | Required | Purpose                                                                                                                  |
+| ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `PUBLIC_GOOGLE_SHEET_ID`            | yes      | Content spreadsheet id                                                                                                   |
+| `PUBLIC_STRIPE_CUSTOMER_PORTAL_URL` | no       | Stripe customer portal login link, where monthly donors update or cancel; "manage your donation" links hidden when unset |
+| `PUBLIC_GA_MEASUREMENT_ID`          | no       | Google Analytics measurement ID; no tracking when unset                                                                  |
 
 ## Deployment
 

@@ -40,7 +40,9 @@ export const LANGUAGE_CODES = {
   [LOCALE_EN]: "EN",
 };
 
-export const GA_MEASUREMENT_ID = "G-NPSNCSC1YX";
+// Google Analytics measurement ID ("G-…"). Taken from the build environment,
+// or from .env locally; analytics is left out of the pages while it is unset.
+export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || "";
 
 export const WORDPRESS_BLOG_BASE_URL =
   "https://blog.grenzenlose-kinderhilfe.com";
@@ -52,9 +54,9 @@ export const WORDPRESS_FEATURED_CATEGORIES = {
   [LOCALE_EN]: 38,
 };
 
-export const GOOGLE_SHEET_ID =
-  import.meta.env.PUBLIC_GOOGLE_SHEET_ID ||
-  "16-vdSO2vluKUWJFGb9jkWKIFgJPe7KG1r2lHGZFXiXM";
+// The content spreadsheet's id. Required: taken from the build environment,
+// or from .env locally (see .env.example).
+export const GOOGLE_SHEET_ID = import.meta.env.PUBLIC_GOOGLE_SHEET_ID;
 
 export const GOOGLE_SHEET_BASE_URL = "https://docs.google.com/spreadsheets/d";
 

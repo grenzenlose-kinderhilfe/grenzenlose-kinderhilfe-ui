@@ -13,6 +13,7 @@ import SupportOption from "../components/SupportOption.astro";
 import { DONATION_MAP_EMBED_URL, DONATION_MAP_VIEWER_URL } from "../constants";
 import PaymentDetails from "../components/PaymentDetails.astro";
 import { ORGANIZATION } from "../data/organization";
+import { STRIPE_CUSTOMER_PORTAL_URL } from "../data/paymentLinks";
 import Donate from "../islands/Donate/Donate.jsx";
 import { hasPaymentLinks } from "../lib/amount";
 import { getTranslator } from "../i18n";
@@ -35,9 +36,11 @@ const donateStrings = {
   button: t("ui.donate.button"),
   presetLabel: t("ui.donate.presetLabel"),
   customLabel: t("ui.donate.customLabel"),
+  frequencyLabel: t("ui.donate.frequencyLabel"),
+  monthly: t("ui.donate.monthly"),
+  once: t("ui.donate.once"),
+  perMonth: t("ui.donate.perMonth"),
   currencyLabel: t("ui.donate.currencyLabel"),
-  successTitle: t("ui.donate.successTitle"),
-  close: t("ui.navigation.close"),
 };
 
 const mapHeading = t("pages.support.mapHeading");
@@ -61,6 +64,14 @@ const mapHeading = t("pages.support.mapHeading");
         {hasPaymentLinks && (
           <SupportOption icon={FaCreditCard} {...option("online")}>
             <Donate client:load locale={locale} strings={donateStrings} />
+            {STRIPE_CUSTOMER_PORTAL_URL && (
+              <p class="support-manage">
+                {t("pages.support.manageMonthly")}{" "}
+                <a class="text-link" href={STRIPE_CUSTOMER_PORTAL_URL}>
+                  {t("pages.support.manageLink")}
+                </a>
+              </p>
+            )}
           </SupportOption>
         )}
         <SupportOption icon={FaUniversity} {...option("transfer")}>
@@ -159,6 +170,12 @@ const mapHeading = t("pages.support.mapHeading");
     border-color: var(--border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
+  }
+
+  .support-manage {
+    margin-top: 1rem;
+    font-size: 14px;
+    text-align: center;
   }
 
   .support-map {
