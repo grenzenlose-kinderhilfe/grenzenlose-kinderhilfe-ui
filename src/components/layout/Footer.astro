@@ -4,7 +4,7 @@ import { FaHeart } from "react-icons/fa";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { MdEmail, MdLocationPin } from "react-icons/md";
 
-import { WORDPRESS_BLOG_BASE_URL } from "../../constants";
+import { GA_MEASUREMENT_ID, WORDPRESS_BLOG_BASE_URL } from "../../constants";
 import {
   CONTACTS,
   ORGANIZATION,
@@ -30,6 +30,10 @@ const localization = {
   pages: t("ui.navigation.pages"),
   aboutUs: t("ui.navigation.aboutUs"),
   blog: t("ui.navigation.blog"),
+  legal: t("ui.footer.legal"),
+  privacy: t("ui.navigation.privacy"),
+  cookies: t("ui.navigation.cookies"),
+  cookieSettings: t("ui.cookies.settings"),
 };
 
 const href = (path: string) => localizePath(locale, path);
@@ -127,6 +131,21 @@ const currentYear = new Date().getFullYear();
         Rolling Kids
       </a>
     </nav>
+
+    <nav class="footer-column" aria-label={localization.legal}>
+      <h3>{localization.legal}</h3>
+      <a class="footer-link" href={href("/legal/privacy")}>
+        {localization.privacy}
+      </a>
+      <a class="footer-link" href={href("/legal/cookies")}>
+        {localization.cookies}
+      </a>
+      {GA_MEASUREMENT_ID && (
+        <button type="button" class="footer-link" data-cookie-settings>
+          {localization.cookieSettings}
+        </button>
+      )}
+    </nav>
   </div>
 </footer>
 
@@ -154,13 +173,14 @@ const currentYear = new Date().getFullYear();
 
   @media (min-width: 992px) {
     .footer-grid {
+      grid-template-columns: repeat(3, 1fr);
       padding: 50px;
     }
   }
 
   @media (min-width: 1280px) {
     .footer-grid {
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      grid-template-columns: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr));
       gap: 2.5rem;
     }
   }
@@ -222,6 +242,15 @@ const currentYear = new Date().getFullYear();
 
   .footer-link {
     width: fit-content;
+  }
+
+  button.footer-link {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
   }
 
   .footer-link:hover {

@@ -49,6 +49,20 @@ HUF, CHF, USD), frequency (monthly or one-time) and amount in
 [src/data/paymentLinks.js](src/data/paymentLinks.js). The donation
 widget stays hidden until at least one link is filled in.
 
+## Legal pages and cookie consent
+
+The privacy policy (`/legal/privacy/`) and cookie policy (`/legal/cookies/`)
+are linked from the footer only. Their text is Markdown, one file per page and
+language, in [src/content/legal/](src/content/legal/); change the `updated`
+date at the top of a file whenever its content changes.
+
+Google Analytics is only loaded after the visitor accepts statistics cookies
+in the cookie banner ([src/components/CookieBanner.astro](src/components/CookieBanner.astro)).
+The choice is kept in local storage for a year; raise `CONSENT_VERSION` in
+[src/constants.js](src/constants.js) to ask everyone again, for example after
+adding a new tracking service, and update the cookie policy to match. The
+fonts are self-hosted, so no page contacts Google before consent.
+
 ## Build settings
 
 A few values are read from environment variables at build time, with a `.env`

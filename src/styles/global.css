@@ -25,8 +25,8 @@
   --white-20: rgba(255, 255, 255, 0.08);
   --white-30: rgba(255, 255, 255, 0.16);
 
-  --font-heading: "Bricolage Grotesque", sans-serif;
-  --font-body: Montserrat, sans-serif;
+  --font-heading: "Bricolage Grotesque Variable", sans-serif;
+  --font-body: "Montserrat Variable", sans-serif;
 
   --nav-height: 5rem;
   --radius: 10px;
@@ -263,6 +263,15 @@ select {
 
 .btn-outline-light:hover {
   background: var(--white-20);
+}
+
+.btn-outline-primary {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.btn-outline-primary:hover {
+  background: var(--lightblue);
 }
 
 .btn[aria-disabled="true"],

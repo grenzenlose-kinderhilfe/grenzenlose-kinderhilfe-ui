@@ -1,9 +1,15 @@
 ---
+import "@fontsource-variable/bricolage-grotesque/opsz.css";
+import "@fontsource-variable/montserrat";
 import "../styles/global.css";
 
+import CookieBanner from "../components/CookieBanner.astro";
 import Footer from "../components/layout/Footer.astro";
 import NavBar from "../components/layout/NavBar.astro";
 import {
+  CONSENT_MAX_AGE_DAYS,
+  CONSENT_STORAGE_KEY,
+  CONSENT_VERSION,
   DEFAULT_LOCALE,
   FALLBACK_LOCALE,
   GA_MEASUREMENT_ID,
@@ -148,13 +154,6 @@ const languagePrefixes = Object.fromEntries(
     ))}
     <meta name="twitter:card" content="summary" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Montserrat:wght@400;500;600;700&display=swap"
-    />
-
     <slot name="head" />
 
     {jsonLd && (
@@ -165,30 +164,68 @@ const languagePrefixes = Object.fromEntries(
       />
     )}
 
-    {GA_MEASUREMENT_ID && (
-      <>
-        <script
-          is:inline
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        ></script>
-        <script
-          is:inline
-          define:vars={{ measurementId: GA_MEASUREMENT_ID, pageType }}
-        >
-          window.dataLayer = window.dataLayer || [];
-          window.gtag = function () {
-            window.dataLayer.push(arguments);
-          };
-          window.gtag("js", new Date());
-          window.gtag(
-            "config",
-            measurementId,
+    {GA_MEASUREMENT_ID && <script
+      is:inline
+      define:vars={{
+        measurementId: GA_MEASUREMENT_ID,
+        pageType,
+        storageKey: CONSENT_STORAGE_KEY,
+        consentVersion: CONSENT_VERSION,
+        consentMaxAge: CONSENT_MAX_AGE_DAYS * 24 * 60 * 60 * 1000,
+      }}
+    >
+      // Google Analytics is only loaded for visitors who accepted
+      // statistics cookies: right here when they did so on an earlier
+      // visit, or by the cookie banner the moment they accept.
+      window.loadAnalytics = function () {
+        if (typeof window.gtag === "function") return;
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+
+        // Statistics only: everything advertising related stays off.
+        window.gtag("consent", "default", {
+          analytics_storage: "granted",
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+        });
+        window.gtag("js", new Date());
+        window.gtag(
+          "config",
+          measurementId,
+          Object.assign(
+            {
+              allow_google_signals: false,
+              allow_ad_personalization_signals: false,
+            },
             pageType ? { content_group: pageType } : {},
-          );
-        </script>
-      </>
-    )}
+          ),
+        );
+
+        var script = document.createElement("script");
+        script.async = true;
+        script.src =
+          "https://www.googletagmanager.com/gtag/js?id=" +
+          encodeURIComponent(measurementId);
+        document.head.appendChild(script);
+      };
+
+      try {
+        var consent = JSON.parse(localStorage.getItem(storageKey));
+
+        if (
+          consent &&
+          consent.version === consentVersion &&
+          Date.now() - consent.date < consentMaxAge &&
+          consent.analytics
+        ) {
+          window.loadAnalytics();
+        }
+      } catch (error) {}
+    </script>}
   </head>
   <body>
     <div class="page">
@@ -202,6 +239,7 @@ const languagePrefixes = Object.fromEntries(
       </main>
       <Footer locale={locale} />
     </div>
+    {GA_MEASUREMENT_ID && <CookieBanner locale={locale} />}
   </body>
 </html>
 

@@ -141,6 +141,11 @@
         "quoteText": "Aki nem hisz abban, hogy mennyi jó ember van, az kezdjen el valami jót tenni, és meglátja, milyen sokan oda állnak mellé"
       }
     },
+    "legal": {
+      "cookiesLead": "Milyen sütiket és böngészőtárolót használ ez a weboldal, és hogyan dönthetsz róluk.",
+      "privacyLead": "Hogyan kezeli a Határtalan Segítség Alapítvány a látogatók és az adományozók személyes adatait, és milyen jogaid vannak.",
+      "updated": "Utoljára frissítve"
+    },
     "media": {
       "articles": "Cikkek",
       "institutions": "Intézmények",
@@ -208,6 +213,20 @@
     }
   },
   "ui": {
+    "cookies": {
+      "accept": "Összes elfogadása",
+      "customize": "Testreszabás",
+      "necessary": "Szükséges",
+      "necessaryDescription": "Megjegyzi a választott nyelvet és a sütikkel kapcsolatos döntésedet. Mindig be van kapcsolva.",
+      "policyLink": "Süti-tájékoztató",
+      "reject": "Összes elutasítása",
+      "save": "Választásom mentése",
+      "settings": "Süti-beállítások",
+      "statistics": "Statisztika",
+      "statisticsDescription": "Google Analytics: mely oldalakat nézik meg, és mely gombokat használják a látogatók.",
+      "text": "Hozzájárulásod esetén a Google Analytics sütijeit használjuk, hogy lássuk, hogyan használják a látogatók az oldalt, és jobbá tehessük. Hirdetési sütiket nem használunk. Döntésedet bármikor megváltoztathatod minden oldal alján, a „Süti-beállítások” linkkel.",
+      "title": "Sütik ezen az oldalon"
+    },
     "copy": {
       "copied": "Másolva",
       "copy": "Másolás"
@@ -229,7 +248,8 @@
     "footer": {
       "contact": "Kapcsolat",
       "links": "Gyors linkek",
-      "organization": "Az alapítvány"
+      "organization": "Az alapítvány",
+      "legal": "Jogi információk"
     },
     "journey": {
       "children": {
@@ -270,7 +290,9 @@
       "pages": "Oldalak",
       "shoebox": "Cipősdoboz",
       "support": "Támogatás",
-      "thankYou": "Köszönjük"
+      "thankYou": "Köszönjük",
+      "privacy": "Adatkezelési tájékoztató",
+      "cookies": "Süti-tájékoztató"
     },
     "video": {
       "play": "Videó lejátszása"

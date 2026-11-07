@@ -1,0 +1,220 @@
+---
+import type { MarkdownInstance } from "astro";
+
+import { GA_MEASUREMENT_ID } from "../constants";
+import { getTranslator, languageOf } from "../i18n";
+
+/**
+ * The legal pages (privacy policy, cookie policy). Their text is kept as
+ * Markdown, one file per page and language: src/content/legal/<page>.<lang>.md,
+ * with the date of the last change as `updated` in the front matter.
+ */
+interface Props {
+  locale: string;
+  page: string;
+}
+
+const documents = import.meta.glob<MarkdownInstance<{ updated: string }>>(
+  "../content/legal/*.md",
+  {
+    eager: true,
+  },
+);
+
+const { locale, page } = Astro.props;
+const t = getTranslator(locale);
+
+const path = `../content/legal/${page}.${languageOf(locale)}.md`;
+const document = documents[path];
+
+if (!document) {
+  throw new Error(`Missing legal text ${path}`);
+}
+
+const { Content, frontmatter } = document;
+const updated = new Date(frontmatter.updated);
+---
+
+<article class="legal">
+  <header class="legal-head">
+    <div class="container legal-head-inner">
+      <p class="legal-eyebrow">{t("ui.footer.legal")}</p>
+      <h1>{t(`ui.navigation.${page}`)}</h1>
+      <p class="legal-lead">{t(`pages.legal.${page}Lead`)}</p>
+      <p class="legal-updated">
+        {t("pages.legal.updated")}:{" "}
+        <time datetime={updated.toISOString().slice(0, 10)}>
+          {new Intl.DateTimeFormat(locale, { dateStyle: "long" }).format(
+            updated,
+          )}
+        </time>
+      </p>
+    </div>
+  </header>
+
+  <div class="band">
+    <div class="container legal-body">
+      {page === "cookies" && GA_MEASUREMENT_ID && (
+        <button type="button" class="btn btn-primary" data-cookie-settings>
+          {t("ui.cookies.settings")}
+        </button>
+      )}
+      <div class="legal-prose">
+        <Content />
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  .legal-head {
+    padding-block: 48px;
+    color: var(--white);
+    background: var(--blue);
+  }
+
+  .legal-head-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 860px;
+  }
+
+  .legal-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white-80);
+  }
+
+  .legal-head h1 {
+    font-size: 32px;
+  }
+
+  .legal-lead {
+    max-width: 640px;
+    font-size: 16px;
+    color: var(--white-90);
+  }
+
+  .legal-updated {
+    font-size: 14px;
+    color: var(--white-70);
+  }
+
+  .legal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 860px;
+  }
+
+  @media (min-width: 768px) {
+    .legal-head {
+      padding-block: 64px;
+    }
+
+    .legal-head h1 {
+      font-size: 44px;
+    }
+
+    .legal-lead {
+      font-size: 18px;
+    }
+  }
+
+  /* The Markdown body: elements come from <Content />, hence :global. */
+  .legal-prose {
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .legal-prose :global(h2) {
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 24px;
+    color: var(--blue);
+  }
+
+  .legal-prose :global(h2:first-child) {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .legal-prose :global(h3) {
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 19px;
+    color: var(--blue);
+  }
+
+  .legal-prose :global(p),
+  .legal-prose :global(ul),
+  .legal-prose :global(ol),
+  .legal-prose :global(table) {
+    margin-bottom: 1rem;
+  }
+
+  .legal-prose :global(ul) {
+    padding-left: 1.25rem;
+    list-style: disc;
+  }
+
+  .legal-prose :global(ol) {
+    padding-left: 1.25rem;
+    list-style: decimal;
+  }
+
+  .legal-prose :global(li + li) {
+    margin-top: 0.375rem;
+  }
+
+  .legal-prose :global(a) {
+    font-weight: 600;
+    color: var(--blue);
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+  }
+
+  .legal-prose :global(strong) {
+    font-weight: 600;
+  }
+
+  .legal-prose :global(code) {
+    padding: 0.1em 0.35em;
+    border-radius: var(--radius-sm);
+    background: var(--tag-bg);
+    font-size: 0.875em;
+  }
+
+  /* Tables scroll sideways on narrow screens instead of the page. */
+  .legal-prose :global(table) {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .legal-prose :global(th),
+  .legal-prose :global(td) {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .legal-prose :global(th) {
+    background: var(--surface);
+    color: var(--blue);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+</style>

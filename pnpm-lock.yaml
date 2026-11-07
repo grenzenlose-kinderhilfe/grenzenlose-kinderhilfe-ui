@@ -11,6 +11,12 @@ dependencies:
   '@astrojs/sitemap':
     specifier: ^3.7.4
     version: 3.7.4
+  '@fontsource-variable/bricolage-grotesque':
+    specifier: ^5.3.0
+    version: 5.3.0
+  '@fontsource-variable/montserrat':
+    specifier: ^5.3.0
+    version: 5.3.0
   astro:
     specifier: ^7.4.7
     version: 7.4.7
@@ -498,6 +504,14 @@ packages:
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@fontsource-variable/bricolage-grotesque@5.3.0:
+    resolution: {integrity: sha512-TLi9Q4hJjS2UvoTMRSS2nHu6c4R56lAw60NR9QYtVRCHn0XtsFpiEhNffZ8Glsoxu6wEEwLKBP8lb94J52PNBA==}
+    dev: false
+
+  /@fontsource-variable/montserrat@5.3.0:
+    resolution: {integrity: sha512-7PaZoxaxrWLAyrhO46v65An9LhUhfkTExWLhfbywYZCnZEgg/W1rEHnlNmZKjNZ3nJTVYyicqxlJt10z/26yTA==}
+    dev: false
 
   /@humanwhocodes/config-array@0.13.0:
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}

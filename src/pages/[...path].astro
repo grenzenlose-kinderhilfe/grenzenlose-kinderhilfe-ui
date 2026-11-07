@@ -6,6 +6,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { pageRoutes } from "../routes";
 import About from "../views/About.astro";
 import Home from "../views/Home.astro";
+import Legal from "../views/Legal.astro";
 import Media from "../views/Media.astro";
 import Pages from "../views/Pages.astro";
 import Shoebox from "../views/Shoebox.astro";
@@ -37,6 +38,8 @@ const VIEWS = {
   about: About,
   support: Support,
   thankYou: ThankYou,
+  privacy: Legal,
+  cookies: Legal,
 };
 
 // The page's own lead text where it has one; the site description otherwise.
@@ -44,6 +47,8 @@ const DESCRIPTION_KEYS = {
   support: "pages.support.lead",
   shoebox: "pages.Shoebox.MainContentGroup.shoeboxMagic",
   thankYou: "pages.thankYou.lead",
+  privacy: "pages.legal.privacyLead",
+  cookies: "pages.legal.cookiesLead",
 };
 
 const { locale, route } = Astro.props;
@@ -103,5 +108,5 @@ const jsonLd =
   pageType={route.id}
 >
   {route.noIndex && <meta name="robots" content="noindex" slot="head" />}
-  <View locale={locale} />
+  <View locale={locale} page={route.id} />
 </BaseLayout>

@@ -141,6 +141,11 @@
         "quoteText": "Whoever doesn't believe how many good people there are should start doing something good, and they will see how many people stand by them."
       }
     },
+    "legal": {
+      "cookiesLead": "Which cookies and browser storage this website uses, and how you decide about them.",
+      "privacyLead": "How the Határtalan Segítség Alapítvány handles the personal data of visitors and donors, and what rights you have.",
+      "updated": "Last updated"
+    },
     "media": {
       "articles": "Articles",
       "institutions": "Institutions",
@@ -208,6 +213,20 @@
     }
   },
   "ui": {
+    "cookies": {
+      "accept": "Accept all",
+      "customize": "Customise",
+      "necessary": "Necessary",
+      "necessaryDescription": "Remembers your language and your cookie choice. Always on.",
+      "policyLink": "Cookie policy",
+      "reject": "Reject all",
+      "save": "Save my choice",
+      "settings": "Cookie settings",
+      "statistics": "Statistics",
+      "statisticsDescription": "Google Analytics: which pages are visited and which buttons are used.",
+      "text": "With your consent we use Google Analytics cookies to see how visitors use this site, so we can improve it. We do not use advertising cookies. You can change your choice at any time under “Cookie settings” at the bottom of every page.",
+      "title": "Cookies on this site"
+    },
     "copy": {
       "copied": "Copied",
       "copy": "Copy"
@@ -229,7 +248,8 @@
     "footer": {
       "contact": "Contact",
       "links": "Quick links",
-      "organization": "The Foundation"
+      "organization": "The Foundation",
+      "legal": "Legal"
     },
     "journey": {
       "children": {
@@ -270,7 +290,9 @@
       "pages": "Pages",
       "shoebox": "Shoebox",
       "support": "Support",
-      "thankYou": "Thank you"
+      "thankYou": "Thank you",
+      "privacy": "Privacy policy",
+      "cookies": "Cookie policy"
     },
     "video": {
       "play": "Play video"

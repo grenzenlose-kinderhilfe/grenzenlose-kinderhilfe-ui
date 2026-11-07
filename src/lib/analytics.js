@@ -66,9 +66,15 @@ export const donationParams = ({ currency, frequency, amount, placement }) => {
  * Remembers the selection on the way to Stripe, so the thank-you page can
  * report what was donated. It lives in the tab's session storage, which the
  * redirect back from Stripe keeps. The id makes the donation one transaction
- * in Analytics.
+ * in Analytics. Nothing is stored unless Analytics was consented to (it is
+ * listed as a statistics item in the cookie policy).
  */
 export const rememberDonation = (donation) => {
+  // Only stored for Analytics, so only with the visitor's consent to it.
+  if (typeof window === "undefined" || typeof window.gtag !== "function") {
+    return;
+  }
+
   const startedAt = Date.now();
 
   try {

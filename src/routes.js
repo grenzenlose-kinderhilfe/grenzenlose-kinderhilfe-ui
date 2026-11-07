@@ -36,6 +36,19 @@ const routes = [
     display: false,
     noIndex: true,
   },
+  // Linked from the footer only. The text is in src/content/legal/.
+  {
+    id: "privacy",
+    path: "/legal/privacy",
+    localizationKey: "privacy",
+    display: false,
+  },
+  {
+    id: "cookies",
+    path: "/legal/cookies",
+    localizationKey: "cookies",
+    display: false,
+  },
 ];
 
 export const pageRoutes = routes.filter(({ isExternal }) => !isExternal);

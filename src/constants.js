@@ -44,6 +44,14 @@ export const LANGUAGE_CODES = {
 // or from .env locally; analytics is left out of the pages while it is unset.
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || "";
 
+// Where the visitor's cookie choice is kept (local storage, see
+// src/lib/consent.js). Raise CONSENT_VERSION to ask everyone again, e.g.
+// after adding a new kind of tracking; the choice also expires after
+// CONSENT_MAX_AGE_DAYS. Both are stated in the cookie policy.
+export const CONSENT_STORAGE_KEY = "cookieConsent";
+export const CONSENT_VERSION = 1;
+export const CONSENT_MAX_AGE_DAYS = 365;
+
 export const WORDPRESS_BLOG_BASE_URL =
   "https://blog.grenzenlose-kinderhilfe.com";
 

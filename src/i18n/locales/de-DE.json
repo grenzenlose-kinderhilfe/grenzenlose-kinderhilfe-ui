@@ -141,6 +141,11 @@
         "quoteText": "Wer nicht daran glaubt, wie viele gute Menschen es gibt, sollte anfangen, etwas Gutes zu tun und sehen, wie viele Menschen zu ihm stehen."
       }
     },
+    "legal": {
+      "cookiesLead": "Welche Cookies und welchen Browserspeicher diese Website verwendet und wie Sie darüber entscheiden.",
+      "privacyLead": "Wie die Stiftung Határtalan Segítség Alapítvány die personenbezogenen Daten von Besuchern und Spendern verarbeitet und welche Rechte Sie haben.",
+      "updated": "Zuletzt aktualisiert"
+    },
     "media": {
       "articles": "Artikel",
       "institutions": "Einrichtungen",
@@ -208,6 +213,20 @@
     }
   },
   "ui": {
+    "cookies": {
+      "accept": "Alle akzeptieren",
+      "customize": "Anpassen",
+      "necessary": "Notwendig",
+      "necessaryDescription": "Speichert Ihre Sprache und Ihre Cookie-Entscheidung. Immer aktiv.",
+      "policyLink": "Cookie-Richtlinie",
+      "reject": "Alle ablehnen",
+      "save": "Auswahl speichern",
+      "settings": "Cookie-Einstellungen",
+      "statistics": "Statistik",
+      "statisticsDescription": "Google Analytics: welche Seiten besucht und welche Schaltflächen genutzt werden.",
+      "text": "Mit Ihrer Einwilligung verwenden wir Cookies von Google Analytics, um zu sehen, wie Besucher diese Website nutzen, und sie zu verbessern. Werbe-Cookies verwenden wir nicht. Sie können Ihre Entscheidung jederzeit über „Cookie-Einstellungen“ unten auf jeder Seite ändern.",
+      "title": "Cookies auf dieser Website"
+    },
     "copy": {
       "copied": "Kopiert",
       "copy": "Kopieren"
@@ -229,7 +248,8 @@
     "footer": {
       "contact": "Kontakt",
       "links": "Schnelllinks",
-      "organization": "Die Stiftung"
+      "organization": "Die Stiftung",
+      "legal": "Rechtliches"
     },
     "journey": {
       "children": {
@@ -270,7 +290,9 @@
       "pages": "Seiten",
       "shoebox": "Schuhkarton",
       "support": "Unterstützen",
-      "thankYou": "Danke"
+      "thankYou": "Danke",
+      "privacy": "Datenschutzerklärung",
+      "cookies": "Cookie-Richtlinie"
     },
     "video": {
       "play": "Video abspielen"
