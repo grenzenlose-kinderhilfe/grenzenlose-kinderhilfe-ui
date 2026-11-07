@@ -15,34 +15,72 @@ const getJson = async (url) => {
   return response.json();
 };
 
-const getMediaImage = async (mediaUrl) => {
-  const data = await getJson(mediaUrl);
+/** Narrower versions than this are only used for the blurred backdrop. */
+const MIN_SLIDE_WIDTH = 600;
 
-  return { img: data.source_url, alt: data.alt_text };
+/**
+ * The versions WordPress generated of an upload that keep its proportions
+ * (theme sizes and the thumbnail can be hard-cropped), plus the original,
+ * narrowest first and one per width.
+ */
+const scaledVersions = ({ source_url: url, media_details: details = {} }) => {
+  const ratio = details.width / details.height;
+  const versions = [
+    ...Object.values(details.sizes ?? {}),
+    { source_url: url, width: details.width, height: details.height },
+  ].filter(
+    ({ source_url: src, width, height }) =>
+      src && width && height && Math.abs(width / height - ratio) < 0.02,
+  );
+
+  return [...new Map(versions.map((v) => [v.width, v])).values()].sort(
+    (a, b) => a.width - b.width,
+  );
 };
 
+/**
+ * A featured image as the carousel shows it: resized versions in a `srcSet`
+ * instead of the full upload (often a multi-megabyte PNG), and a small
+ * version for the blurred backdrop, which a CSS background cannot lazy-load.
+ */
+const toSlideImage = (media) => {
+  if (!media?.source_url) return null;
+
+  const versions = scaledVersions(media);
+  const slideVersions = versions.filter(
+    ({ width }) => width >= MIN_SLIDE_WIDTH,
+  );
+  const usable = slideVersions.length ? slideVersions : versions;
+
+  if (!usable.length) return { img: media.source_url, alt: media.alt_text };
+
+  return {
+    img: (usable.find(({ width }) => width >= 1024) ?? usable.at(-1))
+      .source_url,
+    srcSet: usable.map((v) => `${v.source_url} ${v.width}w`).join(", "),
+    backdrop: versions[0].source_url,
+    alt: media.alt_text,
+  };
+};
+
+/**
+ * The blog's featured posts for the language, with their featured images
+ * embedded, so the whole carousel takes a single request.
+ */
 export const getFeaturedPosts = async (locale) => {
   const categoryId = WORDPRESS_FEATURED_CATEGORIES[locale];
 
   const posts = await getJson(
-    `${WORDPRESS_BLOG_BASE_URL}/wp-json/wp/v2/posts?categories=${categoryId}`,
-  );
-
-  const slides = posts.map((elem) => ({
-    title: elem.title.rendered,
-    link: elem.link,
-    mediaLink: elem._links["wp:featuredmedia"]?.[0].href,
-  }));
-
-  const images = await Promise.all(
-    slides.map(({ mediaLink }) =>
-      mediaLink ? getMediaImage(mediaLink) : null,
-    ),
+    `${WORDPRESS_BLOG_BASE_URL}/wp-json/wp/v2/posts?categories=${categoryId}&_embed=wp:featuredmedia&_fields=title,link,_links,_embedded`,
   );
 
   // A post without a featured image has nothing to show in the carousel.
-  return slides
-    .map(({ title, link }, idx) => ({ title, link, ...images[idx] }))
+  return posts
+    .map((post) => ({
+      title: post.title.rendered,
+      link: post.link,
+      ...toSlideImage(post._embedded?.["wp:featuredmedia"]?.[0]),
+    }))
     .filter(({ img }) => img);
 };
 
