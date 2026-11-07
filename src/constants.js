@@ -41,8 +41,11 @@ export const LANGUAGE_CODES = {
 };
 
 // Google Analytics measurement ID ("G-…"). Taken from the build environment,
-// or from .env locally; analytics is left out of the pages while it is unset.
-export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || "";
+// or from .env locally; analytics is left out of the pages while it is unset,
+// and always under `astro dev`, so local development is never tracked.
+export const GA_MEASUREMENT_ID = import.meta.env.DEV
+  ? ""
+  : import.meta.env.PUBLIC_GA_MEASUREMENT_ID || "";
 
 // Where the visitor's cookie choice is kept (local storage, see
 // src/lib/consent.js). Raise CONSENT_VERSION to ask everyone again, e.g.

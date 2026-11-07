@@ -78,7 +78,7 @@ missing.
 | ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `PUBLIC_GOOGLE_SHEET_ID`            | yes      | Content spreadsheet id                                                                                                   |
 | `PUBLIC_STRIPE_CUSTOMER_PORTAL_URL` | no       | Stripe customer portal login link, where monthly donors update or cancel; "manage your donation" links hidden when unset |
-| `PUBLIC_GA_MEASUREMENT_ID`          | no       | Google Analytics measurement ID; no tracking when unset                                                                  |
+| `PUBLIC_GA_MEASUREMENT_ID`          | no       | Google Analytics measurement ID; no tracking when unset or under `pnpm dev`                                              |
 
 ## Deployment
 
