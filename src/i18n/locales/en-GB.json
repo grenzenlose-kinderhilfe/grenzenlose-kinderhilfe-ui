@@ -160,6 +160,7 @@
       "heading": "Support our work",
       "lead": "Choose whichever way is easiest for you. Every contribution reaches the children in the Carpathian Basin.",
       "mapHeading": "Where we help",
+      "mapLead": "Children's homes and institutions our donations reach.",
       "options": {
         "inKind": {
           "action": "Arrange a drop-off",
@@ -236,6 +237,10 @@
         "description": "We organise the transports ourselves and document every delivery.",
         "title": "Transport"
       }
+    },
+    "map": {
+      "activate": "Click to use the map",
+      "open": "Open in Google Maps"
     },
     "navigation": {
       "aboutUs": "About us",

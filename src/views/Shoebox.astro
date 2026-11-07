@@ -8,6 +8,7 @@ import EmbedMap from "../components/EmbedMap.astro";
 import LiteYouTube from "../components/LiteYouTube.astro";
 import {
   DONATION_MAP_EMBED_URL,
+  DONATION_MAP_VIEWER_URL,
   LOCALE_HU,
   WORDPRESS_SHOEBOX_CATEGORIES,
   WORDPRESS_SHOEBOX_CATEGORY_URLS,
@@ -169,8 +170,14 @@ const donateStrings = {
     <div class="container map">
       <div class="section-head">
         <h2 id="shoebox-map">{mapHeading}</h2>
+        <p>{t("pages.support.mapLead")}</p>
       </div>
-      <EmbedMap src={DONATION_MAP_EMBED_URL} title={mapHeading} />
+      <EmbedMap
+        locale={locale}
+        src={DONATION_MAP_EMBED_URL}
+        viewerUrl={DONATION_MAP_VIEWER_URL}
+        title={mapHeading}
+      />
     </div>
   </section>
 </div>

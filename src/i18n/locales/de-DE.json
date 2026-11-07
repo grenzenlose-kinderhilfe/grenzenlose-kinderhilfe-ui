@@ -160,6 +160,7 @@
       "heading": "Unterstützen Sie unsere Arbeit",
       "lead": "Wählen Sie den Weg, der für Sie am einfachsten ist. Jede Zuwendung erreicht die Kinder im Karpatenbecken.",
       "mapHeading": "Wo wir helfen",
+      "mapLead": "Kinderheime und Einrichtungen, die unsere Spenden erreichen.",
       "options": {
         "inKind": {
           "action": "Übergabe abstimmen",
@@ -236,6 +237,10 @@
         "description": "Wir organisieren die Transporte selbst und dokumentieren jede Lieferung.",
         "title": "Transport"
       }
+    },
+    "map": {
+      "activate": "Klicken, um die Karte zu bedienen",
+      "open": "In Google Maps öffnen"
     },
     "navigation": {
       "aboutUs": "Über uns",

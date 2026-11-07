@@ -67,8 +67,13 @@ export const SHEET_LOCATIONS = "locations";
 export const COUNTRY_CODES = ["AT", "CH", "DE", "HU", "RO", "SK", "UA", "XK"];
 
 // Google MyMaps showing where the donations are delivered.
-export const DONATION_MAP_EMBED_URL =
-  "https://www.google.com/maps/d/u/0/embed?mid=1etvEUuIIc54Y88TmwCgbF7aihOpgo9U&ehbc=2E312F&noprof=1";
+// Google My Maps of the places we deliver to. `ehbc` colours the map's header
+// bar; it is set to the site's navy (--blue) so the embed matches the page.
+const DONATION_MAP_ID = "1etvEUuIIc54Y88TmwCgbF7aihOpgo9U";
+
+export const DONATION_MAP_EMBED_URL = `https://www.google.com/maps/d/u/0/embed?mid=${DONATION_MAP_ID}&ehbc=112B5C&noprof=1`;
+
+export const DONATION_MAP_VIEWER_URL = `https://www.google.com/maps/d/u/0/viewer?mid=${DONATION_MAP_ID}`;
 
 // Video players allowed inside the embed iframe.
 export const VIDEO_EMBED_HOSTS = ["youtube.com", "youtu.be", "videa.hu"];

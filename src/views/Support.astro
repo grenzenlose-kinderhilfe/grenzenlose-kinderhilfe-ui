@@ -10,7 +10,7 @@ import {
 import DonationJourney from "../components/DonationJourney.astro";
 import EmbedMap from "../components/EmbedMap.astro";
 import SupportOption from "../components/SupportOption.astro";
-import { DONATION_MAP_EMBED_URL } from "../constants";
+import { DONATION_MAP_EMBED_URL, DONATION_MAP_VIEWER_URL } from "../constants";
 import PaymentDetails from "../components/PaymentDetails.astro";
 import { ORGANIZATION } from "../data/organization";
 import Donate from "../islands/Donate/Donate.jsx";
@@ -99,8 +99,14 @@ const mapHeading = t("pages.support.mapHeading");
     <div class="container support-map">
       <div class="section-head">
         <h2 id="support-map">{mapHeading}</h2>
+        <p>{t("pages.support.mapLead")}</p>
       </div>
-      <EmbedMap src={DONATION_MAP_EMBED_URL} title={mapHeading} />
+      <EmbedMap
+        locale={locale}
+        src={DONATION_MAP_EMBED_URL}
+        viewerUrl={DONATION_MAP_VIEWER_URL}
+        title={mapHeading}
+      />
     </div>
   </section>
 </div>

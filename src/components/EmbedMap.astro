@@ -1,28 +1,126 @@
 ---
+import { FiArrowUpRight, FiMousePointer } from "react-icons/fi";
+
+import { getTranslator } from "../i18n";
+
+/**
+ * A Google My Maps embed. A click shield sits over the map until the visitor
+ * clicks it, so scrolling the page (or swiping on a phone) never gets caught
+ * by the map and zooms it by accident. The link underneath opens the full map
+ * with its legend, which is the better option on small screens.
+ */
 interface Props {
+  locale: string;
   src: string;
+  viewerUrl: string;
   title: string;
 }
 
-const { src, title } = Astro.props;
+const { locale, src, viewerUrl, title } = Astro.props;
+const t = getTranslator(locale);
 ---
 
-<div class="embed-map">
-  <iframe src={src} title={title} loading="lazy"></iframe>
-</div>
+<figure class="embed-map">
+  <div class="map-frame" data-map>
+    <iframe src={src} title={title} loading="lazy"></iframe>
+    <button type="button" class="map-shield" data-map-shield>
+      <span class="map-hint">
+        <FiMousePointer aria-hidden="true" />
+        {t("ui.map.activate")}
+      </span>
+    </button>
+  </div>
+  <figcaption>
+    <a class="map-open" href={viewerUrl} target="_blank" rel="noreferrer">
+      {t("ui.map.open")}
+      <FiArrowUpRight aria-hidden="true" />
+    </a>
+  </figcaption>
+</figure>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-map]").forEach((frame) => {
+    const shield = frame.querySelector<HTMLButtonElement>("[data-map-shield]");
+    const iframe = frame.querySelector("iframe");
+
+    shield?.addEventListener("click", () => {
+      frame.classList.add("is-active");
+      shield.remove();
+      iframe?.focus();
+    });
+  });
+</script>
 
 <style>
   .embed-map {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .map-frame {
+    position: relative;
     overflow: hidden;
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
+    background: var(--surface);
     box-shadow: var(--shadow-sm);
   }
 
   iframe {
     width: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 4 / 5;
     border: 0;
+  }
+
+  .map-shield {
+    position: absolute;
+    /* Leave the map's own header bar (title, legend toggle) usable. */
+    inset: 56px 0 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 0 1.25rem;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .map-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 0.875rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.2s ease;
+  }
+
+  .map-shield:hover .map-hint,
+  .map-shield:focus-visible .map-hint {
+    transform: translateY(-2px);
+  }
+
+  figcaption {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .map-open {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--blue);
+  }
+
+  .map-open:hover {
+    text-decoration: underline;
   }
 
   @media (min-width: 768px) {

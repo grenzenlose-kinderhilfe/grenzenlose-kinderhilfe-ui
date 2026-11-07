@@ -160,6 +160,7 @@
       "heading": "Támogasd a munkánkat",
       "lead": "Válaszd azt a módot, amelyik neked a legegyszerűbb. Minden felajánlás a Kárpát-medence gyermekeihez jut el.",
       "mapHeading": "Hol segítünk?",
+      "mapLead": "Gyermekotthonok és intézmények, ahová az adományaink eljutnak.",
       "options": {
         "inKind": {
           "action": "Egyeztetek az átvételről",
@@ -236,6 +237,10 @@
         "description": "Saját szervezésben, dokumentált szállítmányokkal indulunk útnak.",
         "title": "Szállítás"
       }
+    },
+    "map": {
+      "activate": "Kattints a térkép használatához",
+      "open": "Megnyitás a Google Térképen"
     },
     "navigation": {
       "aboutUs": "Rólunk",
