@@ -125,7 +125,12 @@
     },
     "media": {
       "articles": "Artikel",
-      "videos": "Videos"
+      "lead": "Berichte, Interviews und Filme über unsere Arbeit mit den Kindern im Karpatenbecken.",
+      "readArticle": "Artikel lesen",
+      "showLess": "Weniger anzeigen",
+      "showMore": "Mehr anzeigen",
+      "videos": "Videos",
+      "viewSource": "Zur Quelle"
     },
     "pagesTitle": {
       "institutions": "Institutionen",

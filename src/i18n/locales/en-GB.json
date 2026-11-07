@@ -125,7 +125,12 @@
     },
     "media": {
       "articles": "Articles",
-      "videos": "Videos"
+      "lead": "Reports, interviews and films about our work with the children of the Carpathian Basin.",
+      "readArticle": "Read article",
+      "showLess": "Show less",
+      "showMore": "Show more",
+      "videos": "Videos",
+      "viewSource": "View source"
     },
     "pagesTitle": {
       "institutions": "Institutions",

@@ -17,12 +17,20 @@ const TABS = [
  * Videos and press articles from the content spreadsheet, one tab each. Both
  * panels are in the HTML; the inactive one is only hidden.
  */
-const MediaTabs = ({ strings, initialVideos, initialArticles }) => {
+const MediaTabs = ({
+  locale,
+  strings,
+  countries,
+  initialVideos,
+  initialArticles,
+}) => {
   const [selected, setSelected] = React.useState(TABS[0].id);
   const tabRefs = React.useRef({});
 
   const videos = useLiveContent(getVideos, initialVideos);
   const articles = useLiveContent(getArticles, initialArticles);
+  const content = { videos, articles };
+  const shared = { strings, locale, countries };
 
   // Arrow keys move between the tabs, as in the WAI-ARIA tabs pattern.
   const onKeyDown = (event) => {
@@ -55,8 +63,11 @@ const MediaTabs = ({ strings, initialVideos, initialArticles }) => {
             className="media-tab"
             onClick={() => setSelected(id)}
           >
-            <Icon size={40} aria-hidden="true" />
+            <Icon aria-hidden="true" />
             <span>{strings[id]}</span>
+            {content[id].data?.length > 0 && (
+              <span className="media-tab-count">{content[id].data.length}</span>
+            )}
           </button>
         ))}
       </div>
@@ -67,7 +78,7 @@ const MediaTabs = ({ strings, initialVideos, initialArticles }) => {
         className="media-panel"
         hidden={selected !== "videos"}
       >
-        <VideoList {...videos} strings={strings} />
+        <VideoList {...videos} {...shared} />
       </div>
       <div
         role="tabpanel"
@@ -76,7 +87,7 @@ const MediaTabs = ({ strings, initialVideos, initialArticles }) => {
         className="media-panel"
         hidden={selected !== "articles"}
       >
-        <ArticleGrid {...articles} strings={strings} />
+        <ArticleGrid {...articles} {...shared} />
       </div>
     </div>
   );

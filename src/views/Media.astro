@@ -15,19 +15,85 @@ const [initialVideos, initialArticles] = await Promise.all([
   buildArticles(),
 ]);
 
+const countries = {
+  HU: t("pages.donation.country.hungary"),
+  RO: t("pages.donation.country.romania"),
+  SK: t("pages.donation.country.slovakia"),
+  UA: t("pages.donation.country.ukraine"),
+  DE: t("pages.donation.country.germany"),
+  AT: t("pages.donation.country.austria"),
+  CH: t("pages.donation.country.switzerland"),
+  XK: t("pages.donation.country.kosovo"),
+};
+
 const strings = {
   videos: t("pages.media.videos"),
   articles: t("pages.media.articles"),
+  readArticle: t("pages.media.readArticle"),
+  viewSource: t("pages.media.viewSource"),
+  showMore: t("pages.media.showMore"),
+  showLess: t("pages.media.showLess"),
   error: t("ui.data.error"),
   empty: t("ui.data.empty"),
-  sourceLink: t("pages.aboutUs.link"),
 };
 ---
 
-<h1 class="visually-hidden">{t("ui.navigation.media")}</h1>
-<MediaTabs
-  client:load
-  strings={strings}
-  initialVideos={initialVideos}
-  initialArticles={initialArticles}
-/>
+<div class="media">
+  <div class="media-head">
+    <h1>{t("ui.navigation.media")}</h1>
+    <p class="media-lead">{t("pages.media.lead")}</p>
+  </div>
+  <MediaTabs
+    client:load
+    locale={locale}
+    strings={strings}
+    countries={countries}
+    initialVideos={initialVideos}
+    initialArticles={initialArticles}
+  />
+</div>
+
+<style>
+  .media {
+    display: grid;
+    gap: 2rem;
+    max-width: 1280px;
+    margin: 25px 16px;
+  }
+
+  .media-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .media-head h1 {
+    font-size: 32px;
+  }
+
+  .media-lead {
+    max-width: 700px;
+  }
+
+  @media (min-width: 768px) {
+    .media {
+      margin: 50px 25px;
+    }
+
+    .media-head h1 {
+      font-size: 44px;
+    }
+
+    .media-lead {
+      font-size: 18px;
+    }
+  }
+
+  @media (min-width: 1330px) {
+    .media {
+      margin: 50px auto;
+    }
+  }
+</style>

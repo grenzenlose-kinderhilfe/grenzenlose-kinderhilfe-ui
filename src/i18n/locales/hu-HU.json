@@ -125,7 +125,12 @@
     },
     "media": {
       "articles": "Cikkek",
-      "videos": "Videók"
+      "lead": "Riportok, interjúk és filmek a Kárpát-medencei gyermekekért végzett munkánkról.",
+      "readArticle": "Cikk elolvasása",
+      "showLess": "Kevesebb",
+      "showMore": "Továbbiak",
+      "videos": "Videók",
+      "viewSource": "Forrás megtekintése"
     },
     "pagesTitle": {
       "institutions": "Intézmények",

@@ -1,32 +1,72 @@
 import React from "react";
+import { FiArrowUpRight } from "react-icons/fi";
 
 import DataBoundary from "../DataBoundary";
 import MediaMeta from "./MediaMeta";
 
 const MEDIA_CHUNK_SIZE = 4;
 
+/**
+ * The description, clamped to a few lines (see Media.css). A toggle to show
+ * the rest appears only when the text actually overflows the clamp; the full
+ * text is always in the HTML.
+ */
+const VideoDescription = ({ id, text, strings }) => {
+  const ref = React.useRef();
+  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [isClamped, setIsClamped] = React.useState(false);
+
+  React.useEffect(() => {
+    const node = ref.current;
+
+    if (!node || isExpanded) return undefined;
+
+    const measure = () =>
+      setIsClamped(node.scrollHeight > node.clientHeight + 1);
+
+    measure();
+
+    const observer = new ResizeObserver(measure);
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [text, isExpanded]);
+
+  return (
+    <>
+      <p
+        ref={ref}
+        id={id}
+        className="video-card-description"
+        data-expanded={isExpanded}
+      >
+        {text}
+      </p>
+      {(isClamped || isExpanded) && (
+        <button
+          type="button"
+          className="video-card-toggle"
+          aria-expanded={isExpanded}
+          aria-controls={id}
+          onClick={() => setIsExpanded((value) => !value)}
+        >
+          {isExpanded ? strings.showLess : strings.showMore}
+        </button>
+      )}
+    </>
+  );
+};
+
 const Video = ({
-  date,
-  countryCode,
   title,
   description,
-  source,
   sourceUrl,
   videoEmbedUrl,
-  linkLabel,
+  strings,
+  descriptionId,
+  ...meta
 }) => (
   <article className="video-card">
-    <div className="video-card-text">
-      <h2>{title}</h2>
-      {description && <p className="video-card-description">“{description}”</p>}
-      <MediaMeta
-        date={date}
-        countryCode={countryCode}
-        source={source}
-        sourceUrl={sourceUrl}
-        linkLabel={linkLabel}
-      />
-    </div>
     <div className="video-card-player">
       <div className="video-frame">
         <iframe
@@ -38,6 +78,28 @@ const Video = ({
         />
       </div>
     </div>
+    <div className="video-card-text">
+      <MediaMeta {...meta} />
+      <h2>{title}</h2>
+      {description && (
+        <VideoDescription
+          id={descriptionId}
+          text={description}
+          strings={strings}
+        />
+      )}
+      {sourceUrl && (
+        <a
+          className="video-card-source"
+          href={sourceUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {strings.viewSource}
+          <FiArrowUpRight aria-hidden="true" />
+        </a>
+      )}
+    </div>
   </article>
 );
 
@@ -45,7 +107,14 @@ const Video = ({
  * The videos, newest first. They are revealed in chunks: the next chunk
  * appears once the last rendered video scrolls into view.
  */
-const VideoList = ({ data: videos, isPending, isError, strings }) => {
+const VideoList = ({
+  data: videos,
+  isPending,
+  isError,
+  strings,
+  locale,
+  countries,
+}) => {
   const observer = React.useRef();
 
   const [visibleCount, setVisibleCount] = React.useState(MEDIA_CHUNK_SIZE);
@@ -89,7 +158,13 @@ const VideoList = ({ data: videos, isPending, isError, strings }) => {
             key={`${item.videoEmbedUrl}-${idx}`}
             ref={idx === visibleItems.length - 1 ? lastElementRef : undefined}
           >
-            <Video {...item} linkLabel={strings.sourceLink} />
+            <Video
+              {...item}
+              descriptionId={`video-description-${idx}`}
+              strings={strings}
+              locale={locale}
+              countries={countries}
+            />
           </div>
         ))}
       </div>
